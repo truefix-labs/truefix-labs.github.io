@@ -1,8 +1,10 @@
 # TrueFix Studio 官网
 
-这是 [TrueFix Studio](https://github.com/truefix-labs/truefix-studio) 的 GitHub Pages 站点，采用无构建依赖的静态 HTML、CSS 和 JavaScript。
+这是 TrueFix Studio 的 GitHub Pages 站点，采用无构建依赖的静态 HTML、CSS 和 JavaScript。产品仓库当前为 private，页面不提供私有仓库链接。
 
 站点支持中、英、韩、日四种语言。首次访问按浏览器语言偏好选择，用户切换后使用 `localStorage` 保存，并在后续访问中优先恢复。动画会自动尊重系统的“减少动态效果”设置。
+
+公开使用指南位于 `guide/`，可维护的 Markdown 原稿位于 `docs/truefix-studio-user-guide.zh-CN.md`。首页宣传片由 `scripts/build-promo-video.sh` 使用仓库内的界面图生成。
 
 ## 本地预览
 

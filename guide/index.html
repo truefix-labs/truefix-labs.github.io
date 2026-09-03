@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080b10" />
+    <meta name="description" content="TrueFix Studio 使用指南：从 Provider 配置、行情与标的，到订单审核、风控和 AI/Quant 工作流。" />
+    <link rel="canonical" href="https://truefix-labs.github.io/guide/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+    <link rel="stylesheet" href="guide.css?v=1" />
+    <title>TrueFix Studio 使用指南</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到正文</a>
+    <header class="guide-header">
+      <a class="brand" href="../" aria-label="返回 TrueFix Studio 首页">
+        <img src="../assets/truefix-mark.png" alt="" width="30" height="30" />
+        <span>TrueFix</span><em>Studio</em>
+      </a>
+      <div class="header-actions"><span>USER GUIDE / ZH-CN</span><a href="../">返回首页</a></div>
+    </header>
+
+    <div class="guide-shell">
+      <aside class="guide-sidebar" aria-label="文档目录">
+        <p class="sidebar-label">使用指南</p>
+        <nav>
+          <a href="#before-you-start">开始之前</a>
+          <a href="#first-run">首次启动</a>
+          <a href="#provider">配置 Provider</a>
+          <a href="#market">标的与行情</a>
+          <a href="#trade">下单与风控</a>
+          <a href="#portfolio">账户与组合</a>
+          <a href="#intelligence">Intelligence</a>
+          <a href="#ai-quant">AI 与 Quant</a>
+          <a href="#architecture">架构与数据边界</a>
+          <a href="#troubleshooting">故障排查</a>
+        </nav>
+        <div class="sidebar-status"><i></i><span>首版发布前<br />文档版本 2026.09</span></div>
+      </aside>
+
+      <main id="content" class="guide-content">
+        <section class="guide-hero">
+          <p class="eyebrow">TRUEFIX STUDIO / OPERATOR GUIDE</p>
+          <h1>从市场上下文，<br /><i>走到可审计的执行。</i></h1>
+          <p class="hero-lede">这份指南面向已获访问权限的测试用户，介绍 TrueFix Studio 当前工作流。功能是否可用取决于所选 Provider、ClientInstance、环境、账户权限和实时证据；页面存在不代表某项能力已经可用。</p>
+          <div class="notice notice-private"><strong>当前访问状态</strong><span>产品仓库与安装包暂未公开。请使用项目方提供的受邀版本和访问方式；不要从非官方来源获取程序。</span></div>
+        </section>
+
+        <section id="before-you-start" class="doc-section">
+          <p class="section-no">01 / BEFORE YOU START</p>
+          <h2>开始之前</h2>
+          <p>TrueFix Studio 是多 Provider 交易工作站，Desktop、Web、Headless Quant 与受权 AI 工具共享同一套标的、能力、风险与执行契约。首次使用前，请准备项目方提供的应用访问权限，以及你计划连接的行情或交易服务凭据。</p>
+          <div class="check-grid">
+            <article><span>01</span><h3>确认环境</h3><p>区分 Live、Paper、Testnet、Demo 或 Simulated。环境由 ClientInstance 明确配置，不能只看 Provider 名称。</p></article>
+            <article><span>02</span><h3>从模拟开始</h3><p>第一次验证订单流程时优先使用非 Live 环境。Demo 与 Live 走相同审核状态机，但资金后果不同。</p></article>
+            <article><span>03</span><h3>最小授权</h3><p>凭据只授予所需市场、账户与能力。不要在聊天、截图或工单里粘贴 Secret。</p></article>
+          </div>
+          <div class="notice"><strong>重要</strong><span>TrueFix Studio 仍处于首版发布前。它不是投资建议，也不会替你判断交易是否适合；所有实盘动作都应由账户所有者核验。</span></div>
+        </section>
+
+        <section id="first-run" class="doc-section">
+          <p class="section-no">02 / FIRST RUN</p>
+          <h2>首次启动与工作区恢复</h2>
+          <ol class="steps">
+            <li><span>1</span><div><h3>检查 Readiness</h3><p>首页分别展示内核、Provider、目录、交易投影、Intelligence 和 Risk 状态。单个模块不可用不会阻止其他模块打开。</p></div></li>
+            <li><span>2</span><div><h3>恢复或新建工作区</h3><p>选择最近工作区可恢复上次标的、面板布局与布局 revision。恢复失败时回到安全默认布局，不会自动创建行情或交易订阅。</p></div></li>
+            <li><span>3</span><div><h3>先处理明确的异常</h3><p>关注 unavailable、stale、degraded 和 rejected。空值不等于零，绿色状态也不会由页面自行推断。</p></div></li>
+          </ol>
+        </section>
+
+        <section id="provider" class="doc-section">
+          <p class="section-no">03 / PROVIDER CENTRE</p>
+          <h2>配置 Provider 与 ClientInstance</h2>
+          <p>打开 <strong>Provider Centre</strong>。ProviderDefinition 描述可配置项与声明能力；ClientInstance 是一套实际连接配置。一个 Provider 可以有多个 ClientInstance，而一个 ClientInstance 可投影多个账户。</p>
+          <div class="workflow" aria-label="Provider 配置流程">
+            <span>选择 Definition</span><i>→</i><span>新建 ClientInstance</span><i>→</i><span>选择 Environment</span><i>→</i><span>填写并保存</span><i>→</i><span>连接并核验证据</span>
+          </div>
+          <ul>
+            <li>配置项由 Provider 自己的 schema 校验；保存成功后才重建实例。</li>
+            <li>Secret 可写但不会在界面中回显原值。返回页面只显示是否已配置。</li>
+            <li>“已连接”不等于“可以交易”。还需检查 capability、entitlement、账户、精确标的映射、环境与健康证据。</li>
+            <li>关闭、断线、未授权、配置错误与 rate limit 是不同状态，请按原始错误处理。</li>
+          </ul>
+        </section>
+
+        <section id="market" class="doc-section">
+          <p class="section-no">04 / MARKET CONTEXT</p>
+          <h2>选择标的与行情来源</h2>
+          <p>在交易工作台的全局搜索中选择 canonical Instrument。TrueFix 会为历史行情、实时行情和交易分别解析候选路由；三者互相独立。</p>
+          <div class="facet-table" role="table" aria-label="三类来源说明">
+            <div class="facet-row facet-head" role="row"><span>Facet</span><span>负责内容</span><span>切换后的影响</span></div>
+            <div class="facet-row" role="row"><strong>Historical</strong><span>K 线与历史范围</span><span>只替换历史序列</span></div>
+            <div class="facet-row" role="row"><strong>Realtime</strong><span>Quote / Book / Trade</span><span>不清空 K 线或订单草稿</span></div>
+            <div class="facet-row" role="row"><strong>Trading</strong><span>规则、账户与执行路由</span><span>触发订单字段重新校验</span></div>
+          </div>
+          <p>每个来源旁的 Provider、ClientInstance、质量与时间戳都应保持可见。缺少精确 mapping 时，系统应拒绝该路由；不要把相似 symbol 当作同一标的。</p>
+        </section>
+
+        <section id="trade" class="doc-section doc-section-dark">
+          <p class="section-no">05 / REVIEW & RISK</p>
+          <h2>下单、Review 与 RiskGuard</h2>
+          <div class="workflow trade-flow" aria-label="订单流程">
+            <span>Order Draft</span><i>→</i><span>Exact Route</span><i>→</i><span>Backend Review</span><i>→</i><span>RiskGuard</span><i>→</i><span>Explicit Submit</span><i>→</i><span>Reconcile</span>
+          </div>
+          <ol class="steps compact">
+            <li><span>1</span><div><h3>选择账户</h3><p>确认 Provider、ClientInstance、Account 与 Environment；无资格账户不可选。</p></div></li>
+            <li><span>2</span><div><h3>填写订单</h3><p>Order Type、TIF、数量、价格和条件字段来自实际 OrderSchema；不支持的字段不会出现。</p></div></li>
+            <li><span>3</span><div><h3>执行 Review</h3><p>核对标的、方向、价格、数量、费用假设、交易规则和数据新鲜度。任何字段变化都会使旧 review token 失效。</p></div></li>
+            <li><span>4</span><div><h3>通过 RiskGuard 后明确提交</h3><p>提交使用确定性 client order ID 与幂等边界。超时或结果未知时只查询恢复，绝不再次提交。</p></div></li>
+          </ol>
+          <div class="notice notice-danger"><strong>实盘警告</strong><span>请在提交前再次确认 Environment。Kill Switch 恢复、页面刷新或网络重连都不会自动重新提交订单。</span></div>
+        </section>
+
+        <section id="portfolio" class="doc-section">
+          <p class="section-no">06 / PORTFOLIO</p>
+          <h2>账户、持仓、订单与成交</h2>
+          <p>Portfolio 读取权威交易投影，可按 Provider、ClientInstance、账户和环境筛选。应用订单与外部/未知订单会严格分区；手动“权威刷新”触发 Provider reconcile，普通页面刷新只读取本地投影。</p>
+          <ul>
+            <li>不同币种不会在缺少一致 FX revision 时直接相加。</li>
+            <li>partial 或 stale 的估值必须保留状态，不能当作完整权益。</li>
+            <li>Provider 下线或环境切换后，旧账户域不应继续参与当前操作。</li>
+          </ul>
+        </section>
+
+        <section id="intelligence" class="doc-section media-section">
+          <div><p class="section-no">07 / INTELLIGENCE</p><h2>从 Observation 到 Evidence</h2><p>Intelligence 工作区展示 Observation、Signal、Composite Index、Evidence 与历史 Replay。查看 current、baseline、deviation、confidence、freshness 和来源多样性，并通过 Evidence timeline 回到原始证据。</p><p>Signal 表示可审计的分析结果，不等于已证实事实，也不会直接创建订单。“在图表中打开”才会显式把相关 Instrument 带入交易工作台。</p></div>
+          <img src="../assets/intelligence.png" alt="TrueFix Studio Intelligence 界面" width="1536" height="881" loading="lazy" />
+        </section>
+
+        <section id="ai-quant" class="doc-section media-section media-reverse">
+          <img src="../assets/ai-quant.png" alt="TrueFix Studio AI 与 Quant 界面" width="1536" height="881" loading="lazy" />
+          <div><p class="section-no">08 / AI + QUANT</p><h2>受权工具与确定性运行</h2><p>AI Agent 可通过受权工具分析市场并提出 TradingDecision；Quant 策略可基于固定数据、日历、费用、滑点和 revision 运行或回放。两者都不能绕过统一交易服务。</p><ul><li>策略输出先变成带 evidence、版本、期限、账户和标的范围的 TradingDecision。</li><li>批准只让意图进入普通 Review / RiskGuard 流程，不代表订单已经提交。</li><li>运行任务由 headless Runtime 持有；关闭 Desktop/Web 不应改变任务生命周期。</li></ul></div>
+        </section>
+
+        <section id="architecture" class="doc-section">
+          <p class="section-no">09 / ARCHITECTURE</p>
+          <h2>架构与数据边界</h2>
+          <div class="architecture-stack">
+            <div><span>Desktop</span><span>Web</span><span>AI Tools</span><span>Headless Quant</span></div>
+            <i>CANONICAL APPLICATION CONTRACTS</i>
+            <strong>Instrument · Market Data · Trading · Risk · Intelligence</strong>
+            <i>PROVIDER-OWNED ADAPTERS + RUNTIME EVIDENCE</i>
+            <div><span>Market Data</span><span>Broker / Exchange</span><span>Signal Sources</span><span>FIX</span></div>
+          </div>
+          <p>浏览器不是标的、账户、订单、行情、风险或 AI/Quant 的权威所有者。所有入口共享 canonical domain contracts，并保留原始 adapter provenance。界面不补造缺失数据，不跨 Provider 静默混源，也不按 Provider 名称写死能力。</p>
+        </section>
+
+        <section id="troubleshooting" class="doc-section">
+          <p class="section-no">10 / TROUBLESHOOTING</p>
+          <h2>常见问题</h2>
+          <details><summary>Provider 显示已连接，但不能交易</summary><p>依次检查 Environment、交易 capability、entitlement、账户状态、精确 Instrument mapping、TradingRules 与 freshness。连接状态本身不构成交易资格。</p></details>
+          <details><summary>能看到历史 K 线，但没有实时报价</summary><p>Historical 与 Realtime 是独立 facet。检查实时来源选项、订阅权限、source health 和首个 Tick 是否已到达，不要通过切换交易 Provider 来修复行情。</p></details>
+          <details><summary>Review 后订单不能提交</summary><p>订单字段、交易路由、账户或规则发生变化时，旧 review token 会失效。重新 Review，并按界面显示的稳定错误码和 Provider 原始消息处理。</p></details>
+          <details><summary>提交超时，不确定订单是否成功</summary><p>保持当前 client order ID，通过 Orders / Reconciliation 查询恢复。不要重新点击提交或创建一笔“相同”订单。</p></details>
+          <details><summary>页面显示 stale / unavailable / degraded</summary><p>先看受影响的 facet 与时间戳。保留 last-good 数据不代表它仍然新鲜；错误也不等同于空结果。必要时到 Provider Centre 或 Operations 查看原始状态。</p></details>
+        </section>
+
+        <footer class="guide-footer"><img src="../assets/truefix-mark.png" alt="" width="34" height="34" /><p><strong>TrueFix Studio</strong><br />首版发布前使用指南 · 本页不包含私有源码、凭据或下载链接。</p><a href="../">返回产品首页 ↑</a></footer>
+      </main>
+    </div>
+  </body>
+</html>

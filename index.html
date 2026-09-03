@@ -14,8 +14,8 @@
     <link rel="canonical" href="https://truefix-labs.github.io/" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png" />
-    <link rel="stylesheet" href="styles.css?v=3" />
-    <script src="script.js?v=3" defer></script>
+    <link rel="stylesheet" href="styles.css?v=4" />
+    <script src="script.js?v=4" defer></script>
     <title>TrueFix Studio — Multi-provider trading workstation</title>
   </head>
   <body>
@@ -34,11 +34,17 @@
         <a href="#principles" data-i18n="nav.principles">Principles</a>
         <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
         <a href="#audiences" data-i18n="nav.modes">Use cases</a>
-        <div class="language-picker" role="group" aria-label="Language" data-i18n-aria-label="language.label">
-          <button type="button" aria-pressed="true" aria-label="English" lang="en" data-language="en">EN</button>
-          <button type="button" aria-pressed="false" aria-label="简体中文" lang="zh-CN" data-language="zh-CN">中</button>
-          <button type="button" aria-pressed="false" aria-label="한국어" lang="ko" data-language="ko">한</button>
-          <button type="button" aria-pressed="false" aria-label="日本語" lang="ja" data-language="ja">日</button>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <div class="language-picker">
+          <label class="sr-only" for="language-select" data-i18n="language.label">Language</label>
+          <span class="language-icon" aria-hidden="true">A/あ</span>
+          <select id="language-select" data-language-select aria-label="Language" data-i18n-aria-label="language.label">
+            <option value="en" lang="en">English</option>
+            <option value="zh-CN" lang="zh-CN">简体中文</option>
+            <option value="ko" lang="ko">한국어</option>
+            <option value="ja" lang="ja">日本語</option>
+          </select>
+          <span class="language-chevron" aria-hidden="true">⌄</span>
         </div>
         <a class="nav-guide" href="guide/"><span data-i18n="nav.guide">User guide</span> <span aria-hidden="true">↗</span></a>
       </nav>
@@ -66,7 +72,8 @@
               <div class="frame-title">TRUEFIX / TRADING WORKSTATION</div>
               <div class="frame-status"><span></span> SYSTEM READY</div>
             </div>
-            <img src="assets/workstation.png" alt="TrueFix Studio dark trading workstation showing a BTC/USDT chart, market depth, positions, and order ticket" data-i18n-alt="alt.workstationDetail" width="1536" height="881" />
+            <img src="assets/workstation.png" alt="TrueFix Studio dark trading workstation showing a BTC/USDT chart, market depth, positions, and order ticket" data-i18n-alt="alt.workstationDetail" width="1536" height="881" decoding="async" />
+            <figcaption class="hero-shot-caption"><a href="assets/workstation.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
           </figure>
           <div class="float-tag float-tag-a"><span>01</span> CAPABILITY<br />RESOLVED</div>
           <div class="float-tag float-tag-b"><span>02</span> RISK GUARD<br />ACTIVE</div>
@@ -94,16 +101,16 @@
           </div>
           <div class="showcase-screen">
             <figure id="panel-workstation" role="tabpanel" aria-labelledby="tab-workstation" data-panel="workstation">
-              <img src="assets/workstation.png" alt="TrueFix Studio trading workstation" data-i18n-alt="alt.workstation" width="1536" height="881" loading="lazy" />
-              <figcaption><span class="caption-label">WORKSTATION</span><span class="caption-copy" data-i18n="product.caption.workstation">Cross-market context and provider routes stay explicit; the interface never guesses capabilities.</span></figcaption>
+              <img src="assets/workstation.png" alt="TrueFix Studio trading workstation" data-i18n-alt="alt.workstation" width="1536" height="881" loading="lazy" decoding="async" />
+              <figcaption><span class="caption-label">WORKSTATION</span><span class="caption-copy" data-i18n="product.caption.workstation">Cross-market context and provider routes stay explicit; the interface never guesses capabilities.</span><a class="full-size-link" href="assets/workstation.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
             </figure>
             <figure id="panel-intelligence" role="tabpanel" aria-labelledby="tab-intelligence" data-panel="intelligence" hidden>
-              <img src="assets/intelligence.png" alt="TrueFix Studio intelligence interface" data-i18n-alt="alt.intelligence" width="1536" height="881" loading="lazy" />
-              <figcaption><span class="caption-label">INTELLIGENCE</span><span class="caption-copy" data-i18n="product.caption.intelligence">Keep observations, sources, confidence, and historical replay on the same evidence chain.</span></figcaption>
+              <img src="assets/intelligence.png" alt="TrueFix Studio intelligence interface" data-i18n-alt="alt.intelligence" width="1536" height="881" loading="lazy" decoding="async" />
+              <figcaption><span class="caption-label">INTELLIGENCE</span><span class="caption-copy" data-i18n="product.caption.intelligence">Keep observations, sources, confidence, and historical replay on the same evidence chain.</span><a class="full-size-link" href="assets/intelligence.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
             </figure>
             <figure id="panel-quant" role="tabpanel" aria-labelledby="tab-quant" data-panel="quant" hidden>
-              <img src="assets/ai-quant.png" alt="TrueFix Studio AI and quant interface" data-i18n-alt="alt.quant" width="1536" height="881" loading="lazy" />
-              <figcaption><span class="caption-label">AI + QUANT</span><span class="caption-copy" data-i18n="product.caption.quant">Strategy output becomes a constrained decision before Review and RiskGuard allow execution.</span></figcaption>
+              <img src="assets/ai-quant.png" alt="TrueFix Studio AI and quant interface" data-i18n-alt="alt.quant" width="1536" height="881" loading="lazy" decoding="async" />
+              <figcaption><span class="caption-label">AI + QUANT</span><span class="caption-copy" data-i18n="product.caption.quant">Strategy output becomes a constrained decision before Review and RiskGuard allow execution.</span><a class="full-size-link" href="assets/ai-quant.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
             </figure>
           </div>
         </div>
@@ -179,6 +186,33 @@
             <h3>Authorized AI</h3><p data-i18n="modes.ai">Let agents analyze markets with authorized tools while preserving review, budget, and risk boundaries.</p>
           </article>
         </div>
+      </section>
+
+      <section class="section about-section" id="about">
+        <div class="section-heading section-heading-light reveal">
+          <div><p class="section-kicker">06 / ABOUT US</p><h2 data-i18n-html="about.title">Different disciplines.<br />One accountable system.</h2></div>
+          <p data-i18n="about.lede">TrueFix Studio is represented by a distributed team spanning market structure, systems engineering, human factors, and AI safety.</p>
+        </div>
+        <p class="about-intro reveal" data-i18n="about.intro">Four complementary perspectives shape a workstation where provenance stays visible, automation stays bounded, and uncertainty is treated as a first-class state.</p>
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <div class="team-photo"><img src="assets/team/amara-okafor.jpg" alt="Portrait of Amara Okafor" data-i18n-alt="alt.amara" width="900" height="1124" loading="lazy" decoding="async" /><span>01</span></div>
+            <div class="team-copy"><p class="team-role" data-i18n="about.amara.role">Systems Architecture</p><h3>Amara Okafor</h3><p data-i18n="about.amara.bio">A Lagos-born, London-based systems architect who models provider boundaries, fault isolation, and deterministic recovery.</p></div>
+          </article>
+          <article class="team-card reveal" data-delay="1">
+            <div class="team-photo"><img src="assets/team/elias-navarro.jpg" alt="Portrait of Elias Navarro" data-i18n-alt="alt.elias" width="900" height="1124" loading="lazy" decoding="async" /><span>02</span></div>
+            <div class="team-copy"><p class="team-role" data-i18n="about.elias.role">Market Infrastructure</p><h3>Elias Navarro</h3><p data-i18n="about.elias.bio">A Madrid-and-Chicago market structure specialist focused on instrument identity, routing evidence, and execution reconciliation.</p></div>
+          </article>
+          <article class="team-card reveal" data-delay="2">
+            <div class="team-photo"><img src="assets/team/sora-kimura.jpg" alt="Portrait of Sora Kimura" data-i18n-alt="alt.sora" width="900" height="1124" loading="lazy" decoding="async" /><span>03</span></div>
+            <div class="team-copy"><p class="team-role" data-i18n="about.sora.role">Human Factors & Risk</p><h3>Sora Kimura</h3><p data-i18n="about.sora.bio">A Tokyo-and-Vancouver product thinker designing interfaces that make uncertainty, permission, and risk visible before action.</p></div>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-photo"><img src="assets/team/leila-haddad.jpg" alt="Portrait of Leila Haddad" data-i18n-alt="alt.leila" width="900" height="1124" loading="lazy" decoding="async" /><span>04</span></div>
+            <div class="team-copy"><p class="team-role" data-i18n="about.leila.role">AI & Quant Safety</p><h3>Leila Haddad</h3><p data-i18n="about.leila.bio">A Montréal-and-Dubai research engineer shaping authorized agent tools, reproducible strategy runtime, and audit-ready decisions.</p></div>
+          </article>
+        </div>
+        <p class="agent-disclosure reveal" data-i18n="about.disclosure">The people and biographies shown here are fictional AI agents created for the TrueFix Studio story; they are not real employees.</p>
       </section>
 
       <section class="closing-section">

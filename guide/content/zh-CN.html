@@ -1,0 +1,51 @@
+<section class="guide-hero">
+  <p class="eyebrow">TRUEFIX STUDIO / OPERATOR GUIDE</p>
+  <h1>从市场上下文，<br /><i>走到可审计的执行。</i></h1>
+  <p class="hero-lede">这份指南面向已获访问权限的测试用户。功能是否可用取决于所选 Provider、ClientInstance、环境、账户权限和实时证据；页面存在不代表某项能力已经可用。</p>
+  <div class="notice notice-private"><strong>当前访问状态</strong><span>产品仓库与安装包暂未公开。请仅使用项目方提供的受邀版本和访问方式，不要从非官方来源获取程序。</span></div>
+</section>
+
+<section id="before-you-start" class="doc-section">
+  <p class="section-no">01 / BEFORE YOU START</p><h2>开始之前</h2>
+  <p>TrueFix Studio 是多 Provider 交易工作站。Desktop、Web、Headless Quant 与受权 AI 工具共享同一套标的、能力、风险与执行契约。请准备项目方提供的应用访问权限，以及计划连接的行情或交易服务凭据。</p>
+  <div class="check-grid"><article><span>01</span><h3>确认环境</h3><p>区分 Live、Paper、Testnet、Demo 或 Simulated。环境由 ClientInstance 明确配置，不能只看 Provider 名称。</p></article><article><span>02</span><h3>从模拟开始</h3><p>第一次验证订单流程时优先使用非 Live 环境。Demo 与 Live 走相同审核状态机，但资金后果不同。</p></article><article><span>03</span><h3>最小授权</h3><p>凭据只授予所需市场、账户与能力。不要在聊天、截图或工单中粘贴 Secret。</p></article></div>
+  <div class="notice"><strong>重要</strong><span>TrueFix Studio 仍处于首版发布前。它不是投资建议，也不会替你判断交易是否适合；所有实盘动作都应由账户所有者核验。</span></div>
+</section>
+
+<section id="first-run" class="doc-section">
+  <p class="section-no">02 / FIRST RUN</p><h2>首次启动与工作区恢复</h2>
+  <ol class="steps"><li><span>1</span><div><h3>检查 Readiness</h3><p>首页分别展示内核、Provider、目录、交易投影、Intelligence 和 Risk 状态。单个模块不可用不会阻止其他模块打开。</p></div></li><li><span>2</span><div><h3>恢复或新建工作区</h3><p>最近工作区可恢复上次标的、面板布局与 revision。恢复失败时回到安全默认布局，不会创建重复订阅。</p></div></li><li><span>3</span><div><h3>处理明确状态</h3><p>分别对待 unavailable、stale、degraded 和 rejected。缺失值不等于零，界面也不会补造健康状态。</p></div></li></ol>
+</section>
+
+<section id="provider" class="doc-section">
+  <p class="section-no">03 / PROVIDER CENTRE</p><h2>配置 Provider 与 ClientInstance</h2>
+  <p>打开 <strong>Provider Centre</strong>。ProviderDefinition 描述可配置项与声明能力；ClientInstance 是一套实际连接配置。一个 Provider 可以有多个 ClientInstance，一个 ClientInstance 可投影多个账户。</p>
+  <div class="workflow"><span>选择 Definition</span><i>→</i><span>新建 ClientInstance</span><i>→</i><span>选择 Environment</span><i>→</i><span>校验并保存</span><i>→</i><span>连接并核验证据</span></div>
+  <ul><li>配置项由 Provider 自有 schema 校验，保存成功后才重建实例。</li><li>Secret 可写但不回显原值，返回页面只显示是否已配置。</li><li>“已连接”不等于“可以交易”，还需核验 capability、entitlement、账户、精确标的映射、环境与健康证据。</li><li>闭市、断线、未授权、配置错误与 rate limit 是不同状态。</li></ul>
+</section>
+
+<section id="market" class="doc-section">
+  <p class="section-no">04 / MARKET CONTEXT</p><h2>选择标的与行情来源</h2>
+  <p>在全局搜索中选择 canonical Instrument。TrueFix 会为历史行情、实时行情和交易分别解析候选路由，三者互相独立。</p>
+  <div class="facet-table"><div class="facet-row facet-head"><span>Facet</span><span>负责内容</span><span>切换后的影响</span></div><div class="facet-row"><strong>Historical</strong><span>K 线与历史范围</span><span>只替换历史序列</span></div><div class="facet-row"><strong>Realtime</strong><span>Quote / Book / Trade</span><span>不清空 K 线或订单草稿</span></div><div class="facet-row"><strong>Trading</strong><span>规则、账户与执行路由</span><span>触发订单字段重新校验</span></div></div>
+  <p>每个来源旁的 Provider、ClientInstance、质量与时间戳都应保持可见。缺少精确 mapping 时系统会拒绝该路由，不会把相似 symbol 当作同一标的。</p>
+</section>
+
+<section id="trade" class="doc-section doc-section-dark">
+  <p class="section-no">05 / REVIEW & RISK</p><h2>下单、Review 与 RiskGuard</h2>
+  <div class="workflow trade-flow"><span>Order Draft</span><i>→</i><span>Exact Route</span><i>→</i><span>Backend Review</span><i>→</i><span>RiskGuard</span><i>→</i><span>Explicit Submit</span><i>→</i><span>Reconcile</span></div>
+  <ol class="steps compact"><li><span>1</span><div><h3>选择账户</h3><p>确认 Provider、ClientInstance、Account 与 Environment，无资格账户不可选。</p></div></li><li><span>2</span><div><h3>填写订单</h3><p>Order Type、TIF、数量、价格和条件字段来自实际 OrderSchema。</p></div></li><li><span>3</span><div><h3>执行 Review</h3><p>核对标的、方向、价格、数量、费用假设、交易规则与数据新鲜度。字段变化会使旧 token 失效。</p></div></li><li><span>4</span><div><h3>RiskGuard 通过后明确提交</h3><p>提交使用确定性 client order ID 与幂等边界；结果未知时只查询恢复，绝不重新提交。</p></div></li></ol>
+  <div class="notice notice-danger"><strong>实盘警告</strong><span>提交前再次确认 Environment。Kill Switch 恢复、页面刷新或网络重连都不会自动重新提交订单。</span></div>
+</section>
+
+<section id="portfolio" class="doc-section"><p class="section-no">06 / PORTFOLIO</p><h2>账户、持仓、订单与成交</h2><p>Portfolio 读取权威交易投影，可按 Provider、ClientInstance、账户和环境筛选。应用订单与外部/未知订单严格分区；普通页面刷新读取本地投影，只有权威刷新才触发 Provider reconcile。</p><ul><li>缺少一致 FX revision 时，不同币种不直接相加。</li><li>partial 或 stale 估值保留状态，不会被表达成完整权益。</li><li>Provider 下线或环境切换后，旧账户域不再参与当前操作。</li></ul></section>
+
+<section id="intelligence" class="doc-section media-section"><div><p class="section-no">07 / INTELLIGENCE</p><h2>从 Observation 到 Evidence</h2><p>Intelligence 工作区展示 Observation、Signal、Composite Index、Evidence 与历史 Replay。查看 current、baseline、deviation、confidence、freshness 和来源多样性，并通过 Evidence timeline 回到原始证据。</p><p>Signal 是可审计的分析结果，不等于已证实事实，也不会直接创建订单。</p></div><a class="media-shot" href="../assets/intelligence.png" target="_blank" rel="noreferrer"><img src="../assets/intelligence.png" alt="TrueFix Studio Intelligence 界面" width="1536" height="881" loading="lazy" decoding="async" /><span>打开原尺寸图片 ↗</span></a></section>
+
+<section id="ai-quant" class="doc-section media-section media-reverse"><div><p class="section-no">08 / AI + QUANT</p><h2>受权工具与确定性运行</h2><p>AI Agent 可通过受权工具分析市场并提出 TradingDecision；Quant 策略可基于固定数据、日历、费用、滑点和 revision 运行或回放。两者都不能绕过统一交易服务。</p><ul><li>策略输出先变成带 evidence、版本、期限、账户与标的范围的 TradingDecision。</li><li>批准只让意图进入 Review / RiskGuard，不代表订单已提交。</li><li>运行任务由 headless Runtime 持有，关闭 Desktop/Web 不应改变任务生命周期。</li></ul></div><a class="media-shot" href="../assets/ai-quant.png" target="_blank" rel="noreferrer"><img src="../assets/ai-quant.png" alt="TrueFix Studio AI 与 Quant 界面" width="1536" height="881" loading="lazy" decoding="async" /><span>打开原尺寸图片 ↗</span></a></section>
+
+<section id="architecture" class="doc-section"><p class="section-no">09 / ARCHITECTURE</p><h2>架构与数据边界</h2><div class="architecture-stack"><div><span>Desktop</span><span>Web</span><span>AI Tools</span><span>Headless Quant</span></div><i>CANONICAL APPLICATION CONTRACTS</i><strong>Instrument · Market Data · Trading · Risk · Intelligence</strong><i>PROVIDER-OWNED ADAPTERS + RUNTIME EVIDENCE</i><div><span>Market Data</span><span>Broker / Exchange</span><span>Signal Sources</span><span>FIX</span></div></div><p>浏览器不是标的、账户、订单、行情、风险或 AI/Quant 的权威所有者。所有入口共享 canonical contracts，并保留原始 adapter provenance。界面不补造缺失数据、不跨 Provider 静默混源，也不按 Provider 名称写死能力。</p></section>
+
+<section id="troubleshooting" class="doc-section"><p class="section-no">10 / TROUBLESHOOTING</p><h2>常见问题</h2><details><summary>Provider 显示已连接，但不能交易</summary><p>依次检查 Environment、交易 capability、entitlement、账户状态、精确 Instrument mapping、TradingRules 与 freshness。</p></details><details><summary>能看到历史 K 线，但没有实时报价</summary><p>Historical 与 Realtime 是独立 facet。检查实时来源、订阅权限、source health 和首个 Tick 是否到达。</p></details><details><summary>Review 后订单不能提交</summary><p>字段、路由、账户或规则变化可能使 token 失效。重新 Review，并同时参考稳定错误码和 Provider 原始消息。</p></details><details><summary>提交超时，不确定订单是否成功</summary><p>保留当前 client order ID，通过 Orders / Reconciliation 查询恢复，不要重新点击提交。</p></details><details><summary>页面显示 stale / unavailable / degraded</summary><p>查看受影响的 facet 与时间戳。last-good 数据不代表仍然新鲜，查询失败也不等同于空结果。</p></details></section>
+
+<footer class="guide-footer"><img src="../assets/truefix-mark.png" alt="" width="34" height="34" /><p><strong>TrueFix Studio</strong><br />首版发布前使用指南 · 本页不包含私有源码、凭据或下载链接。</p><a href="../">返回产品首页 ↑</a></footer>

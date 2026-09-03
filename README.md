@@ -1,23 +1,29 @@
-# TrueFix Studio 官网
+# TrueFix Studio — public site
 
-这是 TrueFix Studio 的 GitHub Pages 站点，采用无构建依赖的静态 HTML、CSS 和 JavaScript。产品仓库当前为 private，页面不提供私有仓库链接。
+This repository contains the public GitHub Pages site for TrueFix Studio, a multi-provider trading workstation built around explicit market context, review, risk, and auditable execution. It uses static HTML, CSS, and JavaScript with no build dependency.
 
-站点支持中、英、韩、日四种语言。首次访问按浏览器语言偏好选择，用户切换后使用 `localStorage` 保存，并在后续访问中优先恢复。动画会自动尊重系统的“减少动态效果”设置。
+The product repository is currently private, so this site does not expose private repository or installer links. TrueFix Studio is still pre-release software; a visible interface or Provider SDK is not proof of an end-to-end capability. Runtime evidence remains authoritative.
 
-公开使用指南位于 `guide/`，可维护的 Markdown 原稿位于 `docs/truefix-studio-user-guide.zh-CN.md`。首页宣传片由 `scripts/build-promo-video.sh` 使用仓库内的界面图生成。
+## Documentation
 
-## 本地预览
+The website and user guide support English, Simplified Chinese, Korean, and Japanese. The browser language is used on first visit; a manual choice is stored in `localStorage` and reused across the home page and guide.
+
+- [Interactive user guide](https://truefix-labs.github.io/guide/)
+- [English](docs/truefix-studio-user-guide.en.md)
+- [简体中文](docs/truefix-studio-user-guide.zh-CN.md)
+- [한국어](docs/truefix-studio-user-guide.ko.md)
+- [日本語](docs/truefix-studio-user-guide.ja.md)
+
+## Local preview
 
 ```bash
 python3 -m http.server 4173
 ```
 
-打开 <http://localhost:4173>。
+Then open <http://localhost:4173>.
 
-## 部署
+## Deployment
 
-仓库名为 `truefix-labs.github.io`，与组织名一致；默认分支根目录发布至 <https://truefix-labs.github.io/>。`.nojekyll` 用于保持静态资源按原样发布。
+The organization site is published from the default branch at <https://truefix-labs.github.io/>. The `.nojekyll` file keeps static assets unchanged.
 
-## 内容边界
-
-TrueFix Studio 仍处于首版发布前。本站不把界面、Provider SDK 存在或单次连通视为端到端能力认证；准确实现状态以主仓库中的 capability evidence 与运行时证据为准。
+The promotional video is generated from repository-owned interface images by `scripts/build-promo-video.sh`. Motion respects the visitor's reduced-motion preference.

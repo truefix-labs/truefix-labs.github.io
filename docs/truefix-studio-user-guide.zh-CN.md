@@ -165,11 +165,39 @@ Staging 证书不会被浏览器信任。HTTP-01 必须保留 `/.well-known/acme
 
 ACME 失败不会降级到公网明文 HTTP。续期失败会保留最后的有效证书；进入到期安全窗口后停止远程 HTTPS，修复 DNS、端口或 Directory 后再 Apply。
 
-## 11. 数据与架构边界
+## 11. 运维、日志与审计
+
+Operations 用于回答“什么时候发生了什么、由谁发起、影响到哪里”。不同入口不要混用：
+
+| 入口 | 用途 | 推荐筛选 |
+|---|---|---|
+| Activity | 最近的用户可见操作 | 确认命令是否被接收 |
+| Logs | 时间、level、target、稳定错误码 | correlation ID、ClientInstance、时间窗 |
+| Audit | actor、scope、reason、before/after revision、result | 交易、审批、配置与安全追踪 |
+| Health | Provider、queue、storage、runtime | freshness、lag、retry |
+
+报告问题时提供显示时区、Environment、Provider、ClientInstance、稳定错误码、correlation ID、order/client order ID 与 revision；删除 API Key、Cookie 和完整账户号。macOS 主日志和 Web 访问日志位于 `~/Library/Application Support/truefix-studio/logs/`，按日期滚动。访问日志含 IP 与 User-Agent，应最小化保存和分享。
+
+## 12. 状态词典
+
+| 状态 | 含义 | 正确动作 |
+|---|---|---|
+| Loading | 正在获取投影 | 等待或保留已有内容 |
+| Empty | 权威查询成功且无记录 | 不要当成错误 |
+| Unavailable | 能力、权限、映射或服务不存在 | 修复配置/权限 |
+| Stale | 有 last-good 数据但已超 freshness | 查看 as-of，避免依赖旧值交易 |
+| Degraded | 部分来源或 facet 失败 | 只使用明确仍可用的部分 |
+| Rejected | schema、权限、规则或 RiskGuard 拒绝 | 阅读稳定错误码并修正 |
+| Reconciling | 正在与 Provider 权威状态对账 | 保留当前投影等待确认 |
+| Uncertain | Provider 可能已接收但响应未知 | 只查询恢复，绝不重新提交 |
+
+每个状态都要连同 `source / as-of / revision / stable code` 一起判断。
+
+## 13. 数据与架构边界
 
 浏览器不是标的、账户、订单、行情、风险或 AI/Quant 的权威所有者。所有入口共享 canonical application contracts，保留原始 adapter provenance，不补造缺失数据、不跨 Provider 静默混源，也不按 Provider 名称写死能力。
 
-## 12. 故障排查
+## 14. 故障排查
 
 - **已连接但不能交易**：检查 Environment、capability、entitlement、账户、mapping、TradingRules 与 freshness。
 - **有 K 线但无实时报价**：Historical 与 Realtime 独立，检查实时订阅权限、source health 和首个 Tick。

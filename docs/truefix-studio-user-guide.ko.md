@@ -152,11 +152,39 @@ Draft → Validate → Historical Replay → Approve → Deploy → Pause / Reti
 
 ACME 실패 시에도 공용 HTTP로 강등되지 않습니다. trusted proxy allowlist에는 정확한 프록시 IP만 추가하세요.
 
-## 11. 아키텍처와 데이터 경계
+## 11. 운영, 로그와 감사
+
+Operations는 언제, 누가, 무엇을, 어느 범위에서 수행했는지 확인하는 화면입니다.
+
+| 화면 | 용도 | 권장 필터 |
+|---|---|---|
+| Activity | 최근 사용자 작업 | command 수락 확인 |
+| Logs | time, level, target, stable code | correlation ID, ClientInstance, 시간 |
+| Audit | actor, scope, reason, revision, result | 거래, 승인, 설정, 보안 |
+| Health | Provider, queue, storage, runtime | freshness, lag, retry |
+
+문제 보고에는 시간대, Environment, Provider, ClientInstance, stable code, correlation ID, order ID와 revision을 포함하고 API Key, Cookie, 전체 계정 번호는 제거하세요. macOS 로그는 `~/Library/Application Support/truefix-studio/logs/`에 있습니다.
+
+## 12. 상태 용어
+
+| 상태 | 의미 | 조치 |
+|---|---|---|
+| Loading | 투영을 가져오는 중 | 기다리거나 기존 내용 유지 |
+| Empty | 권위 쿼리 성공, 레코드 없음 | 오류로 취급하지 않음 |
+| Unavailable | 기능, 권한, mapping, service가 없음 | 설정/권한 복구 |
+| Stale | last-good이 freshness 초과 | as-of 확인 |
+| Degraded | 일부 source/facet 실패 | 명시적으로 가능한 부분만 사용 |
+| Rejected | schema, 권한, rules, RiskGuard 거부 | stable code 확인 후 수정 |
+| Reconciling | Provider 권위 상태와 대조 중 | 확인까지 상태 유지 |
+| Uncertain | Provider 접수 가능, 응답 불명 | 조회만 하고 재제출하지 않음 |
+
+`source / as-of / revision / stable code`를 함께 확인하세요.
+
+## 13. 아키텍처와 데이터 경계
 
 브라우저는 종목, 계정, 주문, 시장 데이터, 리스크, AI/Quant의 권위 있는 소유자가 아닙니다. 모든 진입점은 canonical application contracts를 공유하고 adapter provenance를 보존합니다. UI는 누락 데이터를 만들거나 Provider를 몰래 섞거나 Provider 이름으로 기능을 단정하지 않습니다.
 
-## 12. 문제 해결
+## 14. 문제 해결
 
 - **연결되었지만 거래할 수 없음:** Environment, capability, entitlement, 계정, 정확한 매핑, TradingRules, freshness를 확인하세요.
 - **과거 바는 있지만 실시간 견적이 없음:** Historical과 Realtime은 독립적입니다. 구독 권한, source health, 첫 Tick을 확인하세요.

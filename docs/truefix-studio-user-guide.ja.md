@@ -152,11 +152,39 @@ Draft → Validate → Historical Replay → Approve → Deploy → Pause / Reti
 
 ACME 失敗時も公開 HTTP へ降格しません。trusted proxy allowlist には正確なプロキシ IP だけを追加してください。
 
-## 11. 構成とデータ境界
+## 11. 運用、ログ、監査
+
+Operations は、いつ・誰が・何を・どの範囲で行ったかを確認する入口です。
+
+| 表示 | 用途 | 推奨フィルター |
+|---|---|---|
+| Activity | 最近のユーザー操作 | command 受理の確認 |
+| Logs | time、level、target、stable code | correlation ID、ClientInstance、時間 |
+| Audit | actor、scope、reason、revision、result | 取引、承認、設定、セキュリティ |
+| Health | Provider、queue、storage、runtime | freshness、lag、retry |
+
+問題報告にはタイムゾーン、Environment、Provider、ClientInstance、stable code、correlation ID、order ID、revision を含め、API Key、Cookie、完全な口座番号は削除します。macOS のログは `~/Library/Application Support/truefix-studio/logs/` にあります。
+
+## 12. 状態用語
+
+| 状態 | 意味 | 対応 |
+|---|---|---|
+| Loading | 投影を取得中 | 待機または既存内容を保持 |
+| Empty | 権威クエリ成功、記録なし | エラー扱いしない |
+| Unavailable | 機能、権限、mapping、serviceがない | 設定/権限を修復 |
+| Stale | last-goodがfreshness超過 | as-ofを確認 |
+| Degraded | 一部source/facetが失敗 | 明示的に利用可能な部分だけ使う |
+| Rejected | schema、権限、rules、RiskGuardが拒否 | stable codeを確認して修正 |
+| Reconciling | Provider権威状態と照合中 | 確認まで状態を保持 |
+| Uncertain | Provider受付の可能性、応答不明 | 照会のみ、再送信しない |
+
+`source / as-of / revision / stable code` を一緒に確認します。
+
+## 13. 構成とデータ境界
 
 ブラウザーは銘柄、口座、注文、市場データ、リスク、AI/Quantの権威所有者ではありません。全エントリーポイントはcanonical application contractsを共有し、adapter provenanceを保持します。UIは欠損データを作らず、Providerを暗黙に混在させず、Provider名から機能を決めつけません。
 
-## 12. トラブルシューティング
+## 14. トラブルシューティング
 
 - **接続済みだが取引できない：** Environment、capability、entitlement、口座、正確なmapping、TradingRules、freshnessを確認します。
 - **履歴バーはあるがリアルタイム価格がない：** HistoricalとRealtimeは独立しています。購読権限、source health、最初のTickを確認します。

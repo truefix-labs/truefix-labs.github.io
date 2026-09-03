@@ -165,11 +165,39 @@ A staging certificate is deliberately untrusted. HTTP-01 must preserve `/.well-k
 
 ACME failure never downgrades to public plaintext HTTP. Renewal keeps the last valid certificate until the safety window, then remote HTTPS stops. Fix DNS, ports, or Directory and apply again.
 
-## 11. Architecture and data boundaries
+## 11. Operations, logs, and audit
+
+Operations answers what happened, when, who initiated it, and what scope was affected:
+
+| View | Use | Recommended filter |
+|---|---|---|
+| Activity | Recent user-visible actions | Confirm command admission |
+| Logs | Time, level, target, stable error code | Correlation ID, ClientInstance, time window |
+| Audit | Actor, scope, reason, before/after revision, result | Trading, approval, configuration, security |
+| Health | Provider, queue, storage, runtime | Freshness, lag, retry |
+
+An issue report should include display timezone, Environment, Provider, ClientInstance, stable error code, correlation ID, order/client order ID, and revision. Remove API keys, cookies, and full account identifiers. On macOS, main and Web access logs rotate under `~/Library/Application Support/truefix-studio/logs/`; access logs contain IP and User-Agent data, so minimize retention and sharing.
+
+## 12. Status glossary
+
+| State | Meaning | Correct action |
+|---|---|---|
+| Loading | A projection is being fetched | Wait or retain existing content |
+| Empty | Authoritative query succeeded with no records | Do not treat it as an error |
+| Unavailable | Capability, permission, mapping, or service is absent | Repair configuration/permission |
+| Stale | Last-good data exceeded freshness | Check as-of; do not trade on an old value |
+| Degraded | Some sources or facets failed | Use only explicitly available parts |
+| Rejected | Schema, authorization, rules, or RiskGuard denied | Read the stable code and correct the input |
+| Reconciling | Comparing projection with Provider authority | Preserve state and wait for confirmation |
+| Uncertain | Provider may have accepted; response is unknown | Query recovery only; never resubmit |
+
+Read each state with `source / as-of / revision / stable code`.
+
+## 13. Architecture and data boundaries
 
 The browser is not the authority for instruments, accounts, orders, market data, risk, or AI/Quant. All entry points share canonical application contracts and preserve adapter provenance. The interface does not invent missing data, silently mix providers, or hard-code capabilities from a provider name.
 
-## 12. Troubleshooting
+## 14. Troubleshooting
 
 - **Connected but cannot trade:** check Environment, capability, entitlement, account, exact mapping, TradingRules, and freshness.
 - **Historical bars but no realtime quote:** Historical and Realtime are independent; check subscription entitlement, source health, and the first Tick.

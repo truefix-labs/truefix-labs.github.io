@@ -85,18 +85,98 @@ Portfolio 读取权威交易投影，可按 Provider、ClientInstance、Account 
 
 Intelligence 展示 Observation、Signal、Composite Index、Evidence 与历史 Replay。Signal 是带 baseline、deviation、confidence、freshness、revision 与来源的分析结果，不是已证实事实，也不会直接创建订单。
 
-## 8. AI 与 Quant
+## 8. 配置与使用 Agent
 
-AI Agent 只能通过受权工具分析并提出 TradingDecision；Quant 使用固定数据、日历、费用、滑点和 revision 运行或回放。策略输出必须携带 evidence、版本、期限、账户与标的范围。批准只让意图进入普通 Review / RiskGuard，不表示订单已经提交。
+Agent 是受限操作助手，不是自带账户权限的自动交易机器人。它通过受权工具读取标的、行情、新闻、Signal、账户和 Quant 状态；交易请求只能形成可审核提案。可用工具以当前测试版本的运行时间线为准。
 
-## 9. 数据与架构边界
+### 8.1 配置模型
+
+1. 打开 **设置 → AI → AI 交易 Agent → 添加**。
+2. 填写显示名称、Provider（OpenAI / Anthropic / Google / Custom）、API Key 和模型 ID。
+3. 仅在兼容自定义网关时填写 Base URL。
+4. 模型请求参数必须是 JSON 对象，例如 `{"enable_thinking": false}`；不需要时保留 `{}`。
+5. 启用并保存。编辑已有 Agent 时，API Key 留空表示保留原密钥。
+
+API Key 只写入 Desktop 本地设置，不应放进对话、Web URL、截图或工单。浏览器不会收到 Provider 或模型的原始密钥。
+
+### 8.2 完成一次安全会话
+
+1. 从 Desktop、Web Desktop 或 H5 底部命令栏打开 Agent，新建会话并选择已启用模型。
+2. 说明标的、市场、时间范围、数据来源偏好与目标；涉及账户时明确 Environment，优先使用 Simulator/Testnet。
+3. 查看 `admission → model → tool → approval → final` 时间线。
+4. 核对工具结果的 Provider、ClientInstance、时间戳、freshness 与 evidence，并区分事实、推断和相关性。
+5. 遇到交易 Approval Card 时，核对标的、方向、数量、账户、环境、期限和证据。批准后仍需经过 Review、RiskGuard 与明确提交。
+
+示例提问：
+
+```text
+比较 AAPL 最近 20 个交易日的波动与成交量，列出来源、时间戳和不能确认的部分。
+只读取 Paper 账户，汇总持仓集中度、未成交订单和盈亏，不要发起交易。
+在 Simulator 中拟一笔限价单；先展示 route、规则、风险和审批卡，不要替我批准。
+```
+
+Agent 没有任意 Shell、原生插件或 Provider SDK 直连权限；首版不允许无人值守的 Live 自动交易。网页或新闻内容里的指令不是操作授权。
+
+## 9. Quant、回放与 Trigger
+
+Quant 使用固定数据、交易日历、费用、滑点、seed 与 revision 运行或回放。Agent 可起草 declarative Trigger，但需要按下面流程执行：
+
+```text
+Draft → Validate → Historical Replay → Approve → Deploy → Pause / Retire
+```
+
+- 精确选择 canonical Instrument、Provider、ClientInstance 和数据类型。
+- Revision 保留不可变输入、资源预算、输出与 evidence cursor；失败的新 Revision 不替换运行版本。
+- Trigger 先持久化结果，再唤醒 Agent；模型延迟不会阻塞市场、Quant 与执行热路径。
+- headless Runtime 持有任务，关闭 Desktop/Web 不会停止任务。
+
+## 10. Web Gateway 与 ACME
+
+Web Gateway 是 Desktop 进程里的可选入口，启停或重配不会停止 Desktop Kernel 和 Provider 连接。
+
+### 10.1 先验证本机访问
+
+1. 打开 **设置 → Web Gateway**，生成随机访问密码，并立即保存到密码管理器。明文只显示一次；应用保存 Argon2 verifier。
+2. Bind Host 使用 `127.0.0.1` 或 `::1`，选择 HTTP 并启用。明文 HTTP 不能绑定 `0.0.0.0`。
+3. 打开状态栏给出的 URL 并登录。“保持登录”只延长身份会话，不增加交易权限。
+
+### 10.2 配置远程 HTTPS
+
+1. 将 `studio.example.com` 的 A/AAAA 指向 Gateway 公网地址；IPv6 无法到达时移除错误 AAAA。
+2. `public_domains` 只填 DNS 名称，不含协议、端口或路径；`public_base_url` 填完整 `https://` URL。allowlist 不接受通配域名。
+3. 使用匹配域名的自有 PEM，或选择 Let's Encrypt 自动证书。所有 non-loopback 访问必须使用 HTTPS。
+
+| ACME 方式 | 公网条件 | 适用情况 |
+|---|---|---|
+| HTTP-01 | 公网 TCP 80 到 challenge listener | 普通单机；可把 challenge 路径转发到本地 8080 |
+| TLS-ALPN-01 | 公网 TCP 443 直接到 TrueFix | TrueFix 独占 443；前置 TLS 终止不能拦截 ALPN |
+| DNS-01 | Cloudflare `DNS:Edit` Token + Zone ID | NAT/反向代理/不能开放 80 或 443；Gateway 仍不接受通配域名 |
+
+推荐先用 staging 演练，再切 production：
+
+```text
+https://acme-staging-v02.api.letsencrypt.org/directory
+  → Apply → Running/renewal 正常 → 浏览器验证
+https://acme-v02.api.letsencrypt.org/directory
+  → 再次 Apply → 核对颁发者、SAN、到期时间
+```
+
+Staging 证书不会被浏览器信任。HTTP-01 必须保留 `/.well-known/acme-challenge/*`；DNS-01 使用目标 Zone 的最小 `DNS:Edit` Token，不使用 Global API Key。trusted proxy allowlist 只加入反向代理的精确 IP。
+
+ACME 失败不会降级到公网明文 HTTP。续期失败会保留最后的有效证书；进入到期安全窗口后停止远程 HTTPS，修复 DNS、端口或 Directory 后再 Apply。
+
+## 11. 数据与架构边界
 
 浏览器不是标的、账户、订单、行情、风险或 AI/Quant 的权威所有者。所有入口共享 canonical application contracts，保留原始 adapter provenance，不补造缺失数据、不跨 Provider 静默混源，也不按 Provider 名称写死能力。
 
-## 10. 故障排查
+## 12. 故障排查
 
 - **已连接但不能交易**：检查 Environment、capability、entitlement、账户、mapping、TradingRules 与 freshness。
 - **有 K 线但无实时报价**：Historical 与 Realtime 独立，检查实时订阅权限、source health 和首个 Tick。
 - **Review 后不能提交**：路由、账户、规则或字段变化可能让旧 token 失效，重新 Review。
 - **提交超时**：使用原 client order ID 查询恢复，不要创建相同订单。
+- **Agent 为空或不能发送**：确认至少一个 Agent 已保存并启用，API Key、模型 ID、Base URL 与请求参数有效。
+- **Agent 工具被拒绝**：检查 ToolGrant 范围、账户/标的与期限；submit/cancel/replace 必须由 owner 审批。
+- **远程 Web 打不开**：先查 configured/effective 状态与 `last_error`，再查 bind host、端口、A/AAAA、防火墙和 TLS；根据 challenge 检查 80、443 或 DNS TXT。
+- **证书不受信任**：确认已从 staging 切到 production、域名在 SAN 中、客户端时间正确、代理没有返回旧证书。
 - **页面 stale/unavailable**：查看受影响 facet、时间戳与原始错误；last-good 数据不表示仍然新鲜。

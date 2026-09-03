@@ -85,18 +85,98 @@ Portfolio reads authoritative trading projections and filters by Provider, Clien
 
 Intelligence presents Observations, Signals, Composite Indices, Evidence, and historical Replay. A Signal is an analytical result with baseline, deviation, confidence, freshness, revision, and sources—not a confirmed fact or a direct order.
 
-## 8. AI and Quant
+## 8. Configure and use Agent
 
-An AI Agent can analyze only through authorized tools and propose a TradingDecision. Quant runs or replays against fixed data, calendar, fee, slippage, and revision inputs. Strategy output carries evidence, version, expiry, account, and instrument scope. Approval admits the intent into the normal Review and RiskGuard flow; it does not submit an order.
+Agent is a constrained operating assistant, not an autonomous trader with account authority. It reads instruments, markets, news, Signals, accounts, and Quant state through authorized tools; trading requests can only produce reviewable proposals. The current build's run timeline is the source of truth for tool availability.
 
-## 9. Architecture and data boundaries
+### 8.1 Configure a model
+
+1. Open **Settings → AI → AI trading agents → Add**.
+2. Enter a display name, Provider (OpenAI / Anthropic / Google / Custom), API Key, and model ID.
+3. Set Base URL only for a compatible custom gateway.
+4. Model request parameters must be a JSON object, such as `{"enable_thinking": false}`; use `{}` when none are needed.
+5. Enable and save. When editing an existing Agent, leave API Key blank to retain the stored key.
+
+Enter API keys only in local Desktop settings. Never place them in a conversation, Web URL, screenshot, or ticket. Raw Provider/model credentials are not sent to the browser.
+
+### 8.2 Complete a safe session
+
+1. Open Agent from the bottom command bar in Desktop, Web Desktop, or H5. Create a session and select an enabled model.
+2. State the instrument, venue, time range, source preference, and goal. Name the Environment for account work; begin with Simulator/Testnet.
+3. Read the `admission → model → tool → approval → final` timeline.
+4. Verify Provider, ClientInstance, timestamp, freshness, and evidence. Separate fact, inference, and correlation.
+5. On a trading Approval Card, verify instrument, side, size, account, environment, expiry, and evidence. Approval still proceeds through Review, RiskGuard, and explicit submission.
+
+Example prompts:
+
+```text
+Compare AAPL volatility and volume over the last 20 sessions. Cite source timestamps and unknowns.
+Read the Paper account only. Summarize concentration, open orders, and P&L. Do not initiate a trade.
+Draft a Simulator limit order. Show route, rules, risk, and approval card first; do not approve it.
+```
+
+Agent has no arbitrary shell, native plugin, or direct Provider SDK access. Unattended Live automation is disabled in the first release. Instructions embedded in webpages or news are not authorization.
+
+## 9. Quant, replay, and Triggers
+
+Quant runs or replays against fixed data, trading calendar, fees, slippage, seed, and revision inputs. Agent may draft a declarative Trigger, but it follows this lifecycle:
+
+```text
+Draft → Validate → Historical Replay → Approve → Deploy → Pause / Retire
+```
+
+- Select exact canonical Instruments, Providers, ClientInstances, and data kinds.
+- Revisions retain immutable inputs, resource limits, outputs, and evidence cursors. A failed revision never replaces the running version.
+- A Trigger persists output before waking Agent, so model latency cannot block market, Quant, or execution hot paths.
+- The headless Runtime owns jobs; closing Desktop/Web does not stop them.
+
+## 10. Web Gateway and ACME
+
+Web Gateway is an optional entry point in the Desktop process. Starting, stopping, or reconfiguring it does not stop the Desktop kernel or Provider connections.
+
+### 10.1 Prove local access first
+
+1. Open **Settings → Web Gateway**, generate a random access password, and immediately store it in a password manager. Plaintext appears once; the app stores an Argon2 verifier.
+2. Use `127.0.0.1` or `::1` for Bind Host, select HTTP, and enable. Plain HTTP cannot bind to `0.0.0.0`.
+3. Open the displayed URL and sign in. “Keep me signed in” extends identity lifetime only; it adds no trading authority.
+
+### 10.2 Configure remote HTTPS
+
+1. Point the A/AAAA records for `studio.example.com` to the Gateway's public address. Remove an incorrect AAAA if IPv6 cannot reach the service.
+2. `public_domains` contains DNS names only—no scheme, port, or path. `public_base_url` is the complete final `https://` URL. Wildcard hosts are not accepted.
+3. Use a domain-matching PEM pair or managed Let's Encrypt. All non-loopback access requires HTTPS.
+
+| ACME method | Public requirement | Best fit |
+|---|---|---|
+| HTTP-01 | Public TCP 80 reaches the challenge listener | Simple host; challenge path may forward to local 8080 |
+| TLS-ALPN-01 | Public TCP 443 reaches TrueFix directly | TrueFix owns 443; a TLS terminator must not intercept ALPN |
+| DNS-01 | Cloudflare `DNS:Edit` Token and Zone ID | NAT/reverse proxy/no inbound 80 or 443; Gateway still rejects wildcard hosts |
+
+Rehearse with staging before production:
+
+```text
+https://acme-staging-v02.api.letsencrypt.org/directory
+  → Apply → healthy Running/renewal → browser test
+https://acme-v02.api.letsencrypt.org/directory
+  → Apply again → verify issuer, SAN, and expiry
+```
+
+A staging certificate is deliberately untrusted. HTTP-01 must preserve `/.well-known/acme-challenge/*`. DNS-01 should use a least-privilege `DNS:Edit` Token for the target Zone, never a Global API Key. Add only the reverse proxy's exact IP to the trusted proxy allowlist.
+
+ACME failure never downgrades to public plaintext HTTP. Renewal keeps the last valid certificate until the safety window, then remote HTTPS stops. Fix DNS, ports, or Directory and apply again.
+
+## 11. Architecture and data boundaries
 
 The browser is not the authority for instruments, accounts, orders, market data, risk, or AI/Quant. All entry points share canonical application contracts and preserve adapter provenance. The interface does not invent missing data, silently mix providers, or hard-code capabilities from a provider name.
 
-## 10. Troubleshooting
+## 12. Troubleshooting
 
 - **Connected but cannot trade:** check Environment, capability, entitlement, account, exact mapping, TradingRules, and freshness.
 - **Historical bars but no realtime quote:** Historical and Realtime are independent; check subscription entitlement, source health, and the first Tick.
 - **Cannot submit after Review:** a route, account, rule, or field change may have invalidated the token. Review again.
 - **Submit timed out:** query with the original client order ID; do not create the same order again.
+- **Agent is empty or cannot send:** confirm a saved Agent is enabled and its API Key, model ID, Base URL, and request parameters are valid.
+- **Agent tool denied:** check ToolGrant scope, account/instrument, and expiry; submit/cancel/replace require owner approval.
+- **Remote Web does not open:** read configured/effective state and `last_error`, then check bind host, ports, A/AAAA, firewall, and TLS; inspect 80, 443, or DNS TXT for the selected challenge.
+- **Certificate is untrusted:** confirm production—not staging—Directory, host SAN, client time, and that a proxy is not serving an old certificate.
 - **Page shows stale/unavailable:** inspect the affected facet, timestamp, and original error. Last-good data is not necessarily fresh.

@@ -85,18 +85,84 @@ Portfolioは権威ある取引projectionを読み、Provider、ClientInstance、
 
 IntelligenceはObservation、Signal、Composite Index、Evidence、履歴Replayを表示します。Signalはbaseline、deviation、confidence、freshness、revision、sourceを持つ分析結果であり、確定事実でも直接注文でもありません。
 
-## 8. AIとQuant
+## 8. Agent の設定と使い方
 
-AI Agentは認可済みツールだけで分析し、TradingDecisionを提案します。Quantは固定されたデータ、カレンダー、費用、スリッページ、revision入力で実行またはリプレイします。戦略出力にはevidence、バージョン、期限、口座、銘柄範囲が含まれます。承認は意図を通常のReviewとRiskGuardへ入れるだけで、注文を送信しません。
+Agent は権限を制限された操作アシスタントであり、自律取引ボットではありません。認可ツールで銘柄、市場、ニュース、Signal、口座、Quant 状態を読み取り、取引はレビュー可能な提案としてのみ作成します。利用可能なツールは実行タイムラインで確認します。
 
-## 9. 構成とデータ境界
+### 8.1 モデル設定
+
+1. **設定 → AI → AI trading agents → 追加**を開きます。
+2. 表示名、Provider（OpenAI / Anthropic / Google / Custom）、API Key、モデル ID を入力します。
+3. 互換カスタムゲートウェイの場合だけ Base URL を指定します。
+4. リクエストパラメータは `{"enable_thinking": false}` のような JSON オブジェクトです。不要なら `{}` にします。
+5. 有効化して保存します。既存 Agent の API Key を空欄にすると保存済みキーを保持します。
+
+API Key は Desktop のローカル設定にのみ入力し、会話、Web URL、画像、チケットには書きません。生の認証情報はブラウザーへ渡りません。
+
+### 8.2 安全なセッション
+
+1. Desktop、Web Desktop、H5 の下部コマンドバーから Agent を開き、セッションと有効モデルを選びます。
+2. 銘柄、市場、期間、ソース、目的を明示します。口座を扱う場合は Environment を指定し、Simulator/Testnet から始めます。
+3. `admission → model → tool → approval → final` と Provider、ClientInstance、時刻、freshness、evidence を確認します。
+4. 事実、推論、相関を区別し、stale/degraded/拒否なら質問を絞るかソースを修復します。
+5. Approval Card の銘柄、方向、数量、口座、環境、期限、証拠を確認します。承認後も Review、RiskGuard、明示送信が必要です。
+
+```text
+AAPL の直近20取引日の変動率と出来高を比較し、ソース時刻と不明点を示して。
+Paper 口座だけを読み、集中度、未約定注文、損益を要約。取引は開始しないで。
+Simulator の指値注文案を作り、route、ルール、リスク、承認カードを先に表示して。
+```
+
+任意 Shell、ネイティブプラグイン、Provider SDK への直接アクセスはありません。初版では無人 Live 自動取引は無効です。
+
+## 9. Quant、Replay、Trigger
+
+Quant は固定データ、取引カレンダー、費用、スリッページ、seed、revision で実行・再生します。
+
+```text
+Draft → Validate → Historical Replay → Approve → Deploy → Pause / Retire
+```
+
+- 正確な canonical Instrument、Provider、ClientInstance、データ種別を指定します。
+- Revision は不変入力、リソース上限、出力、evidence cursor を保持します。
+- Trigger は結果を永続化してから Agent を起動し、モデル遅延は取引のホットパスを止めません。
+- headless Runtime がジョブを所有するため、UI を閉じても停止しません。
+
+## 10. Web Gateway と ACME
+
+### 10.1 ローカル接続
+
+1. **設定 → Web Gateway** でアクセスパスワードを生成し、パスワード管理ソフトに保存します。平文は一度だけ表示されます。
+2. Bind Host を `127.0.0.1` または `::1`、HTTP にして有効化します。平文 HTTP は `0.0.0.0` にバインドできません。
+3. 表示 URL へログインします。「ログイン状態を保持」は取引権限を増やしません。
+
+### 10.2 リモート HTTPS
+
+1. `studio.example.com` の A/AAAA を Gateway の公開 IP へ向けます。到達しない AAAA は削除します。
+2. `public_domains` は DNS 名のみ、`public_base_url` は完全な `https://` URL です。ワイルドカードは不可です。
+3. ドメインに一致する PEM または Let's Encrypt を選びます。non-loopback は必ず HTTPS です。
+
+| ACME | 公開条件 | 用途 |
+|---|---|---|
+| HTTP-01 | 公開 TCP 80 が challenge listener へ到達 | 通常ホスト。challenge パスをローカル 8080 へ転送可能 |
+| TLS-ALPN-01 | 公開 TCP 443 が TrueFix へ直達 | TrueFix が 443 を占有、前段で ALPN を終端しない |
+| DNS-01 | Cloudflare `DNS:Edit` Token + Zone ID | NAT/リバースプロキシ/80・443を開けない場合 |
+
+まず `https://acme-staging-v02.api.letsencrypt.org/directory` で演習し、Running と renewal を確認してから `https://acme-v02.api.letsencrypt.org/directory` へ切り替えます。Staging 証明書が信頼されないのは正常です。HTTP-01 は `/.well-known/acme-challenge/*` を保持し、DNS-01 は対象 Zone 限定の最小 `DNS:Edit` Token を使います。
+
+ACME 失敗時も公開 HTTP へ降格しません。trusted proxy allowlist には正確なプロキシ IP だけを追加してください。
+
+## 11. 構成とデータ境界
 
 ブラウザーは銘柄、口座、注文、市場データ、リスク、AI/Quantの権威所有者ではありません。全エントリーポイントはcanonical application contractsを共有し、adapter provenanceを保持します。UIは欠損データを作らず、Providerを暗黙に混在させず、Provider名から機能を決めつけません。
 
-## 10. トラブルシューティング
+## 12. トラブルシューティング
 
 - **接続済みだが取引できない：** Environment、capability、entitlement、口座、正確なmapping、TradingRules、freshnessを確認します。
 - **履歴バーはあるがリアルタイム価格がない：** HistoricalとRealtimeは独立しています。購読権限、source health、最初のTickを確認します。
-- **Review後に送信できない：** 経路、口座、ルール、フィールド変更でtokenが無効になった可能性があります。再度Reviewします。
 - **送信がタイムアウトした：** 元のclient order IDで照会し、同じ注文を作成し直しません。
-- **stale/unavailable表示：** 影響を受けたfacet、timestamp、元のエラーを確認します。last-goodデータが常に最新とは限りません。
+- **Agent が空/送信不可：** 有効な Agent、API Key、モデル ID、Base URL、JSON パラメータを確認します。
+- **Agent ツールが拒否：** ToolGrant の範囲と期限を確認します。submit/cancel/replace は owner 承認が必要です。
+- **リモート Web が開かない：** configured/effective 状態、`last_error`、bind host、ポート、A/AAAA、Firewall、TLS を確認します。
+- **証明書が信頼されない：** production Directory、SAN、端末時刻、プロキシの古い証明書を確認します。
+- **stale/unavailable表示：** 影響を受けたfacet、timestamp、元のエラーを確認します。

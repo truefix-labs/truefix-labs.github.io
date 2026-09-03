@@ -85,18 +85,84 @@ Portfolio는 권위 있는 거래 projection을 읽고 Provider, ClientInstance,
 
 Intelligence는 Observation, Signal, Composite Index, Evidence, 과거 Replay를 표시합니다. Signal은 baseline, deviation, confidence, freshness, revision, source가 있는 분석 결과이며 확인된 사실이나 직접 주문이 아닙니다.
 
-## 8. AI와 Quant
+## 8. Agent 구성 및 사용
 
-AI Agent는 권한이 부여된 도구로만 분석하고 TradingDecision을 제안합니다. Quant는 고정된 데이터, 캘린더, 비용, 슬리피지, revision 입력으로 실행하거나 재생합니다. 전략 출력에는 evidence, 버전, 만료, 계정, 종목 범위가 포함됩니다. 승인은 의도를 일반 Review 및 RiskGuard 흐름에 넣을 뿐 주문을 제출하지 않습니다.
+Agent는 권한이 제한된 운영 도우미이며 자율 거래 봇이 아닙니다. 승인된 도구로 종목, 시장, 뉴스, Signal, 계정과 Quant 상태를 읽고 거래는 검토 가능한 제안으로만 만듭니다. 현재 빌드의 실행 타임라인이 도구 가용성의 기준입니다.
 
-## 9. 아키텍처와 데이터 경계
+### 8.1 모델 구성
+
+1. **설정 → AI → AI trading agents → 추가**를 엽니다.
+2. 표시 이름, Provider(OpenAI / Anthropic / Google / Custom), API Key, 모델 ID를 입력합니다.
+3. 호환 사용자 지정 게이트웨이일 때만 Base URL을 지정합니다.
+4. 요청 매개변수는 `{"enable_thinking": false}` 같은 JSON 객체여야 하며 필요 없으면 `{}`를 사용합니다.
+5. 활성화하고 저장합니다. 기존 Agent의 API Key를 비우면 저장된 키를 유지합니다.
+
+API Key는 Desktop 로컬 설정에만 입력하고 대화, Web URL, 이미지, 티켓에는 넣지 마세요. 원본 자격 증명은 브라우저에 전달되지 않습니다.
+
+### 8.2 안전한 세션
+
+1. Desktop, Web Desktop 또는 H5 하단 명령 바에서 Agent를 열고 세션과 활성 모델을 선택합니다.
+2. 종목, 시장, 기간, 소스, 목표를 명시합니다. 계정 작업에는 Environment를 쓰고 Simulator/Testnet부터 시작합니다.
+3. `admission → model → tool → approval → final`과 Provider, ClientInstance, 시간, freshness, evidence를 확인합니다.
+4. 사실, 추론, 상관관계를 구분하고 stale/degraded/거부이면 범위를 좁히거나 소스를 복구합니다.
+5. Approval Card의 종목, 방향, 수량, 계정, 환경, 만료, 증거를 확인합니다. 승인 뒤에도 Review, RiskGuard와 명시적 제출이 필요합니다.
+
+```text
+AAPL 최근 20거래일의 변동성과 거래량을 비교하고 소스 시간과 불확실한 부분을 표시해 줘.
+Paper 계정만 읽고 집중도, 미체결 주문, 손익을 요약해 줘. 거래는 시작하지 마.
+Simulator 지정가 주문안을 만들고 route, 규칙, 리스크, 승인 카드를 먼저 보여 줘.
+```
+
+임의 Shell, 네이티브 플러그인, Provider SDK 직접 접근은 없습니다. 첫 릴리스에서 무인 Live 자동 거래는 비활성화됩니다.
+
+## 9. Quant, Replay와 Trigger
+
+Quant는 고정 데이터, 거래 달력, 수수료, 슬리피지, seed, revision으로 실행/리플레이됩니다.
+
+```text
+Draft → Validate → Historical Replay → Approve → Deploy → Pause / Retire
+```
+
+- 정확한 canonical Instrument, Provider, ClientInstance와 데이터 종류를 선택합니다.
+- Revision은 불변 입력, 리소스 제한, 출력, evidence cursor를 보존합니다.
+- Trigger는 결과를 영속화한 뒤 Agent를 깨우므로 모델 지연이 거래 핫패스를 막지 않습니다.
+- headless Runtime이 작업을 소유하므로 UI를 닫아도 중지되지 않습니다.
+
+## 10. Web Gateway와 ACME
+
+### 10.1 로컬 접속
+
+1. **설정 → Web Gateway**에서 접속 비밀번호를 생성해 비밀번호 관리자에 저장합니다. 평문은 한 번만 표시됩니다.
+2. Bind Host를 `127.0.0.1` 또는 `::1`, HTTP로 설정해 활성화합니다. 평문 HTTP는 `0.0.0.0`에 바인딩할 수 없습니다.
+3. 표시 URL로 로그인합니다. “로그인 유지”는 거래 권한을 늘리지 않습니다.
+
+### 10.2 원격 HTTPS
+
+1. `studio.example.com`의 A/AAAA를 Gateway 공인 IP로 지정합니다. 도달하지 않는 AAAA는 제거합니다.
+2. `public_domains`는 DNS 이름만, `public_base_url`은 완전한 `https://` URL을 사용합니다. 와일드카드는 허용되지 않습니다.
+3. 도메인과 일치하는 PEM 또는 Let's Encrypt를 선택합니다. non-loopback은 항상 HTTPS여야 합니다.
+
+| ACME | 공개 조건 | 용도 |
+|---|---|---|
+| HTTP-01 | 공인 TCP 80이 challenge listener에 도달 | 일반 호스트. challenge 경로를 로컬 8080으로 전달 가능 |
+| TLS-ALPN-01 | 공인 TCP 443이 TrueFix에 직접 도달 | TrueFix가 443 사용, 앞단에서 ALPN 종료 금지 |
+| DNS-01 | Cloudflare `DNS:Edit` Token + Zone ID | NAT/리버스 프록시/80·443 개방 불가 |
+
+먼저 `https://acme-staging-v02.api.letsencrypt.org/directory`로 연습해 Running/renewal을 확인하고 `https://acme-v02.api.letsencrypt.org/directory`로 전환합니다. Staging 인증서가 신뢰되지 않는 것은 정상입니다. HTTP-01은 `/.well-known/acme-challenge/*`를 유지하고 DNS-01은 대상 Zone의 최소 `DNS:Edit` Token을 사용합니다.
+
+ACME 실패 시에도 공용 HTTP로 강등되지 않습니다. trusted proxy allowlist에는 정확한 프록시 IP만 추가하세요.
+
+## 11. 아키텍처와 데이터 경계
 
 브라우저는 종목, 계정, 주문, 시장 데이터, 리스크, AI/Quant의 권위 있는 소유자가 아닙니다. 모든 진입점은 canonical application contracts를 공유하고 adapter provenance를 보존합니다. UI는 누락 데이터를 만들거나 Provider를 몰래 섞거나 Provider 이름으로 기능을 단정하지 않습니다.
 
-## 10. 문제 해결
+## 12. 문제 해결
 
 - **연결되었지만 거래할 수 없음:** Environment, capability, entitlement, 계정, 정확한 매핑, TradingRules, freshness를 확인하세요.
 - **과거 바는 있지만 실시간 견적이 없음:** Historical과 Realtime은 독립적입니다. 구독 권한, source health, 첫 Tick을 확인하세요.
-- **Review 후 제출할 수 없음:** 경로, 계정, 규칙, 필드 변경으로 token이 무효화되었을 수 있습니다. 다시 Review하세요.
 - **제출 시간 초과:** 원래 client order ID로 조회하고 같은 주문을 다시 만들지 마세요.
-- **stale/unavailable 표시:** 영향받은 facet, timestamp, 원본 오류를 확인하세요. last-good 데이터가 항상 최신인 것은 아닙니다.
+- **Agent가 비었거나 전송 불가:** 활성 Agent, API Key, 모델 ID, Base URL, JSON 매개변수를 확인하세요.
+- **Agent 도구 거부:** ToolGrant 범위와 만료를 확인하세요. submit/cancel/replace는 owner 승인이 필요합니다.
+- **원격 Web 접속 불가:** configured/effective 상태, `last_error`, bind host, 포트, A/AAAA, 방화벽, TLS를 확인하세요.
+- **인증서 신뢰 오류:** production Directory, SAN, 클라이언트 시간, 프록시의 이전 인증서를 확인하세요.
+- **stale/unavailable 표시:** 영향받은 facet, timestamp, 원본 오류를 확인하세요.

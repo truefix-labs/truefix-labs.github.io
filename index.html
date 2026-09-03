@@ -14,8 +14,8 @@
     <link rel="canonical" href="https://truefix-labs.com/" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png" />
-    <link rel="stylesheet" href="styles.css?v=8" />
-    <script src="script.js?v=7" defer></script>
+    <link rel="stylesheet" href="styles.css?v=9" />
+    <script src="script.js?v=8" defer></script>
     <title>TrueFix Studio — Multi-provider trading workstation</title>
   </head>
   <body>
@@ -55,14 +55,14 @@
       <section class="hero" id="top">
         <div class="hero-grid" aria-hidden="true"></div>
         <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">Private beta · Pre-release</b></p>
+          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">Nightly build · Pre-release</b></p>
           <h1 data-i18n-html="hero.title">Every market decision,<br /><i>backed by evidence.</i></h1>
           <p class="hero-lede" data-i18n="hero.lede">TrueFix Studio brings market data, research, strategy, risk, and execution into one multi-provider workstation—clear for traders, deterministic for quant systems, and permissioned for AI.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="guide/"><span data-i18n="hero.source">Read the user guide</span><span aria-hidden="true">↗</span></a>
-            <a class="button button-quiet" href="#overview"><span data-i18n="hero.explore">See who it is for</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="#download"><span data-i18n="hero.download">Download Nightly</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-quiet" href="guide/"><span data-i18n="hero.source">Read the user guide</span><span aria-hidden="true">↗</span></a>
           </div>
-          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">Pre-release · Access is currently private</span></div>
+          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">Nightly pre-release · For testing only</span></div>
         </div>
 
         <div class="hero-visual reveal" data-delay="1">
@@ -89,6 +89,61 @@
         </div>
       </div>
 
+      <section class="download-section" id="download" aria-labelledby="download-title">
+        <div class="download-heading reveal">
+          <div>
+            <p class="section-kicker"><span data-i18n="download.eyebrow">NIGHTLY RELEASE</span> · <span data-release-version>0.1.0</span></p>
+            <h2 id="download-title" data-i18n-html="download.title">Choose your platform.<br /><i>Start with the latest build.</i></h2>
+          </div>
+          <div class="download-intro">
+            <p data-i18n="download.lede">Public pre-release installers built from the current TrueFix Studio nightly channel. Choose the package that matches your operating system and architecture.</p>
+            <div class="release-meta"><span data-i18n="download.prerelease">PRE-RELEASE</span><span><span data-i18n="download.updated">Updated</span> <time datetime="2026-09-03" data-release-date>2026-09-03</time></span></div>
+          </div>
+        </div>
+
+        <div class="download-grid">
+          <article class="download-card reveal" data-platform-card="macos">
+            <div class="download-card-top"><span class="platform-index">01</span><span class="recommended-badge" data-recommended hidden data-i18n="download.recommended">Recommended for this device</span></div>
+            <div class="platform-symbol" aria-hidden="true">MAC</div>
+            <h3>macOS</h3>
+            <p class="platform-arch" data-i18n="download.mac.arch">Apple Silicon · arm64</p>
+            <p class="platform-copy" data-i18n="download.mac.note">DMG installer for Apple Silicon Macs. This nightly build is currently unsigned.</p>
+            <a class="button button-download" data-release-asset="mac-dmg" href="https://github.com/truefix-labs/truefix-labs.github.io/releases/download/nightly/macos-TrueFix.Studio_0.1.0_aarch64.dmg"><span data-i18n="download.mac.action">Download DMG</span><span aria-hidden="true">↓</span></a>
+            <div class="download-file"><span>DMG · <span data-release-size="mac-dmg">68.8 MB</span></span><a href="guide/#first-run" data-i18n="download.installGuide">Installation guide ↗</a></div>
+            <div class="macos-unsigned-note">
+              <p data-i18n="download.mac.xattr">If macOS blocks this unsigned build, move the app to Applications, then run:</p>
+              <code>xattr -cr "/Applications/TrueFix Studio.app"</code>
+              <small data-i18n="download.mac.xattrCaution">Use this command only for the app downloaded from the official TrueFix Release.</small>
+            </div>
+          </article>
+
+          <article class="download-card reveal" data-delay="1" data-platform-card="windows">
+            <div class="download-card-top"><span class="platform-index">02</span><span class="recommended-badge" data-recommended hidden data-i18n="download.recommended">Recommended for this device</span></div>
+            <div class="platform-symbol" aria-hidden="true">WIN</div>
+            <h3>Windows</h3>
+            <p class="platform-arch" data-i18n="download.windows.arch">Windows · x64</p>
+            <p class="platform-copy" data-i18n="download.windows.note">Standard setup executable for 64-bit Windows. MSI is also available for managed installation.</p>
+            <a class="button button-download" data-release-asset="windows-exe" href="https://github.com/truefix-labs/truefix-labs.github.io/releases/download/nightly/windows-TrueFix.Studio_0.1.0_x64-setup.exe"><span data-i18n="download.windows.action">Download setup EXE</span><span aria-hidden="true">↓</span></a>
+            <div class="download-file"><span>EXE · <span data-release-size="windows-exe">49.5 MB</span></span><a data-release-asset="windows-msi" href="https://github.com/truefix-labs/truefix-labs.github.io/releases/download/nightly/windows-TrueFix.Studio_0.1.0_x64_en-US.msi"><span data-i18n="download.alternative">Alternative</span>: MSI · <span data-release-size="windows-msi">72.6 MB</span></a></div>
+          </article>
+
+          <article class="download-card reveal" data-delay="2" data-platform-card="linux">
+            <div class="download-card-top"><span class="platform-index">03</span><span class="recommended-badge" data-recommended hidden data-i18n="download.recommended">Recommended for this device</span></div>
+            <div class="platform-symbol" aria-hidden="true">LNX</div>
+            <h3>Linux</h3>
+            <p class="platform-arch" data-i18n="download.linux.arch">Linux · x86_64</p>
+            <p class="platform-copy" data-i18n="download.linux.note">Portable AppImage for 64-bit Linux. A Debian package is available for apt-based systems.</p>
+            <a class="button button-download" data-release-asset="linux-appimage" href="https://github.com/truefix-labs/truefix-labs.github.io/releases/download/nightly/linux-TrueFix.Studio_0.1.0_amd64.AppImage"><span data-i18n="download.linux.action">Download AppImage</span><span aria-hidden="true">↓</span></a>
+            <div class="download-file"><span>AppImage · <span data-release-size="linux-appimage">137.8 MB</span></span><a data-release-asset="linux-deb" href="https://github.com/truefix-labs/truefix-labs.github.io/releases/download/nightly/linux-TrueFix.Studio_0.1.0_amd64.deb"><span data-i18n="download.alternative">Alternative</span>: DEB · <span data-release-size="linux-deb">72.1 MB</span></a></div>
+          </article>
+        </div>
+
+        <div class="download-footer reveal">
+          <p data-i18n="download.disclaimer">Nightly builds may change without notice. Verify the platform and review the guide before connecting any account.</p>
+          <a class="text-link" href="https://github.com/truefix-labs/truefix-labs.github.io/releases/tag/nightly" target="_blank" rel="noreferrer"><span data-i18n="download.allFiles">View release notes and all files</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
       <section class="overview-section" id="overview" aria-labelledby="overview-title">
         <div class="overview-heading reveal">
           <div>
@@ -107,7 +162,7 @@
           <article class="overview-fact reveal" data-delay="1">
             <span>02</span><p data-i18n="overview.who.label">WHO IT IS FOR</p>
             <h3 data-i18n="overview.who.title">Traders, quant builders, and research or risk teams</h3>
-            <p data-i18n="overview.who.body">Current access is limited to invited private-beta testers. Every usable capability still depends on the selected provider, account, environment, and entitlement.</p>
+            <p data-i18n="overview.who.body">Public nightly builds are available for evaluation. Every usable capability still depends on the selected provider, account, environment, and entitlement.</p>
           </article>
           <article class="overview-fact reveal" data-delay="2">
             <span>03</span><p data-i18n="overview.work.label">WHAT THEY DO</p>

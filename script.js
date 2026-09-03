@@ -10,15 +10,24 @@ const translations = {
     'a11y.nav': 'Primary navigation', 'a11y.capabilities': 'Core capabilities', 'a11y.productInterfaces': 'Product interfaces',
     'a11y.architecture': 'TrueFix Studio architecture diagram', 'a11y.film': 'TrueFix Studio product film', 'a11y.providers': 'Available provider adapters', 'language.label': 'Language',
     'nav.product': 'Product', 'nav.principles': 'Principles', 'nav.architecture': 'Architecture', 'nav.modes': 'Use cases', 'nav.about': 'About', 'nav.feedback': 'Feedback', 'nav.guide': 'User guide',
-    'hero.eyebrow': 'Private beta · Pre-release', 'hero.title': 'Every market decision,<br /><i>backed by evidence.</i>',
+    'hero.eyebrow': 'Nightly build · Pre-release', 'hero.title': 'Every market decision,<br /><i>backed by evidence.</i>',
     'hero.lede': 'TrueFix Studio brings market data, research, strategy, risk, and execution into one multi-provider workstation—clear for traders, deterministic for quant systems, and permissioned for AI.',
-    'hero.source': 'Read the user guide', 'hero.explore': 'See who it is for', 'hero.note': 'Pre-release · Access is currently private',
+    'hero.download': 'Download Nightly', 'hero.source': 'Read the user guide', 'hero.explore': 'See who it is for', 'hero.note': 'Nightly pre-release · For testing only',
+    'download.eyebrow': 'NIGHTLY RELEASE', 'download.title': 'Choose your platform.<br /><i>Start with the latest build.</i>',
+    'download.lede': 'Public pre-release installers built from the current TrueFix Studio nightly channel. Choose the package that matches your operating system and architecture.',
+    'download.prerelease': 'PRE-RELEASE', 'download.updated': 'Updated', 'download.recommended': 'Recommended for this device',
+    'download.mac.arch': 'Apple Silicon · arm64', 'download.mac.note': 'DMG installer for Apple Silicon Macs. This nightly build is currently unsigned.', 'download.mac.action': 'Download DMG',
+    'download.mac.xattr': 'If macOS blocks this unsigned build, move the app to Applications, then run:', 'download.mac.xattrCaution': 'Use this command only for the app downloaded from the official TrueFix Release.',
+    'download.windows.arch': 'Windows · x64', 'download.windows.note': 'Standard setup executable for 64-bit Windows. MSI is also available for managed installation.', 'download.windows.action': 'Download setup EXE',
+    'download.linux.arch': 'Linux · x86_64', 'download.linux.note': 'Portable AppImage for 64-bit Linux. A Debian package is available for apt-based systems.', 'download.linux.action': 'Download AppImage',
+    'download.installGuide': 'Installation guide ↗', 'download.alternative': 'Alternative',
+    'download.disclaimer': 'Nightly builds may change without notice. Verify the platform and review the guide before connecting any account.', 'download.allFiles': 'View release notes and all files',
     'overview.eyebrow': '01 / PRODUCT OVERVIEW', 'overview.title': 'Understand the market.<br />Test the decision. Control the action.',
     'overview.lede': 'TrueFix Studio is a multi-provider trading workspace that keeps research, evidence, strategy, risk review, and execution in one traceable flow.',
     'overview.what.label': 'WHAT IT IS', 'overview.what.title': 'One evidence-backed decision chain',
     'overview.what.body': 'Instead of separating charts, research, strategies, accounts, and orders across unrelated tools, TrueFix keeps their identity, source, and state connected.',
     'overview.who.label': 'WHO IT IS FOR', 'overview.who.title': 'Traders, quant builders, and research or risk teams',
-    'overview.who.body': 'Current access is limited to invited private-beta testers. Every usable capability still depends on the selected provider, account, environment, and entitlement.',
+    'overview.who.body': 'Public nightly builds are available for evaluation. Every usable capability still depends on the selected provider, account, environment, and entitlement.',
     'overview.work.label': 'WHAT THEY DO', 'overview.work.title': 'Observe → verify → test → review → execute',
     'overview.work.body': 'A user can inspect a signal and its sources, replay a strategy, choose an authorized account, review fees and risk, then submit and reconcile the result.',
     'overview.personas.eyebrow': 'ILLUSTRATIVE BETA PERSONAS', 'overview.personas.title': 'Three ways invited testers could use TrueFix.',
@@ -89,15 +98,24 @@ const translations = {
     'a11y.nav': '主导航', 'a11y.capabilities': '核心能力', 'a11y.productInterfaces': '产品界面',
     'a11y.architecture': 'TrueFix Studio 架构图', 'a11y.film': 'TrueFix Studio 产品宣传片', 'a11y.providers': '可用 Provider 适配器', 'language.label': '语言',
     'nav.product': '产品', 'nav.principles': '原则', 'nav.architecture': '架构', 'nav.modes': '使用方式', 'nav.about': '关于我们', 'nav.feedback': '反馈交流', 'nav.guide': '使用指南',
-    'hero.eyebrow': '私测 · 首版发布前', 'hero.title': '每一个市场决策，<br /><i>都有证据可循。</i>',
+    'hero.eyebrow': 'Nightly 构建 · 预发布', 'hero.title': '每一个市场决策，<br /><i>都有证据可循。</i>',
     'hero.lede': 'TrueFix Studio 把行情、研究、策略、风控与执行放进同一个多 Provider 工作站。为交易员而清晰，为量化系统而确定，为 AI 而可授权。',
-    'hero.source': '阅读使用指南', 'hero.explore': '了解适用人群', 'hero.note': '首版发布前 · 当前仅限受邀访问',
+    'hero.download': '下载 Nightly 版', 'hero.source': '阅读使用指南', 'hero.explore': '了解适用人群', 'hero.note': 'Nightly 预发布版本 · 仅供测试',
+    'download.eyebrow': 'NIGHTLY RELEASE', 'download.title': '选择你的平台。<br /><i>从最新构建开始。</i>',
+    'download.lede': '由 TrueFix Studio 当前 Nightly 渠道构建的公开预发布安装包。请选择与你的操作系统及处理器架构相符的版本。',
+    'download.prerelease': '预发布版本', 'download.updated': '更新于', 'download.recommended': '推荐用于当前设备',
+    'download.mac.arch': 'Apple Silicon · arm64', 'download.mac.note': '适用于 Apple Silicon Mac 的 DMG 安装包；当前 Nightly 版本尚未签名。', 'download.mac.action': '下载 DMG',
+    'download.mac.xattr': '如果 macOS 拦截未签名版本，请先将应用移入“应用程序”，然后运行：', 'download.mac.xattrCaution': '仅对从 TrueFix 官方 Release 下载的应用执行此命令。',
+    'download.windows.arch': 'Windows · x64', 'download.windows.note': '适用于 64 位 Windows 的标准安装程序；受管环境也可使用 MSI。', 'download.windows.action': '下载 EXE 安装程序',
+    'download.linux.arch': 'Linux · x86_64', 'download.linux.note': '适用于 64 位 Linux 的便携 AppImage；基于 apt 的系统也可使用 Debian 包。', 'download.linux.action': '下载 AppImage',
+    'download.installGuide': '安装指南 ↗', 'download.alternative': '其他格式',
+    'download.disclaimer': 'Nightly 构建可能随时变化。连接任何账户前，请核对平台并阅读使用指南。', 'download.allFiles': '查看发布说明及全部文件',
     'overview.eyebrow': '01 / 产品概览', 'overview.title': '看懂市场。<br />验证决策，控制行动。',
     'overview.lede': 'TrueFix Studio 是一个多 Provider 交易工作空间，把研究、证据、策略、风险审查与执行留在同一条可追踪流程中。',
     'overview.what.label': '它是什么', 'overview.what.title': '一条有证据支撑的完整决策链',
     'overview.what.body': '图表、研究、策略、账户和订单不再散落在彼此无关的工具中；TrueFix 让它们的身份、来源与状态始终保持连接。',
     'overview.who.label': '谁适合使用', 'overview.who.title': '主动交易者、量化开发者，以及研究与风控团队',
-    'overview.who.body': '目前仅向受邀私测用户开放。每项实际可用能力仍取决于所选 Provider、账户、环境与权限。',
+    'overview.who.body': '公开 Nightly 构建现已可供评估。每项实际可用能力仍取决于所选 Provider、账户、环境与权限。',
     'overview.work.label': '他们用它做什么', 'overview.work.title': '观察 → 核验 → 测试 → 审查 → 执行',
     'overview.work.body': '用户可以检查信号及其来源、回放策略、选择已授权账户、审查费用与风险，然后提交订单并核对执行结果。',
     'overview.personas.eyebrow': '私测使用情景示例', 'overview.personas.title': '三种受邀测试者可能使用 TrueFix 的方式。',
@@ -168,15 +186,24 @@ const translations = {
     'a11y.nav': '주요 내비게이션', 'a11y.capabilities': '핵심 기능', 'a11y.productInterfaces': '제품 인터페이스',
     'a11y.architecture': 'TrueFix Studio 아키텍처 다이어그램', 'a11y.film': 'TrueFix Studio 제품 필름', 'a11y.providers': '사용 가능한 Provider 어댑터', 'language.label': '언어',
     'nav.product': '제품', 'nav.principles': '원칙', 'nav.architecture': '아키텍처', 'nav.modes': '사용 방식', 'nav.about': '소개', 'nav.feedback': '피드백', 'nav.guide': '사용 가이드',
-    'hero.eyebrow': '프라이빗 베타 · 출시 전', 'hero.title': '모든 시장 의사결정에,<br /><i>검증 가능한 근거를.</i>',
+    'hero.eyebrow': 'Nightly 빌드 · 프리릴리스', 'hero.title': '모든 시장 의사결정에,<br /><i>검증 가능한 근거를.</i>',
     'hero.lede': 'TrueFix Studio는 시장 데이터, 리서치, 전략, 리스크, 실행을 하나의 멀티 프로바이더 워크스테이션에 통합합니다. 트레이더에게는 명확하게, 퀀트 시스템에는 결정론적으로, AI에는 권한을 통제하여 제공합니다.',
-    'hero.source': '사용 가이드 읽기', 'hero.explore': '누구를 위한 제품인지 보기', 'hero.note': '출시 전 · 현재 접근은 비공개입니다',
+    'hero.download': 'Nightly 다운로드', 'hero.source': '사용 가이드 읽기', 'hero.explore': '누구를 위한 제품인지 보기', 'hero.note': 'Nightly 프리릴리스 · 테스트 전용',
+    'download.eyebrow': 'NIGHTLY RELEASE', 'download.title': '플랫폼을 선택하세요.<br /><i>최신 빌드로 시작하세요.</i>',
+    'download.lede': '현재 TrueFix Studio Nightly 채널에서 빌드된 공개 프리릴리스 설치 파일입니다. 운영 체제와 아키텍처에 맞는 패키지를 선택하세요.',
+    'download.prerelease': '프리릴리스', 'download.updated': '업데이트', 'download.recommended': '현재 기기에 권장',
+    'download.mac.arch': 'Apple Silicon · arm64', 'download.mac.note': 'Apple Silicon Mac용 DMG 설치 파일입니다. 현재 Nightly 빌드는 서명되지 않았습니다.', 'download.mac.action': 'DMG 다운로드',
+    'download.mac.xattr': 'macOS에서 서명되지 않은 빌드를 차단하면 앱을 응용 프로그램으로 옮긴 후 다음을 실행하세요:', 'download.mac.xattrCaution': 'TrueFix 공식 Release에서 다운로드한 앱에만 이 명령을 사용하세요.',
+    'download.windows.arch': 'Windows · x64', 'download.windows.note': '64비트 Windows용 표준 설치 실행 파일입니다. 관리형 설치용 MSI도 제공됩니다.', 'download.windows.action': '설치 EXE 다운로드',
+    'download.linux.arch': 'Linux · x86_64', 'download.linux.note': '64비트 Linux용 휴대용 AppImage입니다. apt 기반 시스템용 Debian 패키지도 제공됩니다.', 'download.linux.action': 'AppImage 다운로드',
+    'download.installGuide': '설치 가이드 ↗', 'download.alternative': '대체 형식',
+    'download.disclaimer': 'Nightly 빌드는 예고 없이 변경될 수 있습니다. 계정을 연결하기 전에 플랫폼을 확인하고 가이드를 검토하세요.', 'download.allFiles': '릴리스 노트 및 전체 파일 보기',
     'overview.eyebrow': '01 / 제품 개요', 'overview.title': '시장을 이해하고.<br />결정을 검증하며, 행동을 통제합니다.',
     'overview.lede': 'TrueFix Studio는 리서치, 증거, 전략, 리스크 검토, 실행을 하나의 추적 가능한 흐름으로 연결하는 멀티 프로바이더 트레이딩 워크스페이스입니다.',
     'overview.what.label': '무엇인가요', 'overview.what.title': '증거로 뒷받침되는 하나의 의사결정 체계',
     'overview.what.body': '차트, 리서치, 전략, 계정, 주문을 서로 단절된 도구에 나누지 않고 각각의 식별 정보, 출처, 상태를 계속 연결합니다.',
     'overview.who.label': '누가 사용하나요', 'overview.who.title': '트레이더, 퀀트 개발자, 리서치 및 리스크 팀',
-    'overview.who.body': '현재는 초대받은 프라이빗 베타 테스터만 이용할 수 있습니다. 실제 기능은 선택한 Provider, 계정, 환경, 권한에 따라 달라집니다.',
+    'overview.who.body': '평가용 공개 Nightly 빌드를 이용할 수 있습니다. 실제 기능은 선택한 Provider, 계정, 환경, 권한에 따라 달라집니다.',
     'overview.work.label': '무엇을 하나요', 'overview.work.title': '관찰 → 검증 → 테스트 → 검토 → 실행',
     'overview.work.body': '신호와 출처를 확인하고, 전략을 리플레이하고, 권한이 있는 계정을 선택하고, 비용과 리스크를 검토한 뒤 주문과 결과를 대조할 수 있습니다.',
     'overview.personas.eyebrow': '베타 사용 시나리오 예시', 'overview.personas.title': '초대 테스터가 TrueFix를 사용할 수 있는 세 가지 방식.',
@@ -247,15 +274,24 @@ const translations = {
     'a11y.nav': 'メインナビゲーション', 'a11y.capabilities': '主要機能', 'a11y.productInterfaces': '製品インターフェース',
     'a11y.architecture': 'TrueFix Studio アーキテクチャ図', 'a11y.film': 'TrueFix Studio プロダクトフィルム', 'a11y.providers': '利用可能なProviderアダプター', 'language.label': '言語',
     'nav.product': '製品', 'nav.principles': '原則', 'nav.architecture': '構成', 'nav.modes': '利用方法', 'nav.about': '私たちについて', 'nav.feedback': 'フィードバック', 'nav.guide': '利用ガイド',
-    'hero.eyebrow': 'プライベートベータ · リリース前', 'hero.title': 'すべての市場判断に、<br /><i>確かな根拠を。</i>',
+    'hero.eyebrow': 'Nightlyビルド · プレリリース', 'hero.title': 'すべての市場判断に、<br /><i>確かな根拠を。</i>',
     'hero.lede': 'TrueFix Studioは、市場データ、リサーチ、戦略、リスク、執行を一つのマルチプロバイダー・ワークステーションに統合します。トレーダーには明快さを、クオンツには決定性を、AIには適切な権限を提供します。',
-    'hero.source': '利用ガイドを読む', 'hero.explore': '対象ユーザーを見る', 'hero.note': 'リリース前 · 現在アクセスは非公開です',
+    'hero.download': 'Nightlyをダウンロード', 'hero.source': '利用ガイドを読む', 'hero.explore': '対象ユーザーを見る', 'hero.note': 'Nightlyプレリリース · テスト専用',
+    'download.eyebrow': 'NIGHTLY RELEASE', 'download.title': 'プラットフォームを選択。<br /><i>最新ビルドから始める。</i>',
+    'download.lede': 'TrueFix Studioの現在のNightlyチャンネルから生成された公開プレリリース版です。OSとアーキテクチャに合うパッケージを選択してください。',
+    'download.prerelease': 'プレリリース', 'download.updated': '更新', 'download.recommended': 'このデバイスに推奨',
+    'download.mac.arch': 'Apple Silicon · arm64', 'download.mac.note': 'Apple Silicon Mac向けDMGです。現在のNightlyビルドは未署名です。', 'download.mac.action': 'DMGをダウンロード',
+    'download.mac.xattr': '未署名のためmacOSにブロックされた場合、アプリを「アプリケーション」へ移動してから次を実行してください：', 'download.mac.xattrCaution': 'TrueFix公式Releaseからダウンロードしたアプリにのみ、このコマンドを使用してください。',
+    'download.windows.arch': 'Windows · x64', 'download.windows.note': '64ビットWindows向け標準セットアップです。管理インストール用MSIも利用できます。', 'download.windows.action': 'セットアップEXEをダウンロード',
+    'download.linux.arch': 'Linux · x86_64', 'download.linux.note': '64ビットLinux向けポータブルAppImageです。apt系システム向けDebianパッケージも利用できます。', 'download.linux.action': 'AppImageをダウンロード',
+    'download.installGuide': 'インストールガイド ↗', 'download.alternative': '別形式',
+    'download.disclaimer': 'Nightlyビルドは予告なく変更される場合があります。口座接続前にプラットフォームを確認し、ガイドをお読みください。', 'download.allFiles': 'リリースノートと全ファイルを表示',
     'overview.eyebrow': '01 / 製品概要', 'overview.title': '市場を理解し。<br />判断を検証し、行動を制御する。',
     'overview.lede': 'TrueFix Studioは、リサーチ、証拠、戦略、リスクレビュー、執行を一つの追跡可能な流れに保つマルチプロバイダー取引ワークスペースです。',
     'overview.what.label': '何ができる製品か', 'overview.what.title': '証拠に裏付けられた一つの意思決定チェーン',
     'overview.what.body': 'チャート、リサーチ、戦略、口座、注文を別々のツールに分断せず、それぞれの識別情報、出所、状態をつなげて保ちます。',
     'overview.who.label': '誰が利用できるか', 'overview.who.title': 'トレーダー、クオンツ開発者、リサーチおよびリスクチーム',
-    'overview.who.body': '現在は招待制のプライベートベータテスターのみ利用できます。実際の機能は選択したProvider、口座、環境、権限に依存します。',
+    'overview.who.body': '評価用の公開Nightlyビルドを利用できます。実際の機能は選択したProvider、口座、環境、権限に依存します。',
     'overview.work.label': '何に使うか', 'overview.work.title': '観測 → 検証 → テスト → レビュー → 執行',
     'overview.work.body': 'シグナルと出所を確認し、戦略をリプレイし、認可済み口座を選び、費用とリスクをレビューしてから注文を送信し、結果を照合できます。',
     'overview.personas.eyebrow': 'ベータ利用シナリオ例', 'overview.personas.title': '招待テスターがTrueFixを利用する三つの例。',
@@ -394,6 +430,73 @@ function translatePage(language, persist = false) {
 
 const initialLanguage = getSavedLanguage() || detectBrowserLanguage();
 translatePage(initialLanguage);
+
+function detectPlatform() {
+  const platform = String(navigator.userAgentData?.platform || navigator.platform || navigator.userAgent || '').toLowerCase();
+  if (platform.includes('win')) return 'windows';
+  if (platform.includes('mac')) return 'macos';
+  if (platform.includes('linux')) return 'linux';
+  return null;
+}
+
+const currentPlatform = detectPlatform();
+const recommendedCard = currentPlatform ? document.querySelector(`[data-platform-card="${currentPlatform}"]`) : null;
+if (recommendedCard) {
+  recommendedCard.classList.add('is-recommended');
+  const badge = recommendedCard.querySelector('[data-recommended]');
+  if (badge) badge.hidden = false;
+}
+
+const RELEASE_API_URL = 'https://api.github.com/repos/truefix-labs/truefix-labs.github.io/releases/tags/nightly';
+const releaseAssetPatterns = {
+  'mac-dmg': /^macos-.*_aarch64\.dmg$/i,
+  'windows-exe': /^windows-.*_x64-setup\.exe$/i,
+  'windows-msi': /^windows-.*_x64(?:_[^.]+)?\.msi$/i,
+  'linux-appimage': /^linux-.*_amd64\.appimage$/i,
+  'linux-deb': /^linux-.*_amd64\.deb$/i
+};
+
+function formatFileSize(bytes) {
+  return `${(Number(bytes) / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+async function refreshNightlyRelease() {
+  try {
+    const response = await fetch(RELEASE_API_URL, { headers: { Accept: 'application/vnd.github+json' } });
+    if (!response.ok) return;
+    const release = await response.json();
+    const assets = Array.isArray(release.assets) ? release.assets : [];
+
+    Object.entries(releaseAssetPatterns).forEach(([kind, pattern]) => {
+      const asset = assets.find((item) => pattern.test(item.name));
+      if (!asset) return;
+      document.querySelectorAll(`[data-release-asset="${kind}"]`).forEach((link) => {
+        link.href = asset.browser_download_url;
+        link.title = asset.name;
+      });
+      document.querySelectorAll(`[data-release-size="${kind}"]`).forEach((label) => {
+        label.textContent = formatFileSize(asset.size);
+      });
+    });
+
+    const packageAsset = assets.find((asset) => /_(\d+\.\d+\.\d+)_/.test(asset.name));
+    const version = packageAsset?.name.match(/_(\d+\.\d+\.\d+)_/)?.[1];
+    if (version) document.querySelectorAll('[data-release-version]').forEach((label) => { label.textContent = version; });
+
+    const published = release.published_at || release.updated_at;
+    if (published) {
+      const date = published.slice(0, 10);
+      document.querySelectorAll('[data-release-date]').forEach((label) => {
+        label.textContent = date;
+        label.setAttribute('datetime', date);
+      });
+    }
+  } catch {
+    // Static links remain available when the GitHub API is unavailable or rate-limited.
+  }
+}
+
+refreshNightlyRelease();
 
 const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('[data-menu-button]');

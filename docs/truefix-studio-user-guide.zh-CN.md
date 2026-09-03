@@ -1,6 +1,6 @@
 # TrueFix Studio 使用指南
 
-> 文档版本：2026.09。TrueFix Studio 仍处于首版发布前，产品仓库与安装包暂未公开。本指南面向已获访问权限的测试用户，不包含私有源码、凭据或下载链接。
+> 文档版本：2026.09。TrueFix Studio 仍处于首版发布前。产品源码仓库仍为私有，公开 Nightly 安装包由 TrueFix 官方 GitHub Releases 页面提供。本指南不包含私有源码或凭据。
 
 ## 1. 开始之前
 
@@ -19,13 +19,13 @@ TrueFix Studio 是多 Provider 交易工作站。Desktop、Web、Headless Quant 
 
 ### macOS 未签名版本
 
-如果受邀测试版本因尚未签名而被 macOS 拦截，请先把应用移入 `/Applications`，再打开“终端”运行：
+如果官方预发布版本因尚未签名而被 macOS 拦截，请先把应用移入 `/Applications`，再打开“终端”运行：
 
 ```bash
 xattr -cr "/Applications/TrueFix Studio.app"
 ```
 
-仅对项目官方渠道提供的应用使用该命令。它会移除这个应用包的隔离属性。
+仅对从 TrueFix 官方 Release 下载的应用使用该命令。它会移除这个应用包的隔离属性。
 
 ## 3. 配置 Provider
 

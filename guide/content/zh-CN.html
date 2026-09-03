@@ -1,13 +1,13 @@
 <section class="guide-hero">
   <p class="eyebrow">TRUEFIX STUDIO / OPERATOR GUIDE</p>
   <h1>从市场上下文，<br /><i>走到可审计的执行。</i></h1>
-  <p class="hero-lede">这份指南面向已获访问权限的测试用户。功能是否可用取决于所选 Provider、ClientInstance、环境、账户权限和实时证据；页面存在不代表某项能力已经可用。</p>
-  <div class="notice notice-private"><strong>当前访问状态</strong><span>产品仓库与安装包暂未公开。请仅使用项目方提供的受邀版本和访问方式，不要从非官方来源获取程序。</span></div>
+  <p class="hero-lede">这份指南面向 TrueFix Studio 测试用户。功能是否可用取决于所选 Provider、ClientInstance、环境、账户权限和实时证据；页面存在不代表某项能力已经可用。</p>
+  <div class="notice notice-private"><strong>当前发布状态</strong><span>产品源码仓库仍为私有；公开 Nightly 安装包由 TrueFix 官方 GitHub Releases 页面提供。请勿从非官方来源获取程序。</span></div>
 </section>
 
 <section id="before-you-start" class="doc-section">
   <p class="section-no">01 / BEFORE YOU START</p><h2>开始之前</h2>
-  <p>TrueFix Studio 是多 Provider 交易工作站。Desktop、Web、Headless Quant 与受权 AI 工具共享同一套标的、能力、风险与执行契约。请准备项目方提供的应用访问权限，以及计划连接的行情或交易服务凭据。</p>
+  <p>TrueFix Studio 是多 Provider 交易工作站。Desktop、Web、Headless Quant 与受权 AI 工具共享同一套标的、能力、风险与执行契约。请安装官方 Nightly 版本，并准备计划连接的行情或交易服务凭据。</p>
   <div class="check-grid"><article><span>01</span><h3>确认环境</h3><p>区分 Live、Paper、Testnet、Demo 或 Simulated。环境由 ClientInstance 明确配置，不能只看 Provider 名称。</p></article><article><span>02</span><h3>从模拟开始</h3><p>第一次验证订单流程时优先使用非 Live 环境。Demo 与 Live 走相同审核状态机，但资金后果不同。</p></article><article><span>03</span><h3>最小授权</h3><p>凭据只授予所需市场、账户与能力。不要在聊天、截图或工单中粘贴 Secret。</p></article></div>
   <div class="notice"><strong>重要</strong><span>TrueFix Studio 仍处于首版发布前。它不是投资建议，也不会替你判断交易是否适合；所有实盘动作都应由账户所有者核验。</span></div>
 </section>
@@ -15,7 +15,7 @@
 <section id="first-run" class="doc-section">
   <p class="section-no">02 / FIRST RUN</p><h2>首次启动与工作区恢复</h2>
   <ol class="steps"><li><span>1</span><div><h3>检查 Readiness</h3><p>首页分别展示内核、Provider、目录、交易投影、Intelligence 和 Risk 状态。单个模块不可用不会阻止其他模块打开。</p></div></li><li><span>2</span><div><h3>恢复或新建工作区</h3><p>最近工作区可恢复上次标的、面板布局与 revision。恢复失败时回到安全默认布局，不会创建重复订阅。</p></div></li><li><span>3</span><div><h3>处理明确状态</h3><p>分别对待 unavailable、stale、degraded 和 rejected。缺失值不等于零，界面也不会补造健康状态。</p></div></li></ol>
-  <div class="notice"><strong>macOS 未签名版本</strong><span>如果受邀测试版本因尚未签名而被 macOS 拦截，请先把应用移入“应用程序”，再在“终端”运行下面的命令。仅对项目官方渠道提供的应用使用；该命令会移除这个应用包的隔离属性。</span></div>
+  <div class="notice"><strong>macOS 未签名版本</strong><span>如果官方预发布版本因尚未签名而被 macOS 拦截，请先把应用移入“应用程序”，再在“终端”运行下面的命令。仅对从 TrueFix 官方 Release 下载的应用使用；该命令会移除这个应用包的隔离属性。</span></div>
   <code class="command-block">xattr -cr "/Applications/TrueFix Studio.app"</code>
   <h3 class="guide-subtitle">建议的首次 15 分钟</h3>
   <div class="check-grid quick-grid"><article><span>00–05 MIN</span><h3>恢复工作区</h3><p>确认 Kernel 与目录可用，记录不可用的 facet；不要等所有网络来源都变绿才进入界面。</p></article><article><span>05–10 MIN</span><h3>连接一个非 Live 实例</h3><p>只连接一个 Simulator、Demo 或 Testnet ClientInstance，并验证账户与精确标的 mapping。</p></article><article><span>10–15 MIN</span><h3>走完闭环</h3><p>搜索标的 → 选择 Historical / Realtime / Trading 来源 → Review 一笔不提交的订单 → 查看 Risk 与 Audit。</p></article></div>

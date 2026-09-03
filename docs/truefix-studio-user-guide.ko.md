@@ -1,6 +1,6 @@
 # TrueFix Studio 사용자 가이드
 
-> 문서 버전: 2026.09. TrueFix Studio는 출시 전 소프트웨어입니다. 제품 저장소와 설치 파일은 공개되지 않았습니다. 이 가이드는 접근 권한이 있는 테스트 사용자를 위한 것이며 비공개 소스, 자격 증명, 다운로드 링크를 포함하지 않습니다.
+> 문서 버전: 2026.09. TrueFix Studio는 프리릴리스 소프트웨어입니다. 제품 소스 저장소는 비공개이지만 공개 Nightly 설치 파일은 TrueFix 공식 GitHub Releases 페이지에서 제공합니다. 이 가이드에는 비공개 소스나 자격 증명이 포함되지 않습니다.
 
 ## 1. 시작 전
 
@@ -19,13 +19,13 @@ TrueFix Studio는 멀티 Provider 트레이딩 워크스테이션입니다. Desk
 
 ### 서명되지 않은 macOS 빌드
 
-승인된 출시 전 앱이 아직 서명되지 않아 macOS에서 차단되면 앱을 `/Applications`로 옮긴 후 Terminal에서 다음 명령을 실행하세요.
+공식 프리릴리스 앱이 아직 서명되지 않아 macOS에서 차단되면 앱을 `/Applications`로 옮긴 후 Terminal에서 다음 명령을 실행하세요.
 
 ```bash
 xattr -cr "/Applications/TrueFix Studio.app"
 ```
 
-공식 프로젝트 채널에서 받은 빌드에만 사용하세요. 이 명령은 해당 앱 번들의 격리 속성을 제거합니다.
+TrueFix 공식 Release에서 다운로드한 앱에만 사용하세요. 이 명령은 해당 앱 번들의 격리 속성을 제거합니다.
 
 ## 3. Provider 구성
 

@@ -1,6 +1,6 @@
 # TrueFix Studio User Guide
 
-> Document version: 2026.09. TrueFix Studio is pre-release software. The product repository and installers are not public. This guide is for authorized testers and contains no private source, credentials, or download links.
+> Document version: 2026.09. TrueFix Studio is pre-release software. The product source repository remains private; public Nightly installers are distributed through the official TrueFix GitHub Releases page. This guide contains no private source or credentials.
 
 ## 1. Before you start
 
@@ -19,13 +19,13 @@ TrueFix Studio is a multi-provider trading workstation. Desktop, Web, Headless Q
 
 ### Unsigned macOS build
 
-If an authorized pre-release app is blocked because it is not yet signed, move it into `/Applications`, then run:
+If the official pre-release app is blocked because it is not yet signed, move it into `/Applications`, then run:
 
 ```bash
 xattr -cr "/Applications/TrueFix Studio.app"
 ```
 
-Use this only for a build received through the official project channel. The command removes quarantine metadata from that app bundle.
+Use this only for an app downloaded from the official TrueFix Release. The command removes quarantine metadata from that app bundle.
 
 ## 3. Configure a provider
 

@@ -2,7 +2,7 @@
 
 This repository contains the public GitHub Pages site for TrueFix Studio, a multi-provider trading workstation built around explicit market context, review, risk, and auditable execution. It uses static HTML, CSS, and JavaScript with no build dependency.
 
-The product repository is currently private, so this site does not expose private repository or installer links. TrueFix Studio is still pre-release software; a visible interface or Provider SDK is not proof of an end-to-end capability. Runtime evidence remains authoritative.
+The product source repository is currently private. Public Nightly installers for macOS, Windows, and Linux are linked from the site and distributed through this repository's GitHub Releases. TrueFix Studio is still pre-release software; a visible interface or Provider SDK is not proof of an end-to-end capability. Runtime evidence remains authoritative.
 
 ## Documentation
 

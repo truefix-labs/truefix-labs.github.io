@@ -1,13 +1,13 @@
 <section class="guide-hero">
   <p class="eyebrow">TRUEFIX STUDIO / OPERATOR GUIDE</p>
   <h1>From market context<br /><i>to auditable execution.</i></h1>
-  <p class="hero-lede">This guide is for invited test users of TrueFix Studio. Availability is resolved from the selected Provider, ClientInstance, environment, account permissions, and current evidence. A visible screen never proves that a capability is available.</p>
-  <div class="notice notice-private"><strong>Current access</strong><span>The product repository and installers are not public yet. Use only the invited build and access path supplied by the project team; never download the application from an unofficial source.</span></div>
+  <p class="hero-lede">This guide is for test users of TrueFix Studio. Availability is resolved from the selected Provider, ClientInstance, environment, account permissions, and current evidence. A visible screen never proves that a capability is available.</p>
+  <div class="notice notice-private"><strong>Current release</strong><span>The product source repository remains private, while public Nightly installers are published through the official TrueFix GitHub Releases page. Never download the application from an unofficial source.</span></div>
 </section>
 
 <section id="before-you-start" class="doc-section">
   <p class="section-no">01 / BEFORE YOU START</p><h2>Before you start</h2>
-  <p>TrueFix Studio is a multi-provider trading workstation. Desktop, Web, Headless Quant, and authorized AI tools use the same instrument, capability, risk, and execution contracts. Prepare your invited application access and the credentials for the market-data or trading service you intend to connect.</p>
+  <p>TrueFix Studio is a multi-provider trading workstation. Desktop, Web, Headless Quant, and authorized AI tools use the same instrument, capability, risk, and execution contracts. Install the official Nightly build and prepare credentials for the market-data or trading service you intend to connect.</p>
   <div class="check-grid">
     <article><span>01</span><h3>Confirm the environment</h3><p>Distinguish Live, Paper, Testnet, Demo, and Simulated. The ClientInstance configuration—not the Provider name—defines the environment.</p></article>
     <article><span>02</span><h3>Start with simulation</h3><p>Validate the order workflow outside Live first. Demo and Live share the review state machine, but not the financial consequences.</p></article>
@@ -23,7 +23,7 @@
     <li><span>2</span><div><h3>Restore or create a workspace</h3><p>A recent workspace restores its last instrument, panel layout, and layout revision. A failed restore returns to a safe default without creating duplicate subscriptions.</p></div></li>
     <li><span>3</span><div><h3>Resolve explicit states</h3><p>Treat unavailable, stale, degraded, and rejected as different conditions. A missing value is not zero, and the UI does not invent a healthy state.</p></div></li>
   </ol>
-  <div class="notice"><strong>Unsigned macOS build</strong><span>If an authorized pre-release app is blocked because it is not yet signed, move it into Applications, then run the following command in Terminal. Use this only for a build received from the official project channel; it removes quarantine metadata from that app bundle.</span></div>
+  <div class="notice"><strong>Unsigned macOS build</strong><span>If the official pre-release app is blocked because it is not yet signed, move it into Applications, then run the following command in Terminal. Use this only for a build downloaded from the official TrueFix Release; it removes quarantine metadata from that app bundle.</span></div>
   <code class="command-block">xattr -cr "/Applications/TrueFix Studio.app"</code>
   <h3 class="guide-subtitle">A useful first 15 minutes</h3>
   <div class="check-grid quick-grid"><article><span>00–05 MIN</span><h3>Restore the workspace</h3><p>Confirm Kernel and catalogue readiness and note unavailable facets. Do not wait for every network source to turn green before entering the UI.</p></article><article><span>05–10 MIN</span><h3>Connect one non-Live instance</h3><p>Use one Simulator, Demo, or Testnet ClientInstance and verify its account plus exact instrument mapping.</p></article><article><span>10–15 MIN</span><h3>Complete the loop</h3><p>Search → choose Historical / Realtime / Trading sources → Review without submitting → inspect Risk and Audit.</p></article></div>

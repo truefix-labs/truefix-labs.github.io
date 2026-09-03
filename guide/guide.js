@@ -80,7 +80,7 @@ async function loadGuide(language, persist = false) {
   if (!content) return;
   content.setAttribute('aria-busy', 'true');
   try {
-    const response = await fetch(`content/${locale}.html?v=7`);
+    const response = await fetch(`content/${locale}.html?v=8`);
     if (!response.ok) throw new Error(`Guide request failed: ${response.status}`);
     const markup = await response.text();
     if (revision !== contentRevision) return;

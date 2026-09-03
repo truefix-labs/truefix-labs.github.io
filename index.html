@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080b10" />
+    <meta name="description" content="TrueFix Studio is a multi-provider trading workstation for Desktop, Web, Headless Quant, and authorized AI tools." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="TrueFix Studio — Multi-provider trading workstation" />
+    <meta property="og:description" content="Market data, research, strategy, risk, and execution in one auditable workstation." />
+    <meta property="og:image" content="https://truefix.github.io/assets/workstation.png" />
+    <meta property="og:url" content="https://truefix.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://truefix.github.io/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>TrueFix Studio — Multi-provider trading workstation</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="TrueFix Studio home" data-i18n-aria-label="a11y.home">
+        <img src="assets/truefix-mark.png" alt="" width="34" height="34" />
+        <span>TrueFix</span><em>Studio</em>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+        <span></span><span></span><span></span><span class="sr-only" data-i18n="a11y.menu">Open navigation</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-i18n-aria-label="a11y.nav" data-nav>
+        <a href="#product" data-i18n="nav.product">Product</a>
+        <a href="#principles" data-i18n="nav.principles">Principles</a>
+        <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
+        <a href="#audiences" data-i18n="nav.modes">Use cases</a>
+        <div class="language-picker" data-language-picker>
+          <button class="language-toggle" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="language-menu" data-language-toggle>
+            <span class="language-globe" aria-hidden="true">◎</span><span data-language-code>EN</span><span class="language-chevron" aria-hidden="true">⌄</span>
+            <span class="sr-only" data-i18n="language.choose">Choose language</span>
+          </button>
+          <div class="language-menu" id="language-menu" role="menu" aria-label="Language" data-i18n-aria-label="language.label" data-language-menu hidden>
+            <button type="button" role="menuitemradio" aria-checked="true" lang="en" data-language="en"><span>EN</span> English</button>
+            <button type="button" role="menuitemradio" aria-checked="false" lang="zh-CN" data-language="zh-CN"><span>中</span> 简体中文</button>
+            <button type="button" role="menuitemradio" aria-checked="false" lang="ko" data-language="ko"><span>한</span> 한국어</button>
+            <button type="button" role="menuitemradio" aria-checked="false" lang="ja" data-language="ja"><span>日</span> 日本語</button>
+          </div>
+        </div>
+        <a class="nav-github" href="https://github.com/truefix-labs/truefix-studio" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">Open source · Pre-release</b></p>
+          <h1 data-i18n-html="hero.title">Every market decision,<br /><i>backed by evidence.</i></h1>
+          <p class="hero-lede" data-i18n="hero.lede">TrueFix Studio brings market data, research, strategy, risk, and execution into one multi-provider workstation—clear for traders, deterministic for quant systems, and permissioned for AI.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/truefix-labs/truefix-studio" target="_blank" rel="noreferrer"><span data-i18n="hero.source">View source</span><span aria-hidden="true">↗</span></a>
+            <a class="button button-quiet" href="#product"><span data-i18n="hero.explore">Explore workstation</span><span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">Pre-release · Build from source today</span></div>
+        </div>
+
+        <div class="hero-visual reveal" data-delay="1">
+          <div class="terminal-glow"></div>
+          <figure class="app-frame">
+            <div class="frame-bar">
+              <div class="frame-dots"><span></span><span></span><span></span></div>
+              <div class="frame-title">TRUEFIX / TRADING WORKSTATION</div>
+              <div class="frame-status"><span></span> SYSTEM READY</div>
+            </div>
+            <img src="assets/workstation.png" alt="TrueFix Studio dark trading workstation showing a BTC/USDT chart, market depth, positions, and order ticket" data-i18n-alt="alt.workstationDetail" width="1536" height="881" />
+          </figure>
+          <div class="float-tag float-tag-a"><span>01</span> CAPABILITY<br />RESOLVED</div>
+          <div class="float-tag float-tag-b"><span>02</span> RISK GUARD<br />ACTIVE</div>
+        </div>
+        <div class="hero-index" aria-hidden="true">TF—01</div>
+      </section>
+
+      <div class="capability-rail" aria-label="Core capabilities" data-i18n-aria-label="a11y.capabilities">
+        <div class="rail-track">
+          <span data-i18n="cap.historical">Historical Market Data</span><i>◆</i><span data-i18n="cap.realtime">Realtime Market Data</span><i>◆</i><span data-i18n="cap.trade">Trade</span><i>◆</i><span data-i18n="cap.news">News & Events</span><i>◆</i><span data-i18n="cap.instruments">Instruments</span><i>◆</i><span data-i18n="cap.analysis">Analysis</span><i>◆</i>
+          <span aria-hidden="true" data-i18n="cap.historical">Historical Market Data</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.realtime">Realtime Market Data</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.trade">Trade</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.news">News & Events</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.instruments">Instruments</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.analysis">Analysis</span><i aria-hidden="true">◆</i>
+        </div>
+      </div>
+
+      <section class="section product-section" id="product">
+        <div class="section-heading reveal">
+          <div><p class="section-kicker">01 / PRODUCT</p><h2 data-i18n-html="product.title">One workstation.<br />The full decision chain.</h2></div>
+          <p data-i18n="product.lede">One canonical contract serves Desktop, Web, AI, and Quant. Runtime evidence answers where data came from, why it is available, and whether it can trade.</p>
+        </div>
+        <div class="showcase reveal">
+          <div class="showcase-tabs" role="tablist" aria-label="Product interfaces" data-i18n-aria-label="a11y.productInterfaces">
+            <button type="button" role="tab" aria-selected="true" aria-controls="panel-workstation" id="tab-workstation" data-shot="workstation"><span>01</span><b data-i18n="product.tab.workstation">Trading workstation</b><small data-i18n="product.tab.workstationSub">Market · Chart · Execution</small></button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="panel-intelligence" id="tab-intelligence" data-shot="intelligence"><span>02</span><b data-i18n="product.tab.intelligence">Intelligence</b><small data-i18n="product.tab.intelligenceSub">Evidence · Signal · Replay</small></button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="panel-quant" id="tab-quant" data-shot="quant"><span>03</span><b>AI & Quant</b><small data-i18n="product.tab.quantSub">Strategy · Authority · Runtime</small></button>
+          </div>
+          <div class="showcase-screen">
+            <figure id="panel-workstation" role="tabpanel" aria-labelledby="tab-workstation" data-panel="workstation">
+              <img src="assets/workstation.png" alt="TrueFix Studio trading workstation" data-i18n-alt="alt.workstation" width="1536" height="881" loading="lazy" />
+              <figcaption><span class="caption-label">WORKSTATION</span><span class="caption-copy" data-i18n="product.caption.workstation">Cross-market context and provider routes stay explicit; the interface never guesses capabilities.</span></figcaption>
+            </figure>
+            <figure id="panel-intelligence" role="tabpanel" aria-labelledby="tab-intelligence" data-panel="intelligence" hidden>
+              <img src="assets/intelligence.png" alt="TrueFix Studio intelligence interface" data-i18n-alt="alt.intelligence" width="1536" height="881" loading="lazy" />
+              <figcaption><span class="caption-label">INTELLIGENCE</span><span class="caption-copy" data-i18n="product.caption.intelligence">Keep observations, sources, confidence, and historical replay on the same evidence chain.</span></figcaption>
+            </figure>
+            <figure id="panel-quant" role="tabpanel" aria-labelledby="tab-quant" data-panel="quant" hidden>
+              <img src="assets/ai-quant.png" alt="TrueFix Studio AI and quant interface" data-i18n-alt="alt.quant" width="1536" height="881" loading="lazy" />
+              <figcaption><span class="caption-label">AI + QUANT</span><span class="caption-copy" data-i18n="product.caption.quant">Strategy output becomes a constrained decision before Review and RiskGuard allow execution.</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section principles-section" id="principles">
+        <div class="section-heading section-heading-light reveal">
+          <div><p class="section-kicker">02 / PRINCIPLES</p><h2 data-i18n-html="principles.title">Trading infrastructure<br />should never guess.</h2></div>
+          <p data-i18n="principles.lede">TrueFix draws deliberate boundaries: when mappings, accounts, permissions, or freshness are missing, it stops instead of quietly choosing a plausible answer.</p>
+        </div>
+        <div class="principle-list">
+          <article class="principle reveal">
+            <div class="principle-number">01</div><div class="principle-icon" aria-hidden="true"><span></span><span></span><span></span></div>
+            <h3 data-i18n="principles.evidence.title">Capabilities resolve from evidence</h3><p data-i18n="principles.evidence.body">ProviderDefinition, ClientInstance, market, product, environment, and entitlement jointly decide whether a capability exists now.</p><small>CapabilityScope → Evidence → Route</small>
+          </article>
+          <article class="principle reveal" data-delay="1">
+            <div class="principle-number">02</div><div class="principle-icon icon-route" aria-hidden="true"><span></span><span></span><span></span></div>
+            <h3 data-i18n="principles.execution.title">Execution never guesses</h3><p data-i18n="principles.execution.body">Orders bind to an exact instrument, provider, ClientInstance, account, and environment. Unknown outcomes can only be queried—not resubmitted.</p><small>Exact identity → RiskGuard → Execution</small>
+          </article>
+          <article class="principle reveal" data-delay="2">
+            <div class="principle-number">03</div><div class="principle-icon icon-human" aria-hidden="true"><span></span><span></span><span></span></div>
+            <h3 data-i18n="principles.ai.title">AI is authorized, not unleashed</h3><p data-i18n="principles.ai.body">Research and strategy output cannot place orders directly. Trading intent must carry versions, expiry, evidence, and account constraints.</p><small>Signal → Decision → Review → Order</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="section architecture-section" id="architecture">
+        <div class="architecture-copy reveal">
+          <p class="section-kicker">03 / ARCHITECTURE</p><h2 data-i18n-html="architecture.title">Provider-neutral core.<br />Real-world adapters.</h2>
+          <p data-i18n="architecture.lede">Market data, execution, risk, and AI collaborate through stable domain contracts. Integrations expand without changing the core meaning for one broker.</p>
+          <a class="text-link" href="https://github.com/truefix-labs/truefix-studio#%E6%9E%B6%E6%9E%84" target="_blank" rel="noreferrer"><span data-i18n="architecture.link">Read the architecture</span><span>↗</span></a>
+        </div>
+        <div class="architecture-map reveal" data-delay="1" aria-label="TrueFix Studio architecture diagram" data-i18n-aria-label="a11y.architecture">
+          <div class="map-layer map-entry"><span>Desktop</span><span>Web</span><span>AI Tools</span><span>Headless Quant</span></div>
+          <div class="map-flow"><i></i><i></i><i></i><i></i></div>
+          <div class="map-core"><div class="core-mark"><img src="assets/truefix-mark.png" alt="" /></div><div><small>CANONICAL CORE</small><strong>TrueFix Runtime</strong></div><span>Provider-neutral contracts</span></div>
+          <div class="map-flow map-flow-down"><i></i><i></i><i></i><i></i></div>
+          <div class="map-layer map-providers"><span>Market Data</span><span>Broker / Exchange</span><span>Intelligence</span><span>FIX Engine</span></div>
+          <p class="map-caption"><i></i><span data-i18n="architecture.caption">Every quote, news item, fundamental, and signal retains its original adapter provenance.</span></p>
+        </div>
+      </section>
+
+      <section class="section audiences-section" id="audiences">
+        <div class="section-heading reveal">
+          <div><p class="section-kicker">04 / ONE SYSTEM, THREE MODES</p><h2 data-i18n-html="modes.title">From human judgment<br />to deterministic automation.</h2></div>
+          <p data-i18n="modes.lede">Every mode shares the same capability resolution, instrument identity, risk constraints, and execution kernel.</p>
+        </div>
+        <div class="audience-grid">
+          <article class="audience-card reveal">
+            <div class="card-label">FOR TRADERS <span>01</span></div><div class="card-graphic trader-graphic" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <h3>Desktop / Web</h3><p data-i18n="modes.traders">See market data, positions, risk, and order context in one composable workspace.</p>
+          </article>
+          <article class="audience-card reveal" data-delay="1">
+            <div class="card-label">FOR BUILDERS <span>02</span></div><div class="card-graphic quant-graphic" aria-hidden="true"><code>event → strategy</code><code>decision → guard</code><code class="active">order → evidence</code></div>
+            <h3>Headless Quant</h3><p data-i18n="modes.quant">Bounded event delivery, deterministic Recorder / Replay, and one strategy definition contract.</p>
+          </article>
+          <article class="audience-card reveal" data-delay="2">
+            <div class="card-label">FOR AGENTS <span>03</span></div><div class="card-graphic agent-graphic" aria-hidden="true"><span>OBSERVE</span><i>→</i><span>REASON</span><i>→</i><span>REQUEST</span><b>HUMAN REVIEW</b></div>
+            <h3>Authorized AI</h3><p data-i18n="modes.ai">Let agents analyze markets with authorized tools while preserving review, budget, and risk boundaries.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing-section">
+        <div class="closing-watermark" aria-hidden="true">TRUEFIX</div>
+        <div class="closing-content reveal">
+          <img src="assets/truefix-mark.png" alt="" width="70" height="70" /><p class="section-kicker">BUILD IN THE OPEN</p>
+          <h2 data-i18n-html="closing.title">Built for clarity.<br /><i>Engineered for certainty.</i></h2>
+          <p data-i18n="closing.lede">TrueFix Studio is converging toward its first release. Read the design, follow progress, and build from source on GitHub today.</p>
+          <a class="button button-primary" href="https://github.com/truefix-labs/truefix-studio" target="_blank" rel="noreferrer"><span data-i18n="closing.github">Go to GitHub</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#top"><img src="assets/truefix-mark.png" alt="" width="30" height="30" /><span>TrueFix</span><em>Studio</em></a>
+      <p data-i18n="footer.tagline">Open-source multi-provider trading workstation.</p>
+      <div><span data-i18n="footer.status">Pre-release software</span><span>© <span data-year></span> TrueFix Labs</span></div>
+    </footer>
+  </body>
+</html>

@@ -14,8 +14,8 @@
     <link rel="canonical" href="https://truefix-labs.github.io/" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png" />
-    <link rel="stylesheet" href="styles.css?v=6" />
-    <script src="script.js?v=5" defer></script>
+    <link rel="stylesheet" href="styles.css?v=7" />
+    <script src="script.js?v=6" defer></script>
     <title>TrueFix Studio — Multi-provider trading workstation</title>
   </head>
   <body>
@@ -59,7 +59,7 @@
           <p class="hero-lede" data-i18n="hero.lede">TrueFix Studio brings market data, research, strategy, risk, and execution into one multi-provider workstation—clear for traders, deterministic for quant systems, and permissioned for AI.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="guide/"><span data-i18n="hero.source">Read the user guide</span><span aria-hidden="true">↗</span></a>
-            <a class="button button-quiet" href="#product"><span data-i18n="hero.explore">Explore workstation</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-quiet" href="#overview"><span data-i18n="hero.explore">See who it is for</span><span aria-hidden="true">↓</span></a>
           </div>
           <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">Pre-release · Access is currently private</span></div>
         </div>
@@ -87,6 +87,56 @@
           <span aria-hidden="true" data-i18n="cap.historical">Historical Market Data</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.realtime">Realtime Market Data</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.trade">Trade</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.news">News & Events</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.instruments">Instruments</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.analysis">Analysis</span><i aria-hidden="true">◆</i>
         </div>
       </div>
+
+      <section class="overview-section" id="overview" aria-labelledby="overview-title">
+        <div class="overview-heading reveal">
+          <div>
+            <p class="section-kicker" data-i18n="overview.eyebrow">01 / PRODUCT OVERVIEW</p>
+            <h2 id="overview-title" data-i18n-html="overview.title">Understand the market.<br />Test the decision. Control the action.</h2>
+          </div>
+          <p data-i18n="overview.lede">TrueFix Studio is a multi-provider trading workspace that keeps research, evidence, strategy, risk review, and execution in one traceable flow.</p>
+        </div>
+
+        <div class="overview-facts">
+          <article class="overview-fact reveal">
+            <span>01</span><p data-i18n="overview.what.label">WHAT IT IS</p>
+            <h3 data-i18n="overview.what.title">One evidence-backed decision chain</h3>
+            <p data-i18n="overview.what.body">Instead of separating charts, research, strategies, accounts, and orders across unrelated tools, TrueFix keeps their identity, source, and state connected.</p>
+          </article>
+          <article class="overview-fact reveal" data-delay="1">
+            <span>02</span><p data-i18n="overview.who.label">WHO IT IS FOR</p>
+            <h3 data-i18n="overview.who.title">Traders, quant builders, and research or risk teams</h3>
+            <p data-i18n="overview.who.body">Current access is limited to invited private-beta testers. Every usable capability still depends on the selected provider, account, environment, and entitlement.</p>
+          </article>
+          <article class="overview-fact reveal" data-delay="2">
+            <span>03</span><p data-i18n="overview.work.label">WHAT THEY DO</p>
+            <h3 data-i18n="overview.work.title">Observe → verify → test → review → execute</h3>
+            <p data-i18n="overview.work.body">A user can inspect a signal and its sources, replay a strategy, choose an authorized account, review fees and risk, then submit and reconcile the result.</p>
+          </article>
+        </div>
+
+        <div class="persona-heading reveal">
+          <div><p class="section-kicker" data-i18n="overview.personas.eyebrow">ILLUSTRATIVE BETA PERSONAS</p><h3 data-i18n="overview.personas.title">Three ways invited testers could use TrueFix.</h3></div>
+          <p data-i18n="overview.personas.disclosure">These are composite fictional scenarios created to explain the product. They are not real customers, employees, usage claims, or testimonials.</p>
+        </div>
+        <div class="persona-grid">
+          <article class="persona-card reveal">
+            <div class="persona-top"><span class="persona-avatar" aria-hidden="true">MC</span><span class="persona-badge" data-i18n="overview.personas.badge">FICTIONAL PERSONA</span></div>
+            <h4>Maya Chen</h4><p class="persona-role" data-i18n="overview.maya.role">Independent multi-market trader · Singapore</p>
+            <p data-i18n="overview.maya.task">Compares crypto and U.S. equity context across provider accounts, opens the source behind a signal, and reviews risk and routing before acting.</p>
+          </article>
+          <article class="persona-card reveal" data-delay="1">
+            <div class="persona-top"><span class="persona-avatar" aria-hidden="true">RI</span><span class="persona-badge" data-i18n="overview.personas.badge">FICTIONAL PERSONA</span></div>
+            <h4>Ren Ito</h4><p class="persona-role" data-i18n="overview.ren.role">Quant developer · Tokyo</p>
+            <p data-i18n="overview.ren.task">Replays one strategy against fixed data and revisions, runs the same definition headlessly, and reconciles every execution outcome.</p>
+          </article>
+          <article class="persona-card reveal" data-delay="2">
+            <div class="persona-top"><span class="persona-avatar" aria-hidden="true">JH</span><span class="persona-badge" data-i18n="overview.personas.badge">FICTIONAL PERSONA</span></div>
+            <h4>Ji-woo Han</h4><p class="persona-role" data-i18n="overview.jiwoo.role">Research and risk lead · Seoul</p>
+            <p data-i18n="overview.jiwoo.task">Uses authorized AI to organize evidence and propose a decision, while human review and RiskGuard remain mandatory before any account action.</p>
+          </article>
+        </div>
+      </section>
 
       <section class="provider-network" aria-labelledby="provider-network-title">
         <div class="provider-heading reveal">

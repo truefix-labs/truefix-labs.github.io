@@ -14,7 +14,7 @@ python3 -m http.server 4173
 
 ## 部署
 
-仓库名为 `truefix.github.io`，将默认分支根目录配置为 GitHub Pages 发布源即可。`.nojekyll` 用于保持静态资源按原样发布。
+仓库名为 `truefix-labs.github.io`，与组织名一致；默认分支根目录发布至 <https://truefix-labs.github.io/>。`.nojekyll` 用于保持静态资源按原样发布。
 
 ## 内容边界
 

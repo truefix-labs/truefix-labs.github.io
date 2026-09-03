@@ -1,6 +1,5 @@
 const STORAGE_KEY = 'truefix.language';
 const SUPPORTED_LANGUAGES = ['en', 'zh-CN', 'ko', 'ja'];
-const LANGUAGE_CODES = { en: 'EN', 'zh-CN': '中', ko: '한', ja: '日' };
 
 const translations = {
   en: {
@@ -9,7 +8,7 @@ const translations = {
     'meta.ogDescription': 'Market data, research, strategy, risk, and execution in one auditable workstation.',
     'a11y.skip': 'Skip to main content', 'a11y.home': 'TrueFix Studio home', 'a11y.menu': 'Open navigation',
     'a11y.nav': 'Primary navigation', 'a11y.capabilities': 'Core capabilities', 'a11y.productInterfaces': 'Product interfaces',
-    'a11y.architecture': 'TrueFix Studio architecture diagram', 'language.choose': 'Choose language', 'language.label': 'Language',
+    'a11y.architecture': 'TrueFix Studio architecture diagram', 'language.label': 'Language',
     'nav.product': 'Product', 'nav.principles': 'Principles', 'nav.architecture': 'Architecture', 'nav.modes': 'Use cases',
     'hero.eyebrow': 'Open source · Pre-release', 'hero.title': 'Every market decision,<br /><i>backed by evidence.</i>',
     'hero.lede': 'TrueFix Studio brings market data, research, strategy, risk, and execution into one multi-provider workstation—clear for traders, deterministic for quant systems, and permissioned for AI.',
@@ -53,7 +52,7 @@ const translations = {
     'meta.ogDescription': '把行情、研究、策略、风控与执行放进一个可审计的工作站。',
     'a11y.skip': '跳到主要内容', 'a11y.home': 'TrueFix Studio 首页', 'a11y.menu': '打开导航',
     'a11y.nav': '主导航', 'a11y.capabilities': '核心能力', 'a11y.productInterfaces': '产品界面',
-    'a11y.architecture': 'TrueFix Studio 架构图', 'language.choose': '选择语言', 'language.label': '语言',
+    'a11y.architecture': 'TrueFix Studio 架构图', 'language.label': '语言',
     'nav.product': '产品', 'nav.principles': '原则', 'nav.architecture': '架构', 'nav.modes': '使用方式',
     'hero.eyebrow': '开源 · 首版发布前', 'hero.title': '每一个市场决策，<br /><i>都有证据可循。</i>',
     'hero.lede': 'TrueFix Studio 把行情、研究、策略、风控与执行放进同一个多 Provider 工作站。为交易员而清晰，为量化系统而确定，为 AI 而可授权。',
@@ -97,7 +96,7 @@ const translations = {
     'meta.ogDescription': '시장 데이터, 리서치, 전략, 리스크, 실행을 하나의 감사 가능한 워크스테이션에서.',
     'a11y.skip': '주요 콘텐츠로 건너뛰기', 'a11y.home': 'TrueFix Studio 홈', 'a11y.menu': '내비게이션 열기',
     'a11y.nav': '주요 내비게이션', 'a11y.capabilities': '핵심 기능', 'a11y.productInterfaces': '제품 인터페이스',
-    'a11y.architecture': 'TrueFix Studio 아키텍처 다이어그램', 'language.choose': '언어 선택', 'language.label': '언어',
+    'a11y.architecture': 'TrueFix Studio 아키텍처 다이어그램', 'language.label': '언어',
     'nav.product': '제품', 'nav.principles': '원칙', 'nav.architecture': '아키텍처', 'nav.modes': '사용 방식',
     'hero.eyebrow': '오픈 소스 · 출시 전', 'hero.title': '모든 시장 의사결정에,<br /><i>검증 가능한 근거를.</i>',
     'hero.lede': 'TrueFix Studio는 시장 데이터, 리서치, 전략, 리스크, 실행을 하나의 멀티 프로바이더 워크스테이션에 통합합니다. 트레이더에게는 명확하게, 퀀트 시스템에는 결정론적으로, AI에는 권한을 통제하여 제공합니다.',
@@ -141,7 +140,7 @@ const translations = {
     'meta.ogDescription': '市場データ、リサーチ、戦略、リスク、執行を一つの監査可能なワークステーションに。',
     'a11y.skip': 'メインコンテンツへ移動', 'a11y.home': 'TrueFix Studio ホーム', 'a11y.menu': 'ナビゲーションを開く',
     'a11y.nav': 'メインナビゲーション', 'a11y.capabilities': '主要機能', 'a11y.productInterfaces': '製品インターフェース',
-    'a11y.architecture': 'TrueFix Studio アーキテクチャ図', 'language.choose': '言語を選択', 'language.label': '言語',
+    'a11y.architecture': 'TrueFix Studio アーキテクチャ図', 'language.label': '言語',
     'nav.product': '製品', 'nav.principles': '原則', 'nav.architecture': '構成', 'nav.modes': '利用方法',
     'hero.eyebrow': 'オープンソース · リリース前', 'hero.title': 'すべての市場判断に、<br /><i>確かな根拠を。</i>',
     'hero.lede': 'TrueFix Studioは、市場データ、リサーチ、戦略、リスク、執行を一つのマルチプロバイダー・ワークステーションに統合します。トレーダーには明快さを、クオンツには決定性を、AIには適切な権限を提供します。',
@@ -213,7 +212,7 @@ function translatePage(language, persist = false) {
   const dictionary = translations[locale];
 
   document.documentElement.lang = locale;
-  document.documentElement.dataset.language = locale;
+  document.documentElement.dataset.locale = locale;
   document.title = dictionary['meta.title'];
 
   const description = document.querySelector('meta[name="description"]');
@@ -240,10 +239,8 @@ function translatePage(language, persist = false) {
     if (value) element.setAttribute('alt', value);
   });
 
-  const languageCode = document.querySelector('[data-language-code]');
-  if (languageCode) languageCode.textContent = LANGUAGE_CODES[locale];
   document.querySelectorAll('[data-language]').forEach((button) => {
-    button.setAttribute('aria-checked', String(button.dataset.language === locale));
+    button.setAttribute('aria-pressed', String(button.dataset.language === locale));
   });
 
   if (persist) {
@@ -257,9 +254,6 @@ translatePage(initialLanguage);
 const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('[data-menu-button]');
 const nav = document.querySelector('[data-nav]');
-const languagePicker = document.querySelector('[data-language-picker]');
-const languageToggle = document.querySelector('[data-language-toggle]');
-const languageMenu = document.querySelector('[data-language-menu]');
 
 const setMenu = (open) => {
   menuButton?.setAttribute('aria-expanded', String(open));
@@ -267,54 +261,30 @@ const setMenu = (open) => {
   document.body.classList.toggle('menu-open', open);
 };
 
-const setLanguageMenu = (open) => {
-  languageToggle?.setAttribute('aria-expanded', String(open));
-  if (languageMenu) languageMenu.hidden = !open;
-  languagePicker?.classList.toggle('open', open);
-};
-
 menuButton?.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
-languageToggle?.addEventListener('click', () => setLanguageMenu(languageToggle.getAttribute('aria-expanded') !== 'true'));
-languageToggle?.addEventListener('keydown', (event) => {
-  if (!['ArrowDown', 'Enter', ' '].includes(event.key)) return;
-  if (event.key === 'ArrowDown') {
-    event.preventDefault();
-    setLanguageMenu(true);
-    const selected = document.querySelector('[data-language][aria-checked="true"]');
-    selected?.focus();
-  }
-});
 
 const languageButtons = [...document.querySelectorAll('[data-language]')];
 languageButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
     document.documentElement.classList.add('language-changing');
     translatePage(button.dataset.language, true);
-    setLanguageMenu(false);
-    languageToggle?.focus();
     window.setTimeout(() => document.documentElement.classList.remove('language-changing'), 260);
   });
   button.addEventListener('keydown', (event) => {
-    if (!['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
     event.preventDefault();
     let nextIndex = index;
-    if (event.key === 'ArrowUp') nextIndex = (index - 1 + languageButtons.length) % languageButtons.length;
-    if (event.key === 'ArrowDown') nextIndex = (index + 1) % languageButtons.length;
+    if (['ArrowLeft', 'ArrowUp'].includes(event.key)) nextIndex = (index - 1 + languageButtons.length) % languageButtons.length;
+    if (['ArrowRight', 'ArrowDown'].includes(event.key)) nextIndex = (index + 1) % languageButtons.length;
     if (event.key === 'Home') nextIndex = 0;
     if (event.key === 'End') nextIndex = languageButtons.length - 1;
     languageButtons[nextIndex].focus();
   });
 });
 
-document.addEventListener('click', (event) => {
-  if (!languagePicker?.contains(event.target)) setLanguageMenu(false);
-});
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    setLanguageMenu(false);
-    setMenu(false);
-  }
+  if (event.key === 'Escape') setMenu(false);
 });
 
 window.addEventListener('scroll', () => header?.classList.toggle('scrolled', window.scrollY > 24), { passive: true });

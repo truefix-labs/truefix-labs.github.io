@@ -14,8 +14,8 @@
     <link rel="canonical" href="https://truefix-labs.github.io/" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png" />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=2" />
+    <script src="script.js?v=2" defer></script>
     <title>TrueFix Studio — Multi-provider trading workstation</title>
   </head>
   <body>
@@ -34,17 +34,11 @@
         <a href="#principles" data-i18n="nav.principles">Principles</a>
         <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
         <a href="#audiences" data-i18n="nav.modes">Use cases</a>
-        <div class="language-picker" data-language-picker>
-          <button class="language-toggle" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="language-menu" data-language-toggle>
-            <span class="language-globe" aria-hidden="true">◎</span><span data-language-code>EN</span><span class="language-chevron" aria-hidden="true">⌄</span>
-            <span class="sr-only" data-i18n="language.choose">Choose language</span>
-          </button>
-          <div class="language-menu" id="language-menu" role="menu" aria-label="Language" data-i18n-aria-label="language.label" data-language-menu hidden>
-            <button type="button" role="menuitemradio" aria-checked="true" lang="en" data-language="en"><span>EN</span> English</button>
-            <button type="button" role="menuitemradio" aria-checked="false" lang="zh-CN" data-language="zh-CN"><span>中</span> 简体中文</button>
-            <button type="button" role="menuitemradio" aria-checked="false" lang="ko" data-language="ko"><span>한</span> 한국어</button>
-            <button type="button" role="menuitemradio" aria-checked="false" lang="ja" data-language="ja"><span>日</span> 日本語</button>
-          </div>
+        <div class="language-picker" role="group" aria-label="Language" data-i18n-aria-label="language.label">
+          <button type="button" aria-pressed="true" aria-label="English" lang="en" data-language="en">EN</button>
+          <button type="button" aria-pressed="false" aria-label="简体中文" lang="zh-CN" data-language="zh-CN">中</button>
+          <button type="button" aria-pressed="false" aria-label="한국어" lang="ko" data-language="ko">한</button>
+          <button type="button" aria-pressed="false" aria-label="日本語" lang="ja" data-language="ja">日</button>
         </div>
         <a class="nav-github" href="https://github.com/truefix-labs/truefix-studio" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>

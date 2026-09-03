@@ -14,8 +14,8 @@
     <link rel="canonical" href="https://truefix-labs.com/" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png" />
-    <link rel="stylesheet" href="styles.css?v=10" />
-    <script src="script.js?v=8" defer></script>
+    <link rel="stylesheet" href="styles.css?v=11" />
+    <script src="script.js?v=9" defer></script>
     <title>TrueFix Studio — Multi-provider trading workstation</title>
   </head>
   <body>
@@ -110,11 +110,6 @@
             <p class="platform-copy" data-i18n="download.mac.note">DMG installer for Apple Silicon Macs. This nightly build is currently unsigned.</p>
             <a class="button button-download" data-release-asset="mac-dmg" href="https://github.com/truefix-labs/truefix-labs.github.io/releases/download/nightly/macos-TrueFix.Studio_0.1.0_aarch64.dmg"><span data-i18n="download.mac.action">Download DMG</span><span aria-hidden="true">↓</span></a>
             <div class="download-file"><span>DMG · <span data-release-size="mac-dmg">68.8 MB</span></span><a href="guide/#first-run" data-i18n="download.installGuide">Installation guide ↗</a></div>
-            <div class="macos-unsigned-note">
-              <p data-i18n="download.mac.xattr">If macOS blocks this unsigned build, move the app to Applications, then run:</p>
-              <code>xattr -cr "/Applications/TrueFix Studio.app"</code>
-              <small data-i18n="download.mac.xattrCaution">Use this command only for the app downloaded from the official TrueFix Release.</small>
-            </div>
           </article>
 
           <article class="download-card reveal" data-delay="1" data-platform-card="windows">
@@ -136,6 +131,12 @@
             <a class="button button-download" data-release-asset="linux-appimage" href="https://github.com/truefix-labs/truefix-labs.github.io/releases/download/nightly/linux-TrueFix.Studio_0.1.0_amd64.AppImage"><span data-i18n="download.linux.action">Download AppImage</span><span aria-hidden="true">↓</span></a>
             <div class="download-file"><span>AppImage · <span data-release-size="linux-appimage">137.8 MB</span></span><a data-release-asset="linux-deb" href="https://github.com/truefix-labs/truefix-labs.github.io/releases/download/nightly/linux-TrueFix.Studio_0.1.0_amd64.deb"><span data-i18n="download.alternative">Alternative</span>: DEB · <span data-release-size="linux-deb">72.1 MB</span></a></div>
           </article>
+        </div>
+
+        <div class="macos-unsigned-note reveal">
+          <div><strong data-i18n="download.mac.xattrTitle">Unsigned macOS build</strong><p data-i18n="download.mac.xattr">If macOS blocks this unsigned build, move the app to Applications, then run:</p></div>
+          <code>xattr -cr "/Applications/TrueFix Studio.app"</code>
+          <small data-i18n="download.mac.xattrCaution">Use this command only for the app downloaded from the official TrueFix Release.</small>
         </div>
 
         <div class="download-footer reveal">
@@ -180,17 +181,17 @@
         </div>
         <div class="persona-grid">
           <article class="persona-card reveal">
-            <div class="persona-top"><span class="persona-avatar" aria-hidden="true">MC</span><span class="persona-badge" data-i18n="overview.personas.badge">FICTIONAL PERSONA</span></div>
+            <div class="persona-top"><span class="persona-avatar" aria-hidden="true"><img src="assets/personas/maya-chen.jpg" alt="" width="480" height="480" loading="lazy" decoding="async" /></span><span class="persona-badge" data-i18n="overview.personas.badge">FICTIONAL PERSONA</span></div>
             <h4>Maya Chen</h4><p class="persona-role" data-i18n="overview.maya.role">Independent multi-market trader · Singapore</p>
             <p data-i18n="overview.maya.task">Compares crypto and U.S. equity context across provider accounts, opens the source behind a signal, and reviews risk and routing before acting.</p>
           </article>
           <article class="persona-card reveal" data-delay="1">
-            <div class="persona-top"><span class="persona-avatar" aria-hidden="true">RI</span><span class="persona-badge" data-i18n="overview.personas.badge">FICTIONAL PERSONA</span></div>
+            <div class="persona-top"><span class="persona-avatar" aria-hidden="true"><img src="assets/personas/ren-ito.jpg" alt="" width="480" height="480" loading="lazy" decoding="async" /></span><span class="persona-badge" data-i18n="overview.personas.badge">FICTIONAL PERSONA</span></div>
             <h4>Ren Ito</h4><p class="persona-role" data-i18n="overview.ren.role">Quant developer · Tokyo</p>
             <p data-i18n="overview.ren.task">Replays one strategy against fixed data and revisions, runs the same definition headlessly, and reconciles every execution outcome.</p>
           </article>
           <article class="persona-card reveal" data-delay="2">
-            <div class="persona-top"><span class="persona-avatar" aria-hidden="true">JH</span><span class="persona-badge" data-i18n="overview.personas.badge">FICTIONAL PERSONA</span></div>
+            <div class="persona-top"><span class="persona-avatar" aria-hidden="true"><img src="assets/personas/ji-woo-han.jpg" alt="" width="480" height="480" loading="lazy" decoding="async" /></span><span class="persona-badge" data-i18n="overview.personas.badge">FICTIONAL PERSONA</span></div>
             <h4>Ji-woo Han</h4><p class="persona-role" data-i18n="overview.jiwoo.role">Research and risk lead · Seoul</p>
             <p data-i18n="overview.jiwoo.task">Uses authorized AI to organize evidence and propose a decision, while human review and RiskGuard remain mandatory before any account action.</p>
           </article>

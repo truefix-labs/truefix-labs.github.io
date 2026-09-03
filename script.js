@@ -1,5 +1,6 @@
 const STORAGE_KEY = 'truefix.language';
 const SUPPORTED_LANGUAGES = ['zh-CN', 'ja', 'ko', 'en'];
+const LANGUAGE_NAMES = { 'zh-CN': '简体中文', ja: '日本語', ko: '한국어', en: 'English' };
 
 const translations = {
   en: {
@@ -411,8 +412,14 @@ function translatePage(language, persist = false) {
     if (value) element.setAttribute('alt', value);
   });
 
-  const languageSelect = document.querySelector('[data-language-select]');
-  if (languageSelect) languageSelect.value = locale;
+  const languageCurrent = document.querySelector('[data-language-current]');
+  const languageToggle = document.querySelector('[data-language-toggle]');
+  if (languageCurrent) languageCurrent.textContent = LANGUAGE_NAMES[locale];
+  if (languageToggle) languageToggle.setAttribute('aria-label', `${dictionary['language.label']}: ${LANGUAGE_NAMES[locale]}`);
+  document.querySelectorAll('[data-language-option]').forEach((option) => {
+    const selected = option.dataset.languageOption === locale;
+    option.setAttribute('aria-selected', String(selected));
+  });
 
   const film = document.querySelector('[data-film]');
   Array.from(film?.textTracks || []).forEach((track) => {
@@ -507,15 +514,64 @@ const setMenu = (open) => {
 menuButton?.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
 
-const languageSelect = document.querySelector('[data-language-select]');
-languageSelect?.addEventListener('change', () => {
-  document.documentElement.classList.add('language-changing');
-  translatePage(languageSelect.value, true);
-  window.setTimeout(() => document.documentElement.classList.remove('language-changing'), 260);
+const languagePicker = document.querySelector('[data-language-picker]');
+const languageToggle = document.querySelector('[data-language-toggle]');
+const languageMenu = document.querySelector('[data-language-menu]');
+const languageOptions = [...document.querySelectorAll('[data-language-option]')];
+
+function setLanguageMenu(open, focusOption = false) {
+  languagePicker?.classList.toggle('is-open', open);
+  languageToggle?.setAttribute('aria-expanded', String(open));
+  languageMenu?.setAttribute('aria-hidden', String(!open));
+  if (languageMenu) languageMenu.inert = !open;
+  languageOptions.forEach((option) => { option.tabIndex = open && option.getAttribute('aria-selected') === 'true' ? 0 : -1; });
+  if (open && focusOption) {
+    (languageOptions.find((option) => option.getAttribute('aria-selected') === 'true') || languageOptions[0])?.focus();
+  }
+}
+
+languageToggle?.addEventListener('click', () => {
+  const open = languageToggle.getAttribute('aria-expanded') !== 'true';
+  setLanguageMenu(open, open);
+});
+
+languageToggle?.addEventListener('keydown', (event) => {
+  if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
+  event.preventDefault();
+  setLanguageMenu(true, true);
+});
+
+languageOptions.forEach((option, index) => {
+  option.addEventListener('click', () => {
+    document.documentElement.classList.add('language-changing');
+    translatePage(option.dataset.languageOption, true);
+    setLanguageMenu(false);
+    languageToggle?.focus();
+    window.setTimeout(() => document.documentElement.classList.remove('language-changing'), 260);
+  });
+  option.addEventListener('keydown', (event) => {
+    if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    let nextIndex = index;
+    if (event.key === 'ArrowDown') nextIndex = (index + 1) % languageOptions.length;
+    if (event.key === 'ArrowUp') nextIndex = (index - 1 + languageOptions.length) % languageOptions.length;
+    if (event.key === 'Home') nextIndex = 0;
+    if (event.key === 'End') nextIndex = languageOptions.length - 1;
+    languageOptions[nextIndex]?.focus();
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (!languagePicker?.contains(event.target)) setLanguageMenu(false);
 });
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') setMenu(false);
+  if (event.key !== 'Escape') return;
+  if (languageToggle?.getAttribute('aria-expanded') === 'true') {
+    setLanguageMenu(false);
+    languageToggle.focus();
+  }
+  setMenu(false);
 });
 
 window.addEventListener('scroll', () => header?.classList.toggle('scrolled', window.scrollY > 24), { passive: true });

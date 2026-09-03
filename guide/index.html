@@ -7,8 +7,8 @@
     <meta name="description" content="TrueFix Studio user guide for providers, market context, review, risk, and authorized AI + Quant workflows." />
     <link rel="canonical" href="https://truefix-labs.com/guide/" />
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
-    <link rel="stylesheet" href="guide.css?v=7" />
-    <script src="guide.js?v=8" defer></script>
+    <link rel="stylesheet" href="guide.css?v=9" />
+    <script src="guide.js?v=9" defer></script>
     <title>TrueFix Studio User Guide</title>
   </head>
   <body>
@@ -20,16 +20,18 @@
       </a>
       <div class="header-actions">
         <span data-guide-key="edition">USER GUIDE</span>
-        <div class="guide-language-picker">
-          <label class="sr-only" for="guide-language-select" data-guide-key="language">Language</label>
-          <span class="language-icon" aria-hidden="true">A/あ</span>
-          <select id="guide-language-select" data-guide-language-select aria-label="Language">
-            <option value="zh-CN" lang="zh-CN">简体中文</option>
-            <option value="ja" lang="ja">日本語</option>
-            <option value="ko" lang="ko">한국어</option>
-            <option value="en" lang="en" selected>English</option>
-          </select>
-          <span class="language-chevron" aria-hidden="true">⌄</span>
+        <div class="guide-language-picker" data-guide-language-picker>
+          <button class="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="guide-language-menu" data-guide-language-toggle>
+            <span class="language-icon" aria-hidden="true">A/あ</span>
+            <span class="language-current" data-guide-language-current>English</span>
+            <span class="language-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="language-menu" id="guide-language-menu" role="listbox" aria-label="Language" data-guide-language-menu aria-hidden="true" inert>
+            <button type="button" role="option" lang="zh-CN" data-guide-language-option="zh-CN" aria-selected="false" tabindex="-1"><span class="language-code">中</span><span>简体中文</span><span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="option" lang="ja" data-guide-language-option="ja" aria-selected="false" tabindex="-1"><span class="language-code">日</span><span>日本語</span><span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="option" lang="ko" data-guide-language-option="ko" aria-selected="false" tabindex="-1"><span class="language-code">한</span><span>한국어</span><span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="option" lang="en" data-guide-language-option="en" aria-selected="true" tabindex="-1"><span class="language-code">EN</span><span>English</span><span class="language-check" aria-hidden="true">✓</span></button>
+          </div>
         </div>
         <a href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer" data-guide-key="feedback">Feedback</a>
         <a href="../" data-guide-key="home">Back home</a>

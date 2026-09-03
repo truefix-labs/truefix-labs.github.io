@@ -1,5 +1,6 @@
 const STORAGE_KEY = 'truefix.language';
 const SUPPORTED_LANGUAGES = ['zh-CN', 'ja', 'ko', 'en'];
+const LANGUAGE_NAMES = { 'zh-CN': '简体中文', ja: '日本語', ko: '한국어', en: 'English' };
 
 const shellTranslations = {
   en: {
@@ -67,11 +68,16 @@ async function loadGuide(language, persist = false) {
     const value = dictionary[element.dataset.guideKey];
     if (value) element.innerHTML = value.replace('\n', '<br />');
   });
-  const select = document.querySelector('[data-guide-language-select]');
-  if (select) {
-    select.value = locale;
-    select.setAttribute('aria-label', dictionary.language);
-  }
+  const languageCurrent = document.querySelector('[data-guide-language-current]');
+  const languageToggle = document.querySelector('[data-guide-language-toggle]');
+  const languageMenu = document.querySelector('[data-guide-language-menu]');
+  if (languageCurrent) languageCurrent.textContent = LANGUAGE_NAMES[locale];
+  if (languageToggle) languageToggle.setAttribute('aria-label', `${dictionary.language}: ${LANGUAGE_NAMES[locale]}`);
+  if (languageMenu) languageMenu.setAttribute('aria-label', dictionary.language);
+  document.querySelectorAll('[data-guide-language-option]').forEach((option) => {
+    const selected = option.dataset.guideLanguageOption === locale;
+    option.setAttribute('aria-selected', String(selected));
+  });
   if (persist) {
     try { localStorage.setItem(STORAGE_KEY, locale); } catch { /* Keep the preference for this page only. */ }
   }
@@ -97,6 +103,57 @@ async function loadGuide(language, persist = false) {
 const initialLanguage = getSavedLanguage() || detectBrowserLanguage();
 loadGuide(initialLanguage);
 
-document.querySelector('[data-guide-language-select]')?.addEventListener('change', (event) => {
-  loadGuide(event.currentTarget.value, true);
+const languagePicker = document.querySelector('[data-guide-language-picker]');
+const languageToggle = document.querySelector('[data-guide-language-toggle]');
+const languageMenu = document.querySelector('[data-guide-language-menu]');
+const languageOptions = [...document.querySelectorAll('[data-guide-language-option]')];
+
+function setLanguageMenu(open, focusOption = false) {
+  languagePicker?.classList.toggle('is-open', open);
+  languageToggle?.setAttribute('aria-expanded', String(open));
+  languageMenu?.setAttribute('aria-hidden', String(!open));
+  if (languageMenu) languageMenu.inert = !open;
+  languageOptions.forEach((option) => { option.tabIndex = open && option.getAttribute('aria-selected') === 'true' ? 0 : -1; });
+  if (open && focusOption) {
+    (languageOptions.find((option) => option.getAttribute('aria-selected') === 'true') || languageOptions[0])?.focus();
+  }
+}
+
+languageToggle?.addEventListener('click', () => {
+  const open = languageToggle.getAttribute('aria-expanded') !== 'true';
+  setLanguageMenu(open, open);
+});
+
+languageToggle?.addEventListener('keydown', (event) => {
+  if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
+  event.preventDefault();
+  setLanguageMenu(true, true);
+});
+
+languageOptions.forEach((option, index) => {
+  option.addEventListener('click', () => {
+    loadGuide(option.dataset.guideLanguageOption, true);
+    setLanguageMenu(false);
+    languageToggle?.focus();
+  });
+  option.addEventListener('keydown', (event) => {
+    if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    let nextIndex = index;
+    if (event.key === 'ArrowDown') nextIndex = (index + 1) % languageOptions.length;
+    if (event.key === 'ArrowUp') nextIndex = (index - 1 + languageOptions.length) % languageOptions.length;
+    if (event.key === 'Home') nextIndex = 0;
+    if (event.key === 'End') nextIndex = languageOptions.length - 1;
+    languageOptions[nextIndex]?.focus();
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (!languagePicker?.contains(event.target)) setLanguageMenu(false);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape' || languageToggle?.getAttribute('aria-expanded') !== 'true') return;
+  setLanguageMenu(false);
+  languageToggle.focus();
 });

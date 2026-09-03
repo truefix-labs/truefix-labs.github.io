@@ -17,6 +17,16 @@ TrueFix Studio는 멀티 Provider 트레이딩 워크스테이션입니다. Desk
 2. 최근 워크스페이스를 복구하거나 안전한 기본 레이아웃을 엽니다. 종목, 패널 배치, revision을 복구할 수 있습니다.
 3. `unavailable`, `stale`, `degraded`, `rejected`를 서로 다른 상태로 처리합니다. 누락값은 0이 아니며 오류는 빈 결과가 아닙니다.
 
+### 서명되지 않은 macOS 빌드
+
+승인된 출시 전 앱이 아직 서명되지 않아 macOS에서 차단되면 앱을 `/Applications`로 옮긴 후 Terminal에서 다음 명령을 실행하세요.
+
+```bash
+xattr -cr "/Applications/TrueFix Studio.app"
+```
+
+공식 프로젝트 채널에서 받은 빌드에만 사용하세요. 이 명령은 해당 앱 번들의 격리 속성을 제거합니다.
+
 ## 3. Provider 구성
 
 **Provider Centre**에서 ProviderDefinition을 선택하고 ClientInstance를 만듭니다.

@@ -1,5 +1,5 @@
 const STORAGE_KEY = 'truefix.language';
-const SUPPORTED_LANGUAGES = ['en', 'zh-CN', 'ko', 'ja'];
+const SUPPORTED_LANGUAGES = ['zh-CN', 'ja', 'ko', 'en'];
 
 const shellTranslations = {
   en: {
@@ -80,7 +80,7 @@ async function loadGuide(language, persist = false) {
   if (!content) return;
   content.setAttribute('aria-busy', 'true');
   try {
-    const response = await fetch(`content/${locale}.html?v=3`);
+    const response = await fetch(`content/${locale}.html?v=4`);
     if (!response.ok) throw new Error(`Guide request failed: ${response.status}`);
     const markup = await response.text();
     if (revision !== contentRevision) return;

@@ -17,6 +17,16 @@ TrueFix StudioはマルチProvider取引ワークステーションです。Desk
 2. 最近のワークスペースを復元するか、安全な初期レイアウトを開きます。銘柄、パネル配置、revisionを復元できます。
 3. `unavailable`、`stale`、`degraded`、`rejected`を別の状態として扱います。欠損値は0ではなく、エラーは空の結果ではありません。
 
+### 未署名のmacOSビルド
+
+認可済みのプレリリース版が未署名のためmacOSにブロックされた場合、アプリを`/Applications`へ移動し、Terminalで次を実行します。
+
+```bash
+xattr -cr "/Applications/TrueFix Studio.app"
+```
+
+公式プロジェクト経由のビルドにのみ使用してください。このコマンドは対象アプリバンドルの隔離属性を削除します。
+
 ## 3. Providerの設定
 
 **Provider Centre**でProviderDefinitionを選び、ClientInstanceを作成します。

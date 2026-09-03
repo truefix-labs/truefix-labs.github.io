@@ -23,6 +23,8 @@
     <li><span>2</span><div><h3>Restore or create a workspace</h3><p>A recent workspace restores its last instrument, panel layout, and layout revision. A failed restore returns to a safe default without creating duplicate subscriptions.</p></div></li>
     <li><span>3</span><div><h3>Resolve explicit states</h3><p>Treat unavailable, stale, degraded, and rejected as different conditions. A missing value is not zero, and the UI does not invent a healthy state.</p></div></li>
   </ol>
+  <div class="notice"><strong>Unsigned macOS build</strong><span>If an authorized pre-release app is blocked because it is not yet signed, move it into Applications, then run the following command in Terminal. Use this only for a build received from the official project channel; it removes quarantine metadata from that app bundle.</span></div>
+  <code class="command-block">xattr -cr "/Applications/TrueFix Studio.app"</code>
 </section>
 
 <section id="provider" class="doc-section">

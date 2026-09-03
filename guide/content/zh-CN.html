@@ -15,6 +15,8 @@
 <section id="first-run" class="doc-section">
   <p class="section-no">02 / FIRST RUN</p><h2>首次启动与工作区恢复</h2>
   <ol class="steps"><li><span>1</span><div><h3>检查 Readiness</h3><p>首页分别展示内核、Provider、目录、交易投影、Intelligence 和 Risk 状态。单个模块不可用不会阻止其他模块打开。</p></div></li><li><span>2</span><div><h3>恢复或新建工作区</h3><p>最近工作区可恢复上次标的、面板布局与 revision。恢复失败时回到安全默认布局，不会创建重复订阅。</p></div></li><li><span>3</span><div><h3>处理明确状态</h3><p>分别对待 unavailable、stale、degraded 和 rejected。缺失值不等于零，界面也不会补造健康状态。</p></div></li></ol>
+  <div class="notice"><strong>macOS 未签名版本</strong><span>如果受邀测试版本因尚未签名而被 macOS 拦截，请先把应用移入“应用程序”，再在“终端”运行下面的命令。仅对项目官方渠道提供的应用使用；该命令会移除这个应用包的隔离属性。</span></div>
+  <code class="command-block">xattr -cr "/Applications/TrueFix Studio.app"</code>
 </section>
 
 <section id="provider" class="doc-section">

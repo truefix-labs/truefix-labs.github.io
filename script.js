@@ -1,5 +1,5 @@
 const STORAGE_KEY = 'truefix.language';
-const SUPPORTED_LANGUAGES = ['en', 'zh-CN', 'ko', 'ja'];
+const SUPPORTED_LANGUAGES = ['zh-CN', 'ja', 'ko', 'en'];
 
 const translations = {
   en: {
@@ -8,13 +8,16 @@ const translations = {
     'meta.ogDescription': 'Market data, research, strategy, risk, and execution in one auditable workstation.',
     'a11y.skip': 'Skip to main content', 'a11y.home': 'TrueFix Studio home', 'a11y.menu': 'Open navigation',
     'a11y.nav': 'Primary navigation', 'a11y.capabilities': 'Core capabilities', 'a11y.productInterfaces': 'Product interfaces',
-    'a11y.architecture': 'TrueFix Studio architecture diagram', 'a11y.film': 'TrueFix Studio product film', 'language.label': 'Language',
+    'a11y.architecture': 'TrueFix Studio architecture diagram', 'a11y.film': 'TrueFix Studio product film', 'a11y.providers': 'Available provider adapters', 'language.label': 'Language',
     'nav.product': 'Product', 'nav.principles': 'Principles', 'nav.architecture': 'Architecture', 'nav.modes': 'Use cases', 'nav.about': 'About', 'nav.guide': 'User guide',
     'hero.eyebrow': 'Private beta · Pre-release', 'hero.title': 'Every market decision,<br /><i>backed by evidence.</i>',
     'hero.lede': 'TrueFix Studio brings market data, research, strategy, risk, and execution into one multi-provider workstation—clear for traders, deterministic for quant systems, and permissioned for AI.',
     'hero.source': 'Read the user guide', 'hero.explore': 'Explore workstation', 'hero.note': 'Pre-release · Access is currently private',
     'cap.historical': 'Historical Market Data', 'cap.realtime': 'Realtime Market Data', 'cap.trade': 'Trade',
     'cap.news': 'News & Events', 'cap.instruments': 'Instruments', 'cap.analysis': 'Analysis',
+    'provider.eyebrow': 'PROVIDER NETWORK', 'provider.title': 'Connected by adapters.<br />Verified at runtime.',
+    'provider.note': 'Selected adapters from the current integration set are shown below. Exact market data, account, and trading capabilities still resolve by market, product, environment, entitlement, and live evidence.',
+    'provider.caveat': 'Adapter present ≠ every capability certified. TrueFix resolves the usable scope at runtime.',
     'product.title': 'One workstation.<br />The full decision chain.',
     'product.lede': 'One canonical contract serves Desktop, Web, AI, and Quant. Runtime evidence answers where data came from, why it is available, and whether it can trade.',
     'product.tab.workstation': 'Trading workstation', 'product.tab.workstationSub': 'Market · Chart · Execution',
@@ -25,8 +28,8 @@ const translations = {
     'product.caption.quant': 'Strategy output becomes a constrained decision before Review and RiskGuard allow execution.',
     'product.fullSize': 'Open full resolution',
     'film.title': 'See the decision chain.<br />Keep every boundary visible.',
-    'film.lede': 'A short tour of the trading workstation, intelligence evidence, and authorized AI + Quant runtime.',
-    'film.caption': 'Product preview · Interface footage · No private source code', 'film.fallback': 'Your browser cannot play this video.',
+    'film.lede': 'A narrated tour of the workstation, intelligence evidence, authorized AI + Quant runtime, and the clearly labeled future Market Twin concept.',
+    'film.caption': 'Product preview · Narration and original ambient score · Includes a clearly labeled future concept', 'film.fallback': 'Your browser cannot play this video.',
     'principles.title': 'Trading infrastructure<br />should never guess.',
     'principles.lede': 'TrueFix draws deliberate boundaries: when mappings, accounts, permissions, or freshness are missing, it stops instead of quietly choosing a plausible answer.',
     'principles.evidence.title': 'Capabilities resolve from evidence',
@@ -46,8 +49,10 @@ const translations = {
     'modes.ai': 'Let agents analyze markets with authorized tools while preserving review, budget, and risk boundaries.',
     'about.title': 'Different disciplines.<br />One accountable system.',
     'about.lede': 'TrueFix Studio is represented by a distributed team spanning market structure, systems engineering, human factors, and AI safety.',
-    'about.intro': 'Four complementary perspectives shape a workstation where provenance stays visible, automation stays bounded, and uncertainty is treated as a first-class state.',
+    'about.intro': 'Six complementary perspectives shape a workstation where provenance stays visible, automation stays bounded, and uncertainty is treated as a first-class state.',
     'about.amara.role': 'Systems Architecture', 'about.amara.bio': 'A Lagos-born, London-based systems architect who models provider boundaries, fault isolation, and deterministic recovery.',
+    'about.chen.role': 'Data Integrity', 'about.chen.bio': 'A Hangzhou-born, Singapore-based engineer who keeps market identifiers, revisions, and cross-provider data lineage exact.',
+    'about.park.role': 'Runtime Reliability', 'about.park.bio': 'A Seoul-and-Toronto reliability engineer focused on bounded event delivery, observability, and safe recovery under pressure.',
     'about.elias.role': 'Market Infrastructure', 'about.elias.bio': 'A Madrid-and-Chicago market structure specialist focused on instrument identity, routing evidence, and execution reconciliation.',
     'about.sora.role': 'Human Factors & Risk', 'about.sora.bio': 'A Tokyo-and-Vancouver product thinker designing interfaces that make uncertainty, permission, and risk visible before action.',
     'about.leila.role': 'AI & Quant Safety', 'about.leila.bio': 'A Montréal-and-Dubai research engineer shaping authorized agent tools, reproducible strategy runtime, and audit-ready decisions.',
@@ -57,7 +62,7 @@ const translations = {
     'closing.github': 'Open the user guide', 'footer.tagline': 'Multi-provider trading workstation.', 'footer.status': 'Pre-release software',
     'alt.workstationDetail': 'TrueFix Studio dark trading workstation showing a BTC/USDT chart, market depth, positions, and order ticket',
     'alt.workstation': 'TrueFix Studio trading workstation', 'alt.intelligence': 'TrueFix Studio intelligence interface', 'alt.quant': 'TrueFix Studio AI and quant interface',
-    'alt.amara': 'Portrait of Amara Okafor', 'alt.elias': 'Portrait of Elias Navarro', 'alt.sora': 'Portrait of Sora Kimura', 'alt.leila': 'Portrait of Leila Haddad'
+    'alt.amara': 'Portrait of Amara Okafor', 'alt.chen': 'Portrait of Chen Wei', 'alt.park': 'Portrait of Park Min-seo', 'alt.elias': 'Portrait of Elias Navarro', 'alt.sora': 'Portrait of Sora Kimura', 'alt.leila': 'Portrait of Leila Haddad'
   },
   'zh-CN': {
     'meta.title': 'TrueFix Studio — 多 Provider 交易工作站',
@@ -65,13 +70,16 @@ const translations = {
     'meta.ogDescription': '把行情、研究、策略、风控与执行放进一个可审计的工作站。',
     'a11y.skip': '跳到主要内容', 'a11y.home': 'TrueFix Studio 首页', 'a11y.menu': '打开导航',
     'a11y.nav': '主导航', 'a11y.capabilities': '核心能力', 'a11y.productInterfaces': '产品界面',
-    'a11y.architecture': 'TrueFix Studio 架构图', 'a11y.film': 'TrueFix Studio 产品宣传片', 'language.label': '语言',
+    'a11y.architecture': 'TrueFix Studio 架构图', 'a11y.film': 'TrueFix Studio 产品宣传片', 'a11y.providers': '可用 Provider 适配器', 'language.label': '语言',
     'nav.product': '产品', 'nav.principles': '原则', 'nav.architecture': '架构', 'nav.modes': '使用方式', 'nav.about': '关于我们', 'nav.guide': '使用指南',
     'hero.eyebrow': '私测 · 首版发布前', 'hero.title': '每一个市场决策，<br /><i>都有证据可循。</i>',
     'hero.lede': 'TrueFix Studio 把行情、研究、策略、风控与执行放进同一个多 Provider 工作站。为交易员而清晰，为量化系统而确定，为 AI 而可授权。',
     'hero.source': '阅读使用指南', 'hero.explore': '探索工作站', 'hero.note': '首版发布前 · 当前仅限受邀访问',
     'cap.historical': '历史行情', 'cap.realtime': '实时行情', 'cap.trade': '交易执行',
     'cap.news': '新闻与事件', 'cap.instruments': '证券主数据', 'cap.analysis': '分析',
+    'provider.eyebrow': 'PROVIDER 网络', 'provider.title': '由适配器连接。<br />由运行时验证。',
+    'provider.note': '下方展示当前集成中的部分适配器。具体行情、账户和交易能力仍按市场、产品、环境、权限与实时证据解析。',
+    'provider.caveat': '存在适配器 ≠ 所有能力均已认证。TrueFix 会在运行时解析当前可用范围。',
     'product.title': '一套工作站，<br />贯穿完整决策链。',
     'product.lede': '同一个 canonical contract 服务桌面端、Web、AI 与 Quant。数据从哪里来、为何可用、能否交易，都由运行时证据回答。',
     'product.tab.workstation': '交易工作站', 'product.tab.workstationSub': '行情 · 图表 · 执行',
@@ -82,8 +90,8 @@ const translations = {
     'product.caption.quant': '策略结果先形成受约束的决策，再通过 Review 与 RiskGuard 进入执行。',
     'product.fullSize': '打开原尺寸图片',
     'film.title': '看见完整决策链。<br />让每一道边界都清晰可见。',
-    'film.lede': '用一段短片了解交易工作站、Intelligence 证据与受权 AI + Quant 运行时。',
-    'film.caption': '产品预览 · 真实界面画面 · 不包含私有源码', 'film.fallback': '当前浏览器无法播放此视频。',
+    'film.lede': '通过带旁白的短片了解交易工作站、Intelligence 证据、受权 AI + Quant 运行时，以及明确标注的未来“市场孪生”概念。',
+    'film.caption': '产品预览 · 旁白与原创氛围配乐 · 包含明确标注的未来概念', 'film.fallback': '当前浏览器无法播放此视频。',
     'principles.title': '交易基础设施，<br />不该依靠猜测。',
     'principles.lede': 'TrueFix 的边界是刻意设计的：缺少映射、账户、权限或新鲜度时，系统拒绝继续，而不是悄悄选择一个看似可行的答案。',
     'principles.evidence.title': '能力由证据解析',
@@ -103,8 +111,10 @@ const translations = {
     'modes.ai': '让 Agent 使用受权工具分析市场，同时保留审阅、预算与风控边界。',
     'about.title': '不同专业视角，<br />同一个可追责系统。',
     'about.lede': 'TrueFix Studio 由一支分布式团队形象代表，涵盖市场结构、系统工程、人因设计与 AI 安全。',
-    'about.intro': '四种互补视角共同塑造工作站：来源始终可见，自动化始终有界，不确定性被作为一等状态对待。',
+    'about.intro': '六种互补视角共同塑造工作站：来源始终可见，自动化始终有界，不确定性被作为一等状态对待。',
     'about.amara.role': '系统架构', 'about.amara.bio': '出生于拉各斯、工作于伦敦的系统架构师，聚焦 Provider 边界、故障隔离与确定性恢复。',
+    'about.chen.role': '数据完整性', 'about.chen.bio': '出生于杭州、工作于新加坡的工程师，确保市场标识、revision 与跨 Provider 数据血缘精确一致。',
+    'about.park.role': '运行时可靠性', 'about.park.bio': '横跨首尔与多伦多的可靠性工程师，专注有界事件分发、可观测性与高压场景下的安全恢复。',
     'about.elias.role': '市场基础设施', 'about.elias.bio': '横跨马德里与芝加哥的市场结构专家，专注标的身份、路由证据与执行对账。',
     'about.sora.role': '人因与风险', 'about.sora.bio': '横跨东京与温哥华的产品思考者，设计在行动前让不确定性、权限和风险清晰可见的界面。',
     'about.leila.role': 'AI 与量化安全', 'about.leila.bio': '横跨蒙特利尔与迪拜的研究工程师，设计受权 Agent 工具、可复现策略运行时与可审计决策。',
@@ -114,7 +124,7 @@ const translations = {
     'closing.github': '打开使用指南', 'footer.tagline': '多 Provider 交易工作站。', 'footer.status': '首版发布前软件',
     'alt.workstationDetail': 'TrueFix Studio 深色交易工作站界面，展示 BTC/USDT K 线、行情深度、持仓与下单面板',
     'alt.workstation': 'TrueFix Studio 交易工作站', 'alt.intelligence': 'TrueFix Studio 智能分析界面', 'alt.quant': 'TrueFix Studio AI 与量化界面',
-    'alt.amara': 'Amara Okafor 的人物肖像', 'alt.elias': 'Elias Navarro 的人物肖像', 'alt.sora': 'Sora Kimura 的人物肖像', 'alt.leila': 'Leila Haddad 的人物肖像'
+    'alt.amara': 'Amara Okafor 的人物肖像', 'alt.chen': '陈玮的人物肖像', 'alt.park': 'Park Min-seo 的人物肖像', 'alt.elias': 'Elias Navarro 的人物肖像', 'alt.sora': 'Sora Kimura 的人物肖像', 'alt.leila': 'Leila Haddad 的人物肖像'
   },
   ko: {
     'meta.title': 'TrueFix Studio — 멀티 프로바이더 트레이딩 워크스테이션',
@@ -122,13 +132,16 @@ const translations = {
     'meta.ogDescription': '시장 데이터, 리서치, 전략, 리스크, 실행을 하나의 감사 가능한 워크스테이션에서.',
     'a11y.skip': '주요 콘텐츠로 건너뛰기', 'a11y.home': 'TrueFix Studio 홈', 'a11y.menu': '내비게이션 열기',
     'a11y.nav': '주요 내비게이션', 'a11y.capabilities': '핵심 기능', 'a11y.productInterfaces': '제품 인터페이스',
-    'a11y.architecture': 'TrueFix Studio 아키텍처 다이어그램', 'a11y.film': 'TrueFix Studio 제품 필름', 'language.label': '언어',
+    'a11y.architecture': 'TrueFix Studio 아키텍처 다이어그램', 'a11y.film': 'TrueFix Studio 제품 필름', 'a11y.providers': '사용 가능한 Provider 어댑터', 'language.label': '언어',
     'nav.product': '제품', 'nav.principles': '원칙', 'nav.architecture': '아키텍처', 'nav.modes': '사용 방식', 'nav.about': '소개', 'nav.guide': '사용 가이드',
     'hero.eyebrow': '프라이빗 베타 · 출시 전', 'hero.title': '모든 시장 의사결정에,<br /><i>검증 가능한 근거를.</i>',
     'hero.lede': 'TrueFix Studio는 시장 데이터, 리서치, 전략, 리스크, 실행을 하나의 멀티 프로바이더 워크스테이션에 통합합니다. 트레이더에게는 명확하게, 퀀트 시스템에는 결정론적으로, AI에는 권한을 통제하여 제공합니다.',
     'hero.source': '사용 가이드 읽기', 'hero.explore': '워크스테이션 살펴보기', 'hero.note': '출시 전 · 현재 접근은 비공개입니다',
     'cap.historical': '과거 시장 데이터', 'cap.realtime': '실시간 시장 데이터', 'cap.trade': '거래',
     'cap.news': '뉴스 및 이벤트', 'cap.instruments': '종목 정보', 'cap.analysis': '분석',
+    'provider.eyebrow': 'PROVIDER 네트워크', 'provider.title': '어댑터로 연결하고.<br />런타임에서 검증합니다.',
+    'provider.note': '현재 통합 세트의 대표 어댑터를 아래에 표시합니다. 정확한 시장 데이터, 계정, 거래 기능은 시장, 상품, 환경, 권한, 실시간 증거에 따라 해석됩니다.',
+    'provider.caveat': '어댑터 존재 ≠ 모든 기능 인증. TrueFix는 런타임에서 실제 사용 범위를 해석합니다.',
     'product.title': '하나의 워크스테이션.<br />완전한 의사결정 체계.',
     'product.lede': '하나의 canonical contract가 Desktop, Web, AI, Quant를 지원합니다. 데이터 출처와 사용 가능성, 거래 가능 여부를 런타임 증거로 판단합니다.',
     'product.tab.workstation': '트레이딩 워크스테이션', 'product.tab.workstationSub': '시장 · 차트 · 실행',
@@ -139,8 +152,8 @@ const translations = {
     'product.caption.quant': '전략 출력은 제약된 의사결정이 된 후 Review와 RiskGuard를 거쳐 실행됩니다.',
     'product.fullSize': '원본 크기로 열기',
     'film.title': '의사결정 체계를 확인하고.<br />모든 경계를 명확하게 유지하세요.',
-    'film.lede': '트레이딩 워크스테이션, 인텔리전스 근거, 권한이 부여된 AI + Quant 런타임을 짧게 소개합니다.',
-    'film.caption': '제품 미리보기 · 인터페이스 화면 · 비공개 소스 코드 없음', 'film.fallback': '브라우저에서 이 동영상을 재생할 수 없습니다.',
+    'film.lede': '내레이션과 함께 워크스테이션, 인텔리전스 근거, 권한이 부여된 AI + Quant 런타임, 명확히 표시된 미래 Market Twin 개념을 소개합니다.',
+    'film.caption': '제품 미리보기 · 내레이션과 오리지널 앰비언트 음악 · 명확히 표시된 미래 개념 포함', 'film.fallback': '브라우저에서 이 동영상을 재생할 수 없습니다.',
     'principles.title': '트레이딩 인프라는<br />추측해서는 안 됩니다.',
     'principles.lede': 'TrueFix의 경계는 의도적으로 설계됩니다. 매핑, 계정, 권한 또는 최신성이 없으면 그럴듯한 답을 택하는 대신 중단합니다.',
     'principles.evidence.title': '증거로 기능을 판정',
@@ -160,8 +173,10 @@ const translations = {
     'modes.ai': '검토, 예산, 리스크 경계를 유지하면서 Agent가 권한이 부여된 도구로 시장을 분석합니다.',
     'about.title': '서로 다른 전문 분야.<br />하나의 책임 있는 시스템.',
     'about.lede': 'TrueFix Studio는 시장 구조, 시스템 엔지니어링, 인간 요소, AI 안전을 아우르는 분산형 팀으로 표현됩니다.',
-    'about.intro': '네 가지 상호 보완적 관점이 출처를 드러내고, 자동화의 범위를 제한하며, 불확실성을 일차적 상태로 다루는 워크스테이션을 만듭니다.',
+    'about.intro': '여섯 가지 상호 보완적 관점이 출처를 드러내고, 자동화의 범위를 제한하며, 불확실성을 일차적 상태로 다루는 워크스테이션을 만듭니다.',
     'about.amara.role': '시스템 아키텍처', 'about.amara.bio': '라고스 출신으로 런던에서 활동하며 Provider 경계, 고장 격리, 결정론적 복구를 설계하는 시스템 아키텍트입니다.',
+    'about.chen.role': '데이터 무결성', 'about.chen.bio': '항저우 출신으로 싱가포르에서 활동하며 시장 식별자, revision, Provider 간 데이터 계보를 정확하게 유지합니다.',
+    'about.park.role': '런타임 신뢰성', 'about.park.bio': '서울과 토론토를 기반으로 제한된 이벤트 전달, 관측 가능성, 압박 상황의 안전한 복구를 설계하는 신뢰성 엔지니어입니다.',
     'about.elias.role': '시장 인프라', 'about.elias.bio': '마드리드와 시카고를 중심으로 종목 식별, 라우팅 증거, 실행 대상 조정에 집중하는 시장 구조 전문가입니다.',
     'about.sora.role': '인간 요소 & 리스크', 'about.sora.bio': '도쿄와 밴쿠버를 중심으로 활동하며 행동 전에 불확실성, 권한, 리스크를 명확히 보여 주는 인터페이스를 설계합니다.',
     'about.leila.role': 'AI & Quant 안전', 'about.leila.bio': '몬트리올과 두바이를 중심으로 권한이 있는 Agent 도구, 재현 가능한 전략 런타임, 감사 가능한 의사결정을 연구합니다.',
@@ -171,7 +186,7 @@ const translations = {
     'closing.github': '사용 가이드 열기', 'footer.tagline': '멀티 프로바이더 트레이딩 워크스테이션.', 'footer.status': '출시 전 소프트웨어',
     'alt.workstationDetail': 'BTC/USDT 차트, 시장 깊이, 포지션, 주문 패널을 보여 주는 TrueFix Studio 다크 트레이딩 워크스테이션',
     'alt.workstation': 'TrueFix Studio 트레이딩 워크스테이션', 'alt.intelligence': 'TrueFix Studio 인텔리전스 인터페이스', 'alt.quant': 'TrueFix Studio AI 및 퀀트 인터페이스',
-    'alt.amara': 'Amara Okafor의 초상', 'alt.elias': 'Elias Navarro의 초상', 'alt.sora': 'Sora Kimura의 초상', 'alt.leila': 'Leila Haddad의 초상'
+    'alt.amara': 'Amara Okafor의 초상', 'alt.chen': 'Chen Wei의 초상', 'alt.park': 'Park Min-seo의 초상', 'alt.elias': 'Elias Navarro의 초상', 'alt.sora': 'Sora Kimura의 초상', 'alt.leila': 'Leila Haddad의 초상'
   },
   ja: {
     'meta.title': 'TrueFix Studio — マルチプロバイダー取引ワークステーション',
@@ -179,13 +194,16 @@ const translations = {
     'meta.ogDescription': '市場データ、リサーチ、戦略、リスク、執行を一つの監査可能なワークステーションに。',
     'a11y.skip': 'メインコンテンツへ移動', 'a11y.home': 'TrueFix Studio ホーム', 'a11y.menu': 'ナビゲーションを開く',
     'a11y.nav': 'メインナビゲーション', 'a11y.capabilities': '主要機能', 'a11y.productInterfaces': '製品インターフェース',
-    'a11y.architecture': 'TrueFix Studio アーキテクチャ図', 'a11y.film': 'TrueFix Studio プロダクトフィルム', 'language.label': '言語',
+    'a11y.architecture': 'TrueFix Studio アーキテクチャ図', 'a11y.film': 'TrueFix Studio プロダクトフィルム', 'a11y.providers': '利用可能なProviderアダプター', 'language.label': '言語',
     'nav.product': '製品', 'nav.principles': '原則', 'nav.architecture': '構成', 'nav.modes': '利用方法', 'nav.about': '私たちについて', 'nav.guide': '利用ガイド',
     'hero.eyebrow': 'プライベートベータ · リリース前', 'hero.title': 'すべての市場判断に、<br /><i>確かな根拠を。</i>',
     'hero.lede': 'TrueFix Studioは、市場データ、リサーチ、戦略、リスク、執行を一つのマルチプロバイダー・ワークステーションに統合します。トレーダーには明快さを、クオンツには決定性を、AIには適切な権限を提供します。',
     'hero.source': '利用ガイドを読む', 'hero.explore': 'ワークステーションを見る', 'hero.note': 'リリース前 · 現在アクセスは非公開です',
     'cap.historical': '過去市場データ', 'cap.realtime': 'リアルタイム市場データ', 'cap.trade': '取引',
     'cap.news': 'ニュースとイベント', 'cap.instruments': '銘柄情報', 'cap.analysis': '分析',
+    'provider.eyebrow': 'PROVIDER ネットワーク', 'provider.title': 'アダプターで接続。<br />ランタイムで検証。',
+    'provider.note': '現在の統合セットから代表的なアダプターを表示します。実際の市場データ、口座、取引機能は市場、商品、環境、権限、ライブ証拠から解決されます。',
+    'provider.caveat': 'アダプターの存在 ≠ 全機能の認証。TrueFixはランタイムで利用可能範囲を解決します。',
     'product.title': '一つのワークステーション。<br />意思決定の全工程を。',
     'product.lede': '一つのcanonical contractがDesktop、Web、AI、Quantを支えます。データの出所、利用できる理由、取引可能かどうかをランタイム証拠が示します。',
     'product.tab.workstation': '取引ワークステーション', 'product.tab.workstationSub': '市場 · チャート · 執行',
@@ -196,8 +214,8 @@ const translations = {
     'product.caption.quant': '戦略出力は制約付きの意思決定となり、ReviewとRiskGuardを通ってから執行されます。',
     'product.fullSize': '原寸画像を開く',
     'film.title': '意思決定の流れを見渡し。<br />すべての境界を明確に。',
-    'film.lede': '取引ワークステーション、インテリジェンスの根拠、認可されたAI + Quantランタイムを短く紹介します。',
-    'film.caption': '製品プレビュー · インターフェース映像 · 非公開ソースなし', 'film.fallback': 'このブラウザーでは動画を再生できません。',
+    'film.lede': 'ナレーション付きでワークステーション、Intelligenceの根拠、認可済みAI + Quantランタイム、明示された未来のMarket Twin構想を紹介します。',
+    'film.caption': '製品プレビュー · ナレーションとオリジナル環境音楽 · 明示された未来構想を含む', 'film.fallback': 'このブラウザーでは動画を再生できません。',
     'principles.title': '取引インフラに、<br />推測を持ち込まない。',
     'principles.lede': 'TrueFixの境界は意図的に設計されています。マッピング、口座、権限、鮮度が不足すれば、それらしい答えを選ばず停止します。',
     'principles.evidence.title': '証拠から機能を解決',
@@ -217,8 +235,10 @@ const translations = {
     'modes.ai': 'レビュー、予算、リスク境界を保ちながら、Agentが認可済みツールで市場を分析できます。',
     'about.title': '異なる専門性。<br />一つの説明可能なシステム。',
     'about.lede': 'TrueFix Studioは、市場構造、システム工学、ヒューマンファクター、AI安全性にまたがる分散チームによって表現されます。',
-    'about.intro': '出所を見える状態に保ち、自動化に境界を設け、不確実性を第一級の状態として扱うワークステーションを、4つの相補的な視点が形作ります。',
+    'about.intro': '出所を見える状態に保ち、自動化に境界を設け、不確実性を第一級の状態として扱うワークステーションを、6つの相補的な視点が形作ります。',
     'about.amara.role': 'システムアーキテクチャ', 'about.amara.bio': 'ラゴス生まれ、ロンドン拠点のシステムアーキテクト。Provider境界、障害分離、決定論的復旧を設計します。',
+    'about.chen.role': 'データ完全性', 'about.chen.bio': '杭州生まれ、シンガポール拠点のエンジニア。市場識別子、revision、Provider横断のデータリネージを正確に保ちます。',
+    'about.park.role': 'ランタイム信頼性', 'about.park.bio': 'ソウルとトロントを拠点に、有界イベント配信、可観測性、高負荷時の安全な復旧に取り組む信頼性エンジニアです。',
     'about.elias.role': '市場インフラ', 'about.elias.bio': 'マドリードとシカゴを拠点に、銘柄識別、ルート証拠、執行照合に取り組む市場構造の専門家です。',
     'about.sora.role': 'ヒューマンファクター & リスク', 'about.sora.bio': '東京とバンクーバーを拠点に、行動前に不確実性、権限、リスクを明確にするインターフェースを設計します。',
     'about.leila.role': 'AI & Quant セーフティ', 'about.leila.bio': 'モントリオールとドバイを拠点に、認可済みAgentツール、再現可能な戦略ランタイム、監査可能な意思決定を研究します。',
@@ -228,7 +248,7 @@ const translations = {
     'closing.github': '利用ガイドを開く', 'footer.tagline': 'マルチプロバイダー取引ワークステーション。', 'footer.status': 'リリース前ソフトウェア',
     'alt.workstationDetail': 'BTC/USDTチャート、板情報、ポジション、注文パネルを表示するTrueFix Studioのダーク取引ワークステーション',
     'alt.workstation': 'TrueFix Studio 取引ワークステーション', 'alt.intelligence': 'TrueFix Studio インテリジェンス画面', 'alt.quant': 'TrueFix Studio AI・クオンツ画面',
-    'alt.amara': 'Amara Okaforのポートレート', 'alt.elias': 'Elias Navarroのポートレート', 'alt.sora': 'Sora Kimuraのポートレート', 'alt.leila': 'Leila Haddadのポートレート'
+    'alt.amara': 'Amara Okaforのポートレート', 'alt.chen': 'Chen Weiのポートレート', 'alt.park': 'Park Min-seoのポートレート', 'alt.elias': 'Elias Navarroのポートレート', 'alt.sora': 'Sora Kimuraのポートレート', 'alt.leila': 'Leila Haddadのポートレート'
   }
 };
 
@@ -293,6 +313,11 @@ function translatePage(language, persist = false) {
 
   const languageSelect = document.querySelector('[data-language-select]');
   if (languageSelect) languageSelect.value = locale;
+
+  const film = document.querySelector('[data-film]');
+  Array.from(film?.textTracks || []).forEach((track) => {
+    track.mode = normalizeLanguage(track.language) === locale ? 'showing' : 'disabled';
+  });
 
   if (persist) {
     try { localStorage.setItem(STORAGE_KEY, locale); } catch { /* Preference remains session-local. */ }

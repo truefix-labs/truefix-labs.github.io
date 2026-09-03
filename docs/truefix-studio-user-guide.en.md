@@ -17,6 +17,16 @@ TrueFix Studio is a multi-provider trading workstation. Desktop, Web, Headless Q
 2. Restore the latest workspace or open the safe default layout. A workspace can restore instruments, panels, and revisions.
 3. Treat `unavailable`, `stale`, `degraded`, and `rejected` as distinct states. Missing is not zero, and an error is not an empty result.
 
+### Unsigned macOS build
+
+If an authorized pre-release app is blocked because it is not yet signed, move it into `/Applications`, then run:
+
+```bash
+xattr -cr "/Applications/TrueFix Studio.app"
+```
+
+Use this only for a build received through the official project channel. The command removes quarantine metadata from that app bundle.
+
 ## 3. Configure a provider
 
 Open **Provider Centre**, choose a ProviderDefinition, and create a ClientInstance:

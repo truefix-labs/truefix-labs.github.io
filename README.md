@@ -6,13 +6,13 @@ The product repository is currently private, so this site does not expose privat
 
 ## Documentation
 
-The website and user guide support English, Simplified Chinese, Korean, and Japanese. The browser language is used on first visit; a manual choice is stored in `localStorage` and reused across the home page and guide.
+The website and user guide support Simplified Chinese, Japanese, Korean, and English. The browser language is used on first visit; a manual choice is stored in `localStorage` and reused across the home page and guide.
 
 - [Interactive user guide](https://truefix-labs.github.io/guide/)
-- [English](docs/truefix-studio-user-guide.en.md)
 - [简体中文](docs/truefix-studio-user-guide.zh-CN.md)
-- [한국어](docs/truefix-studio-user-guide.ko.md)
 - [日本語](docs/truefix-studio-user-guide.ja.md)
+- [한국어](docs/truefix-studio-user-guide.ko.md)
+- [English](docs/truefix-studio-user-guide.en.md)
 
 ## Local preview
 
@@ -26,4 +26,4 @@ Then open <http://localhost:4173>.
 
 The organization site is published from the default branch at <https://truefix-labs.github.io/>. The `.nojekyll` file keeps static assets unchanged.
 
-The promotional video is generated from repository-owned interface images by `scripts/build-promo-video.sh`. Motion respects the visitor's reduced-motion preference.
+The promotional video is generated from repository-owned interface images by `scripts/build-promo-video.sh`. It includes narration, an original ambient score, multilingual captions, and a clearly labeled future Market Twin concept. Motion respects the visitor's reduced-motion preference.

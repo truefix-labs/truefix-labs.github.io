@@ -17,6 +17,16 @@ TrueFix Studio 是多 Provider 交易工作站。Desktop、Web、Headless Quant 
 2. 恢复最近工作区，或打开安全默认布局。工作区可恢复上次标的、面板布局与 revision。
 3. 分别处理 `unavailable`、`stale`、`degraded` 与 `rejected`；空值不等于零，错误也不等于空结果。
 
+### macOS 未签名版本
+
+如果受邀测试版本因尚未签名而被 macOS 拦截，请先把应用移入 `/Applications`，再打开“终端”运行：
+
+```bash
+xattr -cr "/Applications/TrueFix Studio.app"
+```
+
+仅对项目官方渠道提供的应用使用该命令。它会移除这个应用包的隔离属性。
+
 ## 3. 配置 Provider
 
 打开 **Provider Centre**，选择 ProviderDefinition 并新建 ClientInstance：

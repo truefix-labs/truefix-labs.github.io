@@ -9,9 +9,9 @@ build_dir="$(mktemp -d)"
 voice_file="$build_dir/truefix-voice.aiff"
 trap 'rm -rf "$build_dir"' EXIT
 
-narration_text="Markets move faster than isolated tools. TrueFix Studio keeps market context, evidence, strategy, risk, and execution in one auditable chain. Signals stay connected to their sources. Authorized AI and deterministic quant systems remain inside explicit boundaries. And next, the Market Twin: a future concept for comparing the consequence of each route before capital moves. TrueFix Studio. Built for clarity. Engineered for certainty."
+narration_text="Markets move faster than disconnected tools. True Fix Studio brings context, evidence, strategy, risk, and execution into one auditable flow. Every signal stays linked to its source. Artificial intelligence and quantitative systems operate within clear, human-controlled boundaries. Next comes Market Twin: a future concept that compares liquidity, slippage, and risk before capital moves. True Fix Studio. Clarity for every decision. Certainty for every action."
 
-say -v Samantha -r 162 -o "$voice_file" "$narration_text"
+say -v Daniel -r 172 -o "$voice_file" "$narration_text"
 
 ffmpeg -hide_banner -loglevel warning -y \
   -f lavfi -t 4 -i "color=c=0x080b10:s=1920x1080:r=30" \
@@ -19,9 +19,10 @@ ffmpeg -hide_banner -loglevel warning -y \
   -loop 1 -t 6 -i "$project_dir/assets/intelligence.png" \
   -loop 1 -t 6 -i "$project_dir/assets/ai-quant.png" \
   -f lavfi -t 7 -i "color=c=0x091019:s=1920x1080:r=30" \
-  -f lavfi -t 5 -i "color=c=0x080b10:s=1920x1080:r=30" \
+  -f lavfi -t 7 -i "color=c=0x080b10:s=1920x1080:r=30" \
   -i "$voice_file" \
-  -f lavfi -t 34 -i "aevalsrc=0.025*(sin(2*PI*110*t)+0.62*sin(2*PI*164.81*t)+0.42*sin(2*PI*220*t))*(0.82+0.18*sin(2*PI*0.10*t))+0.008*sin(2*PI*55*t):s=48000" \
+  -f lavfi -t 36 -i "aevalsrc=0.052*(sin(2*PI*110*t)+0.55*sin(2*PI*130.81*t)+0.48*sin(2*PI*164.81*t)+0.30*sin(2*PI*220*t))*(0.82+0.18*sin(2*PI*0.08*t)):s=48000" \
+  -f lavfi -t 36 -i "aevalsrc=0.024*sin(2*PI*329.63*t)*(0.5+0.5*sin(2*PI*1.5*t))+0.016*sin(2*PI*440*t)*(0.5+0.5*sin(2*PI*0.75*t))+0.025*sin(2*PI*55*t)*(0.5+0.5*sin(2*PI*t)):s=48000" \
   -filter_complex "
     [0:v]drawbox=x=130:y=290:w=10:h=340:color=0x74b8ec:t=fill,
       drawtext=fontfile='${font_regular}':text='TRUEFIX STUDIO':fontcolor=white:fontsize=112:x=190:y=330,
@@ -63,13 +64,16 @@ ffmpeg -hide_banner -loglevel warning -y \
       drawtext=fontfile='${font_regular}':text='BUILT FOR CLARITY.':fontcolor=white:fontsize=88:x=190:y=350,
       drawtext=fontfile='${font_regular}':text='ENGINEERED FOR CERTAINTY.':fontcolor=0x74b8ec:fontsize=88:x=190:y=455,
       drawtext=fontfile='${font_mono}':text='TRUEFIX STUDIO / PRE-RELEASE':fontcolor=0x7f8b98:fontsize=23:x=198:y=585,
-      fade=t=in:st=0:d=0.5,fade=t=out:st=4.45:d=0.55,setpts=PTS-STARTPTS[v5];
+      fade=t=in:st=0:d=0.5,fade=t=out:st=6.45:d=0.55,setpts=PTS-STARTPTS[v5];
     [v0][v1][v2][v3][v4][v5]concat=n=6:v=1:a=0,fps=30,settb=expr=1/30,setpts=N,format=yuv420p[outv];
-    [6:a]aresample=48000,adelay=900|900,volume=1.3,highpass=f=80,lowpass=f=12000,apad=pad_dur=34,atrim=0:34[voice];
-    [7:a]volume=0.42,afade=t=in:st=0:d=2,afade=t=out:st=31:d=3[music];
-    [music][voice]amix=inputs=2:duration=longest:dropout_transition=2,loudnorm=I=-16:TP=-1.5:LRA=7[outa]
+    [6:a]aresample=48000,adelay=1400|1400,volume=1.08,highpass=f=75,lowpass=f=12500,acompressor=threshold=0.09:ratio=2.2:attack=8:release=140,apad=pad_dur=36,atrim=0:36,asplit=2[voice-sidechain][voice-mix];
+    [7:a]highpass=f=42,lowpass=f=3200,volume=0.86[pad];
+    [8:a]highpass=f=48,lowpass=f=5200,aecho=0.8:0.55:260|520:0.16|0.08,volume=0.82[pulse];
+    [pad][pulse]amix=inputs=2:duration=longest:normalize=0,acompressor=threshold=0.16:ratio=2:attack=24:release=260,volume=1.22,afade=t=in:st=0:d=0.55,afade=t=out:st=33:d=3[score];
+    [score][voice-sidechain]sidechaincompress=threshold=0.035:ratio=3:attack=18:release=420:makeup=1[ducked-score];
+    [ducked-score][voice-mix]amix=inputs=2:duration=longest:normalize=0,loudnorm=I=-15:TP=-1.5:LRA=8[outa]
   " \
   -map "[outv]" -map "[outa]" -c:v libx264 -preset medium -crf 21 -profile:v high \
   -c:a aac -b:a 160k -ar 48000 -ac 2 -movflags +faststart "$output_file"
 
-printf '%s\n' "Built $output_file with narration, ambient score, and the labeled Market Twin future concept"
+printf '%s\n' "Built $output_file with Daniel narration, an original two-layer ambient score, and the labeled Market Twin future concept"

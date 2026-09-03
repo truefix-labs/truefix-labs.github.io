@@ -88,10 +88,8 @@ img { display: block; max-width: 100%; }
 .hero-shot-caption a, .full-size-link { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #42505e; background: rgba(8,11,16,.88); padding: 8px 10px; color: #b7c5d2; font: 500 8px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; backdrop-filter: blur(8px); transition: border-color .2s, color .2s; }
 .hero-shot-caption a:hover, .hero-shot-caption a:focus-visible, .full-size-link:hover, .full-size-link:focus-visible { border-color: var(--blue); color: var(--blue); }
 .float-tag { position: absolute; z-index: 3; border: 1px solid #35414d; background: rgba(10,14,20,.88); padding: 12px 18px; color: #a4aeba; font: 500 9px/1.6 var(--font-mono); letter-spacing: .1em; backdrop-filter: blur(10px); }
-.float-tag span { margin-right: 12px; color: var(--blue); }
 .float-tag-a { top: 80px; left: -52px; animation: tag-float 4.6s ease-in-out infinite; }
 .float-tag-b { right: -44px; bottom: 76px; animation: tag-float 5.2s ease-in-out .7s infinite reverse; }
-.hero-index { position: absolute; right: 32px; bottom: 12px; color: #323944; font: 500 70px/1 var(--font-mono); letter-spacing: -.08em; }
 
 .capability-rail { overflow: hidden; border-top: 1px solid #242b35; border-bottom: 1px solid #242b35; background: #0c1016; color: #77818d; }
 .rail-track { display: flex; width: max-content; align-items: center; animation: rail 30s linear infinite; }
@@ -110,8 +108,7 @@ img { display: block; max-width: 100%; }
 .download-card { position: relative; display: flex; min-width: 0; flex-direction: column; background: #0e151e; padding: 22px; transition: background .3s, transform .3s; }
 .download-card:hover { z-index: 2; background: #121c27; transform: translateY(-4px); }
 .download-card.is-recommended { background: #111e29; box-shadow: inset 0 2px 0 var(--blue); }
-.download-card-top { display: flex; min-height: 26px; align-items: flex-start; justify-content: space-between; gap: 12px; }
-.platform-index { color: #566271; font: 500 9px/1 var(--font-mono); }
+.download-card-top { display: flex; min-height: 26px; align-items: flex-start; justify-content: flex-end; gap: 12px; }
 .recommended-badge { border: 1px solid rgba(77,200,160,.45); background: rgba(77,200,160,.08); padding: 6px 8px; color: var(--green); font: 500 7px/1.2 var(--font-mono); letter-spacing: .07em; text-transform: uppercase; }
 .recommended-badge[hidden] { display: none; }
 .platform-symbol { display: grid; width: 58px; height: 58px; place-items: center; margin: 22px 0 18px; border: 1px solid #435263; background: #131e29; box-shadow: 9px 9px 0 rgba(116,184,236,.035); }
@@ -261,8 +258,7 @@ img { display: block; max-width: 100%; }
 .audience-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; border: 1px solid #b9b8b1; background: #b9b8b1; }
 .audience-card { min-width: 0; background: var(--paper); padding: 26px; transition: background .3s, transform .3s, box-shadow .3s; }
 .audience-card:hover { position: relative; z-index: 2; background: #f8f7f2; box-shadow: 0 24px 60px rgba(18,24,30,.12); transform: translateY(-8px); }
-.card-label { display: flex; justify-content: space-between; color: #72777c; font: 500 9px/1 var(--font-mono); letter-spacing: .1em; }
-.card-label span { color: var(--blue-deep); }
+.card-label { color: #72777c; font: 500 9px/1 var(--font-mono); letter-spacing: .1em; }
 .card-graphic { height: 210px; margin: 42px 0 30px; border-bottom: 1px solid #c7c7c0; }
 .trader-graphic { display: flex; align-items: flex-end; justify-content: center; gap: 9px; padding: 0 30px 32px; }
 .trader-graphic i { position: relative; width: 13px; height: var(--h); background: var(--c); }
@@ -296,7 +292,6 @@ img { display: block; max-width: 100%; }
 .team-photo::after { position: absolute; inset: 0; background: linear-gradient(to top,rgba(7,10,14,.32),transparent 38%); content: ''; pointer-events: none; }
 .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: saturate(.86) contrast(1.03); transition: transform .7s cubic-bezier(.2,.8,.2,1), filter .4s; }
 .team-card:hover .team-photo img { transform: scale(1.025); filter: saturate(1) contrast(1.03); }
-.team-photo > span { position: absolute; z-index: 2; top: 14px; right: 14px; display: grid; width: 29px; height: 29px; place-items: center; border: 1px solid rgba(255,255,255,.3); background: rgba(8,11,16,.62); color: var(--blue); font: 500 8px/1 var(--font-mono); backdrop-filter: blur(8px); }
 .team-copy { min-height: 245px; padding: 25px 24px 28px; }
 .team-role { margin: 0 0 22px; color: var(--blue); font: 500 9px/1.4 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
 .team-copy h3 { margin: 0 0 13px; font-size: 25px; letter-spacing: -.04em; }
@@ -370,7 +365,6 @@ body { transition: opacity .24s ease; }
   .app-frame > img { min-height: 0; object-fit: contain; object-position: center; }
   .frame-title, .float-tag { display: none; }
   .frame-bar { grid-template-columns: 1fr 1fr; }
-  .hero-index { font-size: 42px; }
   .overview-section { padding:86px 20px 94px; }
   .download-section { padding: 82px 20px; }
   .download-heading { grid-template-columns: 1fr; gap: 28px; margin-bottom: 36px; }

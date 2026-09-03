@@ -13,6 +13,7 @@ The website and user guide support Simplified Chinese, Japanese, Korean, and Eng
 - [日本語](docs/truefix-studio-user-guide.ja.md)
 - [한국어](docs/truefix-studio-user-guide.ko.md)
 - [English](docs/truefix-studio-user-guide.en.md)
+- [Feedback and community discussions](https://github.com/truefix-labs/truefix-labs.github.io/discussions)
 
 ## Local preview
 

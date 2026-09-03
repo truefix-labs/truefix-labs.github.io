@@ -4,25 +4,25 @@ const SUPPORTED_LANGUAGES = ['zh-CN', 'ja', 'ko', 'en'];
 const shellTranslations = {
   en: {
     title: 'TrueFix Studio User Guide', description: 'TrueFix Studio user guide for providers, market context, review, risk, and authorized AI + Quant workflows.',
-    skip: 'Skip to content', edition: 'USER GUIDE / EN', language: 'Language', home: 'Back home', navTitle: 'Guide contents',
+    skip: 'Skip to content', edition: 'USER GUIDE / EN', language: 'Language', feedback: 'Feedback', home: 'Back home', navTitle: 'Guide contents',
     navBefore: 'Before you start', navFirst: 'First run', navProvider: 'Configure providers', navMarket: 'Instruments & market data', navTrade: 'Orders & risk', navPortfolio: 'Accounts & portfolio', navIntelligence: 'Intelligence', navAgent: 'Use Agent', navAi: 'Quant & automation', navWeb: 'Web & ACME', navOperations: 'Operations & audit', navGlossary: 'Status glossary', navArchitecture: 'Architecture & data', navTroubleshooting: 'Troubleshooting',
     status: 'Pre-release\nGuide 2026.09', loading: 'Loading guide…', error: 'The guide could not be loaded. Please refresh and try again.'
   },
   'zh-CN': {
     title: 'TrueFix Studio 使用指南', description: 'TrueFix Studio 使用指南：Provider、市场上下文、审核、风控与受权 AI + Quant 工作流。',
-    skip: '跳到正文', edition: '使用指南 / ZH-CN', language: '语言', home: '返回首页', navTitle: '指南目录',
+    skip: '跳到正文', edition: '使用指南 / ZH-CN', language: '语言', feedback: '反馈与交流', home: '返回首页', navTitle: '指南目录',
     navBefore: '开始之前', navFirst: '首次启动', navProvider: '配置 Provider', navMarket: '标的与行情', navTrade: '下单与风控', navPortfolio: '账户与组合', navIntelligence: 'Intelligence', navAgent: '使用 Agent', navAi: 'Quant 与自动化', navWeb: 'Web 与 ACME', navOperations: '运维与审计', navGlossary: '状态词典', navArchitecture: '架构与数据', navTroubleshooting: '故障排查',
     status: '首版发布前\n指南 2026.09', loading: '正在加载指南…', error: '指南加载失败，请刷新后重试。'
   },
   ko: {
     title: 'TrueFix Studio 사용 가이드', description: 'Provider, 시장 컨텍스트, 검토, 리스크, 권한이 부여된 AI + Quant 워크플로를 위한 TrueFix Studio 가이드입니다.',
-    skip: '본문으로 건너뛰기', edition: '사용 가이드 / KO', language: '언어', home: '홈으로', navTitle: '가이드 목차',
+    skip: '본문으로 건너뛰기', edition: '사용 가이드 / KO', language: '언어', feedback: '피드백 및 토론', home: '홈으로', navTitle: '가이드 목차',
     navBefore: '시작 전', navFirst: '첫 실행', navProvider: 'Provider 구성', navMarket: '종목 & 시장 데이터', navTrade: '주문 & 리스크', navPortfolio: '계정 & 포트폴리오', navIntelligence: '인텔리전스', navAgent: 'Agent 사용', navAi: 'Quant & 자동화', navWeb: 'Web & ACME', navOperations: '운영 & 감사', navGlossary: '상태 용어', navArchitecture: '아키텍처 & 데이터', navTroubleshooting: '문제 해결',
     status: '출시 전\n가이드 2026.09', loading: '가이드 로드 중…', error: '가이드를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.'
   },
   ja: {
     title: 'TrueFix Studio 利用ガイド', description: 'Provider、市場コンテキスト、レビュー、リスク、認可済み AI + Quant ワークフローの TrueFix Studio 利用ガイドです。',
-    skip: '本文へ移動', edition: '利用ガイド / JA', language: '言語', home: 'ホームへ戻る', navTitle: 'ガイド目次',
+    skip: '本文へ移動', edition: '利用ガイド / JA', language: '言語', feedback: 'フィードバック', home: 'ホームへ戻る', navTitle: 'ガイド目次',
     navBefore: '始める前に', navFirst: '初回起動', navProvider: 'Provider 設定', navMarket: '銘柄と市場データ', navTrade: '注文とリスク', navPortfolio: '口座とポートフォリオ', navIntelligence: 'インテリジェンス', navAgent: 'Agent の使い方', navAi: 'Quant と自動化', navWeb: 'Web と ACME', navOperations: '運用と監査', navGlossary: '状態用語', navArchitecture: '構成とデータ', navTroubleshooting: 'トラブルシューティング',
     status: 'リリース前\nガイド 2026.09', loading: 'ガイドを読み込み中…', error: 'ガイドを読み込めませんでした。更新して再試行してください。'
   }
@@ -80,7 +80,7 @@ async function loadGuide(language, persist = false) {
   if (!content) return;
   content.setAttribute('aria-busy', 'true');
   try {
-    const response = await fetch(`content/${locale}.html?v=6`);
+    const response = await fetch(`content/${locale}.html?v=7`);
     if (!response.ok) throw new Error(`Guide request failed: ${response.status}`);
     const markup = await response.text();
     if (revision !== contentRevision) return;

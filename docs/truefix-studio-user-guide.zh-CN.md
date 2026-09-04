@@ -4,7 +4,11 @@
 
 ## 1. 开始之前
 
-TrueFix Studio 是多 Provider 交易工作站。Desktop、Web、Headless Quant 与受权 AI 工具共享同一套标的、能力、风险与执行契约。功能是否可用取决于所选 Provider、ClientInstance、Environment、Account、Entitlement、精确标的映射与运行时健康证据；页面存在不代表某能力已经可用。
+TrueFix Studio 是一个用于市场研究、策略测试和交易前确认的桌面应用。它连接你已经在使用的服务，不托管资金，也不会替代你的券商或交易所。
+
+第一次使用时，建议按这个顺序操作：安装官方版本、打开工作区、连接一项行情或模拟交易服务、搜索一个交易品种，再创建一笔不发送的订单。先使用只读或模拟模式，熟悉后再考虑真实账户。
+
+高级章节会保留产品设置里的英文名称。**Provider（服务商）**指券商、交易所、数据服务或 AI 服务；**ClientInstance（连接实例）**指保存的一套具体连接；**Environment（环境）**指这套连接属于测试还是实盘。
 
 - 区分 Live、Paper、Testnet、Demo 与 Simulated 环境。
 - 第一次验证订单流程时优先使用非 Live 环境。

@@ -4,7 +4,11 @@
 
 ## 1. Before you start
 
-TrueFix Studio is a multi-provider trading workstation. Desktop, Web, Headless Quant, and authorized AI tools share the same instrument, capability, risk, and execution contracts. Availability depends on the selected Provider, ClientInstance, Environment, Account, Entitlement, exact instrument mapping, and runtime health evidence; the presence of a screen does not prove that a capability is available.
+TrueFix Studio is a desktop app for market research, strategy testing, and reviewed trading actions. It connects services you already use; it does not hold your money or replace your broker or exchange.
+
+For a safe first session: install the official build, open a workspace, connect one market-data or test service, search for a product, and prepare an order without sending it. Start with read-only or simulation mode before considering a real account.
+
+Some advanced sections use the product's exact setting names. **Provider** means a broker, exchange, data service, or AI service. **ClientInstance** means one saved connection. **Environment** means whether that connection is for testing or real money.
 
 - Distinguish Live, Paper, Testnet, Demo, and Simulated environments.
 - Validate order workflows outside Live first.

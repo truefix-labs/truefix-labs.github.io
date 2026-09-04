@@ -4,7 +4,11 @@
 
 ## 1. 始める前に
 
-TrueFix StudioはマルチProvider取引ワークステーションです。Desktop、Web、Headless Quant、認可済みAIツールは、同じ銘柄、機能、リスク、執行契約を使用します。機能の可否はProvider、ClientInstance、Environment、Account、Entitlement、正確な銘柄mapping、ランタイムhealth evidenceによって決まり、画面の存在だけでは機能が利用可能とは限りません。
+TrueFix Studioは、市場調査、戦略テスト、取引前確認のためのデスクトップアプリです。今使っているサービスを接続しますが、資金を預からず、証券会社や取引所の代わりにもなりません。
+
+初回は、公式版をインストールし、ワークスペースを開き、相場データまたはテスト用サービスを一つ接続してください。銘柄を検索し、送信しない注文を作って流れを確認します。実口座の前に、読み取り専用またはシミュレーションから始めてください。
+
+上級セクションでは設定画面の英語名も使います。**Provider**は証券会社、取引所、データ、AIサービス、**ClientInstance**は保存した一つの接続、**Environment**はテスト用か実取引用かを表します。
 
 - Live、Paper、Testnet、Demo、Simulatedを区別します。
 - 注文ワークフローはまずLive以外で検証します。

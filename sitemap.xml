@@ -1,37 +1,588 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://truefix-labs.com/</loc>
     <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/" />
   </url>
   <url>
     <loc>https://truefix-labs.com/guide/</loc>
     <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/guide/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/guide/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/guide/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/guide/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/guide/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/guide/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/guide/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/guide/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/guide/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/guide/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/guide/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/guide/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/guide/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/guide/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/guide/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/guide/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/guide/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/guide/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/guide/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/guide/" />
   </url>
   <url>
     <loc>https://truefix-labs.com/about/</loc>
     <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/about/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/about/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/about/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/about/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/" />
   </url>
   <url>
     <loc>https://truefix-labs.com/privacy/</loc>
     <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/privacy/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/privacy/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/privacy/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/privacy/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/privacy/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/privacy/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/privacy/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/privacy/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/privacy/" />
   </url>
   <url>
     <loc>https://truefix-labs.com/support/</loc>
     <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/support/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/support/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/support/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/support/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/support/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/support/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/support/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/support/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/support/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/support/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/support/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/support/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/support/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/support/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/support/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/support/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/support/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/support/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/support/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/support/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/support/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/support/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/support/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/support/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/support/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/support/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/support/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/support/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/support/" />
   </url>
   <url>
     <loc>https://truefix-labs.com/product-film/</loc>
     <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/product-film/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/product-film/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/product-film/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/product-film/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/product-film/" />
     <video:video>
-      <video:thumbnail_loc>https://truefix-labs.com/assets/workstation.png</video:thumbnail_loc>
-      <video:title>TrueFix Studio — Product Film</video:title>
-      <video:description>A 36-second introduction to the TrueFix Studio decision chain, evidence, risk boundaries, authorized AI, quantitative automation, and the future Market Twin concept.</video:description>
+      <video:thumbnail_loc>https://truefix-labs.com/assets/video-poster.jpg</video:thumbnail_loc>
+      <video:title>See what TrueFix Studio does in 36 seconds</video:title>
+      <video:description>See how TrueFix Studio connects existing market services for research, strategy testing, AI assistance, and checked trading actions.</video:description>
       <video:content_loc>https://truefix-labs.com/assets/truefix-studio-promo.mp4</video:content_loc>
       <video:duration>36</video:duration>
-      <video:publication_date>2026-09-03T13:50:00+08:00</video:publication_date>
+      <video:publication_date>2026-09-04T12:00:00+08:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/product-film/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/product-film/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/product-film/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/product-film/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/product-film/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/product-film/" />
+    <video:video>
+      <video:thumbnail_loc>https://truefix-labs.com/assets/video-poster.jpg</video:thumbnail_loc>
+      <video:title>See what TrueFix Studio does in 36 seconds</video:title>
+      <video:description>See how TrueFix Studio connects existing market services for research, strategy testing, AI assistance, and checked trading actions.</video:description>
+      <video:content_loc>https://truefix-labs.com/assets/truefix-studio-promo.mp4</video:content_loc>
+      <video:duration>36</video:duration>
+      <video:publication_date>2026-09-04T12:00:00+08:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/product-film/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/product-film/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/product-film/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/product-film/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/product-film/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/product-film/" />
+    <video:video>
+      <video:thumbnail_loc>https://truefix-labs.com/assets/video-poster.jpg</video:thumbnail_loc>
+      <video:title>See what TrueFix Studio does in 36 seconds</video:title>
+      <video:description>See how TrueFix Studio connects existing market services for research, strategy testing, AI assistance, and checked trading actions.</video:description>
+      <video:content_loc>https://truefix-labs.com/assets/truefix-studio-promo.mp4</video:content_loc>
+      <video:duration>36</video:duration>
+      <video:publication_date>2026-09-04T12:00:00+08:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/product-film/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/product-film/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/product-film/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/product-film/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/product-film/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/product-film/" />
+    <video:video>
+      <video:thumbnail_loc>https://truefix-labs.com/assets/video-poster.jpg</video:thumbnail_loc>
+      <video:title>See what TrueFix Studio does in 36 seconds</video:title>
+      <video:description>See how TrueFix Studio connects existing market services for research, strategy testing, AI assistance, and checked trading actions.</video:description>
+      <video:content_loc>https://truefix-labs.com/assets/truefix-studio-promo.mp4</video:content_loc>
+      <video:duration>36</video:duration>
+      <video:publication_date>2026-09-04T12:00:00+08:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/product-film/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/product-film/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/product-film/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/product-film/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/product-film/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/product-film/" />
+    <video:video>
+      <video:thumbnail_loc>https://truefix-labs.com/assets/video-poster.jpg</video:thumbnail_loc>
+      <video:title>See what TrueFix Studio does in 36 seconds</video:title>
+      <video:description>See how TrueFix Studio connects existing market services for research, strategy testing, AI assistance, and checked trading actions.</video:description>
+      <video:content_loc>https://truefix-labs.com/assets/truefix-studio-promo.mp4</video:content_loc>
+      <video:duration>36</video:duration>
+      <video:publication_date>2026-09-04T12:00:00+08:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/about/elias-navarro/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/elias-navarro/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/about/elias-navarro/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/elias-navarro/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/about/elias-navarro/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/elias-navarro/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/about/elias-navarro/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/elias-navarro/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/about/elias-navarro/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/elias-navarro/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/elias-navarro/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/about/chen-wei/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/chen-wei/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/about/chen-wei/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/chen-wei/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/about/chen-wei/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/chen-wei/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/about/chen-wei/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/chen-wei/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/about/chen-wei/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/chen-wei/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/chen-wei/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/about/park-min-seo/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/park-min-seo/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/about/park-min-seo/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/park-min-seo/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/about/park-min-seo/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/park-min-seo/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/about/park-min-seo/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/park-min-seo/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/about/park-min-seo/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/park-min-seo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/park-min-seo/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/about/amara-okafor/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/amara-okafor/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/about/amara-okafor/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/amara-okafor/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/about/amara-okafor/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/amara-okafor/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/about/amara-okafor/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/amara-okafor/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/about/amara-okafor/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/amara-okafor/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/amara-okafor/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/about/sora-kimura/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/sora-kimura/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/about/sora-kimura/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/sora-kimura/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/about/sora-kimura/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/sora-kimura/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/about/sora-kimura/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/sora-kimura/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/about/sora-kimura/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/sora-kimura/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/sora-kimura/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/about/leila-haddad/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/leila-haddad/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/zh-cn/about/leila-haddad/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/leila-haddad/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ja/about/leila-haddad/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/leila-haddad/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/ko/about/leila-haddad/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/leila-haddad/" />
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/en/about/leila-haddad/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/about/leila-haddad/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/about/leila-haddad/" />
   </url>
 </urlset>

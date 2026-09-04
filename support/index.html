@@ -4,34 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#080b10" />
-    <meta name="description" content="Official technical support for TrueFix Studio: installation, troubleshooting, privacy requests, local data, Web Gateway, and contact channels." />
+    <meta name="description" content="Help with installing TrueFix Studio, connecting services, fixing common problems, and deleting local data." />
     <link rel="canonical" href="https://truefix-labs.com/support/" />
+    <link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/support/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/support/" />
+    <link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/support/" />
+    <link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/support/" />
+    <link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/support/" />
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="TrueFix Studio — Technical Support" />
     <meta property="og:description" content="Installation help, troubleshooting, data controls, and contact information for TrueFix Studio." />
     <meta property="og:url" content="https://truefix-labs.com/support/" />
+    <meta property="og:image" content="https://truefix-labs.com/assets/workstation.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://truefix-labs.com/assets/workstation.png" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"TrueFix Studio Technical Support","url":"https://truefix-labs.com/support/","about":{"@type":"SoftwareApplication","name":"TrueFix Studio","applicationCategory":"FinanceApplication","operatingSystem":"macOS, Windows, Linux"}}</script>
-    <link rel="stylesheet" href="../legal/legal.css?v=2" />
-    <script src="../legal/legal.js?v=1" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;600;700;800&amp;family=Noto+Sans+KR:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;600;700;800&amp;display=swap"/><link rel="stylesheet" href="../legal/legal.css?v=5" />
+    <link rel="stylesheet" href="../mobile-shell.css?v=3" />
+    <script src="../locale-routes.js?v=1" defer></script>
+    <script src="../mobile-shell.js?v=1" defer></script>
+    <script src="../legal/legal.js?v=5" defer></script>
     <title>TrueFix Studio — Technical Support</title>
   </head>
   <body data-page="support">
     <a class="skip-link" href="#content" data-shell="skip">Skip to content</a>
     <header class="legal-header">
-      <a class="brand" href="../" aria-label="TrueFix Studio home"><img src="../assets/truefix-mark.png" alt="" width="30" height="30" /><span>TrueFix</span><em>Studio</em></a>
-      <nav class="legal-actions" aria-label="Page actions">
-        <div class="legal-languages" aria-label="Language">
-          <button type="button" lang="zh-CN" data-language="zh-CN">中</button><button type="button" lang="ja" data-language="ja">日</button><button type="button" lang="ko" data-language="ko">한</button><button type="button" lang="en" data-language="en" aria-pressed="true">EN</button>
+      <a class="brand" href="../" aria-label="TrueFix Studio home"><img src="../assets/favicon-32.png" alt="" width="30" height="30" /><span>TrueFix</span><em>Studio</em></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="support-nav" data-menu-button>
+        <span></span><span></span><span></span><span class="sr-only" data-shell="menu">Open navigation</span>
+      </button>
+      <nav class="legal-actions" id="support-nav" aria-label="Page actions" data-nav>
+        <a href="../" data-shell="home">Home</a>
+        <a href="../about/" data-shell="about">About us</a>
+        <a href="./" aria-current="page" data-shell="supportLink">Support</a>
+        <a href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer" data-shell="feedback">Feedback</a>
+        <div class="language-picker" data-language-picker>
+          <button class="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="support-language-menu" data-language-toggle>
+            <span class="language-icon" aria-hidden="true">A/あ</span><span class="language-current" data-language-current>English</span><span class="language-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="language-menu" id="support-language-menu" role="listbox" aria-label="Language" data-language-menu aria-hidden="true" inert>
+            <button type="button" role="option" lang="zh-CN" data-language="zh-CN" aria-selected="false" tabindex="-1"><span class="language-code">中</span><span>简体中文</span><span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="option" lang="ja" data-language="ja" aria-selected="false" tabindex="-1"><span class="language-code">日</span><span>日本語</span><span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="option" lang="ko" data-language="ko" aria-selected="false" tabindex="-1"><span class="language-code">한</span><span>한국어</span><span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="option" lang="en" data-language="en" aria-selected="true" tabindex="-1"><span class="language-code">EN</span><span>English</span><span class="language-check" aria-hidden="true">✓</span></button>
+          </div>
         </div>
-        <a href="../privacy/" data-shell="privacyLink">Privacy</a><a href="../guide/" data-shell="guide">User guide</a><a href="../" data-shell="home">Home</a>
+        <a href="../guide/" data-shell="guide">User guide</a><a class="desktop-page-link" href="../privacy/" data-shell="privacyLink">Privacy</a>
       </nav>
     </header>
 
     <main id="content">
       <section class="legal-hero"><div class="hero-inner">
-        <p class="eyebrow" data-shell="eyebrow">SUPPORT / TRUEFIX STUDIO</p><h1 data-shell="heading">A clear path from issue<br /><i>to resolution.</i></h1>
-        <p class="hero-copy" data-shell="lede">Installation help, troubleshooting, data-control guidance, and direct ways to reach TrueFix Labs.</p>
+        <p class="eyebrow" data-shell="eyebrow">HELP / TRUEFIX STUDIO</p><h1 data-shell="heading">Install the app.<br /><i>Fix a problem. Contact us.</i></h1>
+        <p class="hero-copy" data-shell="lede">Start with the common tasks below or contact TrueFix Labs when you need more help.</p>
         <div class="hero-meta"><span><span data-shell="updated">Last updated</span> <strong>2026-09-04</strong></span><span>Product <strong>Pre-release 0.1.x</strong></span></div>
       </div></section>
 
@@ -58,7 +84,7 @@
             <p>Always use the current links in the <a href="../#download">official download section</a>; filenames and package sizes can change with every nightly build. Store-distributed iOS, Android, macOS, or Windows builds should be installed and updated through the same store or testing channel that supplied them.</p>
           </section>
 
-          <section class="legal-section" id="troubleshooting"><p class="section-no">04 / DIAGNOSE</p><h2>Common troubleshooting path</h2><ol><li>Confirm the exact build and restart the app once.</li><li>Check the app’s About/diagnostics view for storage, gateway, and Provider health without exposing credentials.</li><li>Verify the selected market, instrument mapping, Provider, ClientInstance, environment, entitlement, and freshness.</li><li>For Agent failures, check model configuration, authorized tools, budgets, approvals, and the run’s stable error code.</li><li>For order issues, do not blindly resubmit an uncertain order. Query/reconcile its state first.</li><li>Retry in Simulator or a read-only context to separate product state from live-account permissions.</li></ol>
+          <section class="legal-section" id="troubleshooting"><p class="section-no">04 / DIAGNOSE</p><h2>Try these steps first</h2><ol><li>Check the app version and restart it once.</li><li>Open About or Diagnostics and look for a service marked unavailable or showing an error. Do not copy passwords or API keys.</li><li>Check the market, product, connected service, selected account, test or live mode, account permission, and data time.</li><li>If the AI assistant fails, check the model name, API key, allowed tools, and the error shown for that request.</li><li>If an order result is unclear, do not send it again. Open Orders and check whether the first request succeeded.</li><li>Try the same task in read-only or simulation mode to see whether the problem comes from live-account permissions.</li></ol>
             <p>Application logs are stored under the operating system application-data directory in <code>truefix-studio/logs</code>. Files rotate by day as <code>truefix-studio.log.YYYY-MM-DD</code>; Web access logs use <code>access.log.YYYY-MM-DD</code>. Redact them before sharing.</p>
           </section>
 

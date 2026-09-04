@@ -4,27 +4,27 @@ const LANGUAGE_NAMES = { 'zh-CN': '简体中文', ja: '日本語', ko: '한국�
 
 const shellTranslations = {
   en: {
-    title: 'TrueFix Studio User Guide', description: 'TrueFix Studio user guide for providers, market context, review, risk, and authorized AI + Quant workflows.',
-    skip: 'Skip to content', edition: 'USER GUIDE / EN', language: 'Language', privacy: 'Privacy', support: 'Support', feedback: 'Feedback', home: 'Back home', navTitle: 'Guide contents',
-    navBefore: 'Before you start', navFirst: 'First run', navProvider: 'Configure providers', navMarket: 'Instruments & market data', navTrade: 'Orders & risk', navPortfolio: 'Accounts & portfolio', navIntelligence: 'Intelligence', navAgent: 'Use Agent', navAi: 'Quant & automation', navWeb: 'Web & ACME', navOperations: 'Operations & audit', navGlossary: 'Status glossary', navArchitecture: 'Architecture & data', navTroubleshooting: 'Troubleshooting',
+    title: 'TrueFix Studio User Guide', description: 'Learn how to install TrueFix Studio, connect a broker or market-data service, use the AI assistant, test a strategy, and review a trading action safely.',
+    skip: 'Skip to content', menu: 'Open navigation', edition: 'USER GUIDE / EN', language: 'Language', privacy: 'Privacy', support: 'Support', feedback: 'Feedback', home: 'Home', about: 'About us', guideCurrent: 'User guide', navTitle: 'Guide contents',
+    navBefore: 'Before you start', navFirst: 'First run', navProvider: 'Connect a service', navMarket: 'Markets & prices', navTrade: 'Review a trade', navPortfolio: 'Accounts & portfolio', navIntelligence: 'Research & sources', navAgent: 'Use the AI assistant', navAi: 'Strategies & automation', navWeb: 'Browser access (advanced)', navOperations: 'Logs & activity', navGlossary: 'Terms and status', navArchitecture: 'Data and connections', navTroubleshooting: 'Troubleshooting',
     status: 'Pre-release\nGuide 2026.09', loading: 'Loading guide…', error: 'The guide could not be loaded. Please refresh and try again.'
   },
   'zh-CN': {
-    title: 'TrueFix Studio 使用指南', description: 'TrueFix Studio 使用指南：Provider、市场上下文、审核、风控与受权 AI + Quant 工作流。',
-    skip: '跳到正文', edition: '使用指南 / ZH-CN', language: '语言', privacy: '隐私政策', support: '技术支持', feedback: '反馈与交流', home: '返回首页', navTitle: '指南目录',
-    navBefore: '开始之前', navFirst: '首次启动', navProvider: '配置 Provider', navMarket: '标的与行情', navTrade: '下单与风控', navPortfolio: '账户与组合', navIntelligence: 'Intelligence', navAgent: '使用 Agent', navAi: 'Quant 与自动化', navWeb: 'Web 与 ACME', navOperations: '运维与审计', navGlossary: '状态词典', navArchitecture: '架构与数据', navTroubleshooting: '故障排查',
+    title: 'TrueFix Studio 使用指南', description: '了解如何安装 TrueFix Studio、连接券商或行情服务、使用 AI 助手、测试策略并安全确认交易操作。',
+    skip: '跳到正文', menu: '打开导航', edition: '使用指南 / ZH-CN', language: '语言', privacy: '隐私政策', support: '技术支持', feedback: '反馈与交流', home: '首页', about: '关于我们', guideCurrent: '使用指南', navTitle: '指南目录',
+    navBefore: '开始之前', navFirst: '首次启动', navProvider: '连接服务', navMarket: '市场与行情', navTrade: '确认交易', navPortfolio: '账户与持仓', navIntelligence: '研究与信息来源', navAgent: '使用 AI 助手', navAi: '策略与自动化', navWeb: '浏览器访问（高级）', navOperations: '日志与操作记录', navGlossary: '术语与状态', navArchitecture: '数据与连接方式', navTroubleshooting: '故障排查',
     status: '首版发布前\n指南 2026.09', loading: '正在加载指南…', error: '指南加载失败，请刷新后重试。'
   },
   ko: {
-    title: 'TrueFix Studio 사용 가이드', description: 'Provider, 시장 컨텍스트, 검토, 리스크, 권한이 부여된 AI + Quant 워크플로를 위한 TrueFix Studio 가이드입니다.',
-    skip: '본문으로 건너뛰기', edition: '사용 가이드 / KO', language: '언어', privacy: '개인정보', support: '기술 지원', feedback: '피드백 및 토론', home: '홈으로', navTitle: '가이드 목차',
-    navBefore: '시작 전', navFirst: '첫 실행', navProvider: 'Provider 구성', navMarket: '종목 & 시장 데이터', navTrade: '주문 & 리스크', navPortfolio: '계정 & 포트폴리오', navIntelligence: '인텔리전스', navAgent: 'Agent 사용', navAi: 'Quant & 자동화', navWeb: 'Web & ACME', navOperations: '운영 & 감사', navGlossary: '상태 용어', navArchitecture: '아키텍처 & 데이터', navTroubleshooting: '문제 해결',
+    title: 'TrueFix Studio 사용 가이드', description: 'TrueFix Studio 설치, 증권사나 시세 서비스 연결, AI 도우미, 전략 테스트, 안전한 거래 확인 방법을 안내합니다.',
+    skip: '본문으로 건너뛰기', menu: '탐색 메뉴 열기', edition: '사용 가이드 / KO', language: '언어', privacy: '개인정보', support: '기술 지원', feedback: '피드백 및 토론', home: '홈', about: '소개', guideCurrent: '사용 가이드', navTitle: '가이드 목차',
+    navBefore: '시작 전', navFirst: '첫 실행', navProvider: '서비스 연결', navMarket: '시장과 시세', navTrade: '거래 확인', navPortfolio: '계정과 보유 자산', navIntelligence: '리서치와 출처', navAgent: 'AI 도우미 사용', navAi: '전략과 자동화', navWeb: '브라우저 접속(고급)', navOperations: '로그와 작업 기록', navGlossary: '용어와 상태', navArchitecture: '데이터와 연결', navTroubleshooting: '문제 해결',
     status: '출시 전\n가이드 2026.09', loading: '가이드 로드 중…', error: '가이드를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.'
   },
   ja: {
-    title: 'TrueFix Studio 利用ガイド', description: 'Provider、市場コンテキスト、レビュー、リスク、認可済み AI + Quant ワークフローの TrueFix Studio 利用ガイドです。',
-    skip: '本文へ移動', edition: '利用ガイド / JA', language: '言語', privacy: 'プライバシー', support: 'サポート', feedback: 'フィードバック', home: 'ホームへ戻る', navTitle: 'ガイド目次',
-    navBefore: '始める前に', navFirst: '初回起動', navProvider: 'Provider 設定', navMarket: '銘柄と市場データ', navTrade: '注文とリスク', navPortfolio: '口座とポートフォリオ', navIntelligence: 'インテリジェンス', navAgent: 'Agent の使い方', navAi: 'Quant と自動化', navWeb: 'Web と ACME', navOperations: '運用と監査', navGlossary: '状態用語', navArchitecture: '構成とデータ', navTroubleshooting: 'トラブルシューティング',
+    title: 'TrueFix Studio 利用ガイド', description: 'TrueFix Studioのインストール、証券会社や相場データの接続、AIアシスタント、戦略テスト、安全な取引確認を説明します。',
+    skip: '本文へ移動', menu: 'ナビゲーションを開く', edition: '利用ガイド / JA', language: '言語', privacy: 'プライバシー', support: 'サポート', feedback: 'フィードバック', home: 'ホーム', about: '私たちについて', guideCurrent: '利用ガイド', navTitle: 'ガイド目次',
+    navBefore: '始める前に', navFirst: '初回起動', navProvider: 'サービスを接続', navMarket: '市場と価格', navTrade: '取引を確認', navPortfolio: '口座と保有資産', navIntelligence: 'リサーチと情報源', navAgent: 'AIアシスタント', navAi: '戦略と自動化', navWeb: 'ブラウザー接続（上級）', navOperations: 'ログと操作記録', navGlossary: '用語と状態', navArchitecture: 'データと接続', navTroubleshooting: 'トラブルシューティング',
     status: 'リリース前\nガイド 2026.09', loading: 'ガイドを読み込み中…', error: 'ガイドを読み込めませんでした。更新して再試行してください。'
   }
 };
@@ -81,16 +81,18 @@ async function loadGuide(language, persist = false) {
   if (persist) {
     try { localStorage.setItem(STORAGE_KEY, locale); } catch { /* Keep the preference for this page only. */ }
   }
+  window.TrueFixLocale?.activate(locale);
 
   const content = document.querySelector('[data-guide-content]');
   if (!content) return;
   content.setAttribute('aria-busy', 'true');
   try {
-    const response = await fetch(`content/${locale}.html?v=9`);
+    const response = await fetch(`content/${locale}.html?v=11`);
     if (!response.ok) throw new Error(`Guide request failed: ${response.status}`);
     const markup = await response.text();
     if (revision !== contentRevision) return;
     content.innerHTML = markup;
+    window.TrueFixLocale?.activate(locale);
     content.setAttribute('aria-busy', 'false');
     if (window.location.hash) requestAnimationFrame(() => document.querySelector(window.location.hash)?.scrollIntoView());
   } catch {
@@ -100,13 +102,22 @@ async function loadGuide(language, persist = false) {
   }
 }
 
-const initialLanguage = getSavedLanguage() || detectBrowserLanguage();
+const initialLanguage = window.TrueFixLocale?.pathLanguage() || getSavedLanguage() || detectBrowserLanguage();
 loadGuide(initialLanguage);
 
 const languagePicker = document.querySelector('[data-guide-language-picker]');
 const languageToggle = document.querySelector('[data-guide-language-toggle]');
 const languageMenu = document.querySelector('[data-guide-language-menu]');
 const languageOptions = [...document.querySelectorAll('[data-guide-language-option]')];
+const guideMenuButton = document.querySelector('[data-guide-menu-button]');
+const guideNav = document.querySelector('[data-guide-nav]');
+
+function setGuideMenu(open) {
+  guideMenuButton?.setAttribute('aria-expanded', String(open));
+  guideNav?.classList.toggle('open', open);
+  document.body.classList.toggle('menu-open', open);
+  if (!open) setLanguageMenu(false);
+}
 
 function setLanguageMenu(open, focusOption = false) {
   languagePicker?.classList.toggle('is-open', open);
@@ -124,6 +135,9 @@ languageToggle?.addEventListener('click', () => {
   setLanguageMenu(open, open);
 });
 
+guideMenuButton?.addEventListener('click', () => setGuideMenu(guideMenuButton.getAttribute('aria-expanded') !== 'true'));
+guideNav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setGuideMenu(false)));
+
 languageToggle?.addEventListener('keydown', (event) => {
   if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
   event.preventDefault();
@@ -132,6 +146,10 @@ languageToggle?.addEventListener('keydown', (event) => {
 
 languageOptions.forEach((option, index) => {
   option.addEventListener('click', () => {
+    if (window.TrueFixLocale) {
+      window.TrueFixLocale.navigate(option.dataset.guideLanguageOption);
+      return;
+    }
     loadGuide(option.dataset.guideLanguageOption, true);
     setLanguageMenu(false);
     languageToggle?.focus();
@@ -153,7 +171,8 @@ document.addEventListener('click', (event) => {
 });
 
 document.addEventListener('keydown', (event) => {
-  if (event.key !== 'Escape' || languageToggle?.getAttribute('aria-expanded') !== 'true') return;
+  if (event.key !== 'Escape') return;
   setLanguageMenu(false);
-  languageToggle.focus();
+  setGuideMenu(false);
+  guideMenuButton?.focus();
 });

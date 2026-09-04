@@ -4,22 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#080b10" />
-    <meta name="description" content="TrueFix Studio user guide for providers, market context, review, risk, and authorized AI + Quant workflows." />
+    <meta name="description" content="Learn how to install TrueFix Studio, connect a broker or market-data service, use the AI assistant, test a strategy, and review a trading action safely." />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="TrueFix Studio User Guide" />
+    <meta property="og:description" content="Installation, service connections, AI assistant, strategy testing, browser access, safety checks, and troubleshooting." />
+    <meta property="og:image" content="https://truefix-labs.com/assets/workstation.png" />
+    <meta property="og:url" content="https://truefix-labs.com/guide/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://truefix-labs.com/assets/workstation.png" />
     <link rel="canonical" href="https://truefix-labs.com/guide/" />
+    <link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/guide/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/guide/" />
+    <link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/guide/" />
+    <link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/guide/" />
+    <link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/guide/" />
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
-    <link rel="stylesheet" href="guide.css?v=10" />
-    <script src="guide.js?v=10" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;600;700;800&amp;family=Noto+Sans+KR:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;600;700;800&amp;display=swap"/><link rel="stylesheet" href="guide.css?v=13" />
+    <link rel="stylesheet" href="../mobile-shell.css?v=3" />
+    <script src="../locale-routes.js?v=1" defer></script>
+    <script src="../mobile-shell.js?v=1" defer></script>
+    <script src="guide.js?v=14" defer></script>
     <title>TrueFix Studio User Guide</title>
   </head>
   <body>
     <a class="skip-link" href="#content" data-guide-key="skip">Skip to content</a>
     <header class="guide-header">
       <a class="brand" href="../" aria-label="TrueFix Studio home">
-        <img src="../assets/truefix-mark.png" alt="" width="30" height="30" />
+        <img src="../assets/favicon-32.png" alt="" width="30" height="30" />
         <span>TrueFix</span><em>Studio</em>
       </a>
-      <div class="header-actions">
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="guide-nav" data-guide-menu-button>
+        <span></span><span></span><span></span><span class="sr-only" data-guide-key="menu">Open navigation</span>
+      </button>
+      <nav class="header-actions" id="guide-nav" aria-label="Page actions" data-guide-nav>
         <span data-guide-key="edition">USER GUIDE</span>
+        <a href="../" data-guide-key="home">Home</a>
+        <a href="../about/" data-guide-key="about">About us</a>
+        <a href="../support/" data-guide-key="support">Support</a>
+        <a href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer" data-guide-key="feedback">Feedback</a>
         <div class="guide-language-picker" data-guide-language-picker>
           <button class="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="guide-language-menu" data-guide-language-toggle>
             <span class="language-icon" aria-hidden="true">A/あ</span>
@@ -33,11 +55,9 @@
             <button type="button" role="option" lang="en" data-guide-language-option="en" aria-selected="true" tabindex="-1"><span class="language-code">EN</span><span>English</span><span class="language-check" aria-hidden="true">✓</span></button>
           </div>
         </div>
-        <a href="../privacy/" data-guide-key="privacy">Privacy</a>
-        <a href="../support/" data-guide-key="support">Support</a>
-        <a href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer" data-guide-key="feedback">Feedback</a>
-        <a href="../" data-guide-key="home">Back home</a>
-      </div>
+        <a href="./" aria-current="page" data-guide-key="guideCurrent">User guide</a>
+        <a class="desktop-page-link" href="../privacy/" data-guide-key="privacy">Privacy</a>
+      </nav>
     </header>
 
     <div class="guide-shell">
@@ -46,17 +66,17 @@
         <nav>
           <a href="#before-you-start" data-guide-key="navBefore">Before you start</a>
           <a href="#first-run" data-guide-key="navFirst">First run</a>
-          <a href="#provider" data-guide-key="navProvider">Configure providers</a>
-          <a href="#market" data-guide-key="navMarket">Instruments & market data</a>
-          <a href="#trade" data-guide-key="navTrade">Orders & risk</a>
+          <a href="#provider" data-guide-key="navProvider">Connect a service</a>
+          <a href="#market" data-guide-key="navMarket">Markets & prices</a>
+          <a href="#trade" data-guide-key="navTrade">Review a trade</a>
           <a href="#portfolio" data-guide-key="navPortfolio">Accounts & portfolio</a>
-          <a href="#intelligence" data-guide-key="navIntelligence">Intelligence</a>
-          <a href="#agent" data-guide-key="navAgent">Use Agent</a>
-          <a href="#ai-quant" data-guide-key="navAi">Quant & automation</a>
-          <a href="#web-access" data-guide-key="navWeb">Web & ACME</a>
-          <a href="#operations" data-guide-key="navOperations">Operations & audit</a>
-          <a href="#glossary" data-guide-key="navGlossary">Status glossary</a>
-          <a href="#architecture" data-guide-key="navArchitecture">Architecture & data</a>
+          <a href="#intelligence" data-guide-key="navIntelligence">Research & sources</a>
+          <a href="#agent" data-guide-key="navAgent">Use the AI assistant</a>
+          <a href="#ai-quant" data-guide-key="navAi">Strategies & automation</a>
+          <a href="#web-access" data-guide-key="navWeb">Browser access (advanced)</a>
+          <a href="#operations" data-guide-key="navOperations">Logs & activity</a>
+          <a href="#glossary" data-guide-key="navGlossary">Terms and status</a>
+          <a href="#architecture" data-guide-key="navArchitecture">Data and connections</a>
           <a href="#troubleshooting" data-guide-key="navTroubleshooting">Troubleshooting</a>
         </nav>
         <div class="sidebar-status"><i></i><span data-guide-key="status">Pre-release<br />Guide 2026.09</span></div>
@@ -64,19 +84,19 @@
 
       <main id="content" class="guide-content" aria-live="polite" aria-busy="true" data-guide-content>
         <section class="guide-hero">
-          <p class="eyebrow">TRUEFIX STUDIO / OPERATOR GUIDE</p>
-          <h1>From market context<br /><i>to auditable execution.</i></h1>
-          <p class="hero-lede">Configure providers, verify market context, review risk, operate authorized Agents, and deploy deterministic Quant workflows without losing the evidence chain.</p>
+          <p class="eyebrow">TRUEFIX STUDIO / USER GUIDE</p>
+          <h1>Install, connect,<br /><i>and start safely.</i></h1>
+          <p class="hero-lede">Start with market research or simulation. Connect a real account only after you understand the permissions and checks.</p>
         </section>
         <section id="guide-overview" class="doc-section">
           <p class="section-no">TRUEFIX STUDIO USER GUIDE</p>
-          <h2>Operate the current pre-release safely</h2>
-          <p>This public guide explains first launch, unsigned macOS installation, Provider and ClientInstance configuration, instruments and market data, order Review and RiskGuard, portfolios, Intelligence, authorized Agent tools, deterministic Quant automation, Web Gateway and ACME, audit operations, and troubleshooting.</p>
+          <h2>Start with the basics</h2>
+          <p>This guide explains how to install TrueFix Studio, connect a broker, exchange, or market-data service, use the AI assistant, test strategies, and check a trading action before sending it. Advanced browser and server settings are kept in separate sections.</p>
           <ul>
-            <li>Start with Simulator, Demo, Testnet, or Paper before using a Live account.</li>
-            <li>Verify Provider, ClientInstance, environment, account, instrument mapping, freshness, and permissions before every consequential action.</li>
-            <li>Treat unavailable, stale, degraded, rejected, reconciling, and uncertain as distinct states.</li>
-            <li>Keep credentials in local settings and never place secrets in Agent conversations, URLs, screenshots, or support tickets.</li>
+            <li>Start in read-only or simulation mode. These modes do not use real money.</li>
+            <li>Before a real trade, check the connected service, account, test or live mode, product, price, fees, and risk.</li>
+            <li>If data is old, missing, or uncertain, stop and refresh it before continuing.</li>
+            <li>Enter passwords and API keys only in the app's settings. Never put them in AI conversations, URLs, screenshots, or support messages.</li>
           </ul>
           <div class="notice"><strong>Loading localized guide</strong><span>The complete guide automatically opens in Chinese, Japanese, Korean, or English based on your saved language or browser preference.</span></div>
         </section>

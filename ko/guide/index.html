@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <base href="/guide/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080b10" />
+    <meta name="description" content="설치, 서비스 연결, AI 도우미, 전략 테스트, 브라우저 접속과 일반 문제 해결 방법을 안내합니다." />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="TrueFix Studio 사용 가이드" />
+    <meta property="og:description" content="설치, 서비스 연결, AI 도우미, 전략 테스트, 브라우저 접속과 일반 문제 해결 방법을 안내합니다." />
+    <meta property="og:image" content="https://truefix-labs.com/assets/workstation.png" />
+    <meta property="og:url" content="https://truefix-labs.com/ko/guide/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://truefix-labs.com/assets/workstation.png" />
+    <link rel="canonical" href="https://truefix-labs.com/ko/guide/" />
+    <link rel="alternate" hreflang="x-default" href="https://truefix-labs.com/guide/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://truefix-labs.com/zh-cn/guide/" />
+    <link rel="alternate" hreflang="ja" href="https://truefix-labs.com/ja/guide/" />
+    <link rel="alternate" hreflang="ko" href="https://truefix-labs.com/ko/guide/" />
+    <link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/guide/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;600;700;800&amp;family=Noto+Sans+KR:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;600;700;800&amp;display=swap"/><link rel="stylesheet" href="guide.css?v=13" />
+    <link rel="stylesheet" href="../mobile-shell.css?v=3" />
+    <script src="../locale-routes.js?v=1" defer></script>
+    <script src="../mobile-shell.js?v=1" defer></script>
+    <script src="guide.js?v=14" defer></script>
+    <title>TrueFix Studio 사용 가이드</title>
+      <meta property="og:locale" content="ko" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content" data-guide-key="skip">Skip to content</a>
+    <header class="guide-header">
+      <a class="brand" href="../" aria-label="TrueFix Studio home">
+        <img src="../assets/favicon-32.png" alt="" width="30" height="30" />
+        <span>TrueFix</span><em>Studio</em>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="guide-nav" data-guide-menu-button>
+        <span></span><span></span><span></span><span class="sr-only" data-guide-key="menu">Open navigation</span>
+      </button>
+      <nav class="header-actions" id="guide-nav" aria-label="Page actions" data-guide-nav>
+        <span data-guide-key="edition">USER GUIDE</span>
+        <a href="../" data-guide-key="home">Home</a>
+        <a href="../about/" data-guide-key="about">About us</a>
+        <a href="../support/" data-guide-key="support">Support</a>
+        <a href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer" data-guide-key="feedback">Feedback</a>
+        <div class="guide-language-picker" data-guide-language-picker>
+          <button class="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="guide-language-menu" data-guide-language-toggle>
+            <span class="language-icon" aria-hidden="true">A/あ</span>
+            <span class="language-current" data-guide-language-current>English</span>
+            <span class="language-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="language-menu" id="guide-language-menu" role="listbox" aria-label="Language" data-guide-language-menu aria-hidden="true" inert>
+            <button type="button" role="option" lang="zh-CN" data-guide-language-option="zh-CN" aria-selected="false" tabindex="-1"><span class="language-code">中</span><span>简体中文</span><span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="option" lang="ja" data-guide-language-option="ja" aria-selected="false" tabindex="-1"><span class="language-code">日</span><span>日本語</span><span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="option" lang="ko" data-guide-language-option="ko" aria-selected="false" tabindex="-1"><span class="language-code">한</span><span>한국어</span><span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="option" lang="en" data-guide-language-option="en" aria-selected="true" tabindex="-1"><span class="language-code">EN</span><span>English</span><span class="language-check" aria-hidden="true">✓</span></button>
+          </div>
+        </div>
+        <a href="./" aria-current="page" data-guide-key="guideCurrent">User guide</a>
+        <a class="desktop-page-link" href="../privacy/" data-guide-key="privacy">Privacy</a>
+      </nav>
+    </header>
+
+    <div class="guide-shell">
+      <aside class="guide-sidebar" aria-label="Guide navigation">
+        <p class="sidebar-label" data-guide-key="navTitle">Guide contents</p>
+        <nav>
+          <a href="#before-you-start" data-guide-key="navBefore">Before you start</a>
+          <a href="#first-run" data-guide-key="navFirst">First run</a>
+          <a href="#provider" data-guide-key="navProvider">Connect a service</a>
+          <a href="#market" data-guide-key="navMarket">Markets & prices</a>
+          <a href="#trade" data-guide-key="navTrade">Review a trade</a>
+          <a href="#portfolio" data-guide-key="navPortfolio">Accounts & portfolio</a>
+          <a href="#intelligence" data-guide-key="navIntelligence">Research & sources</a>
+          <a href="#agent" data-guide-key="navAgent">Use the AI assistant</a>
+          <a href="#ai-quant" data-guide-key="navAi">Strategies & automation</a>
+          <a href="#web-access" data-guide-key="navWeb">Browser access (advanced)</a>
+          <a href="#operations" data-guide-key="navOperations">Logs & activity</a>
+          <a href="#glossary" data-guide-key="navGlossary">Terms and status</a>
+          <a href="#architecture" data-guide-key="navArchitecture">Data and connections</a>
+          <a href="#troubleshooting" data-guide-key="navTroubleshooting">Troubleshooting</a>
+        </nav>
+        <div class="sidebar-status"><i></i><span data-guide-key="status">Pre-release<br />Guide 2026.09</span></div>
+      </aside>
+
+      <main id="content" class="guide-content" aria-live="polite" aria-busy="true" data-guide-content>
+        <section class="guide-hero">
+          <p class="eyebrow">TRUEFIX STUDIO / USER GUIDE</p>
+          <h1>Install, connect,<br /><i>and start safely.</i></h1>
+          <p class="hero-lede">Start with market research or simulation. Connect a real account only after you understand the permissions and checks.</p>
+        </section>
+        <section id="guide-overview" class="doc-section">
+          <p class="section-no">TRUEFIX STUDIO USER GUIDE</p>
+          <h2>Start with the basics</h2>
+          <p>This guide explains how to install TrueFix Studio, connect a broker, exchange, or market-data service, use the AI assistant, test strategies, and check a trading action before sending it. Advanced browser and server settings are kept in separate sections.</p>
+          <ul>
+            <li>Start in read-only or simulation mode. These modes do not use real money.</li>
+            <li>Before a real trade, check the connected service, account, test or live mode, product, price, fees, and risk.</li>
+            <li>If data is old, missing, or uncertain, stop and refresh it before continuing.</li>
+            <li>Enter passwords and API keys only in the app's settings. Never put them in AI conversations, URLs, screenshots, or support messages.</li>
+          </ul>
+          <div class="notice"><strong>Loading localized guide</strong><span>The complete guide automatically opens in Chinese, Japanese, Korean, or English based on your saved language or browser preference.</span></div>
+        </section>
+      </main>
+    </div>
+    <noscript><p class="noscript-message">JavaScript is required to select the complete localized guide. The English overview remains available above.</p></noscript>
+  </body>
+</html>

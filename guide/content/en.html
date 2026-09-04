@@ -1,37 +1,36 @@
 <section class="guide-hero">
-  <p class="eyebrow">TRUEFIX STUDIO / OPERATOR GUIDE</p>
-  <h1>From market context<br /><i>to auditable execution.</i></h1>
-  <p class="hero-lede">This guide is for test users of TrueFix Studio. Availability is resolved from the selected Provider, ClientInstance, environment, account permissions, and current evidence. A visible screen never proves that a capability is available.</p>
+  <p class="eyebrow">TRUEFIX STUDIO / USER GUIDE</p>
+  <h1>Install, connect,<br /><i>and start safely.</i></h1>
+  <p class="hero-lede">TrueFix connects the brokers, exchanges, market-data services, and AI services you choose. Start with research or simulation. Connect a real account only after you understand its permissions.</p>
   <div class="notice notice-private"><strong>Current release</strong><span>The product source repository remains private, while public Nightly installers are published through the official TrueFix GitHub Releases page. Never download the application from an unofficial source.</span></div>
 </section>
 
 <section id="before-you-start" class="doc-section">
   <p class="section-no">01 / BEFORE YOU START</p><h2>Before you start</h2>
-  <p>TrueFix Studio is a multi-provider trading workstation. Desktop, Web, Headless Quant, and authorized AI tools use the same instrument, capability, risk, and execution contracts. Install the official Nightly build and prepare credentials for the market-data or trading service you intend to connect.</p>
+  <p>TrueFix Studio is a desktop app for market research, strategy testing, and reviewed trading actions. It does not hold your money and it does not replace your broker or exchange. Install the official Nightly build, then connect only the services you want to use.</p>
   <div class="check-grid">
-    <article><span>01</span><h3>Confirm the environment</h3><p>Distinguish Live, Paper, Testnet, Demo, and Simulated. The ClientInstance configuration—not the Provider name—defines the environment.</p></article>
-    <article><span>02</span><h3>Start with simulation</h3><p>Validate the order workflow outside Live first. Demo and Live share the review state machine, but not the financial consequences.</p></article>
-    <article><span>03</span><h3>Use least privilege</h3><p>Grant credentials only the markets, accounts, and capabilities required. Never paste a secret into chat, screenshots, or support tickets.</p></article>
+    <article><span>01</span><h3>Know which mode you are using</h3><p>Live uses real money. Paper, Testnet, Demo, and Simulator are test modes. Keep test and real connections separate and clearly named.</p></article>
+    <article><span>02</span><h3>Start without real money</h3><p>First check prices, account information, and the full order flow in a test mode. Move to Live only when you understand every step.</p></article>
+    <article><span>03</span><h3>Allow only what you need</h3><p>Give each connection the smallest set of permissions required. Never paste an API key or password into AI chat, screenshots, or support messages.</p></article>
   </div>
   <div class="notice"><strong>Important</strong><span>TrueFix Studio is pre-release software. It is not investment advice and does not decide whether a trade is suitable. The account owner must verify every live action.</span></div>
 </section>
 
 <section id="first-run" class="doc-section">
-  <p class="section-no">02 / FIRST RUN</p><h2>First run and workspace recovery</h2>
+  <p class="section-no">02 / FIRST RUN</p><h2>Your first 15 minutes</h2>
   <ol class="steps">
-    <li><span>1</span><div><h3>Read the readiness state</h3><p>The launcher reports kernel, Provider, catalogue, trading projection, Intelligence, and Risk independently. One unavailable area does not block the rest.</p></div></li>
-    <li><span>2</span><div><h3>Restore or create a workspace</h3><p>A recent workspace restores its last instrument, panel layout, and layout revision. A failed restore returns to a safe default without creating duplicate subscriptions.</p></div></li>
-    <li><span>3</span><div><h3>Resolve explicit states</h3><p>Treat unavailable, stale, degraded, and rejected as different conditions. A missing value is not zero, and the UI does not invent a healthy state.</p></div></li>
+    <li><span>1</span><div><h3>Open or create a workspace</h3><p>A workspace remembers your selected market and panel layout. If it cannot be restored, TrueFix opens a safe default layout.</p></div></li>
+    <li><span>2</span><div><h3>Check the status at the top</h3><p>You can enter the app even if one service is unavailable. Before using that service, wait for it to become ready or read the displayed error.</p></div></li>
+    <li><span>3</span><div><h3>Connect one test service</h3><p>Start with one market-data or test trading connection. Search for a product, check its price source, and prepare an order without sending it.</p></div></li>
   </ol>
   <div class="notice"><strong>Unsigned macOS build</strong><span>If the official pre-release app is blocked because it is not yet signed, move it into Applications, then run the following command in Terminal. Use this only for a build downloaded from the official TrueFix Release; it removes quarantine metadata from that app bundle.</span></div>
   <code class="command-block">xattr -cr "/Applications/TrueFix Studio.app"</code>
-  <h3 class="guide-subtitle">A useful first 15 minutes</h3>
-  <div class="check-grid quick-grid"><article><span>00–05 MIN</span><h3>Restore the workspace</h3><p>Confirm Kernel and catalogue readiness and note unavailable facets. Do not wait for every network source to turn green before entering the UI.</p></article><article><span>05–10 MIN</span><h3>Connect one non-Live instance</h3><p>Use one Simulator, Demo, or Testnet ClientInstance and verify its account plus exact instrument mapping.</p></article><article><span>10–15 MIN</span><h3>Complete the loop</h3><p>Search → choose Historical / Realtime / Trading sources → Review without submitting → inspect Risk and Audit.</p></article></div>
-  <p>For daily startup, check four things: current Environment, Provider runtime, market-data freshness, and Kill Switch. Workspace recovery restores layout and selections—not yesterday's connectivity, entitlement, or freshness.</p>
+  <h3 class="guide-subtitle">Words used in advanced sections</h3>
+  <p><strong>Provider</strong> means a broker, exchange, data service, or AI service. A <strong>ClientInstance</strong> is one saved connection to that service. <strong>Environment</strong> means whether that connection is a test or real-money connection. The app may use these exact names, so this guide keeps them where they help you find the matching setting.</p>
 </section>
 
 <section id="provider" class="doc-section">
-  <p class="section-no">03 / PROVIDER CENTRE</p><h2>Configure a Provider and ClientInstance</h2>
+  <p class="section-no">03 / CONNECT A SERVICE</p><h2>Connect a broker, exchange, or data service</h2>
   <p>Open <strong>Provider Centre</strong>. A ProviderDefinition describes configuration fields and declared capabilities; a ClientInstance is one concrete connection. A Provider may have multiple ClientInstances, and one ClientInstance may project multiple accounts.</p>
   <div class="workflow"><span>Select definition</span><i>→</i><span>Create ClientInstance</span><i>→</i><span>Choose environment</span><i>→</i><span>Validate and save</span><i>→</i><span>Connect and inspect evidence</span></div>
   <ul><li>Provider-owned schemas validate settings before the instance is rebuilt.</li><li>Secrets are write-only. Returning to the page reveals presence, never the original value.</li><li>Connected does not mean tradable. Capability, entitlement, account, exact instrument mapping, environment, and health must all qualify.</li><li>Closed market, disconnected, unauthorized, invalid configuration, and rate-limited are distinct states.</li></ul>
@@ -141,4 +140,4 @@
   <details><summary>The page shows stale / unavailable / degraded</summary><p>Inspect the affected facet and timestamp. Last-good data is not necessarily fresh, and a failed query is not an empty result.</p></details>
 </section>
 
-<footer class="guide-footer"><img src="../assets/truefix-mark.png" alt="" width="34" height="34" /><p><strong>TrueFix Studio</strong><br />Pre-release user guide · No private source, credentials, or download links appear here.</p><div class="guide-footer-links"><a href="../privacy/">Privacy policy</a><a href="../support/">Technical support</a><a href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer">Feedback & discussions ↗</a><a href="../">Back to product ↑</a></div></footer>
+<footer class="guide-footer"><img src="../assets/favicon-32.png" alt="" width="34" height="34" /><p><strong>TrueFix Studio</strong><br />Pre-release user guide · No private source, credentials, or download links appear here.</p><div class="guide-footer-links"><a href="../privacy/">Privacy policy</a><a href="../support/">Technical support</a><a href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer">Feedback & discussions ↗</a><a href="../">Back to product ↑</a></div></footer>

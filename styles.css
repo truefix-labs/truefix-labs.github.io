@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap');
-
 :root {
   --ink: #080b10;
   --ink-soft: #0d1118;
@@ -477,3 +475,8 @@ body { transition: opacity .24s ease; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Keep explanatory copy readable while preserving compact labels and controls. */
+.overview-fact > p:last-child,.persona-heading > p,.persona-card > p:last-child { font-size:15px; }
+.macos-unsigned-note p { font-size:13px; }
+.macos-unsigned-note small { font-size:12px; }

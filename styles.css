@@ -219,6 +219,8 @@ img { display: block; max-width: 100%; }
 .film-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #05070a; object-fit: cover; }
 .film-meta { display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid #252d38; padding: 15px 18px; color: #7f8b98; font: 500 9px/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
 .film-meta span:first-child { color: var(--blue); white-space: nowrap; }
+.film-meta a { flex:0 0 auto; color:var(--blue); transition:color .2s; }
+.film-meta a:hover,.film-meta a:focus-visible { color:var(--white); }
 
 .principles-section { background: var(--ink); color: var(--white); }
 .section-heading-light > p { color: #949eaa; }

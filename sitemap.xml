@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://truefix-labs.com/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
   </url>
   <url>
     <loc>https://truefix-labs.com/guide/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
+  </url>
+  <url>
+    <loc>https://truefix-labs.com/product-film/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://truefix-labs.com/assets/workstation.png</video:thumbnail_loc>
+      <video:title>TrueFix Studio — Product Film</video:title>
+      <video:description>A 36-second introduction to the TrueFix Studio decision chain, evidence, risk boundaries, authorized AI, quantitative automation, and the future Market Twin concept.</video:description>
+      <video:content_loc>https://truefix-labs.com/assets/truefix-studio-promo.mp4</video:content_loc>
+      <video:duration>36</video:duration>
+      <video:publication_date>2026-09-03T13:50:00+08:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
 </urlset>

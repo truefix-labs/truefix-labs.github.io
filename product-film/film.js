@@ -5,7 +5,7 @@ const copy = {
   en: {
     metaTitle: 'TrueFix Studio — Product Film',
     metaDescription: 'Watch the 36-second TrueFix Studio product film about evidence, risk boundaries, authorized AI, quantitative automation, and the future Market Twin concept.',
-    skip: 'Skip to the film', guide: 'User guide', home: 'Back home', eyebrow: 'TRUEFIX STUDIO / PRODUCT FILM',
+    skip: 'Skip to the film', guide: 'User guide', privacy: 'Privacy', support: 'Technical support', home: 'Back home', eyebrow: 'TRUEFIX STUDIO / PRODUCT FILM',
     title: 'See the decision chain.<br />Keep every boundary visible.',
     lede: 'A 36-second introduction to evidence-linked markets, human-controlled automation, and the future Market Twin concept.',
     fallback: 'Your browser cannot play this video.', caption: 'English narration · Original ambient score · Multilingual captions',
@@ -23,7 +23,7 @@ const copy = {
   'zh-CN': {
     metaTitle: 'TrueFix Studio — 产品宣传片',
     metaDescription: '观看 36 秒 TrueFix Studio 宣传片，了解证据、风险边界、受权 AI、量化自动化与未来 Market Twin 概念。',
-    skip: '跳到宣传片', guide: '使用指南', home: '返回首页', eyebrow: 'TRUEFIX STUDIO / 产品宣传片',
+    skip: '跳到宣传片', guide: '使用指南', privacy: '隐私政策', support: '技术支持', home: '返回首页', eyebrow: 'TRUEFIX STUDIO / 产品宣传片',
     title: '看见决策链。<br />让每一道边界清晰可见。',
     lede: '用 36 秒了解证据相连的市场、由人控制的自动化，以及未来 Market Twin 概念。',
     fallback: '当前浏览器无法播放此视频。', caption: '英文旁白 · 原创氛围配乐 · 多语言字幕',
@@ -41,7 +41,7 @@ const copy = {
   ja: {
     metaTitle: 'TrueFix Studio — 製品映像',
     metaDescription: 'TrueFix Studioの36秒の製品映像。証拠、リスク境界、認可済みAI、クオンツ自動化、未来のMarket Twin構想を紹介します。',
-    skip: '映像へ移動', guide: '利用ガイド', home: 'ホームへ戻る', eyebrow: 'TRUEFIX STUDIO / 製品映像',
+    skip: '映像へ移動', guide: '利用ガイド', privacy: 'プライバシー', support: 'テクニカルサポート', home: 'ホームへ戻る', eyebrow: 'TRUEFIX STUDIO / 製品映像',
     title: '意思決定の流れを見せる。<br />すべての境界を可視化する。',
     lede: '証拠につながる市場、人が制御する自動化、未来のMarket Twin構想を36秒で紹介します。',
     fallback: 'このブラウザーでは動画を再生できません。', caption: '英語ナレーション · オリジナル環境音楽 · 多言語字幕',
@@ -59,7 +59,7 @@ const copy = {
   ko: {
     metaTitle: 'TrueFix Studio — 제품 영상',
     metaDescription: '증거, 리스크 경계, 권한이 부여된 AI, 퀀트 자동화, 미래 Market Twin 개념을 소개하는 36초 TrueFix Studio 제품 영상입니다.',
-    skip: '영상으로 이동', guide: '사용 가이드', home: '홈으로', eyebrow: 'TRUEFIX STUDIO / 제품 영상',
+    skip: '영상으로 이동', guide: '사용 가이드', privacy: '개인정보', support: '기술 지원', home: '홈으로', eyebrow: 'TRUEFIX STUDIO / 제품 영상',
     title: '의사결정 흐름을 보여 주고.<br />모든 경계를 명확히 합니다.',
     lede: '증거로 연결된 시장, 사람이 통제하는 자동화, 미래 Market Twin 개념을 36초로 소개합니다.',
     fallback: '브라우저에서 이 동영상을 재생할 수 없습니다.', caption: '영어 내레이션 · 오리지널 앰비언트 음악 · 다국어 자막',

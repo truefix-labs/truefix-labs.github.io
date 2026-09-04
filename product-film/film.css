@@ -51,7 +51,8 @@ img { display:block; max-width:100%; }
 .transcript li { display:grid; grid-template-columns:64px 1fr; gap:26px; border-bottom:1px solid #c9cbc7; padding:25px 0; }
 .transcript time { color:#347fb8; font:500 9px/1.7 var(--mono); }
 .transcript p { margin:0; color:#3f474e; font-size:15px; line-height:1.75; }
-footer { display:flex; justify-content:space-between; gap:20px; border-top:1px solid #27313c; padding:32px max(24px,calc((100vw - 1180px)/2)); color:#697684; font:500 9px/1 var(--mono); }
+footer { display:flex; justify-content:space-between; gap:20px; border-top:1px solid #27313c; padding:32px max(24px,calc((100vw - 1180px)/2)); color:#697684; font:500 9px/1.5 var(--mono); }
+footer nav { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:20px; }
 footer a { color:var(--blue); }
 @media (max-width:760px) {
   .film-header { min-height:62px; padding:0 14px; }

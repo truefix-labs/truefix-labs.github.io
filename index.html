@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#080b10" />
-    <meta name="description" content="TrueFix Studio is a multi-provider trading workstation for Desktop, Web, Headless Quant, and authorized AI tools." />
+    <meta name="description" content="TrueFix Studio adds local research, strategy testing, risk review, and controlled trading to the brokers, exchanges, and data services you already use." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="TrueFix Studio — Multi-provider trading workstation" />
-    <meta property="og:description" content="Market data, research, strategy, risk, and execution in one auditable workstation." />
+    <meta property="og:title" content="TrueFix Studio — Smarter tools for the platforms you already use" />
+    <meta property="og:description" content="Research markets, test strategies, review risk, and control each action from one local workspace—without moving your accounts or funds." />
     <meta property="og:image" content="https://truefix-labs.com/assets/workstation.png" />
     <meta property="og:url" content="https://truefix-labs.com/" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://truefix-labs.com/" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png" />
-    <link rel="stylesheet" href="styles.css?v=15" />
-    <script src="script.js?v=11" defer></script>
-    <title>TrueFix Studio — Multi-provider trading workstation</title>
+    <link rel="stylesheet" href="styles.css?v=18" />
+    <script src="script.js?v=15" defer></script>
+    <title>TrueFix Studio — Smarter tools for the platforms you already use</title>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
@@ -30,11 +30,12 @@
         <span></span><span></span><span></span><span class="sr-only" data-i18n="a11y.menu">Open navigation</span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-i18n-aria-label="a11y.nav" data-nav>
-        <a href="#product" data-i18n="nav.product">Product</a>
-        <a href="#principles" data-i18n="nav.principles">Principles</a>
+        <a href="#overview" data-i18n="nav.product">What it does</a>
+        <a href="#principles" data-i18n="nav.principles">Safety</a>
         <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
         <a href="#audiences" data-i18n="nav.modes">Use cases</a>
-        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="about/" data-i18n="nav.about">About us</a>
+        <a href="support/" data-i18n="nav.support">Support</a>
         <a href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer" data-i18n="nav.feedback">Feedback</a>
         <div class="language-picker" data-language-picker>
           <button class="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-menu" data-language-toggle>
@@ -57,14 +58,14 @@
       <section class="hero" id="top">
         <div class="hero-grid" aria-hidden="true"></div>
         <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">Nightly build · Pre-release</b></p>
-          <h1 data-i18n-html="hero.title">Every market decision,<br /><i>backed by evidence.</i></h1>
-          <p class="hero-lede" data-i18n="hero.lede">TrueFix Studio brings market data, research, strategy, risk, and execution into one multi-provider workstation—clear for traders, deterministic for quant systems, and permissioned for AI.</p>
+          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">Local-first market workspace · Pre-release</b></p>
+          <h1 data-i18n-html="hero.title">Add smarter research and control<br /><i>to the platforms you already use.</i></h1>
+          <p class="hero-lede" data-i18n="hero.lede">TrueFix Studio works with your existing brokers, exchanges, and data services. Research a market, ask an Agent, test a strategy, check risk, and send an approved action through the Provider you chose—all from one local workspace.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#download"><span data-i18n="hero.download">Download Nightly</span><span aria-hidden="true">↓</span></a>
-            <a class="button button-quiet" href="guide/"><span data-i18n="hero.source">Read the user guide</span><span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="#overview"><span data-i18n="hero.download">See what it does</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-quiet" href="#download"><span data-i18n="hero.source">Download Nightly</span><span aria-hidden="true">↓</span></a>
           </div>
-          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">Nightly pre-release · For testing only</span></div>
+          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">Runs on your device · No custody · Start read-only or simulated</span></div>
         </div>
 
         <div class="hero-visual reveal" data-delay="1">
@@ -78,17 +79,30 @@
             <img src="assets/workstation.png" alt="TrueFix Studio dark trading workstation showing a BTC/USDT chart, market depth, positions, and order ticket" data-i18n-alt="alt.workstationDetail" width="1536" height="881" decoding="async" />
             <figcaption class="hero-shot-caption"><a href="assets/workstation.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
           </figure>
-          <div class="float-tag float-tag-a">CAPABILITY<br />RESOLVED</div>
-          <div class="float-tag float-tag-b">RISK GUARD<br />ACTIVE</div>
+          <div class="float-tag float-tag-a" data-i18n-html="hero.tag.local">LOCAL PROFILE<br />ON THIS DEVICE</div>
+          <div class="float-tag float-tag-b" data-i18n-html="hero.tag.review">HUMAN REVIEW<br />BEFORE ACTION</div>
         </div>
       </section>
 
       <div class="capability-rail" aria-label="Core capabilities" data-i18n-aria-label="a11y.capabilities">
         <div class="rail-track">
-          <span data-i18n="cap.historical">Historical Market Data</span><i>◆</i><span data-i18n="cap.realtime">Realtime Market Data</span><i>◆</i><span data-i18n="cap.trade">Trade</span><i>◆</i><span data-i18n="cap.news">News & Events</span><i>◆</i><span data-i18n="cap.instruments">Instruments</span><i>◆</i><span data-i18n="cap.analysis">Analysis</span><i>◆</i>
-          <span aria-hidden="true" data-i18n="cap.historical">Historical Market Data</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.realtime">Realtime Market Data</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.trade">Trade</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.news">News & Events</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.instruments">Instruments</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.analysis">Analysis</span><i aria-hidden="true">◆</i>
+          <span data-i18n="cap.historical">Runs locally</span><i>◆</i><span data-i18n="cap.realtime">No funds custody</span><i>◆</i><span data-i18n="cap.trade">No TrueFix cloud account</span><i>◆</i><span data-i18n="cap.news">Read-only and simulation first</span><i>◆</i><span data-i18n="cap.instruments">Your Provider stays in control</span><i>◆</i><span data-i18n="cap.analysis">Human-reviewed actions</span><i>◆</i>
+          <span aria-hidden="true" data-i18n="cap.historical">Runs locally</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.realtime">No funds custody</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.trade">No TrueFix cloud account</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.news">Read-only and simulation first</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.instruments">Your Provider stays in control</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.analysis">Human-reviewed actions</span><i aria-hidden="true">◆</i>
         </div>
       </div>
+
+      <section class="value-section" id="overview" aria-labelledby="value-title">
+        <div class="value-heading reveal">
+          <div><p class="section-kicker" data-i18n="value.eyebrow">WHAT TRUEFIX ADDS</p><h2 id="value-title" data-i18n-html="value.title">Keep your platforms.<br /><i>Add the missing workflow.</i></h2></div>
+          <p data-i18n="value.lede">TrueFix does not replace your broker or hold your money. It adds one workspace for the research, testing, and review that normally happens across disconnected tools.</p>
+        </div>
+        <div class="value-grid">
+          <article class="value-card reveal"><span>01</span><h3 data-i18n="value.research.title">Research across sources</h3><p data-i18n="value.research.body">Compare market data, news, account context, and the source behind a signal without losing track of which service supplied it.</p></article>
+          <article class="value-card reveal" data-delay="1"><span>02</span><h3 data-i18n="value.strategy.title">Use AI and Quant as tools</h3><p data-i18n="value.strategy.body">Ask an Agent to organize information or replay a strategy, while keeping its tools, budget, data, and permissions limited.</p></article>
+          <article class="value-card reveal" data-delay="2"><span>03</span><h3 data-i18n="value.execution.title">Review before you act</h3><p data-i18n="value.execution.body">Check the exact Provider, account, environment, instrument, fees, and risk before an approved instruction is sent.</p></article>
+        </div>
+        <p class="value-safety reveal"><strong data-i18n="value.safety.title">Your accounts stay where they are.</strong><span data-i18n="value.safety.body">TrueFix does not accept deposits. Connections are configured by you, and every available action still depends on the permissions of the selected Provider.</span></p>
+      </section>
 
       <section class="download-section" id="download" aria-labelledby="download-title">
         <div class="download-heading reveal">
@@ -146,63 +160,63 @@
         </div>
       </section>
 
-      <section class="overview-section" id="overview" aria-labelledby="overview-title">
+      <section class="overview-section" id="workflow" aria-labelledby="overview-title">
         <div class="overview-heading reveal">
           <div>
-            <p class="section-kicker" data-i18n="overview.eyebrow">01 / PRODUCT OVERVIEW</p>
-            <h2 id="overview-title" data-i18n-html="overview.title">Understand the market.<br />Test the decision. Control the action.</h2>
+            <p class="section-kicker" data-i18n="overview.eyebrow">01 / HOW IT WORKS</p>
+            <h2 id="overview-title" data-i18n-html="overview.title">From a market question<br />to a controlled action.</h2>
           </div>
-          <p data-i18n="overview.lede">TrueFix Studio is a multi-provider trading workspace that keeps research, evidence, strategy, risk review, and execution in one traceable flow.</p>
+          <p data-i18n="overview.lede">Each step is optional. Use TrueFix for research only, test an idea in simulation, or continue to a reviewed action through an account you explicitly authorize.</p>
         </div>
 
         <div class="overview-facts">
           <article class="overview-fact reveal">
             <span>01</span><p data-i18n="overview.what.label">WHAT IT IS</p>
             <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.25" /><circle cx="12" cy="6" r="2.25" /><circle cx="19" cy="12" r="2.25" /><path d="m6.8 10.5 3.4-2.9m3.6 0 3.4 2.9M7.3 13.2h9.4" /></svg></div>
-            <h3 data-i18n="overview.what.title">One evidence-backed decision chain</h3>
-            <p data-i18n="overview.what.body">Instead of separating charts, research, strategies, accounts, and orders across unrelated tools, TrueFix keeps their identity, source, and state connected.</p>
+            <h3 data-i18n="overview.what.title">A layer above your existing services</h3>
+            <p data-i18n="overview.what.body">Connect selected data and broker services, then keep research, strategy, and account context together without moving your money to TrueFix.</p>
           </article>
           <article class="overview-fact reveal" data-delay="1">
             <span>02</span><p data-i18n="overview.who.label">WHO IT IS FOR</p>
             <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><path d="M3.8 19c.4-3.6 2.1-5.4 5.2-5.4s4.8 1.8 5.2 5.4M15 6.2a3 3 0 0 1 0 5.6M15.8 14.1c2.7.3 4.1 1.9 4.4 4.9" /></svg></div>
-            <h3 data-i18n="overview.who.title">Traders, quant builders, and research or risk teams</h3>
-            <p data-i18n="overview.who.body">Public nightly builds are available for evaluation. Every usable capability still depends on the selected provider, account, environment, and entitlement.</p>
+            <h3 data-i18n="overview.who.title">People already using market tools</h3>
+            <p data-i18n="overview.who.body">For active traders, quant builders, and research or risk teams who want a clearer workflow across services. It is not a beginner investment-advice app.</p>
           </article>
           <article class="overview-fact reveal" data-delay="2">
             <span>03</span><p data-i18n="overview.work.label">WHAT THEY DO</p>
             <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2" /><circle cx="19" cy="6" r="2" /><circle cx="19" cy="18" r="2" /><path d="M7 12h4a4 4 0 0 0 4-4V6m-8 6h4a4 4 0 0 1 4 4v2m0-12 1.7-1.7M15 18l1.7 1.7" /></svg></div>
-            <h3 data-i18n="overview.work.title">Observe → verify → test → review → execute</h3>
-            <p data-i18n="overview.work.body">A user can inspect a signal and its sources, replay a strategy, choose an authorized account, review fees and risk, then submit and reconcile the result.</p>
+            <h3 data-i18n="overview.work.title">Research → compare → test → review → act</h3>
+            <p data-i18n="overview.work.body">Inspect a signal and its sources, replay an idea, choose an authorized account, review fees and risk, then decide whether to submit it.</p>
           </article>
         </div>
 
         <div class="persona-heading reveal">
-          <div><p class="section-kicker" data-i18n="overview.personas.eyebrow">ILLUSTRATIVE BETA PERSONAS</p><h3 data-i18n="overview.personas.title">Three ways invited testers could use TrueFix.</h3></div>
-          <p data-i18n="overview.personas.disclosure">These are composite fictional scenarios created to explain the product. They are not real customers, employees, usage claims, or testimonials.</p>
+          <div><p class="section-kicker" data-i18n="overview.personas.eyebrow">EXAMPLE USERS</p><h3 data-i18n="overview.personas.title">Three ways people can use TrueFix.</h3></div>
+          <p data-i18n="overview.personas.disclosure">These examples explain possible workflows rather than customer testimonials. Available features still depend on the connected Provider, account, environment, and permissions.</p>
         </div>
         <div class="persona-grid">
           <article class="persona-card reveal">
             <div class="persona-top"><span class="persona-avatar" aria-hidden="true"><img src="assets/personas/maya-chen.jpg" alt="" width="480" height="480" loading="lazy" decoding="async" /></span></div>
             <h4>Maya Chen</h4><p class="persona-role" data-i18n="overview.maya.role">Independent multi-market trader · Singapore</p>
-            <p data-i18n="overview.maya.task">Compares crypto and U.S. equity context across provider accounts, opens the source behind a signal, and reviews risk and routing before acting.</p>
+            <p data-i18n="overview.maya.task">Maya compares crypto and U.S. equity information from selected services, opens the source behind a signal, and reviews the account and risk before acting.</p>
           </article>
           <article class="persona-card reveal" data-delay="1">
             <div class="persona-top"><span class="persona-avatar" aria-hidden="true"><img src="assets/personas/ren-ito.jpg" alt="" width="480" height="480" loading="lazy" decoding="async" /></span></div>
             <h4>Ren Ito</h4><p class="persona-role" data-i18n="overview.ren.role">Quant developer · Tokyo</p>
-            <p data-i18n="overview.ren.task">Replays one strategy against fixed data and revisions, runs the same definition headlessly, and reconciles every execution outcome.</p>
+            <p data-i18n="overview.ren.task">Ren replays a strategy with fixed data, checks its assumptions, and tests it in Simulator, Demo, Testnet, or Paper before considering Live.</p>
           </article>
           <article class="persona-card reveal" data-delay="2">
             <div class="persona-top"><span class="persona-avatar" aria-hidden="true"><img src="assets/personas/ji-woo-han.jpg" alt="" width="480" height="480" loading="lazy" decoding="async" /></span></div>
             <h4>Ji-woo Han</h4><p class="persona-role" data-i18n="overview.jiwoo.role">Research and risk lead · Seoul</p>
-            <p data-i18n="overview.jiwoo.task">Uses authorized AI to organize evidence and propose a decision, while human review and RiskGuard remain mandatory before any account action.</p>
+            <p data-i18n="overview.jiwoo.task">Ji-woo lets an Agent organize market information without trading permission, then reviews the exact account, fees, and risk before any action.</p>
           </article>
         </div>
       </section>
 
       <section class="provider-network" aria-labelledby="provider-network-title">
         <div class="provider-heading reveal">
-          <div><p class="section-kicker" data-i18n="provider.eyebrow">PROVIDER NETWORK</p><h2 id="provider-network-title" data-i18n-html="provider.title">Connected by adapters.<br />Verified at runtime.</h2></div>
-          <p data-i18n="provider.note">Selected adapters from the current integration set are shown below. Exact market data, account, and trading capabilities still resolve by market, product, environment, entitlement, and live evidence.</p>
+          <div><p class="section-kicker" data-i18n="provider.eyebrow">SUPPORTED ADAPTERS</p><h2 id="provider-network-title" data-i18n-html="provider.title">Works with services<br /><i>you already use.</i></h2></div>
+          <p data-i18n="provider.note">Each adapter exposes only the capabilities supported by that service, market, account, environment, and current entitlement. You choose what to connect.</p>
         </div>
         <ul class="provider-grid reveal" aria-label="Available provider adapters" data-i18n-aria-label="a11y.providers">
           <li class="provider-card provider-truefix"><span class="provider-mark"><img src="assets/providers/truefix.png" alt="" width="256" height="251" loading="lazy" decoding="async" /></span><strong>TrueFix</strong></li>
@@ -216,13 +230,13 @@
           <li class="provider-card provider-tiger"><span class="provider-mark"><img src="assets/providers/tiger-brokers.png" alt="" width="152" height="152" loading="lazy" decoding="async" /></span><strong>Tiger Brokers</strong></li>
           <li class="provider-card provider-yahoo"><span class="provider-mark"><img src="assets/providers/yahoo-finance.png" alt="" width="180" height="180" loading="lazy" decoding="async" /></span><strong>Yahoo Finance</strong></li>
         </ul>
-        <p class="provider-caveat reveal"><span></span><span data-i18n="provider.caveat">Adapter present ≠ every capability certified. TrueFix resolves the usable scope at runtime.</span></p>
+        <p class="provider-caveat reveal"><span></span><span data-i18n="provider.caveat">Logos identify supported adapter targets. They do not imply sponsorship or an official partnership, and not every capability is available for every account.</span></p>
       </section>
 
       <section class="section product-section" id="product">
         <div class="section-heading reveal">
-          <div><p class="section-kicker">02 / PRODUCT</p><h2 data-i18n-html="product.title">One workstation.<br />The full decision chain.</h2></div>
-          <p data-i18n="product.lede">One canonical contract serves Desktop, Web, AI, and Quant. Runtime evidence answers where data came from, why it is available, and whether it can trade.</p>
+          <div><p class="section-kicker">02 / PRODUCT</p><h2 data-i18n-html="product.title">See exactly<br />what you can do.</h2></div>
+          <p data-i18n="product.lede">Three working views bring together market monitoring, source-backed research, strategy testing, and controlled account actions.</p>
         </div>
         <div class="showcase reveal">
           <div class="showcase-tabs" role="tablist" aria-label="Product interfaces" data-i18n-aria-label="a11y.productInterfaces">
@@ -233,15 +247,15 @@
           <div class="showcase-screen">
             <figure id="panel-workstation" role="tabpanel" aria-labelledby="tab-workstation" data-panel="workstation">
               <img src="assets/workstation.png" alt="TrueFix Studio trading workstation" data-i18n-alt="alt.workstation" width="1536" height="881" loading="lazy" decoding="async" />
-              <figcaption><span class="caption-label">WORKSTATION</span><span class="caption-copy" data-i18n="product.caption.workstation">Cross-market context and provider routes stay explicit; the interface never guesses capabilities.</span><a class="full-size-link" href="assets/workstation.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
+              <figcaption><span class="caption-label">WORKSTATION</span><span class="caption-copy" data-i18n="product.caption.workstation">Follow quotes, depth, positions, and order context in one screen while keeping the selected Provider visible.</span><a class="full-size-link" href="assets/workstation.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
             </figure>
             <figure id="panel-intelligence" role="tabpanel" aria-labelledby="tab-intelligence" data-panel="intelligence" hidden>
               <img src="assets/intelligence.png" alt="TrueFix Studio intelligence interface" data-i18n-alt="alt.intelligence" width="1536" height="881" loading="lazy" decoding="async" />
-              <figcaption><span class="caption-label">INTELLIGENCE</span><span class="caption-copy" data-i18n="product.caption.intelligence">Keep observations, sources, confidence, and historical replay on the same evidence chain.</span><a class="full-size-link" href="assets/intelligence.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
+              <figcaption><span class="caption-label">INTELLIGENCE</span><span class="caption-copy" data-i18n="product.caption.intelligence">Open the source behind news and signals, compare observations, and revisit how an idea changed over time.</span><a class="full-size-link" href="assets/intelligence.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
             </figure>
             <figure id="panel-quant" role="tabpanel" aria-labelledby="tab-quant" data-panel="quant" hidden>
               <img src="assets/ai-quant.png" alt="TrueFix Studio AI and quant interface" data-i18n-alt="alt.quant" width="1536" height="881" loading="lazy" decoding="async" />
-              <figcaption><span class="caption-label">AI + QUANT</span><span class="caption-copy" data-i18n="product.caption.quant">Strategy output becomes a constrained decision before Review and RiskGuard allow execution.</span><a class="full-size-link" href="assets/ai-quant.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
+              <figcaption><span class="caption-label">AI + QUANT</span><span class="caption-copy" data-i18n="product.caption.quant">Test strategy or Agent output before it can become an action on an account, with review and risk checks in between.</span><a class="full-size-link" href="assets/ai-quant.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
             </figure>
           </div>
         </div>
@@ -267,29 +281,29 @@
 
       <section class="section principles-section" id="principles">
         <div class="section-heading section-heading-light reveal">
-          <div><p class="section-kicker">04 / PRINCIPLES</p><h2 data-i18n-html="principles.title">Trading infrastructure<br />should never guess.</h2></div>
-          <p data-i18n="principles.lede">TrueFix draws deliberate boundaries: when mappings, accounts, permissions, or freshness are missing, it stops instead of quietly choosing a plausible answer.</p>
+          <div><p class="section-kicker">04 / SAFETY</p><h2 data-i18n-html="principles.title">Control stays<br />with you.</h2></div>
+          <p data-i18n="principles.lede">TrueFix does not accept deposits or create a TrueFix cloud account. You configure each connection and decide which permissions, environment, and account can be used.</p>
         </div>
         <div class="principle-list">
           <article class="principle reveal">
             <div class="principle-number">01</div><div class="principle-icon" aria-hidden="true"><span></span><span></span><span></span></div>
-            <h3 data-i18n="principles.evidence.title">Capabilities resolve from evidence</h3><p data-i18n="principles.evidence.body">ProviderDefinition, ClientInstance, market, product, environment, and entitlement jointly decide whether a capability exists now.</p><small>CapabilityScope → Evidence → Route</small>
+            <h3 data-i18n="principles.evidence.title">Connections use explicit permissions</h3><p data-i18n="principles.evidence.body">A data or trading feature is available only when the selected Provider, account, market, environment, and permission support it.</p><small>Provider → Account → Permission</small>
           </article>
           <article class="principle reveal" data-delay="1">
             <div class="principle-number">02</div><div class="principle-icon icon-route" aria-hidden="true"><span></span><span></span><span></span></div>
-            <h3 data-i18n="principles.execution.title">Execution never guesses</h3><p data-i18n="principles.execution.body">Orders bind to an exact instrument, provider, ClientInstance, account, and environment. Unknown outcomes can only be queried—not resubmitted.</p><small>Exact identity → RiskGuard → Execution</small>
+            <h3 data-i18n="principles.execution.title">Review before money moves</h3><p data-i18n="principles.execution.body">Before submission, confirm the exact account, instrument, order, fees, and risk. An uncertain result is checked instead of automatically sent again.</p><small>Review → Risk check → Submit</small>
           </article>
           <article class="principle reveal" data-delay="2">
             <div class="principle-number">03</div><div class="principle-icon icon-human" aria-hidden="true"><span></span><span></span><span></span></div>
-            <h3 data-i18n="principles.ai.title">AI is authorized, not unleashed</h3><p data-i18n="principles.ai.body">Research and strategy output cannot place orders directly. Trading intent must carry versions, expiry, evidence, and account constraints.</p><small>Signal → Decision → Review → Order</small>
+            <h3 data-i18n="principles.ai.title">AI assists within limits</h3><p data-i18n="principles.ai.body">An Agent can analyze with the tools you allow. Trading permission is separate, and an AI suggestion is not treated as an approved order.</p><small>Analyze → Suggest → Human review</small>
           </article>
         </div>
       </section>
 
       <section class="section architecture-section" id="architecture">
         <div class="architecture-copy reveal">
-          <p class="section-kicker">05 / ARCHITECTURE</p><h2 data-i18n-html="architecture.title">Provider-neutral core.<br />Real-world adapters.</h2>
-          <p data-i18n="architecture.lede">Market data, execution, risk, and AI collaborate through stable domain contracts. Integrations expand without changing the core meaning for one broker.</p>
+          <p class="section-kicker">05 / HOW IT CONNECTS</p><h2 data-i18n-html="architecture.title">Runs locally.<br />Connects when you ask.</h2>
+          <p data-i18n="architecture.lede">Your TrueFix profile starts on this device. The app connects outward only to the data, broker, exchange, or AI services you configure for the task.</p>
           <a class="text-link" href="guide/#architecture"><span data-i18n="architecture.link">Read the architecture guide</span><span>↗</span></a>
         </div>
         <div class="architecture-map reveal" data-delay="1" aria-label="TrueFix Studio architecture diagram" data-i18n-aria-label="a11y.architecture">
@@ -298,72 +312,62 @@
           <div class="map-core"><div class="core-mark"><img src="assets/truefix-mark.png" alt="" /></div><div><small>CANONICAL CORE</small><strong>TrueFix Runtime</strong></div><span>Provider-neutral contracts</span></div>
           <div class="map-flow map-flow-down"><i></i><i></i><i></i><i></i></div>
           <div class="map-layer map-providers"><span>Market Data</span><span>Broker / Exchange</span><span>Intelligence</span><span>FIX Engine</span></div>
-          <p class="map-caption"><i></i><span data-i18n="architecture.caption">Every quote, news item, fundamental, and signal retains its original adapter provenance.</span></p>
+          <p class="map-caption"><i></i><span data-i18n="architecture.caption">TrueFix keeps the source Provider attached to market data, news, signals, and account actions.</span></p>
         </div>
       </section>
 
       <section class="section audiences-section" id="audiences">
         <div class="section-heading reveal">
-          <div><p class="section-kicker">06 / ONE SYSTEM, THREE MODES</p><h2 data-i18n-html="modes.title">From human judgment<br />to deterministic automation.</h2></div>
-          <p data-i18n="modes.lede">Every mode shares the same capability resolution, instrument identity, risk constraints, and execution kernel.</p>
+          <div><p class="section-kicker">06 / WAYS TO USE IT</p><h2 data-i18n-html="modes.title">Use only<br />what you need.</h2></div>
+          <p data-i18n="modes.lede">Start with research and read-only data. Add simulation, headless strategy runs, or authorized execution only when your workflow needs them.</p>
         </div>
         <div class="audience-grid">
           <article class="audience-card reveal">
-            <div class="card-label">FOR TRADERS</div><div class="card-graphic trader-graphic" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <h3>Desktop / Web</h3><p data-i18n="modes.traders">See market data, positions, risk, and order context in one composable workspace.</p>
+            <div class="card-label" data-i18n="modes.traders.label">FOR DAILY WORK</div><div class="card-graphic trader-graphic" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <h3 data-i18n="modes.traders.title">Desktop / Web</h3><p data-i18n="modes.traders">See market data, positions, risk, and order context in one workspace.</p>
           </article>
           <article class="audience-card reveal" data-delay="1">
-            <div class="card-label">FOR BUILDERS</div><div class="card-graphic quant-graphic" aria-hidden="true"><code>event → strategy</code><code>decision → guard</code><code class="active">order → evidence</code></div>
-            <h3>Headless Quant</h3><p data-i18n="modes.quant">Bounded event delivery, deterministic Recorder / Replay, and one strategy definition contract.</p>
+            <div class="card-label" data-i18n="modes.quant.label">FOR AUTOMATION</div><div class="card-graphic quant-graphic" aria-hidden="true"><code>event → strategy</code><code>decision → guard</code><code class="active">order → evidence</code></div>
+            <h3 data-i18n="modes.quant.title">Headless Quant</h3><p data-i18n="modes.quant">Run and replay strategies without the desktop interface, using the same account and risk rules.</p>
           </article>
           <article class="audience-card reveal" data-delay="2">
-            <div class="card-label">FOR AGENTS</div><div class="card-graphic agent-graphic" aria-hidden="true"><span>OBSERVE</span><i>→</i><span>REASON</span><i>→</i><span>REQUEST</span><b>HUMAN REVIEW</b></div>
-            <h3>Authorized AI</h3><p data-i18n="modes.ai">Let agents analyze markets with authorized tools while preserving review, budget, and risk boundaries.</p>
+            <div class="card-label" data-i18n="modes.ai.label">FOR RESEARCH</div><div class="card-graphic agent-graphic" aria-hidden="true"><span>OBSERVE</span><i>→</i><span>REASON</span><i>→</i><span>REQUEST</span><b>HUMAN REVIEW</b></div>
+            <h3 data-i18n="modes.ai.title">AI-assisted research</h3><p data-i18n="modes.ai">Let an Agent organize and analyze market information with tools, limits, and permissions that you choose.</p>
           </article>
         </div>
       </section>
 
       <section class="section about-section" id="about">
         <div class="section-heading section-heading-light reveal">
-          <div><p class="section-kicker">07 / ABOUT US</p><h2 data-i18n-html="about.title">Different disciplines.<br />One accountable system.</h2></div>
-          <p data-i18n="about.lede">TrueFix Studio is represented by a distributed team spanning market structure, systems engineering, human factors, and AI safety.</p>
+          <div><p class="section-kicker">07 / ABOUT US</p><h2 data-i18n-html="about.title">About TrueFix Studio.<br />Why we are building it.</h2></div>
+          <p data-i18n="about.lede">TrueFix Studio is an independent, pre-release software project for people who already use brokers, exchanges, market data, or systematic strategies.</p>
         </div>
-        <p class="about-intro reveal" data-i18n="about.intro">Six complementary perspectives shape a workstation where provenance stays visible, automation stays bounded, and uncertainty is treated as a first-class state.</p>
-        <div class="team-grid">
-          <article class="team-card reveal">
-            <div class="team-photo"><img src="assets/team/elias-navarro.jpg" alt="Portrait of Elias Navarro" data-i18n-alt="alt.elias" width="900" height="1124" loading="lazy" decoding="async" /></div>
-            <div class="team-copy"><p class="team-role" data-i18n="about.elias.role">Market Infrastructure</p><h3>Elias Navarro</h3><p data-i18n="about.elias.bio">A Madrid-and-Chicago market structure specialist focused on instrument identity, routing evidence, and execution reconciliation.</p></div>
+        <p class="about-intro reveal" data-i18n="about.intro">The goal is practical: reduce tool switching, make the source of information visible, and keep automation inside limits the user can inspect.</p>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <p class="project-label" data-i18n="about.local.label">LOCAL-FIRST</p><h3 data-i18n="about.local.title">Your profile starts on this device</h3><p data-i18n="about.local.body">TrueFix does not require a TrueFix cloud account. Connections to outside services are configured by you for the features you choose to use.</p>
           </article>
-          <article class="team-card reveal" data-delay="1">
-            <div class="team-photo"><img src="assets/team/chen-wei.jpg" alt="Portrait of Chen Wei" data-i18n-alt="alt.chen" width="900" height="1125" loading="lazy" decoding="async" /></div>
-            <div class="team-copy"><p class="team-role" data-i18n="about.chen.role">Data Integrity</p><h3>Chen Wei</h3><p data-i18n="about.chen.bio">A Hangzhou-born, Singapore-based engineer who keeps market identifiers, revisions, and cross-provider data lineage exact.</p></div>
+          <article class="project-card reveal" data-delay="1">
+            <p class="project-label" data-i18n="about.custody.label">NO CUSTODY</p><h3 data-i18n="about.custody.title">Your funds stay with your Provider</h3><p data-i18n="about.custody.body">TrueFix is software, not a broker, exchange, bank, or investment adviser. It does not accept deposits or promise returns.</p>
           </article>
-          <article class="team-card reveal" data-delay="2">
-            <div class="team-photo"><img src="assets/team/park-min-seo.jpg" alt="Portrait of Park Min-seo" data-i18n-alt="alt.park" width="900" height="1125" loading="lazy" decoding="async" /></div>
-            <div class="team-copy"><p class="team-role" data-i18n="about.park.role">Runtime Reliability</p><h3>Park Min-seo</h3><p data-i18n="about.park.bio">A Seoul-and-Toronto reliability engineer focused on bounded event delivery, observability, and safe recovery under pressure.</p></div>
-          </article>
-          <article class="team-card reveal">
-            <div class="team-photo"><img src="assets/team/amara-okafor.jpg?v=2" alt="Portrait of Amara Okafor" data-i18n-alt="alt.amara" width="900" height="1124" loading="lazy" decoding="async" /></div>
-            <div class="team-copy"><p class="team-role" data-i18n="about.amara.role">Systems Architecture</p><h3>Amara Okafor</h3><p data-i18n="about.amara.bio">A Lagos-born, London-based systems architect who models provider boundaries, fault isolation, and deterministic recovery.</p></div>
-          </article>
-          <article class="team-card reveal" data-delay="1">
-            <div class="team-photo"><img src="assets/team/sora-kimura.jpg" alt="Portrait of Sora Kimura" data-i18n-alt="alt.sora" width="900" height="1124" loading="lazy" decoding="async" /></div>
-            <div class="team-copy"><p class="team-role" data-i18n="about.sora.role">Human Factors & Risk</p><h3>Sora Kimura</h3><p data-i18n="about.sora.bio">A Tokyo-and-Vancouver product thinker designing interfaces that make uncertainty, permission, and risk visible before action.</p></div>
-          </article>
-          <article class="team-card reveal" data-delay="2">
-            <div class="team-photo"><img src="assets/team/leila-haddad.jpg" alt="Portrait of Leila Haddad" data-i18n-alt="alt.leila" width="900" height="1124" loading="lazy" decoding="async" /></div>
-            <div class="team-copy"><p class="team-role" data-i18n="about.leila.role">AI & Quant Safety</p><h3>Leila Haddad</h3><p data-i18n="about.leila.bio">A Montréal-and-Dubai research engineer shaping authorized agent tools, reproducible strategy runtime, and audit-ready decisions.</p></div>
+          <article class="project-card reveal" data-delay="2">
+            <p class="project-label" data-i18n="about.control.label">USER CONTROL</p><h3 data-i18n="about.control.title">You choose how far the workflow goes</h3><p data-i18n="about.control.body">Use research only, stay read-only, test in simulation, or configure an authorized execution path. AI assistance does not remove your responsibility to review.</p>
           </article>
         </div>
-        <p class="agent-disclosure reveal" data-i18n="about.disclosure">The people and biographies shown here are fictional AI agents created for the TrueFix Studio story; they are not real employees.</p>
+        <div class="project-links reveal">
+          <a href="about/"><span data-i18n="about.people">Meet the people</span><span aria-hidden="true">↗</span></a>
+          <a href="guide/"><span data-i18n="about.guide">Read the user guide</span><span aria-hidden="true">↗</span></a>
+          <a href="privacy/"><span data-i18n="about.privacy">Privacy policy</span><span aria-hidden="true">↗</span></a>
+          <a href="support/"><span data-i18n="about.support">Technical support</span><span aria-hidden="true">↗</span></a>
+        </div>
       </section>
 
       <section class="closing-section">
         <div class="closing-watermark" aria-hidden="true">TRUEFIX</div>
         <div class="closing-content reveal">
           <img src="assets/truefix-mark.png" alt="" width="70" height="70" /><p class="section-kicker">START WITH THE GUIDE</p>
-          <h2 data-i18n-html="closing.title">Built for clarity.<br /><i>Engineered for certainty.</i></h2>
-          <p data-i18n="closing.lede">TrueFix Studio is converging toward its first release. The public guide explains the current workflow, safety boundaries, and capability-dependent behavior.</p>
+          <h2 data-i18n-html="closing.title">See the workflow<br /><i>before connecting an account.</i></h2>
+          <p data-i18n="closing.lede">The guide explains installation, Provider setup, Agent permissions, simulation, execution review, and what to check before using real credentials.</p>
           <div class="closing-actions">
             <a class="button button-primary" href="guide/"><span data-i18n="closing.github">Open the user guide</span><span aria-hidden="true">↗</span></a>
             <a class="button button-quiet" href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer"><span data-i18n="closing.feedback">Feedback & discussions</span><span aria-hidden="true">↗</span></a>
@@ -374,8 +378,8 @@
 
     <footer class="site-footer">
       <a class="brand footer-brand" href="#top"><img src="assets/truefix-mark.png" alt="" width="30" height="30" /><span>TrueFix</span><em>Studio</em></a>
-      <p data-i18n="footer.tagline">Multi-provider trading workstation.</p>
-      <div><a href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer" data-i18n="footer.feedback">Feedback & discussions</a><span data-i18n="footer.status">Pre-release software</span><span>© <span data-year></span> TrueFix Labs</span></div>
+      <p data-i18n="footer.tagline">Local research and controlled trading workspace.</p>
+      <div><a href="about/" data-i18n="footer.about">About us</a><a href="privacy/" data-i18n="footer.privacy">Privacy</a><a href="support/" data-i18n="footer.support">Technical support</a><a href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer" data-i18n="footer.feedback">Feedback & discussions</a><span data-i18n="footer.status">Pre-release software</span><span>© <span data-year></span> TrueFix Labs</span></div>
     </footer>
   </body>
 </html>

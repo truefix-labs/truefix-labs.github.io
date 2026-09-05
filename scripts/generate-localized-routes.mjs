@@ -4,6 +4,14 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const origin = 'https://truefix-labs.com';
+const analytics = `<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP0Q5CLKGK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BP0Q5CLKGK');
+    </script>`;
 const locales = { 'zh-CN': 'zh-cn', ja: 'ja', ko: 'ko', en: 'en' };
 const pages = [
   ['', 'index.html'], ['guide', 'guide/index.html'], ['about', 'about/index.html'],
@@ -47,6 +55,7 @@ for (const slug of Object.values(locales)) await rm(join(root, slug), { recursiv
 
 for (const [route, source] of pages) {
   let raw = await readFile(join(root, source), 'utf8');
+  if (!raw.includes('G-BP0Q5CLKGK')) raw = raw.replace('</head>', `    ${analytics}\n  </head>`);
   if (!raw.includes('fonts.gstatic.com')) {
     const fonts = '<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;600;700;800&amp;family=Noto+Sans+KR:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;600;700;800&amp;display=swap"/>';
     raw = raw.replace('<link rel="stylesheet"', `${fonts}<link rel="stylesheet"`);
@@ -89,7 +98,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${entries.map(({ route, slug }) => `  <url>
     <loc>${url(route, slug)}</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
     ${Object.entries(locales).map(([locale, altSlug]) => `<xhtml:link rel="alternate" hreflang="${locale}" href="${url(route, altSlug)}" />`).join('\n    ')}
     <xhtml:link rel="alternate" hreflang="x-default" href="${url(route)}" />${route === 'product-film' ? `
     <video:video>

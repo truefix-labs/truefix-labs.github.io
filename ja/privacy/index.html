@@ -26,6 +26,14 @@
     <script src="../mobile-shell.js?v=1" defer></script>
     <script src="../legal/legal.js?v=5" defer></script>
     <title>TrueFix Studio — プライバシーポリシー</title>
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP0Q5CLKGK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BP0Q5CLKGK');
+    </script>
       <meta property="og:locale" content="ja" />
   </head>
   <body data-page="privacy">
@@ -61,7 +69,7 @@
           <p class="eyebrow" data-shell="eyebrow">PRIVACY / DATA PRACTICES</p>
           <h1 data-shell="heading">What stays on your device.<br /><i>What leaves it.</i></h1>
           <p class="hero-copy" data-shell="lede">A plain-language guide to the information TrueFix handles and the choices you have.</p>
-          <div class="hero-meta"><span><span data-shell="updated">Last updated</span> <strong>2026-09-04</strong></span><span>Version <strong>1.0</strong></span></div>
+          <div class="hero-meta"><span><span data-shell="updated">Last updated</span> <strong>2026-09-05</strong></span><span>Version <strong>1.1</strong></span></div>
         </div>
       </section>
 
@@ -75,7 +83,7 @@
             <li>TrueFix Studio is local-first. The current app does not require or create a TrueFix cloud account.</li>
             <li>Provider credentials, workspaces, Agent sessions, market data, trading records, and logs are stored on the device running the app.</li>
             <li>Data is sent to a broker, exchange, market-data source, or AI service only when you configure and use that service.</li>
-            <li>We do not sell personal data, serve behavioral advertising, or include first-party product analytics in the current website or app.</li>
+            <li>We do not sell personal data or serve behavioral advertising. The website uses Google Analytics to measure visits; the app does not include product analytics.</li>
           </ul></div>
 
           <section class="legal-section" id="scope"><p class="section-no">01 / SCOPE</p><h2>Scope and responsible party</h2>
@@ -85,7 +93,7 @@
 
           <section class="legal-section" id="data"><p class="section-no">02 / INFORMATION</p><h2>Information the product handles</h2>
             <div class="practice-grid">
-              <div class="practice-row"><strong>Public website</strong><p>Your language preference is stored in browser <code>localStorage</code> under <code>truefix.language</code>. The site does not set advertising or analytics cookies. GitHub Pages and Google Fonts necessarily receive standard request information such as IP address, browser headers, requested URL, and time. The download panel also requests public release metadata from GitHub.</p></div>
+              <div class="practice-row"><strong>Public website</strong><p>Your language preference is stored in browser <code>localStorage</code> under <code>truefix.language</code>. Google Analytics measures page views and may process identifiers, approximate location, device and browser details, referrer, requested URL, and visit timing, and may set analytics cookies. The site does not use advertising personalization. GitHub Pages and Google Fonts also receive standard request information, and the download panel requests public release metadata from GitHub.</p></div>
               <div class="practice-row"><strong>Local application</strong><p>The app stores settings, Provider and AI credentials, instrument mappings, market and research data, workspaces, watchlists, Agent conversations and tool records, strategies, orders, positions, risk and audit evidence, and diagnostic logs locally as needed for the features you use.</p></div>
               <div class="practice-row"><strong>Provider and AI connections</strong><p>When you activate an integration, the app sends the identifiers, queries, prompts, account instructions, authentication data, or orders needed to perform your request. The recipient and exact fields depend on the configured Provider, capability, and your action.</p></div>
               <div class="practice-row"><strong>Optional Web Gateway</strong><p>If the local operator enables Web Gateway, it processes login and session information and writes access/security logs that may contain IP address, user agent, referrer, host, request path, response status, and timing. Refresh-token, IP, and user-agent fingerprints are stored as hashes in the local authentication database; the browser may hold an HttpOnly session cookie.</p></div>
@@ -97,7 +105,7 @@
           <section class="legal-section" id="sharing"><p class="section-no">03 / SERVICES</p><h2>How information is used and disclosed</h2>
             <p>Information is used to provide the requested workstation function, maintain security and sessions, preserve auditability, diagnose faults, and respond to support. We do not sell or rent it.</p>
             <h3>User-directed services</h3><p>Information is transmitted to the broker, exchange, data vendor, news/intelligence source, AI model provider, DNS/ACME service, or other endpoint that you explicitly configure or select. Those services may process data in other countries and may retain it under their agreements with you.</p>
-            <h3>Website infrastructure</h3><p>The public site is hosted by GitHub Pages and loads fonts from Google Fonts. Links to GitHub Discussions and Releases take you to GitHub. Their privacy policies govern information they receive.</p>
+            <h3>Website infrastructure and analytics</h3><p>The public site is hosted by GitHub Pages, loads fonts from Google Fonts, and uses Google Analytics. Google processes analytics data under its own terms and privacy policy. Links to GitHub Discussions and Releases take you to GitHub. These services’ privacy policies govern information they receive.</p>
             <h3>Legal and safety</h3><p>We may preserve or disclose information sent to us if reasonably necessary to comply with law, protect users, investigate abuse, or defend the security and rights of TrueFix Labs. We will limit disclosure to what is necessary.</p>
           </section>
 
@@ -112,6 +120,7 @@
               <li>Use read-only, Paper, Demo, Testnet, or Simulator scopes where appropriate, and revoke credentials at the originating service.</li>
               <li>Disable Web Gateway, sign out browsers, revoke individual Web devices, rotate the access password, or clear its local session store.</li>
               <li>Delete local settings, databases, logs, and the website language preference using the instructions on the <a href="../support/#data-deletion">Technical Support page</a>.</li>
+              <li>Limit or clear analytics cookies through your browser controls, or use Google’s Analytics opt-out tools where available.</li>
               <li>Contact us to request access to or deletion of personal information that you sent directly to TrueFix Labs. We may need to verify the request.</li>
             </ul>
             <div class="notice"><strong>No TrueFix cloud account</strong><p>The current release does not create a hosted TrueFix user account. Google Play’s web account-deletion flow is therefore not applicable to this version. If account creation is introduced, this policy and the deletion controls will be updated before distribution.</p></div>

@@ -27,6 +27,7 @@ After changing a base page or its metadata, regenerate the localized static rout
 
 ```bash
 node scripts/sync-guide-parity.mjs
+node scripts/sync-analytics-privacy.mjs
 node scripts/generate-localized-routes.mjs
 ```
 

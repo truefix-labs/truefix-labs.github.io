@@ -3,6 +3,7 @@ test('homepage walkthrough switches actual product views by click and keyboard',
   await page.route(/https:\/\//,r=>r.abort());
   await page.setViewportSize({width:1440,height:1000});
   await page.goto('/zh-cn/');
+  await page.locator('.actual-screens summary').click();
   const tabs=page.locator('[data-preview-tab]');
   await expect(tabs).toHaveCount(4);
   await expect(page.locator('.preview-panel:visible')).toHaveCount(1);

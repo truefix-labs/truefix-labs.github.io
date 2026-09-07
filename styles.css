@@ -638,3 +638,31 @@ body { transition: opacity .24s ease; }
 @media (prefers-reduced-motion: reduce) {
   .strategy-demo *, .strategy-demo *::before { transition: none !important; }
 }
+/* Market constellations feed the strategy sculpture; labels remain readable. */
+.art-markets { position: absolute; inset: 0; list-style: none; padding: 0; margin: 0; pointer-events: none; }
+.art-market { --market-color: #a5c9ef; position: absolute; width: 112px; padding: 9px 11px; border-left: 1px solid var(--market-color); background: linear-gradient(90deg, #0a141de8, #0a141d70); border-radius: 2px; }
+.market-code { display: block; font: 9px 'DM Mono', monospace; color: var(--market-color); letter-spacing: .06em; margin-bottom: 5px; }
+.art-market strong { display: block; color: #c9dce9; font-size: 11px; line-height: 1.4; font-weight: 500; }
+.market-detail { display: block; font-size: 9px; color: #8fa6b9; margin-top: 4px; line-height: 1.4; }
+.art-market-cn { left: 4%; top: 10%; --market-color: #b8a9ea; }
+.art-market-hk { right: 4%; top: 10%; --market-color: #8ebdeb; }
+.art-market-us { left: 4%; top: 38%; --market-color: #83d5d9; }
+.art-market-crypto { right: 4%; top: 38%; --market-color: #dfb083; }
+.art-market-metals { left: 4%; top: 66%; --market-color: #ddc688; }
+.art-market-commodities { right: 4%; top: 66%; --market-color: #91c9a5; }
+.art-result { bottom: 0; right: 28px; }
+.art-stage { height: 390px; }
+@media (max-width: 600px) {
+  .art-stage { height: 365px; }
+  .art-market { width: 29%; padding: 6px; }
+  .art-market strong { font-size: 10px; }
+  .market-code { font-size: 8px; margin-bottom: 4px; }
+  .market-detail { font-size: 8px; }
+  .art-market-cn { left: 3%; top: 12px; }
+  .art-market-hk { left: 35.5%; right: auto; top: 12px; }
+  .art-market-us { left: auto; right: 3%; top: 12px; }
+  .art-market-crypto { left: 3%; right: auto; top: auto; bottom: 58px; }
+  .art-market-metals { left: 35.5%; top: auto; bottom: 58px; }
+  .art-market-commodities { right: 3%; top: auto; bottom: 58px; }
+  .art-result { right: 18px; bottom: 7px; }
+}

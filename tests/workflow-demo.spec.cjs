@@ -39,6 +39,8 @@ test('reduced motion stays static and every locale fits all steps on mobile', as
     const demo = page.locator('.strategy-demo');
     await demo.scrollIntoViewIfNeeded();
     await expect(demo).toHaveAttribute('data-playing', 'false');
+    await expect(page.locator('[data-market-node]')).toHaveCount(6);
+    for (const label of await page.locator('[data-market-node] strong').all()) await expect(label).not.toBeEmpty();
     const heights = [];
     for (let step = 0; step < 5; step++) {
       await page.locator(`[data-demo-step="${step}"]`).click();
@@ -47,6 +49,7 @@ test('reduced motion stays static and every locale fits all steps on mobile', as
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await expect(page.locator(`[data-demo-scene="${step}"] h3`)).not.toBeEmpty();
     }
+    await expect(page.locator('[data-art-return]')).toHaveText('+50.00%');
     expect(Math.max(...heights) - Math.min(...heights)).toBeLessThanOrEqual(1);
     if (locale === 'zh-cn') await page.screenshot({ path: testInfo.outputPath('demo-mobile.png') });
   }

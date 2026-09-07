@@ -9,6 +9,8 @@
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const durations = [3000, 3000, 4500, 4000, 12000];
   const tau = Math.PI * 2;
+  const marketNodes = [...demo.querySelectorAll('[data-market-node]')];
+  let marketAnchors = [];
   let stage = 0, paused = motion.matches, visible = false, playing = false;
   let elapsed = 0, started = 0, time = 0, lastFrame = 0, raf = 0, timer;
   let width = 600, height = 350, morph = 0;
@@ -64,6 +66,24 @@
         dot(pt.x,pt.y,1.2,'#a5dded',.35);
       }
     }
+    // Each labeled asset group contributes colored signals to the strategy core.
+    marketAnchors.forEach((anchor,index) => {
+      const end=geometry(index/marketAnchors.length*tau,.1);
+      const bend={x:mix(anchor.x,end.x,.5),y:mix(anchor.y,end.y,.5)-height*.09};
+      const points=[];
+      for(let j=0;j<=40;j++) {
+        const u=j/40,v=1-u;
+        points.push({x:v*v*anchor.x+2*v*u*bend.x+u*u*end.x,y:v*v*anchor.y+2*v*u*bend.y+u*u*end.y});
+      }
+      line(points,anchor.color,stage===0?.36:.19,.8);
+      dot(anchor.x,anchor.y,3,anchor.color,.7);
+      for(let packet=0;packet<2;packet++) {
+        const u=(time*.19+index*.14+packet*.5)%1;
+        const point=points[Math.floor(u*40)];
+        dot(point.x,point.y,4,anchor.color,.08);
+        dot(point.x,point.y,1.5,anchor.color,.85);
+      }
+    });
     // Thin orbital lines establish the sculpture's spatial volume.
     for(let k=0;k<3;k++) {
       const orbit=[];
@@ -121,7 +141,7 @@
       }
       const idx=Math.min(Math.floor(count),equity.length-1);
       const val=mix(equity[idx],equity[Math.min(idx+1,equity.length-1)],count-idx);
-      demo.querySelector('[data-art-return]').textContent=`+${(val/100).toFixed(2)}%`;
+      demo.querySelector('[data-art-return]').textContent=`+${(val/212*50).toFixed(2)}%`;
     }
   }
   function frame(now) {
@@ -158,6 +178,10 @@
   }
   function resize() {
     const box=canvas.getBoundingClientRect();width=box.width;height=box.height;
+    marketAnchors=marketNodes.map(node=>{
+      const rect=node.getBoundingClientRect();
+      return {x:rect.left-box.left+rect.width/2,y:rect.top-box.top+rect.height/2,color:getComputedStyle(node).getPropertyValue('--market-color').trim()};
+    });
     const ratio=Math.min(devicePixelRatio||1,2);
     canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);
     if(ctx){ctx.setTransform(ratio,0,0,ratio,0,0);draw();demo.dataset.canvasReady='true';}

@@ -740,7 +740,16 @@ const workflowCopy = {
     "art.body3": "审核策略与部署方案，确认后才启动运行。",
     "art.title4": "让策略运行，看结果变化",
     "art.body4": "模拟执行持续推进，观察收益变化与回撤。",
-    "art.note": "概念动画 · 收益为虚构示例，不代表实际或预期回报。"
+    "art.note": "概念动画 · 收益为虚构示例，不代表实际或预期回报。",
+    "art.markets": "多市场信号",
+    "art.market.cn": "A 股",
+    "art.market.hk": "港股",
+    "art.market.us": "美股",
+    "art.market.crypto": "加密货币",
+    "art.market.metals": "贵金属",
+    "art.market.commodities": "商品",
+    "art.market.metals.detail": "黄金 · 白银",
+    "art.market.commodities.detail": "原油等商品"
   },
   "en": {
     "hero.eyebrow": "TRUEFIX STUDIO · RESEARCH & TRADING",
@@ -878,7 +887,16 @@ const workflowCopy = {
     "art.body3": "Review the strategy and deployment proposal before activation.",
     "art.title4": "Put the strategy in motion",
     "art.body4": "Follow simulated execution, changing returns, and drawdowns.",
-    "art.note": "Concept animation · Returns are fictional, not actual or expected performance."
+    "art.note": "Concept animation · Returns are fictional, not actual or expected performance.",
+    "art.markets": "Multi-market signals",
+    "art.market.cn": "China A-shares",
+    "art.market.hk": "Hong Kong",
+    "art.market.us": "US equities",
+    "art.market.crypto": "Crypto",
+    "art.market.metals": "Precious metals",
+    "art.market.commodities": "Commodities",
+    "art.market.metals.detail": "Gold · Silver",
+    "art.market.commodities.detail": "Crude oil & more"
   },
   "ja": {
     "hero.eyebrow": "TRUEFIX STUDIO · 調査と取引のワークスペース",
@@ -1016,7 +1034,16 @@ const workflowCopy = {
     "art.body3": "戦略とデプロイ計画を審査し、確認後に起動する。",
     "art.title4": "戦略を動かし、変化を見る",
     "art.body4": "模擬執行を追い、損益の変化とドローダウンを観察。",
-    "art.note": "概念アニメーション · 損益は架空の例で、実績や期待リターンではありません。"
+    "art.note": "概念アニメーション · 損益は架空の例で、実績や期待リターンではありません。",
+    "art.markets": "複数市場のシグナル",
+    "art.market.cn": "中国A株",
+    "art.market.hk": "香港株",
+    "art.market.us": "米国株",
+    "art.market.crypto": "暗号資産",
+    "art.market.metals": "貴金属",
+    "art.market.commodities": "商品",
+    "art.market.metals.detail": "金・銀",
+    "art.market.commodities.detail": "原油など"
   },
   "ko": {
     "hero.eyebrow": "TRUEFIX STUDIO · 리서치와 거래 워크스페이스",
@@ -1154,7 +1181,16 @@ const workflowCopy = {
     "art.body3": "전략과 배포 계획을 검토한 뒤 실행을 승인합니다.",
     "art.title4": "전략을 실행하고 변화 관찰",
     "art.body4": "모의 실행을 따라 손익 변화와 낙폭을 관찰합니다.",
-    "art.note": "컨셉 애니메이션 · 수익은 가상 예시이며 실제 또는 예상 성과가 아닙니다."
+    "art.note": "컨셉 애니메이션 · 수익은 가상 예시이며 실제 또는 예상 성과가 아닙니다.",
+    "art.markets": "다양한 시장 신호",
+    "art.market.cn": "중국 A주",
+    "art.market.hk": "홍콩 주식",
+    "art.market.us": "미국 주식",
+    "art.market.crypto": "암호화폐",
+    "art.market.metals": "귀금속",
+    "art.market.commodities": "원자재",
+    "art.market.metals.detail": "금 · 은",
+    "art.market.commodities.detail": "원유 등"
   }
 };
 Object.entries(workflowCopy).forEach(([locale, values]) => Object.assign(translations[locale], values));

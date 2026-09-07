@@ -1,0 +1,93 @@
+/* Public-site spacing follows Studio's 4/8px rhythm, with readable editorial type. */
+:root {
+  --intro-space: 72px;
+  --section-space: 80px;
+  --page-gutter: 24px;
+}
+.hero .hero-copy { padding-top: var(--intro-space); }
+.about-hero { min-height: 0; padding-top: var(--intro-space); padding-bottom: 64px; gap: 64px; }
+.guide-hero { min-height: 0; padding-top: var(--intro-space); padding-bottom: 64px; }
+.legal-hero .hero-inner { padding-top: var(--intro-space); padding-bottom: 64px; }
+.watch-page { padding-top: var(--intro-space); }
+.hero h1, .about-hero h1, .guide-hero h1, .legal-hero h1, .watch-intro h1 {
+  font-size: clamp(48px, 5.6vw, 80px);
+  line-height: 1.12;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.hero .hero-lede { margin-top: 24px; line-height: 1.75; }
+.hero-actions { margin-top: 24px; }
+.hero-visual { margin-top: 48px; }
+.about-hero .hero-copy > p:last-child { margin-top: 24px; }
+.about-hero .hero-aside { min-width: 0; }
+.guide-hero .hero-lede { margin: 24px 0; line-height: 1.75; }
+.legal-hero .hero-copy { margin-top: 24px; }
+.hero-meta { margin-top: 24px; }
+.watch-intro { margin-bottom: 32px; }
+.watch-intro h1 { margin: 16px 0 24px; }
+main h2 { text-wrap: balance; }
+main p, main li, main a, footer a { overflow-wrap: anywhere; }
+.hero .eyebrow { flex-wrap: wrap; line-height: 1.5; }
+.hero .eyebrow > span, .hero-note > .pulse { flex-shrink: 0; }
+footer { flex-wrap: wrap; }
+footer .locale-links { flex-basis: 100%; grid-column: 1 / -1; padding: 0; }
+.locale-links { line-height: 1.6; }
+.locale-links a { display: inline-flex; align-items: center; min-height: 44px; }
+.profile-copy { min-width: 0; padding-top: 56px; padding-bottom: 56px; }
+.profile h1 { overflow-wrap: anywhere; text-wrap: balance; line-height: 1.08; }
+.profile .question { line-height: 1.25; }
+.profile .focus { margin: 24px 0; }
+.profile-copy > .eyebrow { margin-bottom: 16px; }
+
+@media (max-width: 1000px) {
+  .about-hero { grid-template-columns: 1fr; gap: 32px; }
+  .about-hero .hero-aside { max-width: 740px; }
+}
+
+@media (max-width: 900px) {
+  :root { --intro-space: 40px; --section-space: 56px; --page-gutter: 20px; }
+  .hero { min-height: 0; padding-bottom: 56px; }
+  .hero .hero-copy { width: calc(100% - 2 * var(--page-gutter)); }
+  .hero h1, .about-hero h1, .guide-hero h1, .legal-hero h1, .watch-intro h1 {
+    font-size: clamp(32px, 8.6vw, 44px);
+    line-height: 1.16;
+    letter-spacing: -.035em;
+  }
+  .hero h1 br, .about-hero h1 br, .guide-hero h1 br, .legal-hero h1 br, .watch-intro h1 br { display: none; }
+  .hero h1 i, .about-hero h1 i, .guide-hero h1 i, .legal-hero h1 i { display: block; }
+  .hero .eyebrow { margin-bottom: 16px; font-size: 10px; letter-spacing: .08em; }
+  .hero .hero-lede { font-size: 15px; }
+  .hero-actions { gap: 12px; }
+  .hero-note { margin-top: 16px; align-items: flex-start; line-height: 1.6; }
+  .hero-note > .pulse { margin-top: 5px; }
+  .hero-visual { margin-top: 32px; width: calc(100% - 32px); }
+  .about-hero, .guide-content .guide-hero { padding-right: var(--page-gutter); padding-left: var(--page-gutter); padding-bottom: 40px; }
+  .about-hero { gap: 24px; }
+  .about-hero .hero-copy > p:last-child, .guide-hero .hero-lede, .legal-hero .hero-copy, .watch-intro .lede { font-size: 15px; line-height: 1.75; }
+  .guide-hero h1 { margin-top: 16px; }
+  .legal-hero .hero-inner { width: calc(100% - 2 * var(--page-gutter)); padding-bottom: 40px; }
+  .watch-page { padding-right: var(--page-gutter); padding-left: var(--page-gutter); padding-bottom: 56px; }
+  .watch-intro h1 { margin-bottom: 24px; }
+  .section, .purpose-section, .people-section, .boundaries-section, .provider-network, .transcript-section {
+    padding-top: var(--section-space); padding-bottom: var(--section-space);
+  }
+  .section-heading, .people-heading, .provider-heading { gap: 24px; margin-bottom: 32px; }
+  .section-heading h2, .people-heading h2, .provider-heading h2, .architecture-copy h2, .overview-heading h2 {
+    font-size: clamp(28px, 7.6vw, 38px); line-height: 1.18;
+  }
+  .legal-layout { padding-top: 40px; padding-bottom: 56px; }
+  .doc-section { padding-top: 40px; padding-bottom: 40px; }
+  .profile { display: flex; flex-direction: column; }
+  .profile .profile-copy { order: -1; max-width: none; padding: 40px var(--page-gutter); }
+  .profile h1 { font-size: clamp(34px, 8.6vw, 44px); }
+  .profile .role { margin: 16px 0 24px; line-height: 1.6; }
+  .profile .question { margin-bottom: 24px; font-size: 26px; }
+  .profile .explanation { margin-bottom: 24px; font-size: 15px; line-height: 1.75; }
+  .profile .portrait { min-height: 0; max-height: 520px; aspect-ratio: 4 / 3; }
+  .profile .portrait img { display: block; }
+  .profile-links { gap: 8px; }
+  .profile-links a { display: inline-flex; align-items: center; min-height: 44px; line-height: 1.5; }
+  footer { gap: 16px; }
+  footer nav { justify-content: flex-start; }
+}
+.hero .eyebrow > b { flex: 1; min-width: 0; }

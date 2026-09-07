@@ -32,7 +32,7 @@ node scripts/sync-analytics-privacy.mjs
 npm run build
 ```
 
-The shared header template is `shared/header.html`; its desktop styles live in `site-header.css`, with mobile rules in `mobile-shell.css`. The build renders all translated content and locale navigation into each HTML page, with self-referencing canonical URLs and reciprocal hreflang links. Translation dictionaries remain in the page scripts; `site-navigation.js` is generated from the homepage dictionary. Commit generated HTML and sitemap changes along with their sources.
+The shared header template is `shared/header.html`; its desktop styles live in `site-header.css`, with mobile rules in `mobile-shell.css`. Shared page spacing, title sizing, and responsive content layouts live in `site-layout.css`, using a 4/8px spacing rhythm inspired by the Studio UI. The build renders all translated content and locale navigation into each HTML page, with self-referencing canonical URLs and reciprocal hreflang links. Translation dictionaries remain in the page scripts; `site-navigation.js` is generated from the homepage dictionary. Commit generated HTML and sitemap changes along with their sources.
 
 Run the static SEO and browser navigation checks with:
 

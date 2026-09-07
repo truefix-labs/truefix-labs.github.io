@@ -56,14 +56,15 @@ export async function renderPage(html, route, locale, localized = true) {
     });
   }
   document.querySelector('header').replaceWith(newHeader);
-  for (const [tag, attr, path] of [['link', 'href', '/site-header.css?v=1'], ['script', 'src', '/site-navigation.js?v=1'], ['script', 'src', '/site-header.js?v=1']]) {
+  for (const [tag, attr, path] of [['link', 'href', '/site-header.css?v=2'], ['link', 'href', '/site-layout.css?v=1'], ['script', 'src', '/site-navigation.js?v=1'], ['script', 'src', '/site-header.js?v=1']]) {
     if (document.querySelector(`${tag}[${attr}="${path}"]`)) continue;
     const node = document.createElement(tag);
     node.setAttribute(attr, path);
     if (tag === 'link') {
       node.rel = 'stylesheet';
       const mobile = document.querySelector('link[href*="mobile-shell.css"]');
-      mobile.before(node);
+      if (path.includes('site-layout.css')) mobile.after(node);
+      else mobile.before(node);
     } else {
       node.setAttribute('defer', '');
       const first = document.querySelector('script[src*="locale-routes.js"]');

@@ -56,3 +56,13 @@ html { scroll-padding-top: 84px; }
 @media (max-width: 900px) {
   .site-header .site-nav > .desktop-section-link { display: none !important; }
 }
+/* Every page needs the accessible label, including pages without a local utility. */
+.site-header .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

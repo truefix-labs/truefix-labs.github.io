@@ -1,6 +1,6 @@
 # TrueFix Studio — public site
 
-This repository contains the public GitHub Pages site for TrueFix Studio. TrueFix Studio is a desktop app that connects the brokers, exchanges, market-data services, and AI services a user chooses. It brings market research, strategy testing, and trading checks into one place without asking users to move their money to TrueFix. The site uses static HTML, CSS, and JavaScript with no build dependency.
+This repository contains the public GitHub Pages site for TrueFix Studio. TrueFix Studio is a desktop app that connects the brokers, exchanges, market-data services, and AI services a user chooses. It brings market research, strategy testing, and trading checks into one place without asking users to move their money to TrueFix. The site uses static HTML, CSS, and JavaScript with no runtime dependency.
 
 The product source repository is currently private. Public Nightly installers for macOS, Windows, and Linux are linked from the site and distributed through this repository's GitHub Releases. TrueFix Studio is pre-release software. Features vary by connected service, account, permission, and test or live mode.
 
@@ -26,9 +26,19 @@ Then open <http://localhost:4173>.
 After changing a base page or its metadata, regenerate the localized static routes and sitemap:
 
 ```bash
+npm ci
 node scripts/sync-guide-parity.mjs
 node scripts/sync-analytics-privacy.mjs
-node scripts/generate-localized-routes.mjs
+npm run build
+```
+
+The shared header template is `shared/header.html`; its desktop styles live in `site-header.css`, with mobile rules in `mobile-shell.css`. The build renders all translated content and locale navigation into each HTML page, with self-referencing canonical URLs and reciprocal hreflang links. Translation dictionaries remain in the page scripts; `site-navigation.js` is generated from the homepage dictionary. Commit generated HTML and sitemap changes along with their sources.
+
+Run the static SEO and browser navigation checks with:
+
+```bash
+npx playwright install chromium
+npm test
 ```
 
 ## Deployment

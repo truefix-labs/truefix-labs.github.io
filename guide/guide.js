@@ -85,6 +85,7 @@ async function loadGuide(language, persist = false) {
 
   const content = document.querySelector('[data-guide-content]');
   if (!content) return;
+  if (content.dataset.staticLocale === locale) return;
   content.setAttribute('aria-busy', 'true');
   try {
     const response = await fetch(`content/${locale}.html?v=11`);

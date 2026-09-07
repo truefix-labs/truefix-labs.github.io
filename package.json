@@ -1,0 +1,13 @@
+{
+  "name": "truefix.github.io",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "linkedom": "^0.18.13"
+  },
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-localized-routes.mjs",
+    "test": "playwright test"
+  }
+}

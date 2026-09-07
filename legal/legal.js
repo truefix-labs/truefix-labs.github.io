@@ -87,6 +87,7 @@ async function applyLanguage(requested, persist = false) {
     try { localStorage.setItem(STORAGE_KEY, locale); } catch { /* Keep selection for this visit. */ }
   }
   window.TrueFixLocale?.activate(locale);
+  if (documentNode?.dataset.staticLocale === locale) return;
   document.documentElement.classList.add('legal-changing');
   try {
     if (locale === 'en') {

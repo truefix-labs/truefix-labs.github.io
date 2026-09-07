@@ -1,3 +1,4 @@
+import { renderPage } from './render-static-page.mjs';
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -61,21 +62,22 @@ for (const [route, source] of pages) {
     raw = raw.replace('<link rel="stylesheet"', `${fonts}<link rel="stylesheet"`);
   }
   raw = raw.replaceAll(' crossorigin/>', ' crossorigin="anonymous"/>').replaceAll('&family=', '&amp;family=').replaceAll('&display=', '&amp;display=');
+  raw = raw.replace('locale-routes.js?v=1', 'locale-routes.js?v=2').replace('guide.js?v=14', 'guide.js?v=15').replace('legal.js?v=5', 'legal.js?v=6');
   raw = raw.replace('styles.css?v=19', 'styles.css?v=20').replace('about.css?v=4', 'about.css?v=5').replace('guide.css?v=12', 'guide.css?v=13').replace('legal.css?v=4', 'legal.css?v=5').replace('film.css?v=3', 'film.css?v=4').replace('person.css?v=1', 'person.css?v=2');
   if (route.startsWith('about/')) {
     raw = raw.replace('src="../../assets/favicon-32.png" alt=""/>', 'src="../../assets/favicon-32.png" alt="" width="30" height="30"/>');
   }
-  const original = raw.replace(/\s*<link rel="alternate" hreflang="[^"]+" href="[^"]+"\s*\/>/g, '');
-  const sourceHtml = original.replace(/(<link rel="canonical" href="[^"]+"\s*\/>)/, `$1\n    ${alternates(route)}`);
-  await writeFile(join(root, source), sourceHtml);
+  const original = raw.replace(/\s*<link rel="alternate" hreflang="[^"]+" href="[^"]+"\s*\/?>/g, '');
+  const sourceHtml = original.replace(/<link rel="canonical" href="[^"]+"\s*\/?>/, `<link rel="canonical" href="${url(route)}" />\n    ${alternates(route)}`);
+  await writeFile(join(root, source), await renderPage(sourceHtml, route, 'en', false));
   for (const [locale, slug] of Object.entries(locales)) {
     const targetUrl = url(route, slug);
     const base = `/${route ? `${route}/` : ''}`;
     const [title, description] = pageMeta(locale, route);
     let html = original
       .replace(/<html lang="[^"]+">/, `<html lang="${locale}">`)
-      .replace(/(<meta charset="UTF-8"\s*\/>)/, `$1\n    <base href="${base}" />`)
-      .replace(/<link rel="canonical" href="[^"]+"\s*\/>/, `<link rel="canonical" href="${targetUrl}" />\n    ${alternates(route)}`)
+      .replace(/(<meta charset="UTF-8"\s*\/?>)/, `$1\n    <base href="${base}" />`)
+      .replace(/<link rel="canonical" href="[^"]+"\s*\/?>/, `<link rel="canonical" href="${targetUrl}" />\n    ${alternates(route)}`)
       .replace(/(<meta property="og:url" content=")[^"]+("\s*\/?>)/, `$1${targetUrl}$2`)
       .replace(/(<meta name="description" content=")[^"]*("\s*\/?>)/, `$1${description}$2`)
       .replace(/(<meta property="og:title" content=")[^"]*("\s*\/?>)/, `$1${title}$2`)
@@ -87,7 +89,7 @@ for (const [route, source] of pages) {
     if (route === 'product-film') html = html.replace('"inLanguage": "en"', `"inLanguage": "${locale}"`);
     const target = join(root, slug, route, 'index.html');
     await mkdir(dirname(target), { recursive: true });
-    await writeFile(target, html);
+    await writeFile(target, await renderPage(html, route, locale));
   }
 }
 
@@ -98,7 +100,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${entries.map(({ route, slug }) => `  <url>
     <loc>${url(route, slug)}</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-07</lastmod>
     ${Object.entries(locales).map(([locale, altSlug]) => `<xhtml:link rel="alternate" hreflang="${locale}" href="${url(route, altSlug)}" />`).join('\n    ')}
     <xhtml:link rel="alternate" hreflang="x-default" href="${url(route)}" />${route === 'product-film' ? `
     <video:video>

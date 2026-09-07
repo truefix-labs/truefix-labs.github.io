@@ -27,6 +27,7 @@
   function rewriteLinks(locale) {
     document.querySelectorAll('a[href]').forEach((anchor) => {
       const raw = anchor.getAttribute('href');
+      if (anchor.hasAttribute('hreflang')) return;
       if (!raw || raw.startsWith('#') || raw.startsWith('mailto:') || raw.startsWith('tel:')) return;
       const next = localizedUrl(locale, raw);
       const parsed = new URL(next);
@@ -35,7 +36,10 @@
   }
 
   function activate(locale) {
-    if (LOCALE_SLUGS[locale]) rewriteLinks(locale);
+    if (LOCALE_SLUGS[locale]) {
+      rewriteLinks(locale);
+      window.TrueFixHeader?.activate(locale);
+    }
   }
 
   function navigate(locale) {

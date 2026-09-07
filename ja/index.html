@@ -5,10 +5,10 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#080b10">
-    <meta name="description" content="利用中の証券会社、取引所、相場データを接続し、一つのデスクトップアプリで市場調査、戦略テスト、取引前確認を行えます。">
+    <meta name="description" content="相場を確認し、AIで戦略を作成。テストと審査・承認を経てデプロイし、稼働状況を監視。既存のサービスを一つのワークスペースに接続します。">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="TrueFix Studio — 口座をつないで調査・テスト・取引確認">
-    <meta property="og:description" content="利用中の証券会社、取引所、相場データを接続し、一つのデスクトップアプリで市場調査、戦略テスト、取引前確認を行えます。">
+    <meta property="og:title" content="TrueFix Studio — 相場調査、戦略テスト、取引確認">
+    <meta property="og:description" content="相場を確認し、AIで戦略を作成。テストと審査・承認を経てデプロイし、稼働状況を監視。既存のサービスを一つのワークスペースに接続します。">
     <meta property="og:image" content="https://truefix-labs.com/assets/workstation.png">
     <meta property="og:url" content="https://truefix-labs.com/ja/">
     <meta name="twitter:card" content="summary_large_image">
@@ -20,15 +20,15 @@
     <link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"><link rel="stylesheet" href="styles.css?v=20">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"><link rel="stylesheet" href="styles.css?v=21">
     <link rel="stylesheet" href="/site-header.css?v=2"><link rel="stylesheet" href="mobile-shell.css?v=3"><link rel="stylesheet" href="/site-layout.css?v=1">
     <script defer src="/site-navigation.js?v=1"></script><script defer src="/site-header.js?v=1"></script><script src="locale-routes.js?v=2" defer></script>
     <script src="mobile-shell.js?v=1" defer></script>
-    <script src="script.js?v=18" defer></script>
+    <script src="script.js?v=19" defer></script>
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TrueFix Studio","applicationCategory":"FinanceApplication","operatingSystem":"macOS, Windows, Linux","description":"A desktop app that connects existing broker, exchange, and market-data services for market research, strategy testing, and reviewed trading actions.","url":"https://truefix-labs.com/","downloadUrl":"https://truefix-labs.com/#download","softwareVersion":"0.1.0","applicationSubCategory":"Investment research and trading support"}
     </script>
-    <title>TrueFix Studio — 口座をつないで調査・テスト・取引確認</title>
+    <title>TrueFix Studio — 相場調査、戦略テスト、取引確認</title>
       <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP0Q5CLKGK"></script>
     <script>
@@ -77,56 +77,34 @@
     </header>
 
     <main id="main">
-      <section class="hero" id="top">
+      <section class="hero product-hero" id="top">
         <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">投資リサーチ・取引支援デスクトップアプリ · プレリリース</b></p>
-          <h1 data-i18n-html="hero.title">今の証券会社や取引所をつないで、<br><i>調査・テスト・取引管理を一か所に。</i></h1>
-          <p class="hero-lede" data-i18n="hero.lede">TrueFix Studioは、すでに証券会社、取引所、相場データサービスを利用している人向けです。市場調査、AIアシスタント、戦略テスト、取引前の確認を一つのデスクトップアプリにまとめます。</p>
+
+
+
+      <div class="hero-layout"><div class="hero-copy">
+          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">TRUEFIX STUDIO · 調査と取引のワークスペース</b></p>
+          <h1 data-i18n-html="hero.title">相場を調べ、戦略を試し、取引を確認。<br><i>アプリを行き来せずに。</i></h1>
+          <p class="hero-lede" data-i18n="hero.lede">相場データ、AIによる戦略作成、バックテスト、取引前の確認を一つに。銘柄の調査から戦略のレビューとデプロイまで、同じワークスペースで進められます。</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="/ja/#overview"><span data-i18n="hero.download">できることを見る</span><span aria-hidden="true">↓</span></a>
-            <a class="button button-quiet" href="/ja/#download"><span data-i18n="hero.source">Nightlyをダウンロード</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="/ja/#workspace-preview"><span data-i18n="hero.download">使い方を見る</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-quiet" href="/ja/#download"><span data-i18n="hero.source">ダウンロードして試す</span><span aria-hidden="true">↓</span></a>
           </div>
-          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">資金は証券会社や取引所に残ります · 読み取り専用やシミュレーションから開始</span></div>
-        </div>
+          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">利用中のサービスと口座を接続 · 読み取り専用・シミュレーション対応</span></div>
+        </div><div id="workspace-preview" class="workflow-preview"><p class="preview-label" data-i18n="preview.label">手順を選んで画面を見る</p><div class="preview-tabs" role="tablist" aria-label="手順を選んで画面を見る" data-i18n-aria-label="preview.label"><button type="button" role="tab" id="preview-tab-market" aria-controls="preview-market" aria-selected="true" tabindex="0" data-preview-tab="market"><span aria-hidden="true">01</span><b data-i18n="preview.market">相場を見る</b></button><button type="button" role="tab" id="preview-tab-research" aria-controls="preview-research" aria-selected="false" tabindex="-1" data-preview-tab="research"><span aria-hidden="true">02</span><b data-i18n="preview.research">情報源を確認</b></button><button type="button" role="tab" id="preview-tab-strategy" aria-controls="preview-strategy" aria-selected="false" tabindex="-1" data-preview-tab="strategy"><span aria-hidden="true">03</span><b data-i18n="preview.strategy">AI戦略</b></button><button type="button" role="tab" id="preview-tab-trade" aria-controls="preview-trade" aria-selected="false" tabindex="-1" data-preview-tab="trade"><span aria-hidden="true">04</span><b data-i18n="preview.trade">注文を確認</b></button></div><section class="preview-panel" id="preview-market" role="tabpanel" aria-labelledby="preview-tab-market" tabindex="0"><figure><a class="preview-image preview-image-market" href="/assets/workstation.png" target="_blank" rel="noreferrer" aria-label="画面全体を見る" data-i18n-aria-label="preview.full"><img src="/assets/workstation.png" alt="チャート、板情報、口座を並べて、何が変化しているかを確認します。" data-i18n-alt="preview.market.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.market.question">値動きに対して、出来高や板は？</h2><p data-i18n="preview.market.body">チャート、板情報、口座を並べて、何が変化しているかを確認します。</p></figcaption></figure></section><section class="preview-panel" id="preview-research" role="tabpanel" aria-labelledby="preview-tab-research" tabindex="0" hidden><figure><a class="preview-image preview-image-research" href="/assets/intelligence.png" target="_blank" rel="noreferrer" aria-label="画面全体を見る" data-i18n-aria-label="preview.full"><img src="/assets/intelligence.png" alt="シグナルと原典を確認し、AIに情報や未確認の点の整理を手伝ってもらいます。" data-i18n-alt="preview.research.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.research.question">この情報はどこから来た？</h2><p data-i18n="preview.research.body">シグナルと原典を確認し、AIに情報や未確認の点の整理を手伝ってもらいます。</p></figcaption></figure></section><section class="preview-panel" id="preview-strategy" role="tabpanel" aria-labelledby="preview-tab-strategy" tabindex="0" hidden><figure><a class="preview-image preview-image-strategy" href="/assets/ai-quant.png" target="_blank" rel="noreferrer" aria-label="画面全体を見る" data-i18n-aria-label="preview.full"><img src="/assets/ai-quant.png" alt="AIと戦略案を作り、検証とバックテストやリプレイを実施。デプロイ案を確認してから、明示的に起動し監視します。" data-i18n-alt="preview.strategy.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.strategy.question">AIに取引ルールを伝えて、どうデプロイする？</h2><p data-i18n="preview.strategy.body">AIと戦略案を作り、検証とバックテストやリプレイを実施。デプロイ案を確認してから、明示的に起動し監視します。</p></figcaption></figure></section><section class="preview-panel" id="preview-trade" role="tabpanel" aria-labelledby="preview-tab-trade" tabindex="0" hidden><figure><a class="preview-image preview-image-trade" href="/assets/workstation.png" target="_blank" rel="noreferrer" aria-label="画面全体を見る" data-i18n-aria-label="preview.full"><img src="/assets/workstation.png" alt="取引画面で注文とリスクを確認してから、送信するか判断します。" data-i18n-alt="preview.trade.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.trade.question">口座、数量、手数料を確認した？</h2><p data-i18n="preview.trade.body">取引画面で注文とリスクを確認してから、送信するか判断します。</p></figcaption></figure></section><p class="preview-disclosure" data-i18n="preview.disclosure">製品画面の例 · データはリアルタイムではありません</p></div></div></section>
 
-        <div class="hero-visual reveal" data-delay="1">
-          <div class="terminal-glow"></div>
-          <figure class="app-frame">
-            <div class="frame-bar">
-              <div class="frame-dots"><span></span><span></span><span></span></div>
-              <div class="frame-title">TRUEFIX / TRADING WORKSTATION</div>
-              <div class="frame-status"><span></span> SYSTEM READY</div>
-            </div>
-            <img src="assets/workstation.png" alt="BTC/USDTチャート、板情報、ポジション、注文パネルを表示するTrueFix Studioのダーク取引ワークステーション" data-i18n-alt="alt.workstationDetail" width="1536" height="881" decoding="async">
-            <figcaption class="hero-shot-caption"><a href="assets/workstation.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">原寸画像を開く</span> <span aria-hidden="true">↗</span></a></figcaption>
-          </figure>
-          <div class="float-tag float-tag-a" data-i18n-html="hero.tag.local">個人設定は<br>この端末に保存</div>
-          <div class="float-tag float-tag-b" data-i18n-html="hero.tag.review">取引送信前に<br>自分で確認</div>
-        </div>
-      </section>
 
-      <div class="capability-rail" aria-label="主要機能" data-i18n-aria-label="a11y.capabilities">
-        <div class="rail-track">
-          <span data-i18n="cap.historical">端末上で動作</span><i>◆</i><span data-i18n="cap.realtime">資金を預からない</span><i>◆</i><span data-i18n="cap.trade">TrueFixクラウド口座不要</span><i>◆</i><span data-i18n="cap.news">読み取り専用・シミュレーション対応</span><i>◆</i><span data-i18n="cap.instruments">口座は元のサービスが管理</span><i>◆</i><span data-i18n="cap.analysis">取引操作は自分で確認</span><i>◆</i>
-          <span aria-hidden="true" data-i18n="cap.historical">端末上で動作</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.realtime">資金を預からない</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.trade">TrueFixクラウド口座不要</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.news">読み取り専用・シミュレーション対応</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.instruments">口座は元のサービスが管理</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.analysis">取引操作は自分で確認</span><i aria-hidden="true">◆</i>
-        </div>
-      </div>
 
       <section class="value-section" id="overview" aria-labelledby="value-title">
         <div class="value-heading reveal">
-          <div><p class="section-kicker" data-i18n="value.eyebrow">できること</p><h2 id="value-title" data-i18n-html="value.title">今の口座はそのまま。<br><i>分散した作業を一つのアプリへ。</i></h2></div>
-          <p data-i18n="value.lede">TrueFixは今の証券会社や取引所と一緒に使います。口座や資金を移さず、一つのアプリで調査、アイデアのテスト、取引前確認を行えます。</p>
+          <div><p class="section-kicker" data-i18n="value.eyebrow">一つの値動きから</p><h2 id="value-title" data-i18n-html="value.title">気になる値動き。<br><i>次に何を確認する？</i></h2></div>
+          <p data-i18n="value.lede">情報を調べ、アイデアを試し、注文を確認。調査だけに使うことも、必要な次の段階へ進むこともできます。</p>
         </div>
-        <div class="value-grid">
-          <article class="value-card reveal"><span>01</span><h3 data-i18n="value.research.title">市場情報をまとめて見る</h3><p data-i18n="value.research.body">価格、ニュース、シグナル、口座情報を比較し、必要なときは元の情報源を開いて確認できます。</p></article>
-          <article class="value-card reveal" data-delay="1"><span>02</span><h3 data-i18n="value.strategy.title">AIに質問し、戦略を試す</h3><p data-i18n="value.strategy.body">AIアシスタントに情報を整理させたり、過去データやシミュレーションでルール戦略を試したりできます。</p></article>
-          <article class="value-card reveal" data-delay="2"><span>03</span><h3 data-i18n="value.execution.title">送信前にすべて確認</h3><p data-i18n="value.execution.body">取引操作を送る前に、サービス、口座、テスト・実取引、銘柄、手数料、リスクを確認できます。</p></article>
-        </div>
-        <p class="value-safety reveal"><strong data-i18n="value.safety.title">TrueFixへ入金する必要はありません。</strong><span data-i18n="value.safety.body">接続するサービスと権限は自分で選びます。口座と権限は引き続き証券会社や取引所が管理します。</span></p>
+        <div class="value-grid flow-grid"><article class="value-card"><span class="flow-number">01</span><h3 data-i18n="flow.1.title">相場の変化を見る</h3><p data-i18n="flow.1.body">市場と銘柄を確認し、価格、出来高、板情報を見ます。</p><p class="flow-result" data-i18n="flow.1.result">何が変化しているかを把握</p></article><article class="value-card"><span class="flow-number">02</span><h3 data-i18n="flow.2.title">情報源を確認する</h3><p data-i18n="flow.2.body">ニュースやシグナルの原典を開き、AIで関連情報を整理します。</p><p class="flow-result" data-i18n="flow.2.result">事実と未確認の点を区別</p></article><article class="value-card"><span class="flow-number">03</span><h3 data-i18n="flow.3.title">AIで戦略を作り、試す</h3><p data-i18n="flow.3.body">取引ルールとリスク上限を伝えて戦略案を作り、過去データやシミュレーションで検証します。</p><p class="flow-result" data-i18n="flow.3.result">レビュー後にデプロイし、監視</p></article><article class="value-card"><span class="flow-number">04</span><h3 data-i18n="flow.4.title">確認してから注文</h3><p data-i18n="flow.4.body">口座、環境、数量、手数料、リスクを確認してから送信を判断します。</p><p class="flow-result" data-i18n="flow.4.result">送信、修正、または引き続き観察</p></article></div>
+        <p class="value-safety reveal"><strong data-i18n="value.safety.title">口座と資金は証券会社や取引所に残ります。</strong><span data-i18n="value.safety.body">接続するサービスは自分で選べます。機能はサービス、権限、環境に依存します。現在はプレリリース版です。</span></p>
       </section>
 
-      <section class="download-section" id="download" aria-labelledby="download-title">
+      <section aria-labelledby="ai-strategy-title" class="ai-strategy-section" id="ai-strategies"><div class="ai-strategy-intro"><div><p class="section-kicker" data-i18n="ai.eyebrow">AIによる戦略作成とデプロイ</p><h2 id="ai-strategy-title" data-i18n-html="ai.title">取引ルールをAIに伝える。<br><i>作成、テスト、そしてデプロイ。</i></h2><p class="ai-strategy-lede" data-i18n="ai.lede">Desktopの戦略エンジニアリングでAgentに目標を伝えます。戦略とテスト結果を確認し、デプロイ画面で提案をレビューして承認・起動します。</p></div><aside class="ai-request"><p data-i18n="ai.example">AIへの依頼例</p><blockquote data-i18n="ai.prompt">移動平均クロス戦略の案を作ってください。必要なデータ、売買条件、リスク上限を明示し、過去データで検証してください。デプロイ前に私の確認を求めてください。</blockquote></aside></div><ol class="ai-deployment-steps"><li><span aria-hidden="true">01</span><h3 data-i18n="ai.1.title">AIと戦略案を作る</h3><p data-i18n="ai.1.body">銘柄、ルール、制約を伝え、不明点の確認に答えます。</p></li><li><span aria-hidden="true">02</span><h3 data-i18n="ai.2.title">検証とテスト</h3><p data-i18n="ai.2.body">戦略バージョンを確認し、バックテストやリプレイで挙動とリスクを調べます。</p></li><li><span aria-hidden="true">03</span><h3 data-i18n="ai.3.title">デプロイ案を確認</h3><p data-i18n="ai.3.body">バージョン、データ源、口座、環境、リスク上限を確認します。</p></li><li><span aria-hidden="true">04</span><h3 data-i18n="ai.4.title">承認して起動</h3><p data-i18n="ai.4.body">Desktopで提案を承認し、承認済みデプロイを明示的に起動します。</p></li><li><span aria-hidden="true">05</span><h3 data-i18n="ai.5.title">監視と一時停止</h3><p data-i18n="ai.5.body">実行状態、ログ、判断を確認し、必要に応じて一時停止・停止します。</p></li></ol><p class="ai-strategy-note" data-i18n="ai.note">戦略作成だけで実取引は始まりません。デプロイ作成とLive有効化はDesktopで行います。H5は監視、判断ごとの承認、一時停止・停止に対応します。執行には口座権限とリスク確認が適用されます。</p><a class="button button-quiet" href="/ja/guide/#ai-quant" data-i18n="ai.guide">戦略とデプロイのガイドを見る ↗</a></section><section class="download-section" id="download" aria-labelledby="download-title">
         <div class="download-heading reveal">
           <div>
             <p class="section-kicker"><span data-i18n="download.eyebrow">NIGHTLY RELEASE</span> · <span data-release-version="">0.1.0</span></p>
@@ -182,38 +160,13 @@
         </div>
       </section>
 
-      <section class="overview-section" id="workflow" aria-labelledby="overview-title">
-        <div class="overview-heading reveal">
-          <div>
-            <p class="section-kicker" data-i18n="overview.eyebrow">使い方</p>
-            <h2 id="overview-title" data-i18n-html="overview.title">疑問から始めて、<br>必要な段階で止められます。</h2>
-          </div>
-          <p data-i18n="overview.lede">調査だけに使う、仮想資金で試す、口座とリスクを確認して実際の取引操作へ進む、という使い方を選べます。</p>
-        </div>
+      <section class="overview-section" id="workflow" aria-labelledby="use-cases-title">
 
-        <div class="overview-facts">
-          <article class="overview-fact reveal">
-            <span>01</span><p data-i18n="overview.what.label">何ができる製品か</p>
-            <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.25" /><circle cx="12" cy="6" r="2.25" /><circle cx="19" cy="12" r="2.25" /><path d="m6.8 10.5 3.4-2.9m3.6 0 3.4 2.9M7.3 13.2h9.4" /></svg></div>
-            <h3 data-i18n="overview.what.title">今のサービスを一つのアプリで接続</h3>
-            <p data-i18n="overview.what.body">選んだ証券会社、取引所、相場データを接続し、TrueFixへ資金を移さずに情報をまとめて確認します。</p>
-          </article>
-          <article class="overview-fact reveal" data-delay="1">
-            <span>02</span><p data-i18n="overview.who.label">誰が利用できるか</p>
-            <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><path d="M3.8 19c.4-3.6 2.1-5.4 5.2-5.4s4.8 1.8 5.2 5.4M15 6.2a3 3 0 0 1 0 5.6M15.8 14.1c2.7.3 4.1 1.9 4.4 4.9" /></svg></div>
-            <h3 data-i18n="overview.who.title">すでに市場口座を持つ人向け</h3>
-            <p data-i18n="overview.who.body">複数の市場サービスを使うトレーダー、戦略開発者、調査・リスクチーム向けです。購入銘柄を推薦したり、利益を約束したりするアプリではありません。</p>
-          </article>
-          <article class="overview-fact reveal" data-delay="2">
-            <span>03</span><p data-i18n="overview.work.label">何に使うか</p>
-            <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2" /><circle cx="19" cy="6" r="2" /><circle cx="19" cy="18" r="2" /><path d="M7 12h4a4 4 0 0 0 4-4V6m-8 6h4a4 4 0 0 1 4 4v2m0-12 1.7-1.7M15 18l1.7 1.7" /></svg></div>
-            <h3 data-i18n="overview.work.title">調査 → 比較 → テスト → 確認 → 判断</h3>
-            <p data-i18n="overview.work.body">情報源を確認し、アイデアを試し、口座、手数料、リスクを見てから送信するか判断します。</p>
-          </article>
-        </div>
 
-        <div class="persona-heading reveal">
-          <div><p class="section-kicker" data-i18n="overview.personas.eyebrow">利用例</p><h3 data-i18n="overview.personas.title">TrueFixを利用する三つの方法。</h3></div>
+
+
+        <div style="margin-top:0" class="persona-heading reveal">
+          <div><p class="section-kicker" data-i18n="overview.personas.eyebrow">利用例</p><h3 id="use-cases-title" data-i18n="overview.personas.title">TrueFixを利用する三つの方法。</h3></div>
           <p data-i18n="overview.personas.disclosure">以下は製品の利用例であり、顧客の推薦コメントではありません。利用できる機能は接続するサービスと口座により異なります。</p>
         </div>
         <div class="persona-grid">
@@ -388,10 +341,10 @@
         <div class="closing-watermark" aria-hidden="true">TRUEFIX</div>
         <div class="closing-content reveal">
           <img src="assets/icon-192.png" alt="" width="70" height="70"><p class="section-kicker">START WITH THE GUIDE</p>
-          <h2 data-i18n-html="closing.title">口座を接続する前に、<br><i>具体的な使い方を確認。</i></h2>
-          <p data-i18n="closing.lede">ガイドでは、インストール、サービス接続、AIアシスタント、シミュレーション、実口座を使う前の確認事項を説明します。</p>
+          <h2 data-i18n-html="closing.title">ワークスペースを開いて、<br><i>気になる相場から始めよう。</i></h2>
+          <p data-i18n="closing.lede">まず相場サービスを一つ接続。身近な銘柄を確認し、必要に応じてAI、戦略テスト、模擬取引を試せます。</p>
           <div class="closing-actions">
-            <a class="button button-primary" href="/ja/guide/"><span data-i18n="closing.github">利用ガイドを開く</span><span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="/ja/guide/"><span data-i18n="closing.github">ガイドに沿って始める</span><span aria-hidden="true">↗</span></a>
             <a class="button button-quiet" href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer"><span data-i18n="closing.feedback">フィードバックと交流</span><span aria-hidden="true">↗</span></a>
           </div>
         </div>

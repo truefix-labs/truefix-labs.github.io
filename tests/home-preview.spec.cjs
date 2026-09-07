@@ -1,0 +1,26 @@
+const {test, expect}=require('@playwright/test');
+test('homepage walkthrough switches actual product views by click and keyboard', async ({page},testInfo)=>{
+  await page.route(/https:\/\//,r=>r.abort());
+  await page.setViewportSize({width:1440,height:1000});
+  await page.goto('/zh-cn/');
+  const tabs=page.locator('[data-preview-tab]');
+  await expect(tabs).toHaveCount(4);
+  await expect(page.locator('.preview-panel:visible')).toHaveCount(1);
+  await tabs.nth(1).click();
+  await expect(page.locator('#preview-research')).toBeVisible();
+  await expect(page.locator('#preview-research img')).toHaveAttribute('src','/assets/intelligence.png');
+  await tabs.nth(1).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('#preview-strategy')).toBeVisible();
+  await page.keyboard.press('End');
+  await expect(page.locator('#preview-trade')).toBeVisible();
+  await page.keyboard.press('Home');
+  await expect(tabs.first()).toBeFocused();
+  await expect(page.locator('#preview-market')).toBeVisible();
+  await page.screenshot({path:testInfo.outputPath('home-desktop.png'),animations:'disabled'});
+  await page.setViewportSize({width:390,height:844});
+  await page.screenshot({path:testInfo.outputPath('home-mobile.png'),animations:'disabled'});
+  await tabs.nth(2).click();
+  await expect(page.locator('#preview-strategy')).toBeVisible();
+  await page.screenshot({path:testInfo.outputPath('preview-mobile.png'),animations:'disabled'});
+});

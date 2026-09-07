@@ -5,6 +5,9 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const origin = 'https://truefix-labs.com';
+// Record content updates per route, rather than changing every URL on each build.
+const pageLastModified = { '': '2026-09-07T06:20:00Z' };
+const previousLastModified = '2026-09-07';
 const analytics = `<!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP0Q5CLKGK"></script>
     <script>
@@ -62,6 +65,7 @@ for (const [route, source] of pages) {
     raw = raw.replace('<link rel="stylesheet"', `${fonts}<link rel="stylesheet"`);
   }
   raw = raw.replaceAll(' crossorigin/>', ' crossorigin="anonymous"/>').replaceAll('&family=', '&amp;family=').replaceAll('&display=', '&amp;display=');
+  raw = raw.replace('styles.css?v=20', 'styles.css?v=21').replace('script.js?v=18', 'script.js?v=19');
   raw = raw.replace('guide.js?v=15', 'guide.js?v=16').replace('legal.js?v=6', 'legal.js?v=7');
   raw = raw.replace('/site-header.css?v=1', '/site-header.css?v=2');
   raw = raw.replace('locale-routes.js?v=1', 'locale-routes.js?v=2').replace('guide.js?v=14', 'guide.js?v=15').replace('legal.js?v=5', 'legal.js?v=6');
@@ -102,7 +106,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${entries.map(({ route, slug }) => `  <url>
     <loc>${url(route, slug)}</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>${pageLastModified[route] || previousLastModified}</lastmod>
     ${Object.entries(locales).map(([locale, altSlug]) => `<xhtml:link rel="alternate" hreflang="${locale}" href="${url(route, altSlug)}" />`).join('\n    ')}
     <xhtml:link rel="alternate" hreflang="x-default" href="${url(route)}" />${route === 'product-film' ? `
     <video:video>

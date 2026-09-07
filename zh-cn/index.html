@@ -5,10 +5,10 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#080b10">
-    <meta name="description" content="连接你已有的券商、交易所和行情服务，在一个桌面应用里研究市场、测试策略并确认交易操作。">
+    <meta name="description" content="查看行情，让 AI 辅助生成策略，完成回测、审核后部署并监控运行。连接已有券商、交易所和数据服务，在一个工作台继续。">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="TrueFix Studio — 连接账户，研究、测试并确认交易">
-    <meta property="og:description" content="连接你已有的券商、交易所和行情服务，在一个桌面应用里研究市场、测试策略并确认交易操作。">
+    <meta property="og:title" content="TrueFix Studio — 看行情、测策略、确认交易">
+    <meta property="og:description" content="查看行情，让 AI 辅助生成策略，完成回测、审核后部署并监控运行。连接已有券商、交易所和数据服务，在一个工作台继续。">
     <meta property="og:image" content="https://truefix-labs.com/assets/workstation.png">
     <meta property="og:url" content="https://truefix-labs.com/zh-cn/">
     <meta name="twitter:card" content="summary_large_image">
@@ -20,15 +20,15 @@
     <link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"><link rel="stylesheet" href="styles.css?v=20">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"><link rel="stylesheet" href="styles.css?v=21">
     <link rel="stylesheet" href="/site-header.css?v=2"><link rel="stylesheet" href="mobile-shell.css?v=3"><link rel="stylesheet" href="/site-layout.css?v=1">
     <script defer src="/site-navigation.js?v=1"></script><script defer src="/site-header.js?v=1"></script><script src="locale-routes.js?v=2" defer></script>
     <script src="mobile-shell.js?v=1" defer></script>
-    <script src="script.js?v=18" defer></script>
+    <script src="script.js?v=19" defer></script>
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TrueFix Studio","applicationCategory":"FinanceApplication","operatingSystem":"macOS, Windows, Linux","description":"A desktop app that connects existing broker, exchange, and market-data services for market research, strategy testing, and reviewed trading actions.","url":"https://truefix-labs.com/","downloadUrl":"https://truefix-labs.com/#download","softwareVersion":"0.1.0","applicationSubCategory":"Investment research and trading support"}
     </script>
-    <title>TrueFix Studio — 连接账户，研究、测试并确认交易</title>
+    <title>TrueFix Studio — 看行情、测策略、确认交易</title>
       <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP0Q5CLKGK"></script>
     <script>
@@ -77,56 +77,34 @@
     </header>
 
     <main id="main">
-      <section class="hero" id="top">
+      <section class="hero product-hero" id="top">
         <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">投资研究与交易辅助桌面应用 · 预发布</b></p>
-          <h1 data-i18n-html="hero.title">连接你已有的券商和交易所，<br><i>把研究、测试和交易管理放在一个地方。</i></h1>
-          <p class="hero-lede" data-i18n="hero.lede">TrueFix Studio 适合已经在使用券商、交易所或行情服务的人。它把市场研究、AI 助手、策略测试和交易前确认放进一个桌面应用。</p>
+
+
+
+      <div class="hero-layout"><div class="hero-copy">
+          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">TRUEFIX STUDIO · 研究与交易工作台</b></p>
+          <h1 data-i18n-html="hero.title"><span class="hero-action-word">看行情、</span><span class="hero-action-word">测策略、</span><span class="hero-action-word">确认交易。</span><br><i>不用来回切换软件。</i></h1>
+          <p class="hero-lede" data-i18n="hero.lede">把行情、AI 生成策略、回测和交易前检查放在一起。从研究一个标的，到审核并部署策略，在同一个工作台继续。</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="/zh-cn/#overview"><span data-i18n="hero.download">看看它能帮你什么</span><span aria-hidden="true">↓</span></a>
-            <a class="button button-quiet" href="/zh-cn/#download"><span data-i18n="hero.source">下载 Nightly 版</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="/zh-cn/#workspace-preview"><span data-i18n="hero.download">看看怎么用</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-quiet" href="/zh-cn/#download"><span data-i18n="hero.source">下载体验</span><span aria-hidden="true">↓</span></a>
           </div>
-          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">资金仍在你的券商或交易所 · 可先从只读或模拟开始</span></div>
-        </div>
+          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">连接你已有的服务与账户 · 支持只读和模拟使用</span></div>
+        </div><div id="workspace-preview" class="workflow-preview"><p class="preview-label" data-i18n="preview.label">点击步骤，看看工作台里怎么做</p><div class="preview-tabs" role="tablist" aria-label="点击步骤，看看工作台里怎么做" data-i18n-aria-label="preview.label"><button type="button" role="tab" id="preview-tab-market" aria-controls="preview-market" aria-selected="true" tabindex="0" data-preview-tab="market"><span aria-hidden="true">01</span><b data-i18n="preview.market">看行情</b></button><button type="button" role="tab" id="preview-tab-research" aria-controls="preview-research" aria-selected="false" tabindex="-1" data-preview-tab="research"><span aria-hidden="true">02</span><b data-i18n="preview.research">查信息</b></button><button type="button" role="tab" id="preview-tab-strategy" aria-controls="preview-strategy" aria-selected="false" tabindex="-1" data-preview-tab="strategy"><span aria-hidden="true">03</span><b data-i18n="preview.strategy">AI 策略</b></button><button type="button" role="tab" id="preview-tab-trade" aria-controls="preview-trade" aria-selected="false" tabindex="-1" data-preview-tab="trade"><span aria-hidden="true">04</span><b data-i18n="preview.trade">确认交易</b></button></div><section class="preview-panel" id="preview-market" role="tabpanel" aria-labelledby="preview-tab-market" tabindex="0"><figure><a class="preview-image preview-image-market" href="/assets/workstation.png" target="_blank" rel="noreferrer" aria-label="查看完整画面" data-i18n-aria-label="preview.full"><img src="/assets/workstation.png" alt="把图表、盘口和账户放在一起，先看清正在发生什么。" data-i18n-alt="preview.market.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.market.question">价格动了，成交量和盘口呢？</h2><p data-i18n="preview.market.body">把图表、盘口和账户放在一起，先看清正在发生什么。</p></figcaption></figure></section><section class="preview-panel" id="preview-research" role="tabpanel" aria-labelledby="preview-tab-research" tabindex="0" hidden><figure><a class="preview-image preview-image-research" href="/assets/intelligence.png" target="_blank" rel="noreferrer" aria-label="查看完整画面" data-i18n-aria-label="preview.full"><img src="/assets/intelligence.png" alt="查看信号和原始来源，再用 AI 协助整理信息与待核实的问题。" data-i18n-alt="preview.research.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.research.question">这条消息从哪里来？</h2><p data-i18n="preview.research.body">查看信号和原始来源，再用 AI 协助整理信息与待核实的问题。</p></figcaption></figure></section><section class="preview-panel" id="preview-strategy" role="tabpanel" aria-labelledby="preview-tab-strategy" tabindex="0" hidden><figure><a class="preview-image preview-image-strategy" href="/assets/ai-quant.png" target="_blank" rel="noreferrer" aria-label="查看完整画面" data-i18n-aria-label="preview.full"><img src="/assets/ai-quant.png" alt="让 AI 辅助生成策略草案，经过校验、回测或回放后，审核部署方案，再明确启动并监控运行。" data-i18n-alt="preview.strategy.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.strategy.question">把交易规则告诉 AI，接下来怎么部署？</h2><p data-i18n="preview.strategy.body">让 AI 辅助生成策略草案，经过校验、回测或回放后，审核部署方案，再明确启动并监控运行。</p></figcaption></figure></section><section class="preview-panel" id="preview-trade" role="tabpanel" aria-labelledby="preview-tab-trade" tabindex="0" hidden><figure><a class="preview-image preview-image-trade" href="/assets/workstation.png" target="_blank" rel="noreferrer" aria-label="查看完整画面" data-i18n-aria-label="preview.full"><img src="/assets/workstation.png" alt="回到交易面板，检查订单和风险，再决定是否提交。" data-i18n-alt="preview.trade.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.trade.question">账户、数量、费用，核对了吗？</h2><p data-i18n="preview.trade.body">回到交易面板，检查订单和风险，再决定是否提交。</p></figcaption></figure></section><p class="preview-disclosure" data-i18n="preview.disclosure">产品界面示例 · 图中数据非实时</p></div></div></section>
 
-        <div class="hero-visual reveal" data-delay="1">
-          <div class="terminal-glow"></div>
-          <figure class="app-frame">
-            <div class="frame-bar">
-              <div class="frame-dots"><span></span><span></span><span></span></div>
-              <div class="frame-title">TRUEFIX / TRADING WORKSTATION</div>
-              <div class="frame-status"><span></span> SYSTEM READY</div>
-            </div>
-            <img src="assets/workstation.png" alt="TrueFix Studio 深色交易工作站界面，展示 BTC/USDT K 线、行情深度、持仓与下单面板" data-i18n-alt="alt.workstationDetail" width="1536" height="881" decoding="async">
-            <figcaption class="hero-shot-caption"><a href="assets/workstation.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">打开原尺寸图片</span> <span aria-hidden="true">↗</span></a></figcaption>
-          </figure>
-          <div class="float-tag float-tag-a" data-i18n-html="hero.tag.local">个人配置<br>保存在本机</div>
-          <div class="float-tag float-tag-b" data-i18n-html="hero.tag.review">交易发送前<br>由你确认</div>
-        </div>
-      </section>
 
-      <div class="capability-rail" aria-label="核心能力" data-i18n-aria-label="a11y.capabilities">
-        <div class="rail-track">
-          <span data-i18n="cap.historical">在你的设备上运行</span><i>◆</i><span data-i18n="cap.realtime">不接收或托管资金</span><i>◆</i><span data-i18n="cap.trade">无需 TrueFix 云账户</span><i>◆</i><span data-i18n="cap.news">支持只读和模拟</span><i>◆</i><span data-i18n="cap.instruments">账户仍由原平台管理</span><i>◆</i><span data-i18n="cap.analysis">交易操作由你确认</span><i>◆</i>
-          <span aria-hidden="true" data-i18n="cap.historical">在你的设备上运行</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.realtime">不接收或托管资金</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.trade">无需 TrueFix 云账户</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.news">支持只读和模拟</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.instruments">账户仍由原平台管理</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.analysis">交易操作由你确认</span><i aria-hidden="true">◆</i>
-        </div>
-      </div>
 
       <section class="value-section" id="overview" aria-labelledby="value-title">
         <div class="value-heading reveal">
-          <div><p class="section-kicker" data-i18n="value.eyebrow">它能帮你做什么</p><h2 id="value-title" data-i18n-html="value.title">保留现有账户，<br><i>把分散的工作放进一个应用。</i></h2></div>
-          <p data-i18n="value.lede">TrueFix 与你现有的券商或交易所配合使用。账户和资金不需要转移，你可以在一个桌面应用里完成研究、测试想法和交易前检查。</p>
+          <div><p class="section-kicker" data-i18n="value.eyebrow">从一次价格异动开始</p><h2 id="value-title" data-i18n-html="value.title">看到价格变了，<br><i>接下来怎么做？</i></h2></div>
+          <p data-i18n="value.lede">先查信息，再测试想法，最后检查订单。你可以只做研究，也可以按需要继续下一步。</p>
         </div>
-        <div class="value-grid">
-          <article class="value-card reveal"><span>01</span><h3 data-i18n="value.research.title">集中查看市场信息</h3><p data-i18n="value.research.body">把价格、新闻、信号和账户信息放在一起比较，需要核实时可以打开原始来源。</p></article>
-          <article class="value-card reveal" data-delay="1"><span>02</span><h3 data-i18n="value.strategy.title">询问 AI，测试策略</h3><p data-i18n="value.strategy.body">让 AI 助手整理信息，或先用历史和模拟数据测试规则策略，再考虑使用真实账户。</p></article>
-          <article class="value-card reveal" data-delay="2"><span>03</span><h3 data-i18n="value.execution.title">发送前检查每项操作</h3><p data-i18n="value.execution.body">在交易操作发出前，看清服务、账户、模拟或实盘模式、交易品种、费用和风险。</p></article>
-        </div>
-        <p class="value-safety reveal"><strong data-i18n="value.safety.title">TrueFix 不会要求你把钱存进来。</strong><span data-i18n="value.safety.body">你决定连接哪些外部服务以及开放什么权限。账户和权限仍由你的券商或交易所管理。</span></p>
+        <div class="value-grid flow-grid"><article class="value-card"><span class="flow-number">01</span><h3 data-i18n="flow.1.title">先看行情变化</h3><p data-i18n="flow.1.body">查看价格、成交量和盘口，确认市场与标的。</p><p class="flow-result" data-i18n="flow.1.result">看清：什么在变化</p></article><article class="value-card"><span class="flow-number">02</span><h3 data-i18n="flow.2.title">查清信息来源</h3><p data-i18n="flow.2.body">打开消息和信号的来源，让 AI 协助整理相关信息。</p><p class="flow-result" data-i18n="flow.2.result">分清：事实与待核实的问题</p></article><article class="value-card"><span class="flow-number">03</span><h3 data-i18n="flow.3.title">让 AI 生成并测试策略</h3><p data-i18n="flow.3.body">说明交易规则和风险限制，让 AI 辅助起草策略，再用历史数据或模拟环境验证。</p><p class="flow-result" data-i18n="flow.3.result">审核后部署，持续监控运行</p></article><article class="value-card"><span class="flow-number">04</span><h3 data-i18n="flow.4.title">核对后再下单</h3><p data-i18n="flow.4.body">确认账户、环境、数量、费用和风险，再决定是否发送订单。</p><p class="flow-result" data-i18n="flow.4.result">决定：提交、修改，或继续观察</p></article></div>
+        <p class="value-safety reveal"><strong data-i18n="value.safety.title">账户和资金仍在你的券商或交易所。</strong><span data-i18n="value.safety.body">TrueFix 连接你选择的服务。可用功能取决于服务、权限和环境；当前提供预发布版本。</span></p>
       </section>
 
-      <section class="download-section" id="download" aria-labelledby="download-title">
+      <section aria-labelledby="ai-strategy-title" class="ai-strategy-section" id="ai-strategies"><div class="ai-strategy-intro"><div><p class="section-kicker" data-i18n="ai.eyebrow">AI 策略生成与部署</p><h2 id="ai-strategy-title" data-i18n-html="ai.title">把交易规则告诉 AI，<br><i>生成、测试，再部署策略。</i></h2><p class="ai-strategy-lede" data-i18n="ai.lede">在 Desktop 的策略工程中，通过 Agent 描述你的目标。检查生成的策略和测试结果，再到部署页面核对方案、批准并启动。</p></div><aside class="ai-request"><p data-i18n="ai.example">你可以这样向 AI 提需求</p><blockquote data-i18n="ai.prompt">帮我起草一份均线交叉策略，说明需要的数据、开平仓条件和风险限制。先用历史数据验证，部署前交给我确认。</blockquote></aside></div><ol class="ai-deployment-steps"><li><span aria-hidden="true">01</span><h3 data-i18n="ai.1.title">AI 生成草案</h3><p data-i18n="ai.1.body">说明标的、交易规则和约束，补充 AI 需要澄清的问题。</p></li><li><span aria-hidden="true">02</span><h3 data-i18n="ai.2.title">校验与测试</h3><p data-i18n="ai.2.body">检查策略版本，用回测或回放查看行为、风险与测试结果。</p></li><li><span aria-hidden="true">03</span><h3 data-i18n="ai.3.title">审核部署方案</h3><p data-i18n="ai.3.body">核对策略版本、数据来源、账户、运行环境和风险限制。</p></li><li><span aria-hidden="true">04</span><h3 data-i18n="ai.4.title">批准并启动</h3><p data-i18n="ai.4.body">在 Desktop 批准部署方案，再明确启动已批准的部署。</p></li><li><span aria-hidden="true">05</span><h3 data-i18n="ai.5.title">监控与暂停</h3><p data-i18n="ai.5.body">查看运行状态、日志和决策，需要时暂停或停止。</p></li></ol><p class="ai-strategy-note" data-i18n="ai.note">生成策略不等于立即实盘执行。部署创建和 Live 启用在 Desktop 完成；H5 可监控、逐笔审批、暂停和停止。实际执行仍受账户权限与风控约束。</p><a class="button button-quiet" href="/zh-cn/guide/#ai-quant" data-i18n="ai.guide">查看策略与部署指南 ↗</a></section><section class="download-section" id="download" aria-labelledby="download-title">
         <div class="download-heading reveal">
           <div>
             <p class="section-kicker"><span data-i18n="download.eyebrow">NIGHTLY RELEASE</span> · <span data-release-version="">0.1.0</span></p>
@@ -182,38 +160,13 @@
         </div>
       </section>
 
-      <section class="overview-section" id="workflow" aria-labelledby="overview-title">
-        <div class="overview-heading reveal">
-          <div>
-            <p class="section-kicker" data-i18n="overview.eyebrow">怎么使用</p>
-            <h2 id="overview-title" data-i18n-html="overview.title">从一个问题开始，<br>随时可以停在你需要的步骤。</h2>
-          </div>
-          <p data-i18n="overview.lede">你可以只用 TrueFix 做研究，也可以先用模拟资金测试；只有检查账户和风险后，才继续到真实交易操作。</p>
-        </div>
+      <section class="overview-section" id="workflow" aria-labelledby="use-cases-title">
 
-        <div class="overview-facts">
-          <article class="overview-fact reveal">
-            <span>01</span><p data-i18n="overview.what.label">它是什么</p>
-            <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.25" /><circle cx="12" cy="6" r="2.25" /><circle cx="19" cy="12" r="2.25" /><path d="m6.8 10.5 3.4-2.9m3.6 0 3.4 2.9M7.3 13.2h9.4" /></svg></div>
-            <h3 data-i18n="overview.what.title">一个应用连接你已有的服务</h3>
-            <p data-i18n="overview.what.body">连接你选择的券商、交易所和行情服务，在同一处查看信息，不需要把资金转入 TrueFix。</p>
-          </article>
-          <article class="overview-fact reveal" data-delay="1">
-            <span>02</span><p data-i18n="overview.who.label">谁适合使用</p>
-            <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><path d="M3.8 19c.4-3.6 2.1-5.4 5.2-5.4s4.8 1.8 5.2 5.4M15 6.2a3 3 0 0 1 0 5.6M15.8 14.1c2.7.3 4.1 1.9 4.4 4.9" /></svg></div>
-            <h3 data-i18n="overview.who.title">适合已经有市场账户的人</h3>
-            <p data-i18n="overview.who.body">适合同时使用多个市场服务的交易者、策略开发者，以及研究或风控团队。它不会告诉你该买什么，也不承诺收益。</p>
-          </article>
-          <article class="overview-fact reveal" data-delay="2">
-            <span>03</span><p data-i18n="overview.work.label">可以做什么</p>
-            <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2" /><circle cx="19" cy="6" r="2" /><circle cx="19" cy="18" r="2" /><path d="M7 12h4a4 4 0 0 0 4-4V6m-8 6h4a4 4 0 0 1 4 4v2m0-12 1.7-1.7M15 18l1.7 1.7" /></svg></div>
-            <h3 data-i18n="overview.work.title">研究 → 比较 → 测试 → 检查 → 决定</h3>
-            <p data-i18n="overview.work.body">查看信息来源，测试想法，选择账户，核对费用与风险，再决定是否发送操作。</p>
-          </article>
-        </div>
 
-        <div class="persona-heading reveal">
-          <div><p class="section-kicker" data-i18n="overview.personas.eyebrow">使用示例</p><h3 data-i18n="overview.personas.title">三种使用 TrueFix 的方式。</h3></div>
+
+
+        <div style="margin-top:0" class="persona-heading reveal">
+          <div><p class="section-kicker" data-i18n="overview.personas.eyebrow">使用示例</p><h3 id="use-cases-title" data-i18n="overview.personas.title">三种使用 TrueFix 的方式。</h3></div>
           <p data-i18n="overview.personas.disclosure">这些内容只是产品使用方式，不是客户评价。实际功能取决于你连接的服务和账户。</p>
         </div>
         <div class="persona-grid">
@@ -388,10 +341,10 @@
         <div class="closing-watermark" aria-hidden="true">TRUEFIX</div>
         <div class="closing-content reveal">
           <img src="assets/icon-192.png" alt="" width="70" height="70"><p class="section-kicker">START WITH THE GUIDE</p>
-          <h2 data-i18n-html="closing.title">连接账户之前，<br><i>先看看具体怎么使用。</i></h2>
-          <p data-i18n="closing.lede">指南说明如何安装、连接服务、使用 AI 助手、进行模拟，以及使用真实账户前需要检查什么。</p>
+          <h2 data-i18n-html="closing.title">打开工作台，<br><i>从你关注的行情开始。</i></h2>
+          <p data-i18n="closing.lede">先连接一个行情服务，查看熟悉的标的，再按需要尝试 AI、策略测试和模拟交易。</p>
           <div class="closing-actions">
-            <a class="button button-primary" href="/zh-cn/guide/"><span data-i18n="closing.github">打开使用指南</span><span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="/zh-cn/guide/"><span data-i18n="closing.github">按指南开始使用</span><span aria-hidden="true">↗</span></a>
             <a class="button button-quiet" href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer"><span data-i18n="closing.feedback">反馈与交流</span><span aria-hidden="true">↗</span></a>
           </div>
         </div>

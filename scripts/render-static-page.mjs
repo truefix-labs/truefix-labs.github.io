@@ -72,6 +72,16 @@ export async function renderPage(html, route, locale, localized = true) {
     }
   }
   const copy = route === '' ? home[locale] : route === 'about' ? about[locale] : {};
+  if (route === '') {
+    document.title = copy['meta.title'];
+    for (const [selector, value] of [
+      ['meta[name="description"]', copy['meta.description']],
+      ['meta[property="og:title"]', copy['meta.title']],
+      ['meta[property="og:description"]', copy['meta.ogDescription']],
+      ['meta[name="twitter:title"]', copy['meta.title']],
+      ['meta[name="twitter:description"]', copy['meta.description']]
+    ]) document.querySelector(selector)?.setAttribute('content', value);
+  }
   translate(document, 'data-i18n', copy);
   translate(document, 'data-i18n-html', copy, 'html');
   translate(document, 'data-i18n-alt', copy, 'alt');

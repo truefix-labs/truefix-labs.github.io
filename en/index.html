@@ -5,10 +5,10 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#080b10">
-    <meta name="description" content="Connect your existing brokers, exchanges, and market-data services. Research markets, test strategies, and review trades in one desktop app.">
+    <meta name="description" content="Explore markets, draft strategies with AI, test them, then review, approve, and deploy. Monitor execution in one workspace connected to your existing services.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="TrueFix Studio — Research, test, and review trades">
-    <meta property="og:description" content="Connect your existing brokers, exchanges, and market-data services. Research markets, test strategies, and review trades in one desktop app.">
+    <meta property="og:description" content="Explore markets, draft strategies with AI, test them, then review, approve, and deploy. Monitor execution in one workspace connected to your existing services.">
     <meta property="og:image" content="https://truefix-labs.com/assets/workstation.png">
     <meta property="og:url" content="https://truefix-labs.com/en/">
     <meta name="twitter:card" content="summary_large_image">
@@ -20,11 +20,11 @@
     <link rel="alternate" hreflang="en" href="https://truefix-labs.com/en/">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"><link rel="stylesheet" href="styles.css?v=20">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"><link rel="stylesheet" href="styles.css?v=21">
     <link rel="stylesheet" href="/site-header.css?v=2"><link rel="stylesheet" href="mobile-shell.css?v=3"><link rel="stylesheet" href="/site-layout.css?v=1">
     <script defer src="/site-navigation.js?v=1"></script><script defer src="/site-header.js?v=1"></script><script src="locale-routes.js?v=2" defer></script>
     <script src="mobile-shell.js?v=1" defer></script>
-    <script src="script.js?v=18" defer></script>
+    <script src="script.js?v=19" defer></script>
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TrueFix Studio","applicationCategory":"FinanceApplication","operatingSystem":"macOS, Windows, Linux","description":"A desktop app that connects existing broker, exchange, and market-data services for market research, strategy testing, and reviewed trading actions.","url":"https://truefix-labs.com/","downloadUrl":"https://truefix-labs.com/#download","softwareVersion":"0.1.0","applicationSubCategory":"Investment research and trading support"}
     </script>
@@ -77,56 +77,34 @@
     </header>
 
     <main id="main">
-      <section class="hero" id="top">
+      <section class="hero product-hero" id="top">
         <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">Desktop research and trading assistant · Pre-release</b></p>
-          <h1 data-i18n-html="hero.title">Connect the accounts you already use.<br><i>Research, test, and trade in one place.</i></h1>
-          <p class="hero-lede" data-i18n="hero.lede">TrueFix Studio is a desktop app for people who already use brokers, exchanges, or market-data services. It brings market research, an AI assistant, strategy testing, and reviewed trading actions into one place.</p>
+
+
+
+      <div class="hero-layout"><div class="hero-copy">
+          <p class="eyebrow"><span></span><b data-i18n="hero.eyebrow">TRUEFIX STUDIO · RESEARCH &amp; TRADING</b></p>
+          <h1 data-i18n-html="hero.title">Research. Test. Review your trade.<br><i>Without switching apps.</i></h1>
+          <p class="hero-lede" data-i18n="hero.lede">Bring market data, AI-assisted strategy creation, backtesting, and trade checks together. From researching an instrument to reviewing and deploying a strategy, keep working in one workspace.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="/en/#overview"><span data-i18n="hero.download">See how it helps</span><span aria-hidden="true">↓</span></a>
-            <a class="button button-quiet" href="/en/#download"><span data-i18n="hero.source">Download Nightly</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="/en/#workspace-preview"><span data-i18n="hero.download">See the workflow</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-quiet" href="/en/#download"><span data-i18n="hero.source">Download and try</span><span aria-hidden="true">↓</span></a>
           </div>
-          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">Your money stays with your broker · Start read-only or in simulation</span></div>
-        </div>
+          <div class="hero-note"><span class="pulse"></span><span data-i18n="hero.note">Connect your existing services and accounts · Read-only and simulation supported</span></div>
+        </div><div id="workspace-preview" class="workflow-preview"><p class="preview-label" data-i18n="preview.label">Choose a step to explore the workspace</p><div class="preview-tabs" role="tablist" aria-label="Choose a step to explore the workspace" data-i18n-aria-label="preview.label"><button type="button" role="tab" id="preview-tab-market" aria-controls="preview-market" aria-selected="true" tabindex="0" data-preview-tab="market"><span aria-hidden="true">01</span><b data-i18n="preview.market">Explore markets</b></button><button type="button" role="tab" id="preview-tab-research" aria-controls="preview-research" aria-selected="false" tabindex="-1" data-preview-tab="research"><span aria-hidden="true">02</span><b data-i18n="preview.research">Check sources</b></button><button type="button" role="tab" id="preview-tab-strategy" aria-controls="preview-strategy" aria-selected="false" tabindex="-1" data-preview-tab="strategy"><span aria-hidden="true">03</span><b data-i18n="preview.strategy">AI strategies</b></button><button type="button" role="tab" id="preview-tab-trade" aria-controls="preview-trade" aria-selected="false" tabindex="-1" data-preview-tab="trade"><span aria-hidden="true">04</span><b data-i18n="preview.trade">Review orders</b></button></div><section class="preview-panel" id="preview-market" role="tabpanel" aria-labelledby="preview-tab-market" tabindex="0"><figure><a class="preview-image preview-image-market" href="/assets/workstation.png" target="_blank" rel="noreferrer" aria-label="View full screen" data-i18n-aria-label="preview.full"><img src="/assets/workstation.png" alt="See charts, market depth, and your account together to understand what is changing." data-i18n-alt="preview.market.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.market.question">Price moved. What about volume and depth?</h2><p data-i18n="preview.market.body">See charts, market depth, and your account together to understand what is changing.</p></figcaption></figure></section><section class="preview-panel" id="preview-research" role="tabpanel" aria-labelledby="preview-tab-research" tabindex="0" hidden><figure><a class="preview-image preview-image-research" href="/assets/intelligence.png" target="_blank" rel="noreferrer" aria-label="View full screen" data-i18n-aria-label="preview.full"><img src="/assets/intelligence.png" alt="Inspect signals and original sources, then ask AI to help organize information and open questions." data-i18n-alt="preview.research.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.research.question">Where did this information come from?</h2><p data-i18n="preview.research.body">Inspect signals and original sources, then ask AI to help organize information and open questions.</p></figcaption></figure></section><section class="preview-panel" id="preview-strategy" role="tabpanel" aria-labelledby="preview-tab-strategy" tabindex="0" hidden><figure><a class="preview-image preview-image-strategy" href="/assets/ai-quant.png" target="_blank" rel="noreferrer" aria-label="View full screen" data-i18n-aria-label="preview.full"><img src="/assets/ai-quant.png" alt="Draft a strategy with AI, validate and backtest or replay it, review the deployment proposal, then explicitly activate and monitor it." data-i18n-alt="preview.strategy.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.strategy.question">Describe a trading rule to AI. How does it get deployed?</h2><p data-i18n="preview.strategy.body">Draft a strategy with AI, validate and backtest or replay it, review the deployment proposal, then explicitly activate and monitor it.</p></figcaption></figure></section><section class="preview-panel" id="preview-trade" role="tabpanel" aria-labelledby="preview-tab-trade" tabindex="0" hidden><figure><a class="preview-image preview-image-trade" href="/assets/workstation.png" target="_blank" rel="noreferrer" aria-label="View full screen" data-i18n-aria-label="preview.full"><img src="/assets/workstation.png" alt="Return to the trading panel, review the order and risk, then decide whether to submit." data-i18n-alt="preview.trade.body" width="1536" height="881"></a><figcaption><h2 data-i18n="preview.trade.question">Account, size, fees: checked?</h2><p data-i18n="preview.trade.body">Return to the trading panel, review the order and risk, then decide whether to submit.</p></figcaption></figure></section><p class="preview-disclosure" data-i18n="preview.disclosure">Example product screens · Data is not live</p></div></div></section>
 
-        <div class="hero-visual reveal" data-delay="1">
-          <div class="terminal-glow"></div>
-          <figure class="app-frame">
-            <div class="frame-bar">
-              <div class="frame-dots"><span></span><span></span><span></span></div>
-              <div class="frame-title">TRUEFIX / TRADING WORKSTATION</div>
-              <div class="frame-status"><span></span> SYSTEM READY</div>
-            </div>
-            <img src="assets/workstation.png" alt="TrueFix Studio dark trading workstation showing a BTC/USDT chart, market depth, positions, and order ticket" data-i18n-alt="alt.workstationDetail" width="1536" height="881" decoding="async">
-            <figcaption class="hero-shot-caption"><a href="assets/workstation.png" target="_blank" rel="noreferrer"><span data-i18n="product.fullSize">Open full resolution</span> <span aria-hidden="true">↗</span></a></figcaption>
-          </figure>
-          <div class="float-tag float-tag-a" data-i18n-html="hero.tag.local">YOUR PROFILE<br>ON THIS DEVICE</div>
-          <div class="float-tag float-tag-b" data-i18n-html="hero.tag.review">YOU REVIEW<br>BEFORE TRADING</div>
-        </div>
-      </section>
 
-      <div class="capability-rail" aria-label="Core capabilities" data-i18n-aria-label="a11y.capabilities">
-        <div class="rail-track">
-          <span data-i18n="cap.historical">Runs on your device</span><i>◆</i><span data-i18n="cap.realtime">Does not hold your money</span><i>◆</i><span data-i18n="cap.trade">No TrueFix cloud account</span><i>◆</i><span data-i18n="cap.news">Read-only and simulation modes</span><i>◆</i><span data-i18n="cap.instruments">Your broker remains in control</span><i>◆</i><span data-i18n="cap.analysis">You review trading actions</span><i>◆</i>
-          <span aria-hidden="true" data-i18n="cap.historical">Runs on your device</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.realtime">Does not hold your money</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.trade">No TrueFix cloud account</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.news">Read-only and simulation modes</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.instruments">Your broker remains in control</span><i aria-hidden="true">◆</i><span aria-hidden="true" data-i18n="cap.analysis">You review trading actions</span><i aria-hidden="true">◆</i>
-        </div>
-      </div>
 
       <section class="value-section" id="overview" aria-labelledby="value-title">
         <div class="value-heading reveal">
-          <div><p class="section-kicker" data-i18n="value.eyebrow">WHAT IT HELPS YOU DO</p><h2 id="value-title" data-i18n-html="value.title">Keep your current accounts.<br><i>Bring the work into one app.</i></h2></div>
-          <p data-i18n="value.lede">Use TrueFix alongside your current broker or exchange. Your accounts and money stay where they are while you research, test ideas, and review possible actions in one desktop app.</p>
+          <div><p class="section-kicker" data-i18n="value.eyebrow">START WITH A PRICE MOVE</p><h2 id="value-title" data-i18n-html="value.title">A price catches your eye.<br><i>What do you do next?</i></h2></div>
+          <p data-i18n="value.lede">Check the information, test an idea, then review the order. Stay with research or continue only as far as you need.</p>
         </div>
-        <div class="value-grid">
-          <article class="value-card reveal"><span>01</span><h3 data-i18n="value.research.title">See your market information together</h3><p data-i18n="value.research.body">Compare prices, news, signals, and account information, and open the original source when you need to check it.</p></article>
-          <article class="value-card reveal" data-delay="1"><span>02</span><h3 data-i18n="value.strategy.title">Ask AI and test strategies</h3><p data-i18n="value.strategy.body">Use the AI assistant to organize information, or test a rule-based strategy with past or simulated data before using a real account.</p></article>
-          <article class="value-card reveal" data-delay="2"><span>03</span><h3 data-i18n="value.execution.title">Check every action before sending</h3><p data-i18n="value.execution.body">See the selected service, account, test or live mode, product, fees, and risk before a trading action is sent.</p></article>
-        </div>
-        <p class="value-safety reveal"><strong data-i18n="value.safety.title">TrueFix never asks you to deposit money.</strong><span data-i18n="value.safety.body">You choose which outside services to connect and what they may do. Your broker or exchange still controls the account and its permissions.</span></p>
+        <div class="value-grid flow-grid"><article class="value-card"><span class="flow-number">01</span><h3 data-i18n="flow.1.title">See what changed</h3><p data-i18n="flow.1.body">Inspect price, volume, and depth for the selected market and instrument.</p><p class="flow-result" data-i18n="flow.1.result">Understand the market move</p></article><article class="value-card"><span class="flow-number">02</span><h3 data-i18n="flow.2.title">Check the sources</h3><p data-i18n="flow.2.body">Open the sources behind news and signals. Ask AI to help organize relevant information.</p><p class="flow-result" data-i18n="flow.2.result">Separate facts from open questions</p></article><article class="value-card"><span class="flow-number">03</span><h3 data-i18n="flow.3.title">Create and test with AI</h3><p data-i18n="flow.3.body">Describe trading rules and risk limits, ask AI to draft the strategy, then validate it with historical data or simulation.</p><p class="flow-result" data-i18n="flow.3.result">Review, deploy, and monitor</p></article><article class="value-card"><span class="flow-number">04</span><h3 data-i18n="flow.4.title">Review before sending</h3><p data-i18n="flow.4.body">Check the account, environment, quantity, fees, and risk before deciding to send an order.</p><p class="flow-result" data-i18n="flow.4.result">Submit, revise, or keep watching</p></article></div>
+        <p class="value-safety reveal"><strong data-i18n="value.safety.title">Your accounts and money stay with your broker or exchange.</strong><span data-i18n="value.safety.body">TrueFix connects the services you choose. Features depend on the service, permissions, and environment. Currently available as a pre-release.</span></p>
       </section>
 
-      <section class="download-section" id="download" aria-labelledby="download-title">
+      <section aria-labelledby="ai-strategy-title" class="ai-strategy-section" id="ai-strategies"><div class="ai-strategy-intro"><div><p class="section-kicker" data-i18n="ai.eyebrow">AI STRATEGY CREATION &amp; DEPLOYMENT</p><h2 id="ai-strategy-title" data-i18n-html="ai.title">Tell AI your trading rules.<br><i>Generate, test, then deploy.</i></h2><p class="ai-strategy-lede" data-i18n="ai.lede">Describe your goal to the Agent in Desktop Strategy Engineering. Check the strategy and test results, then review the proposal in Deployment, approve it, and activate it.</p></div><aside class="ai-request"><p data-i18n="ai.example">An example request to AI</p><blockquote data-i18n="ai.prompt">Draft a moving-average crossover strategy. Specify the data, entry and exit conditions, and risk limits. Validate it with historical data and ask me to review it before deployment.</blockquote></aside></div><ol class="ai-deployment-steps"><li><span aria-hidden="true">01</span><h3 data-i18n="ai.1.title">Draft with AI</h3><p data-i18n="ai.1.body">Specify instruments, rules, and constraints. Answer any clarification questions.</p></li><li><span aria-hidden="true">02</span><h3 data-i18n="ai.2.title">Validate and test</h3><p data-i18n="ai.2.body">Inspect the strategy revision and use backtesting or replay to check behavior and risk.</p></li><li><span aria-hidden="true">03</span><h3 data-i18n="ai.3.title">Review the proposal</h3><p data-i18n="ai.3.body">Check the revision, data sources, account, environment, and risk limits.</p></li><li><span aria-hidden="true">04</span><h3 data-i18n="ai.4.title">Approve and activate</h3><p data-i18n="ai.4.body">Approve the deployment on Desktop, then explicitly activate the approved proposal.</p></li><li><span aria-hidden="true">05</span><h3 data-i18n="ai.5.title">Monitor and pause</h3><p data-i18n="ai.5.body">Inspect runtime status, logs, and decisions. Pause or stop when needed.</p></li></ol><p class="ai-strategy-note" data-i18n="ai.note">Generating a strategy does not start live execution. Deployment creation and Live arming are Desktop-only; H5 supports monitoring, per-decision approval, pause, and stop. Execution remains subject to account permissions and risk checks.</p><a class="button button-quiet" href="/en/guide/#ai-quant" data-i18n="ai.guide">Read the strategy and deployment guide ↗</a></section><section class="download-section" id="download" aria-labelledby="download-title">
         <div class="download-heading reveal">
           <div>
             <p class="section-kicker"><span data-i18n="download.eyebrow">NIGHTLY RELEASE</span> · <span data-release-version="">0.1.0</span></p>
@@ -182,38 +160,13 @@
         </div>
       </section>
 
-      <section class="overview-section" id="workflow" aria-labelledby="overview-title">
-        <div class="overview-heading reveal">
-          <div>
-            <p class="section-kicker" data-i18n="overview.eyebrow">HOW IT WORKS</p>
-            <h2 id="overview-title" data-i18n-html="overview.title">Start with a question.<br>Stop whenever you want.</h2>
-          </div>
-          <p data-i18n="overview.lede">You can use TrueFix only for research, test an idea without real money, or continue to a trading action after checking the account and risk.</p>
-        </div>
+      <section class="overview-section" id="workflow" aria-labelledby="use-cases-title">
 
-        <div class="overview-facts">
-          <article class="overview-fact reveal">
-            <span>01</span><p data-i18n="overview.what.label">WHAT IT IS</p>
-            <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.25" /><circle cx="12" cy="6" r="2.25" /><circle cx="19" cy="12" r="2.25" /><path d="m6.8 10.5 3.4-2.9m3.6 0 3.4 2.9M7.3 13.2h9.4" /></svg></div>
-            <h3 data-i18n="overview.what.title">One app for services you already use</h3>
-            <p data-i18n="overview.what.body">Connect selected brokers, exchanges, and market-data services. TrueFix shows their information together without moving your money.</p>
-          </article>
-          <article class="overview-fact reveal" data-delay="1">
-            <span>02</span><p data-i18n="overview.who.label">WHO IT IS FOR</p>
-            <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><path d="M3.8 19c.4-3.6 2.1-5.4 5.2-5.4s4.8 1.8 5.2 5.4M15 6.2a3 3 0 0 1 0 5.6M15.8 14.1c2.7.3 4.1 1.9 4.4 4.9" /></svg></div>
-            <h3 data-i18n="overview.who.title">People who already have market accounts</h3>
-            <p data-i18n="overview.who.body">For traders, strategy developers, and research or risk teams who use more than one market service. It does not recommend what you should buy or promise returns.</p>
-          </article>
-          <article class="overview-fact reveal" data-delay="2">
-            <span>03</span><p data-i18n="overview.work.label">WHAT THEY DO</p>
-            <div class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2" /><circle cx="19" cy="6" r="2" /><circle cx="19" cy="18" r="2" /><path d="M7 12h4a4 4 0 0 0 4-4V6m-8 6h4a4 4 0 0 1 4 4v2m0-12 1.7-1.7M15 18l1.7 1.7" /></svg></div>
-            <h3 data-i18n="overview.work.title">Research → compare → test → check → decide</h3>
-            <p data-i18n="overview.work.body">Check where information came from, test an idea, choose an account, review fees and risk, then decide whether to send the action.</p>
-          </article>
-        </div>
 
-        <div class="persona-heading reveal">
-          <div><p class="section-kicker" data-i18n="overview.personas.eyebrow">EXAMPLE USERS</p><h3 data-i18n="overview.personas.title">Three ways people can use TrueFix.</h3></div>
+
+
+        <div style="margin-top:0" class="persona-heading reveal">
+          <div><p class="section-kicker" data-i18n="overview.personas.eyebrow">EXAMPLE USERS</p><h3 id="use-cases-title" data-i18n="overview.personas.title">Three ways people can use TrueFix.</h3></div>
           <p data-i18n="overview.personas.disclosure">These are examples of how the product can be used, not customer testimonials. Available features depend on the service and account you connect.</p>
         </div>
         <div class="persona-grid">
@@ -388,10 +341,10 @@
         <div class="closing-watermark" aria-hidden="true">TRUEFIX</div>
         <div class="closing-content reveal">
           <img src="assets/icon-192.png" alt="" width="70" height="70"><p class="section-kicker">START WITH THE GUIDE</p>
-          <h2 data-i18n-html="closing.title">See the workflow<br><i>before connecting an account.</i></h2>
-          <p data-i18n="closing.lede">The guide explains installation, connecting a service, using the AI assistant, trying simulation, and what to check before using a real account.</p>
+          <h2 data-i18n-html="closing.title">Open your workspace.<br><i>Start with a market you follow.</i></h2>
+          <p data-i18n="closing.lede">Connect one market-data service, explore a familiar instrument, then try AI, strategy testing, and simulated trading as needed.</p>
           <div class="closing-actions">
-            <a class="button button-primary" href="/en/guide/"><span data-i18n="closing.github">Open the user guide</span><span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="/en/guide/"><span data-i18n="closing.github">Get started with the guide</span><span aria-hidden="true">↗</span></a>
             <a class="button button-quiet" href="https://github.com/truefix-labs/truefix-labs.github.io/discussions" target="_blank" rel="noreferrer"><span data-i18n="closing.feedback">Feedback &amp; discussions</span><span aria-hidden="true">↗</span></a>
           </div>
         </div>

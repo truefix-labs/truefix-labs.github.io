@@ -33,16 +33,7 @@ xattr -cr "/Applications/TrueFix Studio.app"
 
 ## 3. 配置 Provider
 
-打开 **Provider Centre**，选择 ProviderDefinition 并新建 ClientInstance：
-
-```text
-ProviderDefinition
-  -> ClientInstance
-  -> Environment + typed config
-  -> validate and save
-  -> connect
-  -> capability / entitlement / account / mapping evidence
-```
+在“连接管理”点击“打开完整连接中心”，进入 Provider Centre。使用“Add monitoring ClientInstance”表单填写实例 ID、Provider slug、显示名称、市场、产品范围和实际环境；连接参数填入页面的“Connection JSON”输入框。选择 Historical／Realtime，按需勾选“Connect after saving”，点击“Save monitoring ClientInstance”。该表单用于行情监控，不会创建交易权限。
 
 一个 Provider 可以有多个 ClientInstance；一个 ClientInstance 可以投影多个账户。Secret 可写但不回显原值。“已连接”不等于“可以交易”，仍需检查交易 capability、entitlement、账户、标的映射、环境、TradingRules 与健康证据。
 
@@ -95,6 +86,8 @@ Agent 是受限操作助手，不是自带账户权限的自动交易机器人�
 
 ### 8.1 配置模型
 
+在 Desktop 的“设置 → AI”表单中填写 API Key 和模型 ID，并点击保存。“模型请求参数”中的 JSON 是界面输入框的内容，由应用负责保存。
+
 1. 打开 **设置 → AI → AI 交易 Agent → 添加**。
 2. 填写显示名称、Provider（OpenAI / Anthropic / Google / Custom）、API Key 和模型 ID。
 3. 仅在兼容自定义网关时填写 Base URL。
@@ -136,19 +129,19 @@ Draft → Validate → Historical Replay → Approve → Deploy → Pause / Reti
 
 ## 10. Web Gateway 与 ACME
 
-Web Gateway 是 Desktop 进程里的可选入口，启停或重配不会停止 Desktop Kernel 和 Provider 连接。
+在 Desktop 打开“设置 → Web Gateway”，通过页面表单配置浏览器访问。根据本机或远程访问方式，填写下文对应的监听、域名和 HTTPS 选项，勾选“启用”后点击“保存并应用”。应用会保存并应用这些设置；启停 Gateway 不会停止 Desktop 的 Kernel 或 Provider 连接。DNS 记录和防火墙规则需在域名服务商或网络管理界面中设置。
 
 ### 10.1 先验证本机访问
 
-1. 打开 **设置 → Web Gateway**，生成随机访问密码，并立即保存到密码管理器。明文只显示一次；应用保存 Argon2 verifier。
-2. Bind Host 使用 `127.0.0.1` 或 `::1`，选择 HTTP 并启用。明文 HTTP 不能绑定 `0.0.0.0`。
+1. 在此页面点击“随机生成密码”，立即复制并保存；或者在“设置自己的访问密码”中输入至少 12 个字符，再点击“修改访问密码”。这两个操作会撤销现有 Web/H5 会话。“保存并应用”只保存网关配置，不会同时修改密码。
+2. 在“HTTPS 证书”选择“本机 HTTP”，将“监听地址”设为 127.0.0.1 或 ::1，填写服务端口，勾选“启用”，点击“保存并应用”，然后打开页面显示的访问地址。
 3. 打开状态栏给出的 URL 并登录。“保持登录”只延长身份会话，不增加交易权限。
 
 ### 10.2 配置远程 HTTPS
 
 1. 将 `studio.example.com` 的 A/AAAA 指向 Gateway 公网地址；IPv6 无法到达时移除错误 AAAA。
-2. `public_domains` 只填 DNS 名称，不含协议、端口或路径；`public_base_url` 填完整 `https://` URL。allowlist 不接受通配域名。
-3. 使用匹配域名的自有 PEM，或选择 Let's Encrypt 自动证书。所有 non-loopback 访问必须使用 HTTPS。
+2. **允许域名** 只填 DNS 名称，不含协议、端口或路径；**公开访问地址** 填完整 `https://` URL。allowlist 不接受通配域名。
+3. 使用已有证书时，在“HTTPS 证书”选择“自有证书”，在页面填写“证书 PEM 路径”和“私钥 PEM 路径”。使用自动证书时，选择“Let’s Encrypt 自动证书”，填写 ACME 邮箱，并在“ACME 验证方式”中选择 HTTP-01、TLS-ALPN-01 或 DNS-01；DNS-01 的 Cloudflare Zone ID 和 API Token 也在此表单填写。
 
 | ACME 方式 | 公网条件 | 适用情况 |
 |---|---|---|
@@ -158,16 +151,15 @@ Web Gateway 是 Desktop 进程里的可选入口，启停或重配不会停止 D
 
 推荐先用 staging 演练，再切 production：
 
-```text
-https://acme-staging-v02.api.letsencrypt.org/directory
-  → Apply → Running/renewal 正常 → 浏览器验证
-https://acme-v02.api.letsencrypt.org/directory
-  → 再次 Apply → 核对颁发者、SAN、到期时间
-```
+1. 在“设置 → Web Gateway”将“HTTPS 证书”设为“Let’s Encrypt 自动证书”。
+2. 在“允许域名”填写 studio.example.com，在“公开访问地址”填写 https://studio.example.com。
+3. 在“ACME Directory”输入 https://acme-staging-v02.api.letsencrypt.org/directory，填写 ACME 邮箱并选择验证方式及所需字段。
+4. 勾选“启用”，点击“保存并应用”，在页面检查运行状态和证书状态。Staging 证书仅用于测试，浏览器不信任是正常现象。
+5. 验证成功后，在同一“ACME Directory”输入框改为 https://acme-v02.api.letsencrypt.org/directory，再点击“保存并应用”，核对颁发者、域名和到期时间。
 
-Staging 证书不会被浏览器信任。HTTP-01 必须保留 `/.well-known/acme-challenge/*`；DNS-01 使用目标 Zone 的最小 `DNS:Edit` Token，不使用 Global API Key。trusted proxy allowlist 只加入反向代理的精确 IP。
+Staging 证书不会被浏览器信任。HTTP-01 必须保留 `/.well-known/acme-challenge/*`；DNS-01 使用目标 Zone 的最小 `DNS:Edit` Token，不使用 Global API Key。可信反向代理 IP 只加入反向代理的精确 IP。
 
-ACME 失败不会降级到公网明文 HTTP。续期失败会保留最后的有效证书；进入到期安全窗口后停止远程 HTTPS，修复 DNS、端口或 Directory 后再 Apply。
+ACME 失败不会降级到公网明文 HTTP。续期失败会保留最后的有效证书；进入到期安全窗口后停止远程 HTTPS，修复 DNS、端口或 Directory 后再 “保存并应用”。
 
 ## 11. 运维、日志与审计
 
@@ -209,6 +201,6 @@ Operations 用于回答“什么时候发生了什么、由谁发起、影响到
 - **提交超时**：使用原 client order ID 查询恢复，不要创建相同订单。
 - **Agent 为空或不能发送**：确认至少一个 Agent 已保存并启用，API Key、模型 ID、Base URL 与请求参数有效。
 - **Agent 工具被拒绝**：检查 ToolGrant 范围、账户/标的与期限；submit/cancel/replace 必须由 owner 审批。
-- **远程 Web 打不开**：先查 configured/effective 状态与 `last_error`，再查 bind host、端口、A/AAAA、防火墙和 TLS；根据 challenge 检查 80、443 或 DNS TXT。
+- **远程 Web 打不开**：先查 configured/effective 状态与 `last_error`，再查 监听地址、端口、A/AAAA、防火墙和 TLS；根据 challenge 检查 80、443 或 DNS TXT。
 - **证书不受信任**：确认已从 staging 切到 production、域名在 SAN 中、客户端时间正确、代理没有返回旧证书。
 - **页面 stale/unavailable**：查看受影响 facet、时间戳与原始错误；last-good 数据不表示仍然新鲜。

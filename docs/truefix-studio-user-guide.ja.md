@@ -33,16 +33,7 @@ TrueFix公式Releaseからダウンロードしたアプリにのみ使用して
 
 ## 3. Providerの設定
 
-**Provider Centre**でProviderDefinitionを選び、ClientInstanceを作成します。
-
-```text
-ProviderDefinition
-  -> ClientInstance
-  -> Environment + typed config
-  -> validate and save
-  -> connect
-  -> capability / entitlement / account / mapping evidence
-```
+「接続管理」から「完全な接続センターを開く」を選び、Provider Centreを開きます。「Add monitoring ClientInstance」フォームにID、Provider slug、表示名、市場、商品範囲、実際の環境を入力します。接続パラメーターは画面内の「Connection JSON」欄に入力します。Historical／Realtimeと必要に応じてConnect after savingを選び、「Save monitoring ClientInstance」を押します。このフォームは相場監視用で、取引権限を付与しません。
 
 一つのProviderには複数のClientInstanceを作成でき、一つのClientInstanceは複数口座を投影できます。Secretは書き込み専用です。「接続済み」は「取引可能」を意味しないため、capability、entitlement、口座、mapping、環境、TradingRules、health evidenceも確認します。
 
@@ -95,6 +86,8 @@ Agent は権限を制限された操作アシスタントであり、自律取�
 
 ### 8.1 モデル設定
 
+Desktopの「設定 → AI」フォームにAPI KeyとモデルIDを入力して保存します。モデルリクエストパラメーターのJSONは画面内の入力欄に記入し、保存はアプリが行います。
+
 1. **設定 → AI → AI trading agents → 追加**を開きます。
 2. 表示名、Provider（OpenAI / Anthropic / Google / Custom）、API Key、モデル ID を入力します。
 3. 互換カスタムゲートウェイの場合だけ Base URL を指定します。
@@ -134,17 +127,19 @@ Draft → Validate → Historical Replay → Approve → Deploy → Pause / Reti
 
 ## 10. Web Gateway と ACME
 
+Desktopの「設定 → Web Gateway」の画面で設定します。以下のローカル接続またはリモート接続の手順に従い、必要な待受、ドメイン、HTTPSの項目を入力して、有効化と「保存して適用」を選びます。保存と反映はアプリが行い、Desktop KernelやProvider接続は停止しません。DNSレコードとファイアウォールはDNSサービスやネットワークの管理画面で設定します。
+
 ### 10.1 ローカル接続
 
-1. **設定 → Web Gateway** でアクセスパスワードを生成し、パスワード管理ソフトに保存します。平文は一度だけ表示されます。
-2. Bind Host を `127.0.0.1` または `::1`、HTTP にして有効化します。平文 HTTP は `0.0.0.0` にバインドできません。
+1. この画面でランダムパスワードを生成して直ちにコピーするか、独自のアクセスパスワード欄に12文字以上を入力して変更ボタンを押します。どちらも既存のWeb/H5セッションを失効させます。「保存して適用」はGateway設定のみを保存し、パスワードを変更しません。
+2. HTTPS証明書で「ローカルHTTP」を選び、待受アドレスを127.0.0.1または::1にし、サービスポートを入力します。有効化して「保存して適用」を押し、画面に表示されたURLを開きます。
 3. 表示 URL へログインします。「ログイン状態を保持」は取引権限を増やしません。
 
 ### 10.2 リモート HTTPS
 
 1. `studio.example.com` の A/AAAA を Gateway の公開 IP へ向けます。到達しない AAAA は削除します。
-2. `public_domains` は DNS 名のみ、`public_base_url` は完全な `https://` URL です。ワイルドカードは不可です。
-3. ドメインに一致する PEM または Let's Encrypt を選びます。non-loopback は必ず HTTPS です。
+2. **許可ドメイン** は DNS 名のみ、**公開アクセスURL** は完全な `https://` URL です。ワイルドカードは不可です。
+3. 既存の証明書を使う場合はHTTPS証明書で自分の証明書を選び、画面の証明書PEMパスと秘密鍵PEMパスを入力します。自動証明書はLet’s Encryptを選び、ACMEメールアドレスと検証方式を入力します。DNS-01のCloudflare Zone IDとAPI Tokenも同じフォームで設定します。
 
 | ACME | 公開条件 | 用途 |
 |---|---|---|
@@ -154,7 +149,13 @@ Draft → Validate → Historical Replay → Approve → Deploy → Pause / Reti
 
 まず `https://acme-staging-v02.api.letsencrypt.org/directory` で演習し、Running と renewal を確認してから `https://acme-v02.api.letsencrypt.org/directory` へ切り替えます。Staging 証明書が信頼されないのは正常です。HTTP-01 は `/.well-known/acme-challenge/*` を保持し、DNS-01 は対象 Zone 限定の最小 `DNS:Edit` Token を使います。
 
-ACME 失敗時も公開 HTTP へ降格しません。trusted proxy allowlist には正確なプロキシ IP だけを追加してください。
+ACME 失敗時も公開 HTTP へ降格しません。信頼するリバースプロキシIP には正確なプロキシ IP だけを追加してください。
+
+1. 「設定 → Web Gateway」のHTTPS証明書でLet’s Encryptを選びます。
+2. 許可ドメインにstudio.example.com、公開アクセスURLにhttps://studio.example.comを入力します。
+3. ACME Directory欄にhttps://acme-staging-v02.api.letsencrypt.org/directoryを入力し、メールアドレス、検証方式と必要な欄を設定します。
+4. 有効化して「保存して適用」を押し、画面の稼働状態と証明書状態を確認します。Staging証明書をブラウザーが信頼しないのは正常です。
+5. 検証後、同じACME Directory欄をhttps://acme-v02.api.letsencrypt.org/directoryに変更して再度保存・適用し、発行者、ドメイン、有効期限を確認します。
 
 ## 11. 運用、ログ、監査
 
@@ -195,6 +196,6 @@ Operations は、いつ・誰が・何を・どの範囲で行ったかを確認
 - **送信がタイムアウトした：** 元のclient order IDで照会し、同じ注文を作成し直しません。
 - **Agent が空/送信不可：** 有効な Agent、API Key、モデル ID、Base URL、JSON パラメータを確認します。
 - **Agent ツールが拒否：** ToolGrant の範囲と期限を確認します。submit/cancel/replace は owner 承認が必要です。
-- **リモート Web が開かない：** configured/effective 状態、`last_error`、bind host、ポート、A/AAAA、Firewall、TLS を確認します。
+- **リモート Web が開かない：** configured/effective 状態、`last_error`、待受アドレス、ポート、A/AAAA、Firewall、TLS を確認します。
 - **証明書が信頼されない：** production Directory、SAN、端末時刻、プロキシの古い証明書を確認します。
 - **stale/unavailable表示：** 影響を受けたfacet、timestamp、元のエラーを確認します。

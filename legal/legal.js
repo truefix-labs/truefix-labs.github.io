@@ -94,7 +94,7 @@ async function applyLanguage(requested, persist = false) {
       if (documentNode) documentNode.innerHTML = englishContent;
       if (navigationNode) navigationNode.innerHTML = englishNavigation;
     } else {
-      const response = await fetch(`content/${locale}.html?v=1`);
+      const response = await fetch(`content/${locale}.html?v=2`);
       if (!response.ok) throw new Error(`Localized page request failed: ${response.status}`);
       const markup = await response.text();
       if (currentRevision !== revision) return;

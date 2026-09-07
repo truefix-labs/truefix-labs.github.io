@@ -62,6 +62,7 @@ for (const [route, source] of pages) {
     raw = raw.replace('<link rel="stylesheet"', `${fonts}<link rel="stylesheet"`);
   }
   raw = raw.replaceAll(' crossorigin/>', ' crossorigin="anonymous"/>').replaceAll('&family=', '&amp;family=').replaceAll('&display=', '&amp;display=');
+  raw = raw.replace('guide.js?v=15', 'guide.js?v=16').replace('legal.js?v=6', 'legal.js?v=7');
   raw = raw.replace('/site-header.css?v=1', '/site-header.css?v=2');
   raw = raw.replace('locale-routes.js?v=1', 'locale-routes.js?v=2').replace('guide.js?v=14', 'guide.js?v=15').replace('legal.js?v=5', 'legal.js?v=6');
   raw = raw.replace('styles.css?v=19', 'styles.css?v=20').replace('about.css?v=4', 'about.css?v=5').replace('guide.css?v=12', 'guide.css?v=13').replace('legal.css?v=4', 'legal.css?v=5').replace('film.css?v=3', 'film.css?v=4').replace('person.css?v=1', 'person.css?v=2');

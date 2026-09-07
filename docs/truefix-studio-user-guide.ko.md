@@ -33,16 +33,7 @@ TrueFix 공식 Release에서 다운로드한 앱에만 사용하세요. 이 명�
 
 ## 3. Provider 구성
 
-**Provider Centre**에서 ProviderDefinition을 선택하고 ClientInstance를 만듭니다.
-
-```text
-ProviderDefinition
-  -> ClientInstance
-  -> Environment + typed config
-  -> validate and save
-  -> connect
-  -> capability / entitlement / account / mapping evidence
-```
+연결 관리에서 전체 연결 센터 열기를 선택해 Provider Centre로 이동합니다. Add monitoring ClientInstance 양식에 ID, Provider slug, 표시 이름, 시장, 상품 범위와 실제 환경을 입력합니다. 연결 매개변수는 화면의 Connection JSON 입력란에 작성합니다. Historical/Realtime과 필요한 경우 Connect after saving을 선택하고 Save monitoring ClientInstance를 누릅니다. 이 양식은 시세 모니터링용이며 거래 권한을 만들지 않습니다.
 
 한 Provider에는 여러 ClientInstance가 있을 수 있고 한 ClientInstance는 여러 계정을 투영할 수 있습니다. Secret은 쓰기 전용입니다. “연결됨”은 “거래 가능”을 뜻하지 않으므로 capability, entitlement, 계정, 매핑, 환경, TradingRules, 상태 증거도 확인하세요.
 
@@ -95,6 +86,8 @@ Agent는 권한이 제한된 운영 도우미이며 자율 거래 봇이 아닙�
 
 ### 8.1 모델 구성
 
+Desktop의 설정 → AI 양식에서 API Key와 모델 ID를 입력하고 저장합니다. 모델 요청 매개변수 JSON은 화면 입력란의 내용이며 앱이 저장합니다.
+
 1. **설정 → AI → AI trading agents → 추가**를 엽니다.
 2. 표시 이름, Provider(OpenAI / Anthropic / Google / Custom), API Key, 모델 ID를 입력합니다.
 3. 호환 사용자 지정 게이트웨이일 때만 Base URL을 지정합니다.
@@ -134,17 +127,19 @@ Draft → Validate → Historical Replay → Approve → Deploy → Pause / Reti
 
 ## 10. Web Gateway와 ACME
 
+Desktop의 설정 → Web Gateway 화면에서 설정합니다. 아래의 로컬 또는 원격 접속 절차에 따라 필요한 수신 주소, 도메인과 HTTPS 항목을 입력하고 활성화 및 저장 및 적용을 선택합니다. 앱이 설정을 저장하고 적용하며 Desktop Kernel과 Provider 연결은 중단되지 않습니다. DNS 레코드와 방화벽은 DNS 서비스나 네트워크 관리 화면에서 설정합니다.
+
 ### 10.1 로컬 접속
 
-1. **설정 → Web Gateway**에서 접속 비밀번호를 생성해 비밀번호 관리자에 저장합니다. 평문은 한 번만 표시됩니다.
-2. Bind Host를 `127.0.0.1` 또는 `::1`, HTTP로 설정해 활성화합니다. 평문 HTTP는 `0.0.0.0`에 바인딩할 수 없습니다.
+1. 이 화면에서 임의 비밀번호 생성 버튼을 누르고 즉시 복사하거나, 사용자 지정 접근 비밀번호에 12자 이상을 입력한 후 비밀번호 변경을 누릅니다. 두 작업 모두 기존 Web/H5 세션을 폐기합니다. 저장 및 적용은 Gateway 설정만 저장하며 비밀번호는 변경하지 않습니다.
+2. HTTPS 인증서에서 로컬 HTTP를 선택하고 수신 주소에 127.0.0.1 또는 ::1, 서비스 포트를 입력합니다. 활성화를 선택하고 저장 및 적용을 누른 뒤 화면에 표시된 접속 URL을 엽니다.
 3. 표시 URL로 로그인합니다. “로그인 유지”는 거래 권한을 늘리지 않습니다.
 
 ### 10.2 원격 HTTPS
 
 1. `studio.example.com`의 A/AAAA를 Gateway 공인 IP로 지정합니다. 도달하지 않는 AAAA는 제거합니다.
-2. `public_domains`는 DNS 이름만, `public_base_url`은 완전한 `https://` URL을 사용합니다. 와일드카드는 허용되지 않습니다.
-3. 도메인과 일치하는 PEM 또는 Let's Encrypt를 선택합니다. non-loopback은 항상 HTTPS여야 합니다.
+2. **허용 도메인**는 DNS 이름만, **공개 접속 URL**은 완전한 `https://` URL을 사용합니다. 와일드카드는 허용되지 않습니다.
+3. 기존 인증서를 사용하려면 HTTPS 인증서에서 자체 인증서를 선택하고 화면의 인증서 PEM 경로와 개인 키 PEM 경로를 입력합니다. 자동 인증서는 Let’s Encrypt를 선택하고 ACME 이메일과 검증 방식을 설정합니다. DNS-01의 Cloudflare Zone ID와 API Token도 같은 양식에 입력합니다.
 
 | ACME | 공개 조건 | 용도 |
 |---|---|---|
@@ -154,7 +149,13 @@ Draft → Validate → Historical Replay → Approve → Deploy → Pause / Reti
 
 먼저 `https://acme-staging-v02.api.letsencrypt.org/directory`로 연습해 Running/renewal을 확인하고 `https://acme-v02.api.letsencrypt.org/directory`로 전환합니다. Staging 인증서가 신뢰되지 않는 것은 정상입니다. HTTP-01은 `/.well-known/acme-challenge/*`를 유지하고 DNS-01은 대상 Zone의 최소 `DNS:Edit` Token을 사용합니다.
 
-ACME 실패 시에도 공용 HTTP로 강등되지 않습니다. trusted proxy allowlist에는 정확한 프록시 IP만 추가하세요.
+ACME 실패 시에도 공용 HTTP로 강등되지 않습니다. 신뢰할 역방향 프록시 IP에는 정확한 프록시 IP만 추가하세요.
+
+1. 설정 → Web Gateway의 HTTPS 인증서에서 Let’s Encrypt를 선택합니다.
+2. 허용 도메인에 studio.example.com, 공개 접속 URL에 https://studio.example.com을 입력합니다.
+3. ACME Directory 입력란에 https://acme-staging-v02.api.letsencrypt.org/directory를 입력하고 이메일, 검증 방식 및 필수 항목을 설정합니다.
+4. 활성화를 선택하고 저장 및 적용을 눌러 화면의 실행 상태와 인증서 상태를 확인합니다. 브라우저가 Staging 인증서를 신뢰하지 않는 것은 정상입니다.
+5. 확인 후 같은 ACME Directory 입력란을 https://acme-v02.api.letsencrypt.org/directory로 변경하고 다시 저장 및 적용을 누릅니다. 발급자, 도메인과 만료일을 확인합니다.
 
 ## 11. 운영, 로그와 감사
 
@@ -195,6 +196,6 @@ Operations는 언제, 누가, 무엇을, 어느 범위에서 수행했는지 확
 - **제출 시간 초과:** 원래 client order ID로 조회하고 같은 주문을 다시 만들지 마세요.
 - **Agent가 비었거나 전송 불가:** 활성 Agent, API Key, 모델 ID, Base URL, JSON 매개변수를 확인하세요.
 - **Agent 도구 거부:** ToolGrant 범위와 만료를 확인하세요. submit/cancel/replace는 owner 승인이 필요합니다.
-- **원격 Web 접속 불가:** configured/effective 상태, `last_error`, bind host, 포트, A/AAAA, 방화벽, TLS를 확인하세요.
+- **원격 Web 접속 불가:** configured/effective 상태, `last_error`, 수신 주소, 포트, A/AAAA, 방화벽, TLS를 확인하세요.
 - **인증서 신뢰 오류:** production Directory, SAN, 클라이언트 시간, 프록시의 이전 인증서를 확인하세요.
 - **stale/unavailable 표시:** 영향받은 facet, timestamp, 원본 오류를 확인하세요.

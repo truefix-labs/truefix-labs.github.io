@@ -33,16 +33,7 @@ Use this only for an app downloaded from the official TrueFix Release. The comma
 
 ## 3. Configure a provider
 
-Open **Provider Centre**, choose a ProviderDefinition, and create a ClientInstance:
-
-```text
-ProviderDefinition
-  -> ClientInstance
-  -> Environment + typed config
-  -> validate and save
-  -> connect
-  -> capability / entitlement / account / mapping evidence
-```
+In Connection management, choose Open full connection centre to open Provider Centre. Use the Add monitoring ClientInstance form to enter the instance ID, Provider slug, display name, market, product scope, and actual environment. Enter connection parameters in the on-screen Connection JSON field. Select Historical/Realtime, optionally select Connect after saving, then click Save monitoring ClientInstance. This form sets up market monitoring; it does not grant trading permission.
 
 One provider may have multiple ClientInstances, and one ClientInstance may project multiple accounts. Secrets are write-only. “Connected” does not mean “tradable”; also verify capability, entitlement, account, mapping, environment, TradingRules, and health evidence.
 
@@ -95,13 +86,15 @@ Agent is a constrained operating assistant, not an autonomous trader with accoun
 
 ### 8.1 Configure a model
 
+Enter the API Key and model ID in the Desktop Settings → AI form and save. JSON model request parameters belong in the on-screen input field; the app saves them.
+
 1. Open **Settings → AI → AI trading agents → Add**.
 2. Enter a display name, Provider (OpenAI / Anthropic / Google / Custom), API Key, and model ID.
 3. Set Base URL only for a compatible custom gateway.
 4. Model request parameters must be a JSON object, such as `{"enable_thinking": false}`; use `{}` when none are needed.
 5. Enable and save. When editing an existing Agent, leave API Key blank to retain the stored key.
 
-Enter API keys only in local Desktop settings. Never place them in a conversation, Web URL, screenshot, or ticket. Raw Provider/model credentials are not sent to the browser.
+Enter API keys in the Desktop Settings → AI form. Never place them in a conversation, Web URL, screenshot, or ticket. Raw Provider/model credentials are not sent to the browser.
 
 ### 8.2 Complete a safe session
 
@@ -136,19 +129,19 @@ Draft → Validate → Historical Replay → Approve → Deploy → Pause / Reti
 
 ## 10. Web Gateway and ACME
 
-Web Gateway is an optional entry point in the Desktop process. Starting, stopping, or reconfiguring it does not stop the Desktop kernel or Provider connections.
+Open Desktop Settings → Web Gateway and use the on-screen form. Fill in the listening, domain, and HTTPS fields needed for the local or remote access method below; enable the Gateway and click Save and apply. The app saves and applies the settings without stopping the Desktop kernel or Provider connections. Configure DNS records and firewall rules in your DNS provider or network management interface.
 
 ### 10.1 Prove local access first
 
-1. Open **Settings → Web Gateway**, generate a random access password, and immediately store it in a password manager. Plaintext appears once; the app stores an Argon2 verifier.
-2. Use `127.0.0.1` or `::1` for Bind Host, select HTTP, and enable. Plain HTTP cannot bind to `0.0.0.0`.
+1. Click Generate random password on this page and copy it immediately, or enter at least 12 characters in the custom access password field and click Change access password. Either action revokes existing Web/H5 sessions. Save and apply saves Gateway settings without changing the password.
+2. Choose Local HTTP under HTTPS certificate, set Listen address to 127.0.0.1 or ::1, enter the service port, enable the Gateway, and click Save and apply. Then open the access URL shown on the page.
 3. Open the displayed URL and sign in. “Keep me signed in” extends identity lifetime only; it adds no trading authority.
 
 ### 10.2 Configure remote HTTPS
 
 1. Point the A/AAAA records for `studio.example.com` to the Gateway's public address. Remove an incorrect AAAA if IPv6 cannot reach the service.
-2. `public_domains` contains DNS names only—no scheme, port, or path. `public_base_url` is the complete final `https://` URL. Wildcard hosts are not accepted.
-3. Use a domain-matching PEM pair or managed Let's Encrypt. All non-loopback access requires HTTPS.
+2. **Allowed domains** contains DNS names only—no scheme, port, or path. **Public access URL** is the complete final `https://` URL. Wildcard hosts are not accepted.
+3. For an existing certificate, choose Own certificate under HTTPS certificate and fill in the certificate PEM path and private key PEM path fields. For automatic certificates, choose Let’s Encrypt, enter an ACME email, and select HTTP-01, TLS-ALPN-01, or DNS-01 in the ACME validation method field. Enter the Cloudflare Zone ID and API Token for DNS-01 in this same form.
 
 | ACME method | Public requirement | Best fit |
 |---|---|---|
@@ -158,14 +151,13 @@ Web Gateway is an optional entry point in the Desktop process. Starting, stoppin
 
 Rehearse with staging before production:
 
-```text
-https://acme-staging-v02.api.letsencrypt.org/directory
-  → Apply → healthy Running/renewal → browser test
-https://acme-v02.api.letsencrypt.org/directory
-  → Apply again → verify issuer, SAN, and expiry
-```
+1. Open Settings → Web Gateway and choose Let’s Encrypt under HTTPS certificate.
+2. Enter studio.example.com in Allowed domains and https://studio.example.com in Public access URL.
+3. Enter https://acme-staging-v02.api.letsencrypt.org/directory in ACME Directory, then fill in the ACME email, validation method, and its required fields.
+4. Enable the Gateway, click Save and apply, and check the runtime and certificate status on the page. Staging certificates are for testing and are intentionally untrusted by browsers.
+5. After testing, change the same ACME Directory field to https://acme-v02.api.letsencrypt.org/directory and click Save and apply again. Check the issuer, domain names, and expiry.
 
-A staging certificate is deliberately untrusted. HTTP-01 must preserve `/.well-known/acme-challenge/*`. DNS-01 should use a least-privilege `DNS:Edit` Token for the target Zone, never a Global API Key. Add only the reverse proxy's exact IP to the trusted proxy allowlist.
+A staging certificate is deliberately untrusted. HTTP-01 must preserve `/.well-known/acme-challenge/*`. DNS-01 should use a least-privilege `DNS:Edit` Token for the target Zone, never a Global API Key. Add only the reverse proxy's exact IP to the Trusted reverse proxy IPs.
 
 ACME failure never downgrades to public plaintext HTTP. Renewal keeps the last valid certificate until the safety window, then remote HTTPS stops. Fix DNS, ports, or Directory and apply again.
 
@@ -209,6 +201,6 @@ The browser is not the authority for instruments, accounts, orders, market data,
 - **Submit timed out:** query with the original client order ID; do not create the same order again.
 - **Agent is empty or cannot send:** confirm a saved Agent is enabled and its API Key, model ID, Base URL, and request parameters are valid.
 - **Agent tool denied:** check ToolGrant scope, account/instrument, and expiry; submit/cancel/replace require owner approval.
-- **Remote Web does not open:** read configured/effective state and `last_error`, then check bind host, ports, A/AAAA, firewall, and TLS; inspect 80, 443, or DNS TXT for the selected challenge.
+- **Remote Web does not open:** read configured/effective state and `last_error`, then check Listen address, ports, A/AAAA, firewall, and TLS; inspect 80, 443, or DNS TXT for the selected challenge.
 - **Certificate is untrusted:** confirm production—not staging—Directory, host SAN, client time, and that a proxy is not serving an old certificate.
 - **Page shows stale/unavailable:** inspect the affected facet, timestamp, and original error. Last-good data is not necessarily fresh.

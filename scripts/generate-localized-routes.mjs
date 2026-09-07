@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const origin = 'https://truefix-labs.com';
 // Record content updates per route, rather than changing every URL on each build.
-const pageLastModified = { '': '2026-09-07T06:46:01Z' };
+const pageLastModified = { '': '2026-09-07T07:18:08Z' };
 const previousLastModified = '2026-09-07';
 const analytics = `<!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP0Q5CLKGK"></script>
@@ -65,6 +65,7 @@ for (const [route, source] of pages) {
     raw = raw.replace('<link rel="stylesheet"', `${fonts}<link rel="stylesheet"`);
   }
   raw = raw.replaceAll(' crossorigin/>', ' crossorigin="anonymous"/>').replaceAll('&family=', '&amp;family=').replaceAll('&display=', '&amp;display=');
+  raw = raw.replace('styles.css?v=23', 'styles.css?v=24').replace('script.js?v=21', 'script.js?v=22');
   raw = raw.replace('styles.css?v=22', 'styles.css?v=23').replace('script.js?v=20', 'script.js?v=21');
   raw = raw.replace('styles.css?v=21', 'styles.css?v=22').replace('script.js?v=19', 'script.js?v=20');
   raw = raw.replace('styles.css?v=20', 'styles.css?v=21').replace('script.js?v=18', 'script.js?v=19');

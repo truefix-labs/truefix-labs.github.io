@@ -14,18 +14,18 @@ test('demo advances through approval before simulation and supports pause and ma
     await expect(page.locator('[data-demo-scene]:visible')).toHaveCount(1);
   }
   await page.clock.runFor(5500);
-  await expect(page.locator('[data-desk-profit]')).not.toHaveText('+$0.00');
-  await page.screenshot({ path: testInfo.outputPath('desk-running-desktop.png'), animations: 'disabled' });
+  await expect(page.locator('[data-art-return]')).not.toHaveText('+0.00%');
+  await page.screenshot({ path: testInfo.outputPath('abstract-running-desktop.png'), animations: 'disabled' });
   await page.locator('.demo-toggle').click();
-  const profit = await page.locator('[data-desk-profit]').textContent();
+  const profit = await page.locator('[data-art-return]').textContent();
   await page.clock.fastForward(6000);
-  await expect(page.locator('[data-desk-profit]')).toHaveText(profit);
+  await expect(page.locator('[data-art-return]')).toHaveText(profit);
   await expect(page.locator('[data-demo-scene="4"]')).toBeVisible();
   await expect(demo).toHaveAttribute('data-playing', 'false');
   await page.locator('[data-demo-step="3"]').click();
   await expect(page.locator('[data-demo-scene="3"]')).toBeVisible();
   await page.locator('.demo-toggle').click();
-  await page.clock.fastForward(4100);
+  await page.clock.fastForward(500);
   await expect(page.locator('[data-demo-scene="4"]')).toBeVisible();
   await page.locator('.actual-screens summary').click();
   await expect(demo).toHaveAttribute('data-playing', 'false');

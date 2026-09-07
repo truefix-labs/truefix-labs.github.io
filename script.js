@@ -728,7 +728,19 @@ const workflowCopy = {
     "demo.identity": "MA-001 · 同一策略，完整流程",
     "demo.equity": "示例收益",
     "demo.capital": "模拟本金 $10,000",
-    "demo.equityNote": "虚构数据，仅演示收益变化，不代表实际或预期回报。"
+    "demo.equityNote": "虚构数据，仅演示收益变化，不代表实际或预期回报。",
+    "art.label": "从想法，到策略运行",
+    "art.title0": "把你的交易想法交给 AI",
+    "art.body0": "分散的市场信号汇聚，你的交易规则成为起点。",
+    "art.title1": "让 AI 把规则变成策略",
+    "art.body1": "从条件到约束，一份可测试的策略逐渐成形。",
+    "art.title2": "先验证，再向前",
+    "art.body2": "用历史回测与回放，检查策略的行为和风险。",
+    "art.title3": "下一步，由你批准",
+    "art.body3": "审核策略与部署方案，确认后才启动运行。",
+    "art.title4": "让策略运行，看结果变化",
+    "art.body4": "模拟执行持续推进，观察收益变化与回撤。",
+    "art.note": "概念动画 · 收益为虚构示例，不代表实际或预期回报。"
   },
   "en": {
     "hero.eyebrow": "TRUEFIX STUDIO · RESEARCH & TRADING",
@@ -854,7 +866,19 @@ const workflowCopy = {
     "demo.identity": "MA-001 · One strategy, end to end",
     "demo.equity": "Illustrative P&L",
     "demo.capital": "Sample capital $10,000",
-    "demo.equityNote": "Fictional data illustrating P&L changes, not actual or expected returns."
+    "demo.equityNote": "Fictional data illustrating P&L changes, not actual or expected returns.",
+    "art.label": "From an idea to a running strategy",
+    "art.title0": "Start with your trading idea",
+    "art.body0": "Market signals converge. Your trading rules set the direction.",
+    "art.title1": "AI gives your rules a structure",
+    "art.body1": "Conditions and constraints become a strategy you can test.",
+    "art.title2": "Test before moving forward",
+    "art.body2": "Use historical backtests and replay to check behavior and risk.",
+    "art.title3": "The next step needs your approval",
+    "art.body3": "Review the strategy and deployment proposal before activation.",
+    "art.title4": "Put the strategy in motion",
+    "art.body4": "Follow simulated execution, changing returns, and drawdowns.",
+    "art.note": "Concept animation · Returns are fictional, not actual or expected performance."
   },
   "ja": {
     "hero.eyebrow": "TRUEFIX STUDIO · 調査と取引のワークスペース",
@@ -980,7 +1004,19 @@ const workflowCopy = {
     "demo.identity": "MA-001 · 一つの戦略を最後まで",
     "demo.equity": "損益の例",
     "demo.capital": "模擬元本 $10,000",
-    "demo.equityNote": "架空データによる損益の例です。実績や期待リターンではありません。"
+    "demo.equityNote": "架空データによる損益の例です。実績や期待リターンではありません。",
+    "art.label": "アイデアから戦略の稼働へ",
+    "art.title0": "取引のアイデアをAIに伝える",
+    "art.body0": "市場のシグナルが集まり、あなたのルールが出発点になる。",
+    "art.title1": "AIがルールを戦略にする",
+    "art.body1": "条件と制約から、検証できる戦略が形になる。",
+    "art.title2": "先に検証してから進む",
+    "art.body2": "過去データのテストとリプレイで、動作とリスクを確認。",
+    "art.title3": "次の一歩は、あなたの承認で",
+    "art.body3": "戦略とデプロイ計画を審査し、確認後に起動する。",
+    "art.title4": "戦略を動かし、変化を見る",
+    "art.body4": "模擬執行を追い、損益の変化とドローダウンを観察。",
+    "art.note": "概念アニメーション · 損益は架空の例で、実績や期待リターンではありません。"
   },
   "ko": {
     "hero.eyebrow": "TRUEFIX STUDIO · 리서치와 거래 워크스페이스",
@@ -1106,7 +1142,19 @@ const workflowCopy = {
     "demo.identity": "MA-001 · 하나의 전략, 전체 과정",
     "demo.equity": "예시 손익",
     "demo.capital": "모의 원금 $10,000",
-    "demo.equityNote": "손익 변화를 보여주는 가상 데이터이며 실제 또는 예상 수익이 아닙니다."
+    "demo.equityNote": "손익 변화를 보여주는 가상 데이터이며 실제 또는 예상 수익이 아닙니다.",
+    "art.label": "아이디어에서 전략 실행까지",
+    "art.title0": "거래 아이디어를 AI에 전달",
+    "art.body0": "시장 신호가 모이고, 거래 규칙이 출발점이 됩니다.",
+    "art.title1": "AI가 규칙을 전략으로 구성",
+    "art.body1": "조건과 제약이 모여 테스트할 전략이 됩니다.",
+    "art.title2": "먼저 검증하고 다음으로",
+    "art.body2": "과거 데이터 테스트와 리플레이로 동작과 위험을 확인합니다.",
+    "art.title3": "다음 단계는 사용자의 승인",
+    "art.body3": "전략과 배포 계획을 검토한 뒤 실행을 승인합니다.",
+    "art.title4": "전략을 실행하고 변화 관찰",
+    "art.body4": "모의 실행을 따라 손익 변화와 낙폭을 관찰합니다.",
+    "art.note": "컨셉 애니메이션 · 수익은 가상 예시이며 실제 또는 예상 성과가 아닙니다."
   }
 };
 Object.entries(workflowCopy).forEach(([locale, values]) => Object.assign(translations[locale], values));

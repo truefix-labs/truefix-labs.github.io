@@ -666,3 +666,15 @@ body { transition: opacity .24s ease; }
   .art-market-commodities { right: 3%; top: auto; bottom: 58px; }
   .art-result { right: 18px; bottom: 7px; }
 }
+/* The homepage links to the dedicated watch page instead of embedding a video. */
+.film-watch-link { position: relative; display: block; aspect-ratio: 16 / 9; background: #05070a; overflow: hidden; }
+.film-watch-link img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.film-watch-link::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 45%, #03070cbb); }
+.film-play-icon { position: absolute; z-index: 1; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 64px; height: 64px; border: 1px solid #b4dcfa; border-radius: 50%; background: #0d1d2bdd; color: #d8efff; font-size: 23px; padding-left: 4px; transition: background .2s; }
+.film-watch-label { position: absolute; z-index: 1; left: 20px; bottom: 18px; color: #e3f2fc; font-size: 14px; }
+.film-watch-link:hover .film-play-icon { background: #235c83; }
+.film-watch-link:focus-visible { outline: 3px solid #8ecbfa; outline-offset: -3px; }
+@media (max-width: 600px) {
+  .film-play-icon { width: 48px; height: 48px; font-size: 18px; }
+  .film-watch-label { left: 12px; bottom: 10px; font-size: 12px; }
+}

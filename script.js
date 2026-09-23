@@ -89,7 +89,7 @@ const translations = {
     'about.people': 'Meet the people', 'about.guide': 'Read the user guide', 'about.privacy': 'Privacy policy', 'about.support': 'Technical support',
     'closing.title': 'See the workflow<br /><i>before connecting an account.</i>',
     'closing.lede': 'The guide explains installation, Provider setup, Agent permissions, simulation, execution review, and what to check before using real credentials.',
-    'closing.github': 'Open the user guide', 'closing.feedback': 'Feedback & discussions', 'footer.about': 'About us', 'footer.privacy': 'Privacy', 'footer.support': 'Technical support', 'footer.feedback': 'Feedback & discussions', 'footer.tagline': 'Local research and controlled trading workspace.', 'footer.status': 'Pre-release software',
+    'closing.github': 'Open the user guide', 'closing.feedback': 'Feedback & discussions', 'closing.support': 'Support the project', 'footer.about': 'About us', 'footer.privacy': 'Privacy', 'footer.support': 'Technical support', 'footer.feedback': 'Feedback & discussions', 'footer.tagline': 'Local research and controlled trading workspace.', 'footer.status': 'Pre-release software',
     'alt.workstationDetail': 'TrueFix Studio dark trading workstation showing a BTC/USDT chart, market depth, positions, and order ticket',
     'alt.workstation': 'TrueFix Studio trading workstation', 'alt.intelligence': 'TrueFix Studio intelligence interface', 'alt.quant': 'TrueFix Studio AI and quant interface'
   },
@@ -179,7 +179,7 @@ const translations = {
     'about.people': '了解项目人物', 'about.guide': '阅读使用指南', 'about.privacy': '隐私政策', 'about.support': '技术支持',
     'closing.title': '连接账户前，<br /><i>先看清整个流程。</i>',
     'closing.lede': '指南介绍安装、Provider 配置、Agent 权限、模拟测试、执行审查，以及使用真实凭据前应该检查的事项。',
-    'closing.github': '打开使用指南', 'closing.feedback': '反馈与交流', 'footer.about': '关于我们', 'footer.privacy': '隐私政策', 'footer.support': '技术支持', 'footer.feedback': '反馈与交流', 'footer.tagline': '本地研究与受控交易工作空间。', 'footer.status': '首版发布前软件',
+    'closing.github': '打开使用指南', 'closing.feedback': '反馈与交流', 'closing.support': '支持项目', 'footer.about': '关于我们', 'footer.privacy': '隐私政策', 'footer.support': '技术支持', 'footer.feedback': '反馈与交流', 'footer.tagline': '本地研究与受控交易工作空间。', 'footer.status': '首版发布前软件',
     'alt.workstationDetail': 'TrueFix Studio 深色交易工作站界面，展示 BTC/USDT K 线、行情深度、持仓与下单面板',
     'alt.workstation': 'TrueFix Studio 交易工作站', 'alt.intelligence': 'TrueFix Studio 智能分析界面', 'alt.quant': 'TrueFix Studio AI 与量化界面'
   },
@@ -266,7 +266,7 @@ const translations = {
     'about.people': '프로젝트 인물 보기', 'about.guide': '사용 가이드 읽기', 'about.privacy': '개인정보 처리방침', 'about.support': '기술 지원',
     'closing.title': '계정을 연결하기 전에<br /><i>작업 흐름을 확인하세요.</i>',
     'closing.lede': '가이드에서 설치, Provider 설정, Agent 권한, 시뮬레이션, 실행 검토와 실제 자격 증명 사용 전 확인 사항을 설명합니다.',
-    'closing.github': '사용 가이드 열기', 'closing.feedback': '피드백 및 토론', 'footer.about': '소개', 'footer.privacy': '개인정보', 'footer.support': '기술 지원', 'footer.feedback': '피드백 및 토론', 'footer.tagline': '로컬 리서치와 통제된 거래 작업 공간.', 'footer.status': '출시 전 소프트웨어',
+    'closing.github': '사용 가이드 열기', 'closing.feedback': '피드백 및 토론', 'closing.support': '프로젝트 후원', 'footer.about': '소개', 'footer.privacy': '개인정보', 'footer.support': '기술 지원', 'footer.feedback': '피드백 및 토론', 'footer.tagline': '로컬 리서치와 통제된 거래 작업 공간.', 'footer.status': '출시 전 소프트웨어',
     'alt.workstationDetail': 'BTC/USDT 차트, 시장 깊이, 포지션, 주문 패널을 보여 주는 TrueFix Studio 다크 트레이딩 워크스테이션',
     'alt.workstation': 'TrueFix Studio 트레이딩 워크스테이션', 'alt.intelligence': 'TrueFix Studio 인텔리전스 인터페이스', 'alt.quant': 'TrueFix Studio AI 및 퀀트 인터페이스'
   },
@@ -353,7 +353,7 @@ const translations = {
     'about.people': 'プロジェクトの人物を見る', 'about.guide': '利用ガイドを読む', 'about.privacy': 'プライバシーポリシー', 'about.support': 'テクニカルサポート',
     'closing.title': '口座を接続する前に<br /><i>作業の流れを確認。</i>',
     'closing.lede': 'ガイドでは、インストール、Provider設定、Agent権限、シミュレーション、執行確認、実際の認証情報を使う前の確認事項を説明します。',
-    'closing.github': '利用ガイドを開く', 'closing.feedback': 'フィードバックと交流', 'footer.about': '私たちについて', 'footer.privacy': 'プライバシー', 'footer.support': 'テクニカルサポート', 'footer.feedback': 'フィードバックと交流', 'footer.tagline': 'ローカルリサーチと管理された取引ワークスペース。', 'footer.status': 'リリース前ソフトウェア',
+    'closing.github': '利用ガイドを開く', 'closing.feedback': 'フィードバックと交流', 'closing.support': 'プロジェクトを支援', 'footer.about': '私たちについて', 'footer.privacy': 'プライバシー', 'footer.support': 'テクニカルサポート', 'footer.feedback': 'フィードバックと交流', 'footer.tagline': 'ローカルリサーチと管理された取引ワークスペース。', 'footer.status': 'リリース前ソフトウェア',
     'alt.workstationDetail': 'BTC/USDTチャート、板情報、ポジション、注文パネルを表示するTrueFix Studioのダーク取引ワークステーション',
     'alt.workstation': 'TrueFix Studio 取引ワークステーション', 'alt.intelligence': 'TrueFix Studio インテリジェンス画面', 'alt.quant': 'TrueFix Studio AI・クオンツ画面'
   }

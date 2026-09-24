@@ -1475,6 +1475,14 @@ if (heroVisual && !prefersReducedMotion && window.matchMedia('(pointer: fine)').
 
 // Explore actual product views without simulating account data or trading actions.
 const previewTabs = [...document.querySelectorAll('[data-preview-tab]')];
+const workflowJump = document.querySelector('[data-workflow-jump]');
+const actualScreens = document.querySelector('.actual-screens');
+workflowJump?.addEventListener('click', (event) => {
+  if (!actualScreens) return;
+  event.preventDefault();
+  actualScreens.open = true;
+  actualScreens.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
 function showPreview(tab, focus = false) {
   previewTabs.forEach(item => {
     const selected = item === tab;

@@ -748,7 +748,7 @@ const workflowCopy = {
     "art.market.us": "新闻与信号",
     "art.market.crypto": "策略规则",
     "art.market.metals": "风控闸门",
-    "art.market.commodities": "注文と通知",
+    "art.market.commodities": "订单与通知",
     "art.market.metals.detail": "限制 · 权限",
     "art.market.commodities.detail": "执行 · 回执"
   },

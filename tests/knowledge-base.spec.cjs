@@ -125,3 +125,13 @@ test('translated Research articles switch without a 404', async ({ page }) => {
   await page.waitForURL(/\/zh-cn\/research\/building-a-multi-broker-trading-system-in-rust\/$/);
   await expect(page.locator('h1')).toContainText('用 Rust 构建多券商交易系统');
 });
+
+test('Japanese and Korean Research article routes are generated', async () => {
+  for (const [locale, heading] of [['ja', 'Rust でマルチブローカー取引システムを構築する'], ['ko', 'Rust로 멀티 브로커 트레이딩 시스템 구축하기']]) {
+    const route = `${locale}/research/building-a-multi-broker-trading-system-in-rust`;
+    const html = fs.readFileSync(path.join(route, 'index.html'), 'utf8');
+    expect(html, route).toContain(`<html lang="${locale}">`);
+    expect(html, route).toContain(`<h1>${heading}</h1>`);
+    expect(html, route).toContain('hreflang="en"');
+  }
+});

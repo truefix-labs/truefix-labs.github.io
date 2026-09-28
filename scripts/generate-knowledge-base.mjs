@@ -233,6 +233,16 @@ const allRoutes = new Set([
   'zh-cn/research/rust-trading-system-guide',
   'zh-cn/research/multi-broker-trading-guide',
   'zh-cn/research/ai-trading-agent-guide',
+  'ja/research/building-a-multi-broker-trading-system-in-rust',
+  'ja/research/instrument-domain-model',
+  'ja/research/rust-trading-system-guide',
+  'ja/research/multi-broker-trading-guide',
+  'ja/research/ai-trading-agent-guide',
+  'ko/research/building-a-multi-broker-trading-system-in-rust',
+  'ko/research/instrument-domain-model',
+  'ko/research/rust-trading-system-guide',
+  'ko/research/multi-broker-trading-guide',
+  'ko/research/ai-trading-agent-guide',
   ...pillarData.map(([route]) => `zh-cn/${route}`),
   'research/studio-indicators',
   'zh-cn/research/studio-indicators',
@@ -366,14 +376,32 @@ const zhSectionNames = {
   'Explore this knowledge base': '浏览知识库', 'Evidence policy': '证据政策'
 };
 
-function localizedResearchArticlePage(item) {
-  const copy = zhResearchCopy[item.route];
+const jaResearchCopy = {
+  'research/building-a-multi-broker-trading-system-in-rust': ['Rust でマルチブローカー取引システムを構築する', 'Provider アダプター、正規化された金融商品、注文ライフサイクル、照合、リスク、決定的な執行を扱う実運用向けガイド。', 'マルチブローカーシステムでは Provider API をアダプターの背後に分離し、統一された金融商品、マーケットデータ、注文、ポジション、能力モデルを提供します。'],
+  'research/instrument-domain-model': ['取引システムの金融商品ドメインモデル設計', '株式、債券、ETF、FX、デリバティブ、パーペチュアル、指数、複数市場の商品を直交する概念でモデル化します。', '本番の取引システムでは継承ツリーではなく、識別子、経済属性、契約条件、上場、Provider 対応、ライフサイクルを分けて管理します。'],
+  'research/rust-trading-system-guide': ['Rust 取引システムエンジニアリングガイド', 'Rust アダプター、正規化された金融商品、OMS、リスク、執行、照合をつなぐガイド。', 'Rust の取引システムでは Provider I/O、ドメインモデル、OMS、リスク判断、執行カーネルを明確に分離し、切断や重複イベントから復旧できるようにします。'],
+  'research/multi-broker-trading-guide': ['マルチブローカー取引アーキテクチャガイド', 'API 差異、Provider 能力、金融商品マッピング、注文ライフサイクル、照合を整理します。', 'マルチブローカー設計の中心は能力範囲、正規化された金融商品 ID、Provider のネイティブ ID、復旧可能な注文ステートマシンです。'],
+  'research/ai-trading-agent-guide': ['AI 取引エージェントエンジニアリングガイド', '安全な AI 取引エージェント、ツール権限、リスク、承認、監査可能な執行の技術マップ。', '安全な AI 取引エージェントは境界付きのワークフローです。観測、調査、推論、リスク、承認、執行、照合、監査を分離します。']
+};
+const koResearchCopy = {
+  'research/building-a-multi-broker-trading-system-in-rust': ['Rust로 멀티 브로커 트레이딩 시스템 구축하기', 'Provider 어댑터, 표준 금융 상품, 주문 수명 주기, 조정, 리스크와 결정적 실행을 다루는 운영 중심 가이드입니다.', '멀티 브로커 시스템은 Provider API를 어댑터 뒤에 격리하고 표준 금융 상품, 시장 데이터, 주문, 포지션과 기능 모델을 제공해야 합니다.'],
+  'research/instrument-domain-model': ['트레이딩 시스템 금융 상품 도메인 모델 설계', '주식, 채권, ETF, FX, 파생상품, 무기한 계약, 지수와 여러 시장 상품을 직교 개념으로 모델링합니다.', '운영 환경의 트레이딩 시스템은 상속 트리 대신 식별자, 경제 속성, 계약 조건, 상장, Provider 매핑과 수명 주기를 분리해 모델링해야 합니다.'],
+  'research/rust-trading-system-guide': ['Rust 트레이딩 시스템 엔지니어링 가이드', 'Rust 어댑터, 표준 금융 상품, OMS, 리스크, 실행과 조정을 연결하는 가이드입니다.', 'Rust 트레이딩 시스템은 Provider I/O, 도메인 모델, OMS, 리스크 결정과 실행 커널을 분리하고 연결 끊김과 중복 이벤트에서 복구할 수 있어야 합니다.'],
+  'research/multi-broker-trading-guide': ['멀티 브로커 트레이딩 아키텍처 가이드', 'API 차이, Provider 기능, 금융 상품 매핑, 주문 수명 주기와 조정을 정리합니다.', '멀티 브로커 설계의 핵심은 기능 범위, 표준 금융 상품 ID, Provider 네이티브 ID와 복구 가능한 주문 상태 머신입니다.'],
+  'research/ai-trading-agent-guide': ['AI 트레이딩 에이전트 엔지니어링 가이드', '안전한 AI 트레이딩 에이전트, 도구 권한, 리스크, 승인과 감사 가능한 실행을 다루는 기술 지도입니다.', '안전한 AI 트레이딩 에이전트는 경계가 있는 워크플로입니다. 관찰, 조사, 추론, 리스크, 승인, 실행, 조정과 감사를 분리합니다.']
+};
+const localizedResearchSets = { 'zh-cn': [zhResearchCopy, zhSectionNames, '简要回答。', '最后更新：', 'zh-CN'], ja: [jaResearchCopy, {}, '要約。', '最終更新：', 'ja'], ko: [koResearchCopy, {}, '요약.', '최종 업데이트: ', 'ko'] };
+
+function localizedResearchArticlePage(item, localeKey = 'zh-cn') {
+  const [copySet, sectionNames, answerLabel, updatedLabel, lang] = localizedResearchSets[localeKey];
+  const copy = copySet[item.route];
   if (!copy) return articlePage(item);
-  const route = `zh-cn/${item.route}`;
-  const sections = item.sections.map(([heading, html]) => `<section><h2>${esc(zhSectionNames[heading] || heading)}</h2>${html}</section>`).join('');
-  const body = `${breadcrumb(route, copy[0])}<article class="kb-article"><p class="kb-eyebrow">${esc(item.category)} · TRUEFIX LABS</p><h1>${esc(copy[0])}</h1><p class="kb-dek">${esc(copy[1])}</p><p class="kb-answer"><strong>简要回答。</strong> ${esc(copy[2])}</p>${sections}${sourcesHtml(articleSources[item.route] || [['TrueFix Labs project repository', 'https://github.com/truefix-labs/truefix-studio']])}${relatedHtml(item.related)}<p class="kb-updated">最后更新：${updated}</p></article>`;
-  const alternates = [['en', `${origin}/${item.route}/`], ['zh-CN', `${origin}/${route}/`]];
-  return shell({ title: `${copy[0]} | TrueFix Labs`, description: copy[1], route, type: 'TechArticle', body, locale: 'zh-CN', alternates });
+  const route = `${localeKey}/${item.route}`;
+  const sections = item.sections.map(([heading, html]) => `<section><h2>${esc(sectionNames[heading] || heading)}</h2>${html}</section>`).join('');
+  const body = `${breadcrumb(route, copy[0])}<article class="kb-article"><p class="kb-eyebrow">${esc(item.category)} · TRUEFIX LABS</p><h1>${esc(copy[0])}</h1><p class="kb-dek">${esc(copy[1])}</p><p class="kb-answer"><strong>${answerLabel}</strong> ${esc(copy[2])}</p>${sections}${sourcesHtml(articleSources[item.route] || [['TrueFix Labs project repository', 'https://github.com/truefix-labs/truefix-studio']])}${relatedHtml(item.related)}<p class="kb-updated">${updatedLabel}${updated}</p></article>`;
+  const langCode = localeKey === 'zh-cn' ? 'zh-CN' : localeKey;
+  const alternates = [['en', `${origin}/${item.route}/`], [langCode, `${origin}/${route}/`]];
+  return shell({ title: `${copy[0]} | TrueFix Labs`, description: copy[1], route, type: 'TechArticle', body, locale: lang, alternates });
 }
 
 const zhPillarCopy = {
@@ -382,13 +410,27 @@ const zhPillarCopy = {
   'research/ai-trading-agent-guide': ['AI 交易代理工程指南', '关于安全 AI 交易代理、工具权限、风控、人工审批和可审计执行的技术地图。']
 };
 
-function localizedPillarPage([route, title, description, related]) {
-  const copy = zhPillarCopy[route];
-  const localizedRoute = `zh-cn/${route}`;
-  const cards = related.map(item => [item.startsWith('research/') ? `zh-cn/${item}` : item, item.split('/').pop().replaceAll('-', ' '), '相关交易工程主题。']);
-  const body = `${breadcrumb(localizedRoute, copy[0])}<div class="kb-hero"><p class="kb-eyebrow">TRUEFIX LABS · TRADING ENGINEERING</p><h1>${esc(copy[0])}</h1><p class="kb-dek">${esc(copy[1])}</p><p class="kb-answer">这份指南把交易系统中最容易产生状态漂移、重复订单和权限越界的工程边界连接起来，并保留 Provider 原生证据。</p></div><section class="kb-card-grid"><h2>指南主题</h2><div class="kb-cards">${cards.map(([href, cardTitle, cardDescription]) => `<a class="kb-card" href="${link(href)}"><span>Research</span><h3>${esc(cardTitle)}</h3><p>${esc(cardDescription)}</p></a>`).join('')}</div></section>${sourcesHtml([['TrueFix Labs GitHub organization', 'https://github.com/truefix-labs'], ['TrueFix Studio repository', 'https://github.com/truefix-labs/truefix-studio']])}`;
-  const alternates = [['en', `${origin}/${route}/`], ['zh-CN', `${origin}/${localizedRoute}/`]];
-  return shell({ title: `${copy[0]} | TrueFix Labs`, description: copy[1], route: localizedRoute, body, locale: 'zh-CN', alternates });
+const jaPillarCopy = {
+  'research/rust-trading-system-guide': ['Rust 取引システムエンジニアリングガイド', 'Rust アダプター、正規化された金融商品、OMS、リスク、執行、照合をつなぐガイド。'],
+  'research/multi-broker-trading-guide': ['マルチブローカー取引アーキテクチャガイド', 'API 差異、Provider 能力、金融商品マッピング、注文ライフサイクル、照合を整理します。'],
+  'research/ai-trading-agent-guide': ['AI 取引エージェントエンジニアリングガイド', '安全な AI エージェント、ツール権限、リスク、承認、監査可能な執行を扱います。']
+};
+const koPillarCopy = {
+  'research/rust-trading-system-guide': ['Rust 트레이딩 시스템 엔지니어링 가이드', 'Rust 어댑터, 표준 금융 상품, OMS, 리스크, 실행과 조정을 연결하는 가이드입니다.'],
+  'research/multi-broker-trading-guide': ['멀티 브로커 트레이딩 아키텍처 가이드', 'API 차이, Provider 기능, 금융 상품 매핑, 주문 수명 주기와 조정을 정리합니다.'],
+  'research/ai-trading-agent-guide': ['AI 트레이딩 에이전트 엔지니어링 가이드', '안전한 AI 에이전트, 도구 권한, 리스크, 승인과 감사 가능한 실행을 다룹니다.']
+};
+
+function localizedPillarPage([route, title, description, related], localeKey = 'zh-cn') {
+  const copy = (localeKey === 'zh-cn' ? zhPillarCopy : localeKey === 'ja' ? jaPillarCopy : koPillarCopy)[route];
+  const localizedRoute = `${localeKey}/${route}`;
+  const lang = localeKey === 'zh-cn' ? 'zh-CN' : localeKey;
+  const cards = related.map(item => [item.startsWith('research/') ? `${localeKey}/${item}` : item, item.split('/').pop().replaceAll('-', ' '), localeKey === 'ja' ? '関連する取引エンジニアリングテーマ。' : localeKey === 'ko' ? '관련 트레이딩 엔지니어링 주제입니다.' : '相关交易工程主题。']);
+  const labels = localeKey === 'ja' ? ['ガイドのテーマ', 'このガイドは、状態のずれ、重複注文、権限逸脱が起きやすい境界をつなぎ、Provider のネイティブな証拠を保持します。'] : localeKey === 'ko' ? ['가이드 주제', '이 가이드는 상태 불일치, 중복 주문과 권한 초과가 발생하기 쉬운 경계를 연결하고 Provider 네이티브 증거를 보존합니다.'] : ['指南主题', '这份指南把交易系统中最容易产生状态漂移、重复订单和权限越界的工程边界连接起来，并保留 Provider 原生证据。'];
+  const body = `${breadcrumb(localizedRoute, copy[0])}<div class="kb-hero"><p class="kb-eyebrow">TRUEFIX LABS · TRADING ENGINEERING</p><h1>${esc(copy[0])}</h1><p class="kb-dek">${esc(copy[1])}</p><p class="kb-answer">${esc(labels[1])}</p></div><section class="kb-card-grid"><h2>${labels[0]}</h2><div class="kb-cards">${cards.map(([href, cardTitle, cardDescription]) => `<a class="kb-card" href="${link(href)}"><span>Research</span><h3>${esc(cardTitle)}</h3><p>${esc(cardDescription)}</p></a>`).join('')}</div></section>${sourcesHtml([['TrueFix Labs GitHub organization', 'https://github.com/truefix-labs'], ['TrueFix Studio repository', 'https://github.com/truefix-labs/truefix-studio']])}`;
+  const langCode = localeKey === 'zh-cn' ? 'zh-CN' : localeKey;
+  const alternates = [['en', `${origin}/${route}/`], [langCode, `${origin}/${localizedRoute}/`]];
+  return shell({ title: `${copy[0]} | TrueFix Labs`, description: copy[1], route: localizedRoute, body, locale: lang, alternates });
 }
 
 function indexPage(route, title, description, cards) {
@@ -448,15 +490,15 @@ function localizedResearchPage(localeKey) {
   ] : localeKey === 'ja' ? [
     ['ja/research/studio-indicators', 'TrueFix Studio 対応テクニカル指標', 'Studio の共有カタログにある 80 指標と用途。'],
     ['ja/research/instrument-domain-model', '金融商品ドメインモデル', '金融商品、契約、上場、Provider 対応、ライフサイクルを直交する概念で設計。'],
-    ['research/multi-broker-trading-guide', 'マルチブローカー取引アーキテクチャ', 'Provider の差異、Instrument 対応、注文ライフサイクル、照合を整理。'],
-    ['research/rust-trading-system-guide', 'Rust 取引システムエンジニアリングガイド', 'Rust アダプター、OMS、リスク、執行、照合をつなぐガイド。'],
-    ['research/ai-trading-agent-guide', 'AI 取引エージェントエンジニアリングガイド', '安全なエージェント、権限、リスク、承認、監査。']
+    ['ja/research/multi-broker-trading-guide', 'マルチブローカー取引アーキテクチャ', 'Provider の差異、Instrument 対応、注文ライフサイクル、照合を整理。'],
+    ['ja/research/rust-trading-system-guide', 'Rust 取引システムエンジニアリングガイド', 'Rust アダプター、OMS、リスク、執行、照合をつなぐガイド。'],
+    ['ja/research/ai-trading-agent-guide', 'AI 取引エージェントエンジニアリングガイド', '安全なエージェント、権限、リスク、承認、監査。']
   ] : localeKey === 'ko' ? [
     ['ko/research/studio-indicators', 'TrueFix Studio 지원 기술 지표', 'Studio 공유 카탈로그의 80개 지표와 용도 설명입니다.'],
     ['ko/research/instrument-domain-model', '금융 상품 도메인 모델', '금융 상품, 계약, 상장, Provider 매핑과 수명 주기를 직교 개념으로 설계합니다.'],
-    ['research/multi-broker-trading-guide', '멀티 브로커 거래 아키텍처 가이드', 'Provider 차이, Instrument 매핑, 주문 수명 주기와 조정을 정리합니다.'],
-    ['research/rust-trading-system-guide', 'Rust 트레이딩 시스템 엔지니어링 가이드', 'Rust 어댑터, OMS, 리스크, 실행과 조정 주제를 연결합니다.'],
-    ['research/ai-trading-agent-guide', 'AI 트레이딩 에이전트 엔지니어링 가이드', '안전한 에이전트, 권한, 리스크, 승인과 감사입니다.']
+    ['ko/research/multi-broker-trading-guide', '멀티 브로커 거래 아키텍처 가이드', 'Provider 차이, Instrument 매핑, 주문 수명 주기와 조정을 정리합니다.'],
+    ['ko/research/rust-trading-system-guide', 'Rust 트레이딩 시스템 엔지니어링 가이드', 'Rust 어댑터, OMS, 리스크, 실행과 조정 주제를 연결합니다.'],
+    ['ko/research/ai-trading-agent-guide', 'AI 트레이딩 에이전트 엔지니어링 가이드', '안전한 에이전트, 권한, 리스크, 승인과 감사입니다.']
   ] : [
     ['research/studio-indicators', 'TrueFix Studio Supported Technical Indicators', '80 indicators from the Studio shared catalogue with practical descriptions.'],
     ['research/instrument-domain-model', 'Financial Instrument Domain Model', 'Orthogonal modeling for instruments, contracts, listings, provider mappings, and lifecycle.'],
@@ -514,6 +556,10 @@ await writePage('data/broker-api-matrix', matrixPage());
 await Promise.all(pillarData.map(([route, title, description, related]) => writePage(route, indexPage(route, title, description, related.map(item => [item, item.split('/').pop().replaceAll('-', ' '), 'Related technical guide in this pillar.'])))));
 await Promise.all(Object.keys(zhResearchCopy).filter(route => articles.some(item => item.route === route)).map(route => writePage(`zh-cn/${route}`, localizedResearchArticlePage(articles.find(item => item.route === route)))));
 await Promise.all(pillarData.map(item => writePage(`zh-cn/${item[0]}`, localizedPillarPage(item))));
+await Promise.all(Object.keys(jaResearchCopy).filter(route => articles.some(item => item.route === route)).map(route => writePage(`ja/${route}`, localizedResearchArticlePage(articles.find(item => item.route === route), 'ja'))));
+await Promise.all(pillarData.map(item => writePage(`ja/${item[0]}`, localizedPillarPage(item, 'ja'))));
+await Promise.all(Object.keys(koResearchCopy).filter(route => articles.some(item => item.route === route)).map(route => writePage(`ko/${route}`, localizedResearchArticlePage(articles.find(item => item.route === route), 'ko'))));
+await Promise.all(pillarData.map(item => writePage(`ko/${item[0]}`, localizedPillarPage(item, 'ko'))));
 await Promise.all(Object.keys(researchLocales).filter(locale => locale !== 'en').map(locale => writePage(researchLocales[locale].route, localizedResearchPage(locale))));
 await Promise.all(Object.keys(indicatorLocales).map(locale => writePage(indicatorLocales[locale].route, indicatorPage(locale))));
 

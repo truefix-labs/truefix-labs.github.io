@@ -1,0 +1,27 @@
+# TrueFix Labs
+
+> Trading Engineering Knowledge Base and Open Source Trading Infrastructure Portal.
+
+## Primary topics
+- Trading system architecture
+- Rust trading systems
+- Multi-broker and multi-venue design
+- Broker and exchange APIs
+- Market data and instrument identity
+- OMS, execution, risk, idempotency, and reconciliation
+- FIX, REST, and WebSocket architecture
+- AI trading agents, permissions, human approval, and audit
+
+## Primary resources
+- https://truefix-labs.com/research/
+- https://truefix-labs.com/engineering/
+- https://truefix-labs.com/brokers/
+- https://truefix-labs.com/compare/
+- https://truefix-labs.com/ai-trading/
+- https://truefix-labs.com/data/broker-api-matrix/
+- https://truefix-labs.com/research/rust-trading-system-guide/
+- https://truefix-labs.com/research/multi-broker-trading-guide/
+- https://truefix-labs.com/research/ai-trading-agent-guide/
+
+## Evidence policy
+Technical claims should link to primary provider documentation, standards, source code, or reproducible examples. Provider capabilities can vary by region, account, product, environment, and entitlement.

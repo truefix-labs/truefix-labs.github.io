@@ -28,6 +28,7 @@
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TrueFix Studio","applicationCategory":"FinanceApplication","operatingSystem":"macOS, Windows, Linux","description":"A local-first multi-provider desktop app that connects existing broker, exchange, market-data, and AI services for market research, strategy testing, and reviewed trading actions.","url":"https://truefix-labs.com/","downloadUrl":"https://truefix-labs.com/#download","softwareVersion":"0.1.0","applicationSubCategory":"Investment research and trading support","isAccessibleForFree":true,"featureList":"Market research, strategy testing, AI-assisted research, simulation, reviewed trading actions","sameAs":"https://github.com/TrueFix-Labs"}
     </script>
+    <script id="organization-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueFix Labs","url":"https://truefix-labs.com/","logo":"https://truefix-labs.com/assets/icon-192.png","sameAs":["https://github.com/truefix-labs","https://github.com/truefix-labs/truefix-studio"]}</script>
     <script id="faq-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"TrueFix Studioとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"TrueFix Studioは、市場調査、戦略テスト、確認済みの取引操作を行うリリース前のデスクトップアプリです。選択した証券会社、取引所、相場データ、AIサービスを接続します。"}},{"@type":"Question","name":"資金を預かったり金融口座を開設したりしますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。TrueFix Studioはソフトウェアであり、証券会社、取引所、銀行、カストディアン、投資助言業者ではありません。入金、資金の保管、口座開設、利益の約束は行いません。"}},{"@type":"Question","name":"利用できるProviderはどのように決まりますか？","acceptedAnswer":{"@type":"Answer","text":"選択したProvider、ClientInstance、市場、商品、環境、権限、利用資格、データの新しさから機能を判定します。対応付けがない、または曖昧な場合は推測せず拒否します。"}},{"@type":"Question","name":"AIアシスタントは自分で取引できますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。AIが使えるのは許可したツールと権限だけです。提案は承認済み注文ではなく、許可されたTradingDecisionも確認、リスクチェック、執行制御を通過します。"}},{"@type":"Question","name":"注文結果が不明な場合はどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"TrueFixはUnknownの記録を保持し、元のProvider識別子とネイティブ注文IDで照会します。注文を自動的に再送しません。"}},{"@type":"Question","name":"実取引なしで使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。調査専用または読み取り専用の接続から始め、Simulator、Demo、Testnet、Paperなどの環境を使ってからLiveを検討できます。"}}]}</script>
     <title>TrueFix Studio — 相場調査、戦略テスト、取引確認</title>
       <!-- Google tag (gtag.js) -->
@@ -54,6 +55,7 @@
       <nav class="site-nav" id="site-nav" aria-label="メインナビゲーション" data-site-i18n-aria-label="a11y.nav" data-nav="">
         <a aria-current="page" class="mobile-global-link" href="/ja/" data-site-i18n="nav.home">ホーム</a>
         <a class="desktop-section-link" href="/ja/#overview" data-site-i18n="nav.product">機能</a>
+        <a href="/research/" data-site-i18n="nav.research">リサーチ</a>
         <a class="desktop-section-link" href="/ja/#principles" data-site-i18n="nav.principles">安全性</a>
         <a class="desktop-section-link" href="/ja/#architecture" data-site-i18n="nav.architecture">接続方法</a>
         <a class="desktop-section-link" href="/ja/#audiences" data-site-i18n="nav.modes">利用方法</a>

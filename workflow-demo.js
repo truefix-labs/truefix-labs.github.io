@@ -30,6 +30,8 @@
     ctx.globalAlpha=alpha; ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,tau);ctx.fill();ctx.globalAlpha=1;
   }
   function line(points,color,alpha=1,size=1) {
+    points=points.filter(point=>point&&Number.isFinite(point.x)&&Number.isFinite(point.y));
+    if (!points.length) return;
     ctx.globalAlpha=alpha;ctx.strokeStyle=color;ctx.lineWidth=size;ctx.beginPath();
     points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.globalAlpha=1;
   }
@@ -63,7 +65,7 @@
       for(let j=0;j<3;j++) {
         const u=(time*.065+j*.32+lane*.11)%1;
         const i=Math.floor(u*69),pt=points[i];
-        dot(pt.x,pt.y,1.2,'#a5dded',.35);
+        if (pt) dot(pt.x,pt.y,1.2,'#a5dded',.35);
       }
     }
     // Each labeled asset group contributes colored signals to the strategy core.
@@ -80,8 +82,7 @@
       for(let packet=0;packet<2;packet++) {
         const u=(time*.19+index*.14+packet*.5)%1;
         const point=points[Math.floor(u*40)];
-        dot(point.x,point.y,4,anchor.color,.08);
-        dot(point.x,point.y,1.5,anchor.color,.85);
+        if (point) { dot(point.x,point.y,4,anchor.color,.08); dot(point.x,point.y,1.5,anchor.color,.85); }
       }
     });
     // Thin orbital lines establish the sculpture's spatial volume.
@@ -127,7 +128,7 @@
       const ring=[];const shift=stage===2?Math.sin(p*Math.PI)*.7:0;
       for(let i=0;i<=100;i++) {const a=i/100*tau;ring.push(project(Math.cos(a)*1.48,Math.sin(a)*1.48,shift));}
       line(ring,stage===3?'#efc789':'#b2ebff',.65,1);
-      for(let i=0;i<4;i++){const point=ring[Math.floor((i/4+p*.1)%1*100)];dot(point.x,point.y,3,stage===3?'#f3cc90':'#ccf1ff',.8);}
+      for(let i=0;i<4;i++){const point=ring[Math.floor((i/4+p*.1)%1*100)];if(point)dot(point.x,point.y,3,stage===3?'#f3cc90':'#ccf1ff',.8);}
     }
     if(stage===4) {
       // Illustrative return path: growth interspersed with drawdowns.

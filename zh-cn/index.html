@@ -28,6 +28,7 @@
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TrueFix Studio","applicationCategory":"FinanceApplication","operatingSystem":"macOS, Windows, Linux","description":"A local-first multi-provider desktop app that connects existing broker, exchange, market-data, and AI services for market research, strategy testing, and reviewed trading actions.","url":"https://truefix-labs.com/","downloadUrl":"https://truefix-labs.com/#download","softwareVersion":"0.1.0","applicationSubCategory":"Investment research and trading support","isAccessibleForFree":true,"featureList":"Market research, strategy testing, AI-assisted research, simulation, reviewed trading actions","sameAs":"https://github.com/TrueFix-Labs"}
     </script>
+    <script id="organization-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueFix Labs","url":"https://truefix-labs.com/","logo":"https://truefix-labs.com/assets/icon-192.png","sameAs":["https://github.com/truefix-labs","https://github.com/truefix-labs/truefix-studio"]}</script>
     <script id="faq-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"TrueFix Studio 是什么？","acceptedAnswer":{"@type":"Answer","text":"TrueFix Studio 是一款仍在首版发布前的桌面应用，用于市场研究、策略测试和经过审查的交易操作。它连接你选择的券商、交易所、行情和 AI 服务。"}},{"@type":"Question","name":"TrueFix Studio 会保管资金或开设金融账户吗？","acceptedAnswer":{"@type":"Answer","text":"不会。TrueFix Studio 是软件，不是券商、交易所、银行、托管机构或投资顾问。它不接受入金、不保管用户资金、不开户，也不承诺收益。"}},{"@type":"Question","name":"TrueFix 如何判断一个 Provider 是否可用？","acceptedAnswer":{"@type":"Answer","text":"系统会根据所选 Provider、ClientInstance、市场、产品、环境、权限、授权范围和数据新鲜度解析能力。缺少映射或信息有歧义时会拒绝操作，不会猜测。"}},{"@type":"Question","name":"AI 助手可以自行下单吗？","acceptedAnswer":{"@type":"Answer","text":"不可以。AI 只能使用你允许的工具和权限。建议不等于已批准订单；经过授权的 TradingDecision 仍需通过审查、风控和执行控制。"}},{"@type":"Question","name":"订单结果不明确时会发生什么？","acceptedAnswer":{"@type":"Answer","text":"TrueFix 会保留 Unknown 记录，并使用原始 Provider 身份和原生订单 ID 查询。它不会自动再次发送订单。"}},{"@type":"Question","name":"可以不进行实盘交易就使用 TrueFix 吗？","acceptedAnswer":{"@type":"Answer","text":"可以。先使用研究或只读连接，再使用 Simulator、Demo、Testnet、Paper 等支持的环境，最后再考虑 Live。"}}]}</script>
     <title>TrueFix Studio — 看行情、测策略、确认交易</title>
       <!-- Google tag (gtag.js) -->
@@ -54,6 +55,7 @@
       <nav class="site-nav" id="site-nav" aria-label="主导航" data-site-i18n-aria-label="a11y.nav" data-nav="">
         <a aria-current="page" class="mobile-global-link" href="/zh-cn/" data-site-i18n="nav.home">首页</a>
         <a class="desktop-section-link" href="/zh-cn/#overview" data-site-i18n="nav.product">功能</a>
+        <a href="/research/" data-site-i18n="nav.research">研究</a>
         <a class="desktop-section-link" href="/zh-cn/#principles" data-site-i18n="nav.principles">安全</a>
         <a class="desktop-section-link" href="/zh-cn/#architecture" data-site-i18n="nav.architecture">连接方式</a>
         <a class="desktop-section-link" href="/zh-cn/#audiences" data-site-i18n="nav.modes">使用方式</a>

@@ -131,6 +131,17 @@ export async function renderPage(html, route, locale, localized = true) {
   for (const anchor of newHeader.querySelectorAll('a[href]')) {
     if (anchor.getAttribute('href') === pagePath) anchor.setAttribute('aria-current', 'page');
   }
+  if (route !== 'product-film' && !document.querySelector('#organization-schema')) {
+    const organizationSchema = document.createElement('script');
+    organizationSchema.id = 'organization-schema';
+    organizationSchema.type = 'application/ld+json';
+    organizationSchema.textContent = JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'Organization', name: 'TrueFix Labs',
+      url: 'https://truefix-labs.com/', logo: 'https://truefix-labs.com/assets/icon-192.png',
+      sameAs: ['https://github.com/truefix-labs', 'https://github.com/truefix-labs/truefix-studio']
+    });
+    document.head.append(organizationSchema);
+  }
   // Language alternatives are ordinary links as well as hreflang metadata.
   const alternatives = document.createElement('div');
   alternatives.className = 'locale-links';

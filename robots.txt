@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
+# Keep the site eligible for AI search and answer citations.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
 Sitemap: https://truefix-labs.com/sitemap.xml

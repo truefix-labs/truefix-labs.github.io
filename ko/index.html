@@ -26,8 +26,9 @@
     <script src="mobile-shell.js?v=1" defer></script>
     <script src="script.js?v=23" defer></script>
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TrueFix Studio","applicationCategory":"FinanceApplication","operatingSystem":"macOS, Windows, Linux","description":"A desktop app that connects existing broker, exchange, and market-data services for market research, strategy testing, and reviewed trading actions.","url":"https://truefix-labs.com/","downloadUrl":"https://truefix-labs.com/#download","softwareVersion":"0.1.0","applicationSubCategory":"Investment research and trading support"}
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TrueFix Studio","applicationCategory":"FinanceApplication","operatingSystem":"macOS, Windows, Linux","description":"A local-first multi-provider desktop app that connects existing broker, exchange, market-data, and AI services for market research, strategy testing, and reviewed trading actions.","url":"https://truefix-labs.com/","downloadUrl":"https://truefix-labs.com/#download","softwareVersion":"0.1.0","applicationSubCategory":"Investment research and trading support","isAccessibleForFree":true,"featureList":"Market research, strategy testing, AI-assisted research, simulation, reviewed trading actions","sameAs":"https://github.com/TrueFix-Labs"}
     </script>
+    <script id="faq-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"TrueFix Studio란 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"TrueFix Studio는 시장 조사, 전략 테스트, 검토된 거래 작업을 위한 출시 전 데스크톱 앱입니다. 선택한 증권사, 거래소, 시장 데이터와 AI 서비스를 연결합니다."}},{"@type":"Question","name":"자금을 보관하거나 금융 계좌를 개설하나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. TrueFix Studio는 소프트웨어이며 증권사, 거래소, 은행, 수탁기관 또는 투자 자문사가 아닙니다. 입금, 자금 보관, 계좌 개설, 수익 약속을 하지 않습니다."}},{"@type":"Question","name":"사용할 수 있는 Provider는 어떻게 결정하나요?","acceptedAnswer":{"@type":"Answer","text":"선택한 Provider, ClientInstance, 시장, 상품, 환경, 권한, 이용 자격과 데이터 최신성을 기준으로 기능을 확인합니다. 매핑이 없거나 모호하면 추측하지 않고 거부합니다."}},{"@type":"Question","name":"AI 도우미가 스스로 거래할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. AI는 허용한 도구와 권한만 사용합니다. 제안은 승인 주문이 아니며, 승인된 TradingDecision도 검토, 리스크 점검과 실행 제어를 거칩니다."}},{"@type":"Question","name":"주문 결과가 불분명하면 어떻게 되나요?","acceptedAnswer":{"@type":"Answer","text":"TrueFix는 Unknown 기록을 유지하고 원래 Provider 식별자와 네이티브 주문 ID로 조회합니다. 주문을 자동으로 다시 보내지 않습니다."}},{"@type":"Question","name":"실거래 없이 사용할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"예. 조사 전용 또는 읽기 전용 연결로 시작한 뒤 Simulator, Demo, Testnet, Paper 등 지원 환경을 사용하고 Live를 검토할 수 있습니다."}}]}</script>
     <title>TrueFix Studio — 시세 리서치, 전략 테스트, 거래 확인</title>
       <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP0Q5CLKGK"></script>
@@ -266,6 +267,21 @@
             <div class="principle-number">03</div><div class="principle-icon icon-human" aria-hidden="true"><span></span><span></span><span></span></div>
             <h3 data-i18n="principles.ai.title">AI 도우미에는 분명한 제한이 있음</h3><p data-i18n="principles.ai.body">AI 도우미는 허용한 도구만 사용할 수 있습니다. 조사 권한은 거래 권한이 아니며 AI 제안이 자동으로 승인 주문이 되지 않습니다.</p><small>Analyze → Suggest → You review</small>
           </article>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="section-heading reveal">
+          <div><p class="section-kicker">PRODUCT FACTS / FAQ</p><h2 data-i18n-html="faq.title">계정을 연결하기 전에<br><i>자주 묻는 질문.</i></h2></div>
+          <p data-i18n="faq.lede">TrueFix Studio의 역할, 권한 처리 방식, 현재 지원 범위를 명확히 설명합니다.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details open><summary><span data-i18n="faq.q1">TrueFix Studio란 무엇인가요?</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a1">TrueFix Studio는 시장 조사, 전략 테스트, 검토된 거래 작업을 위한 출시 전 데스크톱 앱입니다. 선택한 증권사, 거래소, 시장 데이터와 AI 서비스를 연결합니다.</p></details>
+          <details><summary><span data-i18n="faq.q2">자금을 보관하거나 금융 계좌를 개설하나요?</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a2">아니요. TrueFix Studio는 소프트웨어이며 증권사, 거래소, 은행, 수탁기관 또는 투자 자문사가 아닙니다. 입금, 자금 보관, 계좌 개설, 수익 약속을 하지 않습니다.</p></details>
+          <details><summary><span data-i18n="faq.q3">사용할 수 있는 Provider는 어떻게 결정하나요?</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a3">선택한 Provider, ClientInstance, 시장, 상품, 환경, 권한, 이용 자격과 데이터 최신성을 기준으로 기능을 확인합니다. 매핑이 없거나 모호하면 추측하지 않고 거부합니다.</p></details>
+          <details><summary><span data-i18n="faq.q4">AI 도우미가 스스로 거래할 수 있나요?</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a4">아니요. AI는 허용한 도구와 권한만 사용합니다. 제안은 승인 주문이 아니며, 승인된 TradingDecision도 검토, 리스크 점검과 실행 제어를 거칩니다.</p></details>
+          <details><summary><span data-i18n="faq.q5">주문 결과가 불분명하면 어떻게 되나요?</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a5">TrueFix는 Unknown 기록을 유지하고 원래 Provider 식별자와 네이티브 주문 ID로 조회합니다. 주문을 자동으로 다시 보내지 않습니다.</p></details>
+          <details><summary><span data-i18n="faq.q6">실거래 없이 사용할 수 있나요?</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a6">예. 조사 전용 또는 읽기 전용 연결로 시작한 뒤 Simulator, Demo, Testnet, Paper 등 지원 환경을 사용하고 Live를 검토할 수 있습니다.</p></details>
         </div>
       </section>
 

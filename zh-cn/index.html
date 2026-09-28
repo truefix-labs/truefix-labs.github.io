@@ -26,8 +26,9 @@
     <script src="mobile-shell.js?v=1" defer></script>
     <script src="script.js?v=23" defer></script>
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TrueFix Studio","applicationCategory":"FinanceApplication","operatingSystem":"macOS, Windows, Linux","description":"A desktop app that connects existing broker, exchange, and market-data services for market research, strategy testing, and reviewed trading actions.","url":"https://truefix-labs.com/","downloadUrl":"https://truefix-labs.com/#download","softwareVersion":"0.1.0","applicationSubCategory":"Investment research and trading support"}
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TrueFix Studio","applicationCategory":"FinanceApplication","operatingSystem":"macOS, Windows, Linux","description":"A local-first multi-provider desktop app that connects existing broker, exchange, market-data, and AI services for market research, strategy testing, and reviewed trading actions.","url":"https://truefix-labs.com/","downloadUrl":"https://truefix-labs.com/#download","softwareVersion":"0.1.0","applicationSubCategory":"Investment research and trading support","isAccessibleForFree":true,"featureList":"Market research, strategy testing, AI-assisted research, simulation, reviewed trading actions","sameAs":"https://github.com/TrueFix-Labs"}
     </script>
+    <script id="faq-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"TrueFix Studio 是什么？","acceptedAnswer":{"@type":"Answer","text":"TrueFix Studio 是一款仍在首版发布前的桌面应用，用于市场研究、策略测试和经过审查的交易操作。它连接你选择的券商、交易所、行情和 AI 服务。"}},{"@type":"Question","name":"TrueFix Studio 会保管资金或开设金融账户吗？","acceptedAnswer":{"@type":"Answer","text":"不会。TrueFix Studio 是软件，不是券商、交易所、银行、托管机构或投资顾问。它不接受入金、不保管用户资金、不开户，也不承诺收益。"}},{"@type":"Question","name":"TrueFix 如何判断一个 Provider 是否可用？","acceptedAnswer":{"@type":"Answer","text":"系统会根据所选 Provider、ClientInstance、市场、产品、环境、权限、授权范围和数据新鲜度解析能力。缺少映射或信息有歧义时会拒绝操作，不会猜测。"}},{"@type":"Question","name":"AI 助手可以自行下单吗？","acceptedAnswer":{"@type":"Answer","text":"不可以。AI 只能使用你允许的工具和权限。建议不等于已批准订单；经过授权的 TradingDecision 仍需通过审查、风控和执行控制。"}},{"@type":"Question","name":"订单结果不明确时会发生什么？","acceptedAnswer":{"@type":"Answer","text":"TrueFix 会保留 Unknown 记录，并使用原始 Provider 身份和原生订单 ID 查询。它不会自动再次发送订单。"}},{"@type":"Question","name":"可以不进行实盘交易就使用 TrueFix 吗？","acceptedAnswer":{"@type":"Answer","text":"可以。先使用研究或只读连接，再使用 Simulator、Demo、Testnet、Paper 等支持的环境，最后再考虑 Live。"}}]}</script>
     <title>TrueFix Studio — 看行情、测策略、确认交易</title>
       <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP0Q5CLKGK"></script>
@@ -266,6 +267,21 @@
             <div class="principle-number">03</div><div class="principle-icon icon-human" aria-hidden="true"><span></span><span></span><span></span></div>
             <h3 data-i18n="principles.ai.title">AI 助手有明确限制</h3><p data-i18n="principles.ai.body">AI 助手只能使用你允许的工具。允许它研究不等于允许它交易，AI 建议也不会自动成为已批准订单。</p><small>Analyze → Suggest → You review</small>
           </article>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="section-heading reveal">
+          <div><p class="section-kicker">PRODUCT FACTS / FAQ</p><h2 data-i18n-html="faq.title">连接账户前，<br><i>先了解这些问题。</i></h2></div>
+          <p data-i18n="faq.lede">用清楚的答案说明 TrueFix Studio 是什么、权限如何处理，以及当前有哪些边界。</p>
+        </div>
+        <div class="faq-list reveal">
+          <details open><summary><span data-i18n="faq.q1">TrueFix Studio 是什么？</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a1">TrueFix Studio 是一款仍在首版发布前的桌面应用，用于市场研究、策略测试和经过审查的交易操作。它连接你选择的券商、交易所、行情和 AI 服务。</p></details>
+          <details><summary><span data-i18n="faq.q2">TrueFix Studio 会保管资金或开设金融账户吗？</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a2">不会。TrueFix Studio 是软件，不是券商、交易所、银行、托管机构或投资顾问。它不接受入金、不保管用户资金、不开户，也不承诺收益。</p></details>
+          <details><summary><span data-i18n="faq.q3">TrueFix 如何判断一个 Provider 是否可用？</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a3">系统会根据所选 Provider、ClientInstance、市场、产品、环境、权限、授权范围和数据新鲜度解析能力。缺少映射或信息有歧义时会拒绝操作，不会猜测。</p></details>
+          <details><summary><span data-i18n="faq.q4">AI 助手可以自行下单吗？</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a4">不可以。AI 只能使用你允许的工具和权限。建议不等于已批准订单；经过授权的 TradingDecision 仍需通过审查、风控和执行控制。</p></details>
+          <details><summary><span data-i18n="faq.q5">订单结果不明确时会发生什么？</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a5">TrueFix 会保留 Unknown 记录，并使用原始 Provider 身份和原生订单 ID 查询。它不会自动再次发送订单。</p></details>
+          <details><summary><span data-i18n="faq.q6">可以不进行实盘交易就使用 TrueFix 吗？</span><b aria-hidden="true">+</b></summary><p data-i18n="faq.a6">可以。先使用研究或只读连接，再使用 Simulator、Demo、Testnet、Paper 等支持的环境，最后再考虑 Live。</p></details>
         </div>
       </section>
 

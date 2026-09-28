@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const origin = 'https://truefix-labs.com';
 // Record content updates per route, rather than changing every URL on each build.
-const pageLastModified = { '': '2026-09-08T02:17:42Z' };
+const pageLastModified = { '': '2026-09-28T00:00:00Z' };
 const previousLastModified = '2026-09-07';
 const analytics = `<!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP0Q5CLKGK"></script>
@@ -25,11 +25,11 @@ const pages = [
 
 const meta = {
   en: {
-    '': ['TrueFix Studio — Research, test, and review trades', 'Connect your existing brokers, exchanges, and market-data services. Research markets, test strategies, and review trades in one desktop app.'],
+    '': ['TrueFix Studio — Research, test, and review trades', 'TrueFix Studio is a local-first multi-provider desktop app for market research, AI-assisted strategy testing, simulation, and reviewed trading actions with the services you already use.'],
     guide: ['TrueFix Studio User Guide', 'Install TrueFix Studio, connect a service, use the AI assistant, test strategies, configure browser access, and troubleshoot common problems.'], about: ['TrueFix Studio — About us', 'Why TrueFix connects existing market services, what the project checks, and what remains under the user’s control.'], privacy: ['TrueFix Studio — Privacy Policy', 'What TrueFix Studio stores on your device, what it sends to connected services, and how to delete your data.'], support: ['TrueFix Studio — Technical Support', 'Installation help, connection troubleshooting, data controls, and support contacts for TrueFix Studio.'], 'product-film': ['See what TrueFix Studio does in 36 seconds', 'A short introduction to market research, AI assistance, strategy testing, and checked trading actions in TrueFix Studio.']
   },
   'zh-CN': {
-    '': ['TrueFix Studio — 连接账户，研究、测试并确认交易', '连接你已有的券商、交易所和行情服务，在一个桌面应用里研究市场、测试策略并确认交易操作。'], guide: ['TrueFix Studio 使用指南', '了解如何安装、连接服务、使用 AI 助手、测试策略、配置浏览器访问并排查常见问题。'], about: ['TrueFix Studio — 关于我们', '了解 TrueFix 为什么连接现有市场服务、项目持续检查哪些问题，以及哪些事情始终由用户控制。'], privacy: ['TrueFix Studio — 隐私政策', '了解哪些数据保存在设备上、哪些信息会发送给已连接服务，以及如何删除数据。'], support: ['TrueFix Studio — 技术支持', '获取安装、服务连接、故障排查、数据控制和联系支持的帮助。'], 'product-film': ['用 36 秒了解 TrueFix Studio', '用短片了解 TrueFix Studio 如何集中市场研究、AI 辅助、策略测试和交易前检查。']
+    '': ['TrueFix Studio — 连接账户，研究、测试并确认交易', 'TrueFix Studio 是面向多 Provider 的本地优先桌面应用，用于市场研究、AI 辅助策略测试、模拟运行和经过审查的交易操作。'], guide: ['TrueFix Studio 使用指南', '了解如何安装、连接服务、使用 AI 助手、测试策略、配置浏览器访问并排查常见问题。'], about: ['TrueFix Studio — 关于我们', '了解 TrueFix 为什么连接现有市场服务、项目持续检查哪些问题，以及哪些事情始终由用户控制。'], privacy: ['TrueFix Studio — 隐私政策', '了解哪些数据保存在设备上、哪些信息会发送给已连接服务，以及如何删除数据。'], support: ['TrueFix Studio — 技术支持', '获取安装、服务连接、故障排查、数据控制和联系支持的帮助。'], 'product-film': ['用 36 秒了解 TrueFix Studio', '用短片了解 TrueFix Studio 如何集中市场研究、AI 辅助、策略测试和交易前检查。']
   },
   ja: {
     '': ['TrueFix Studio — 口座をつないで調査・テスト・取引確認', '利用中の証券会社、取引所、相場データを接続し、一つのデスクトップアプリで市場調査、戦略テスト、取引前確認を行えます。'], guide: ['TrueFix Studio 利用ガイド', 'インストール、サービス接続、AIアシスタント、戦略テスト、ブラウザー接続、問題解決を説明します。'], about: ['TrueFix Studio — 私たちについて', '既存の市場サービスを接続する理由、製品設計で確認すること、利用者が管理する範囲を説明します。'], privacy: ['TrueFix Studio — プライバシーポリシー', '端末に保存する情報、接続先へ送る情報、データの削除方法を説明します。'], support: ['TrueFix Studio — テクニカルサポート', 'インストール、サービス接続、問題解決、データ管理、問い合わせ方法を案内します。'], 'product-film': ['36秒で分かるTrueFix Studio', '市場調査、AI支援、戦略テスト、取引前確認を一つにまとめる仕組みを紹介します。']
@@ -38,6 +38,48 @@ const meta = {
     '': ['TrueFix Studio — 계정을 연결해 조사·테스트·거래 확인', '사용 중인 증권사, 거래소와 시세 서비스를 연결해 한 데스크톱 앱에서 시장 조사, 전략 테스트와 거래 전 확인을 할 수 있습니다.'], guide: ['TrueFix Studio 사용 가이드', '설치, 서비스 연결, AI 도우미, 전략 테스트, 브라우저 접속과 일반 문제 해결 방법을 안내합니다.'], about: ['TrueFix Studio — 소개', '기존 시장 서비스를 연결하는 이유, 제품 설계에서 확인하는 질문과 사용자가 통제하는 범위를 설명합니다.'], privacy: ['TrueFix Studio — 개인정보 처리방침', '기기에 저장하는 정보, 연결 서비스로 보내는 정보와 데이터 삭제 방법을 설명합니다.'], support: ['TrueFix Studio — 기술 지원', '설치, 서비스 연결, 문제 해결, 데이터 관리와 지원 문의 방법을 안내합니다.'], 'product-film': ['36초로 보는 TrueFix Studio', '시장 조사, AI 지원, 전략 테스트와 거래 전 확인을 한곳에 모으는 방식을 소개합니다.']
   }
 };
+
+const faqSchemaCopy = {
+  en: [
+    ['What is TrueFix Studio?', 'TrueFix Studio is a pre-release desktop app for market research, strategy testing, and reviewed trading actions. It connects the broker, exchange, market-data, and AI services you choose.'],
+    ['Does TrueFix Studio hold money or open financial accounts?', 'No. TrueFix Studio is software, not a broker, exchange, bank, custodian, or investment adviser. It does not accept deposits, hold user funds, open accounts, or promise returns.'],
+    ['How does TrueFix decide whether a Provider can be used?', 'Capabilities are resolved for the selected Provider, ClientInstance, market, product, environment, permissions, entitlements, and data freshness. The app rejects missing or ambiguous mappings instead of guessing.'],
+    ['Can the AI assistant place trades on its own?', 'No. AI uses only the tools and permissions you allow. A suggestion is not an approved order; an authorized TradingDecision still passes review, risk checks, and execution controls.'],
+    ['What happens when an order result is unclear?', 'TrueFix keeps a persistent Unknown record and lets you query the original Provider identity and native order ID. It does not automatically send the order again.'],
+    ['Can I use TrueFix without live trading?', 'Yes. Start with research-only or read-only connections, then use Simulator, Demo, Testnet, Paper, or other supported environments before considering Live.']
+  ],
+  'zh-CN': [
+    ['TrueFix Studio 是什么？', 'TrueFix Studio 是一款仍在首版发布前的桌面应用，用于市场研究、策略测试和经过审查的交易操作。它连接你选择的券商、交易所、行情和 AI 服务。'],
+    ['TrueFix Studio 会保管资金或开设金融账户吗？', '不会。TrueFix Studio 是软件，不是券商、交易所、银行、托管机构或投资顾问。它不接受入金、不保管用户资金、不开户，也不承诺收益。'],
+    ['TrueFix 如何判断一个 Provider 是否可用？', '系统会根据所选 Provider、ClientInstance、市场、产品、环境、权限、授权范围和数据新鲜度解析能力。缺少映射或信息有歧义时会拒绝操作，不会猜测。'],
+    ['AI 助手可以自行下单吗？', '不可以。AI 只能使用你允许的工具和权限。建议不等于已批准订单；经过授权的 TradingDecision 仍需通过审查、风控和执行控制。'],
+    ['订单结果不明确时会发生什么？', 'TrueFix 会保留 Unknown 记录，并使用原始 Provider 身份和原生订单 ID 查询。它不会自动再次发送订单。'],
+    ['可以不进行实盘交易就使用 TrueFix 吗？', '可以。先使用研究或只读连接，再使用 Simulator、Demo、Testnet、Paper 等支持的环境，最后再考虑 Live。']
+  ],
+  ja: [
+    ['TrueFix Studioとは何ですか？', 'TrueFix Studioは、市場調査、戦略テスト、確認済みの取引操作を行うリリース前のデスクトップアプリです。選択した証券会社、取引所、相場データ、AIサービスを接続します。'],
+    ['資金を預かったり金融口座を開設したりしますか？', 'いいえ。TrueFix Studioはソフトウェアであり、証券会社、取引所、銀行、カストディアン、投資助言業者ではありません。入金、資金の保管、口座開設、利益の約束は行いません。'],
+    ['利用できるProviderはどのように決まりますか？', '選択したProvider、ClientInstance、市場、商品、環境、権限、利用資格、データの新しさから機能を判定します。対応付けがない、または曖昧な場合は推測せず拒否します。'],
+    ['AIアシスタントは自分で取引できますか？', 'いいえ。AIが使えるのは許可したツールと権限だけです。提案は承認済み注文ではなく、許可されたTradingDecisionも確認、リスクチェック、執行制御を通過します。'],
+    ['注文結果が不明な場合はどうなりますか？', 'TrueFixはUnknownの記録を保持し、元のProvider識別子とネイティブ注文IDで照会します。注文を自動的に再送しません。'],
+    ['実取引なしで使えますか？', 'はい。調査専用または読み取り専用の接続から始め、Simulator、Demo、Testnet、Paperなどの環境を使ってからLiveを検討できます。']
+  ],
+  ko: [
+    ['TrueFix Studio란 무엇인가요?', 'TrueFix Studio는 시장 조사, 전략 테스트, 검토된 거래 작업을 위한 출시 전 데스크톱 앱입니다. 선택한 증권사, 거래소, 시장 데이터와 AI 서비스를 연결합니다.'],
+    ['자금을 보관하거나 금융 계좌를 개설하나요?', '아니요. TrueFix Studio는 소프트웨어이며 증권사, 거래소, 은행, 수탁기관 또는 투자 자문사가 아닙니다. 입금, 자금 보관, 계좌 개설, 수익 약속을 하지 않습니다.'],
+    ['사용할 수 있는 Provider는 어떻게 결정하나요?', '선택한 Provider, ClientInstance, 시장, 상품, 환경, 권한, 이용 자격과 데이터 최신성을 기준으로 기능을 확인합니다. 매핑이 없거나 모호하면 추측하지 않고 거부합니다.'],
+    ['AI 도우미가 스스로 거래할 수 있나요?', '아니요. AI는 허용한 도구와 권한만 사용합니다. 제안은 승인 주문이 아니며, 승인된 TradingDecision도 검토, 리스크 점검과 실행 제어를 거칩니다.'],
+    ['주문 결과가 불분명하면 어떻게 되나요?', 'TrueFix는 Unknown 기록을 유지하고 원래 Provider 식별자와 네이티브 주문 ID로 조회합니다. 주문을 자동으로 다시 보내지 않습니다.'],
+    ['실거래 없이 사용할 수 있나요?', '예. 조사 전용 또는 읽기 전용 연결로 시작한 뒤 Simulator, Demo, Testnet, Paper 등 지원 환경을 사용하고 Live를 검토할 수 있습니다.']]
+};
+
+function faqSchema(locale) {
+  return JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqSchemaCopy[locale].map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } })) });
+}
+
+function replaceFaqSchema(html, locale) {
+  return html.replace(/<script id="faq-schema" type="application\/ld\+json">[\s\S]*?<\/script>/, `<script id="faq-schema" type="application/ld+json">${faqSchema(locale)}</script>`);
+}
 
 function pageMeta(locale, route) {
   if (meta[locale][route]) return meta[locale][route];
@@ -79,7 +121,7 @@ for (const [route, source] of pages) {
     raw = raw.replace('src="../../assets/favicon-32.png" alt=""/>', 'src="../../assets/favicon-32.png" alt="" width="30" height="30"/>');
   }
   const original = raw.replace(/\s*<link rel="alternate" hreflang="[^"]+" href="[^"]+"\s*\/?>/g, '');
-  const sourceHtml = original.replace(/<link rel="canonical" href="[^"]+"\s*\/?>/, `<link rel="canonical" href="${url(route)}" />\n    ${alternates(route)}`);
+  const sourceHtml = replaceFaqSchema(original.replace(/<link rel="canonical" href="[^"]+"\s*\/?>/, `<link rel="canonical" href="${url(route)}" />\n    ${alternates(route)}`), 'en');
   await writeFile(join(root, source), await renderPage(sourceHtml, route, 'en', false));
   for (const [locale, slug] of Object.entries(locales)) {
     const targetUrl = url(route, slug);
@@ -97,6 +139,7 @@ for (const [route, source] of pages) {
       .replace(/(<meta name="twitter:description" content=")[^"]*("\s*\/?>)/, `$1${description}$2`)
       .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
       .replace('</head>', `    <meta property="og:locale" content="${locale.replace('-', '_')}" />\n  </head>`);
+    html = replaceFaqSchema(html, locale);
     if (route === 'product-film') html = html.replace('"inLanguage": "en"', `"inLanguage": "${locale}"`);
     const target = join(root, slug, route, 'index.html');
     await mkdir(dirname(target), { recursive: true });

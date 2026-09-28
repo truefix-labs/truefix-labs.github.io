@@ -77,3 +77,15 @@ test('TrueFix Studio indicator catalogue is multilingual and complete', async ()
     expect(html, route).toContain('TrueFix Studio');
   }
 });
+
+test('Research menu opens on mobile knowledge pages', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/zh-cn/research/studio-indicators/');
+  const menu = page.locator('header .menu-button');
+  await menu.click();
+  await expect(menu).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('header .site-nav')).toBeVisible();
+  await expect(page.locator('header a[data-site-i18n="nav.research"]')).toHaveAttribute('href', '/zh-cn/research/');
+  await menu.click();
+  await expect(menu).toHaveAttribute('aria-expanded', 'false');
+});

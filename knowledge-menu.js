@@ -25,4 +25,26 @@
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') setMenu(false);
   });
+
+  const languagePicker = document.querySelector('[data-language-picker]');
+  const languageToggle = document.querySelector('[data-language-toggle]');
+  const languageMenu = document.querySelector('[data-language-menu]');
+  const languageOptions = [...document.querySelectorAll('[data-language-option]')];
+  const languageNames = { en: 'English', 'zh-CN': '简体中文', ja: '日本語', ko: '한국어' };
+  const locale = window.TrueFixLocale?.pathLanguage() || 'en';
+  const current = document.querySelector('[data-language-current]');
+  if (current) current.textContent = languageNames[locale] || languageNames.en;
+  languageOptions.forEach(option => option.setAttribute('aria-selected', String(option.dataset.languageOption === locale)));
+  const setLanguageMenu = open => {
+    languagePicker?.classList.toggle('is-open', open);
+    languageToggle?.setAttribute('aria-expanded', String(open));
+    languageMenu?.setAttribute('aria-hidden', String(!open));
+    if (languageMenu) languageMenu.inert = !open;
+    languageOptions.forEach(option => { option.tabIndex = open && option.getAttribute('aria-selected') === 'true' ? 0 : -1; });
+  };
+  languageToggle?.addEventListener('click', () => setLanguageMenu(languageToggle.getAttribute('aria-expanded') !== 'true'));
+  languageOptions.forEach(option => option.addEventListener('click', () => window.TrueFixLocale?.navigate(option.dataset.languageOption)));
+  document.addEventListener('click', event => {
+    if (languagePicker && !languagePicker.contains(event.target)) setLanguageMenu(false);
+  });
 })();

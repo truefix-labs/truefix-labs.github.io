@@ -104,3 +104,16 @@ test('localized Research indexes exist and expose reciprocal hreflang links', as
     expect(html, route).toContain('hreflang="zh-CN"');
   }
 });
+
+test('Research language picker switches between localized routes', async ({ page }) => {
+  await page.goto('/zh-cn/research/');
+  await page.locator('[data-language-toggle]').click();
+  await page.locator('[data-language-option="ja"]').click();
+  await page.waitForURL('**/ja/research/');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
+  await page.locator('[data-language-toggle]').click();
+  await page.locator('[data-language-option="en"]').click();
+  await page.waitForURL(/\/research\/$/);
+  expect(new URL(page.url()).pathname).toBe('/research/');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+});

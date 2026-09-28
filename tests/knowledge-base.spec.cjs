@@ -117,3 +117,11 @@ test('Research language picker switches between localized routes', async ({ page
   expect(new URL(page.url()).pathname).toBe('/research/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 });
+
+test('translated Research articles switch without a 404', async ({ page }) => {
+  await page.goto('/research/building-a-multi-broker-trading-system-in-rust/');
+  await page.locator('[data-language-toggle]').click();
+  await page.locator('[data-language-option="zh-CN"]').click();
+  await page.waitForURL(/\/zh-cn\/research\/building-a-multi-broker-trading-system-in-rust\/$/);
+  await expect(page.locator('h1')).toContainText('用 Rust 构建多券商交易系统');
+});

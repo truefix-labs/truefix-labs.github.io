@@ -228,6 +228,12 @@ const allRoutes = new Set([
   'zh-cn/research',
   'ja/research',
   'ko/research',
+  'zh-cn/research/building-a-multi-broker-trading-system-in-rust',
+  'zh-cn/research/instrument-domain-model',
+  'zh-cn/research/rust-trading-system-guide',
+  'zh-cn/research/multi-broker-trading-guide',
+  'zh-cn/research/ai-trading-agent-guide',
+  ...pillarData.map(([route]) => `zh-cn/${route}`),
   'research/studio-indicators',
   'zh-cn/research/studio-indicators',
   'ja/research/studio-indicators',
@@ -346,6 +352,45 @@ function articlePage(item, sources = articleSources[item.route] || [['TrueFix La
   return shell({ title: `${item.title} | TrueFix Labs`, description: item.description, route: item.route, type: 'TechArticle', body });
 }
 
+const zhResearchCopy = {
+  'research/building-a-multi-broker-trading-system-in-rust': ['用 Rust 构建多券商交易系统', '面向生产环境的 Provider 适配器、统一金融工具、订单生命周期、对账、风控和确定性执行指南。', '多券商系统应把各 Provider API 隔离在适配器后面，并向系统其余部分提供统一的金融工具、行情、订单、持仓和能力模型。Rust 执行内核应保持确定性，显式建模未知结果，并把对账作为一等流程。'],
+  'research/instrument-domain-model': ['交易系统中的金融工具领域模型设计', '用正交维度建模股票、债券、ETF、外汇、衍生品、永续合约、指数和多市场金融工具。', '生产级交易系统应使用正交维度表示金融工具，而不是把 Stock、Option、Future 和 Crypto 压缩成一棵继承树。统一身份、经济属性、合约条款、挂牌、Provider 映射和生命周期。'],
+  'research/rust-trading-system-guide': ['Rust 交易系统工程指南', '连接 Rust 适配器、统一金融工具、OMS、风控、执行和对账的工程指南。', 'Rust 交易系统应把 Provider I/O、统一领域模型、OMS、风险决策和执行内核分成明确边界，并为断线、重复事件和未知订单状态保留恢复路径。'],
+  'research/multi-broker-trading-guide': ['多券商交易架构指南', '从 API 差异、Provider 能力和金融工具映射，到订单生命周期和对账的实践路线。', '多券商架构的核心是能力范围、统一金融工具身份、Provider 原生标识和可恢复的订单状态机。不要仅根据券商名称猜测能力。'],
+  'research/ai-trading-agent-guide': ['AI 交易代理工程指南', '关于安全 AI 交易代理、工具权限、风控、人工审批和可审计执行的技术地图。', '安全的 AI 交易代理是受边界约束的工作流，不是持有券商凭证的无限模型。观察、研究、推理、风控、审批、执行、对账和审计必须分开。']
+};
+
+const zhSectionNames = {
+  'Recommended architecture': '推荐架构', 'Rust design choices': 'Rust 设计选择', 'Failure modes to design first': '优先设计的失败模式', 'Production checklist': '生产检查清单',
+  'The modeling principle': '建模原则', 'Separate the domain layers': '分离领域层次', 'Classification is not identity': '分类不是身份', 'Type-specific terms without nullable-field sprawl': '使用类型条款，避免可空字段泛滥', 'Canonical instrument, listing, and provider mapping': '统一金融工具、挂牌与 Provider 映射', 'Trading rules and lifecycle are first-class': '交易规则与生命周期是一等概念',
+  'Explore this knowledge base': '浏览知识库', 'Evidence policy': '证据政策'
+};
+
+function localizedResearchArticlePage(item) {
+  const copy = zhResearchCopy[item.route];
+  if (!copy) return articlePage(item);
+  const route = `zh-cn/${item.route}`;
+  const sections = item.sections.map(([heading, html]) => `<section><h2>${esc(zhSectionNames[heading] || heading)}</h2>${html}</section>`).join('');
+  const body = `${breadcrumb(route, copy[0])}<article class="kb-article"><p class="kb-eyebrow">${esc(item.category)} · TRUEFIX LABS</p><h1>${esc(copy[0])}</h1><p class="kb-dek">${esc(copy[1])}</p><p class="kb-answer"><strong>简要回答。</strong> ${esc(copy[2])}</p>${sections}${sourcesHtml(articleSources[item.route] || [['TrueFix Labs project repository', 'https://github.com/truefix-labs/truefix-studio']])}${relatedHtml(item.related)}<p class="kb-updated">最后更新：${updated}</p></article>`;
+  const alternates = [['en', `${origin}/${item.route}/`], ['zh-CN', `${origin}/${route}/`]];
+  return shell({ title: `${copy[0]} | TrueFix Labs`, description: copy[1], route, type: 'TechArticle', body, locale: 'zh-CN', alternates });
+}
+
+const zhPillarCopy = {
+  'research/rust-trading-system-guide': ['Rust 交易系统工程指南', '连接 Rust 适配器、统一金融工具、OMS、风控、执行和对账的工程指南。'],
+  'research/multi-broker-trading-guide': ['多券商交易架构指南', '从 API 差异、Provider 能力和金融工具映射，到订单生命周期和对账的实践路线。'],
+  'research/ai-trading-agent-guide': ['AI 交易代理工程指南', '关于安全 AI 交易代理、工具权限、风控、人工审批和可审计执行的技术地图。']
+};
+
+function localizedPillarPage([route, title, description, related]) {
+  const copy = zhPillarCopy[route];
+  const localizedRoute = `zh-cn/${route}`;
+  const cards = related.map(item => [item.startsWith('research/') ? `zh-cn/${item}` : item, item.split('/').pop().replaceAll('-', ' '), '相关交易工程主题。']);
+  const body = `${breadcrumb(localizedRoute, copy[0])}<div class="kb-hero"><p class="kb-eyebrow">TRUEFIX LABS · TRADING ENGINEERING</p><h1>${esc(copy[0])}</h1><p class="kb-dek">${esc(copy[1])}</p><p class="kb-answer">这份指南把交易系统中最容易产生状态漂移、重复订单和权限越界的工程边界连接起来，并保留 Provider 原生证据。</p></div><section class="kb-card-grid"><h2>指南主题</h2><div class="kb-cards">${cards.map(([href, cardTitle, cardDescription]) => `<a class="kb-card" href="${link(href)}"><span>Research</span><h3>${esc(cardTitle)}</h3><p>${esc(cardDescription)}</p></a>`).join('')}</div></section>${sourcesHtml([['TrueFix Labs GitHub organization', 'https://github.com/truefix-labs'], ['TrueFix Studio repository', 'https://github.com/truefix-labs/truefix-studio']])}`;
+  const alternates = [['en', `${origin}/${route}/`], ['zh-CN', `${origin}/${localizedRoute}/`]];
+  return shell({ title: `${copy[0]} | TrueFix Labs`, description: copy[1], route: localizedRoute, body, locale: 'zh-CN', alternates });
+}
+
 function indexPage(route, title, description, cards) {
   const body = `${breadcrumb(route, title)}<div class="kb-hero"><p class="kb-eyebrow">TRUEFIX LABS · TRADING ENGINEERING</p><h1>${esc(title)}</h1><p class="kb-dek">${esc(description)}</p><p class="kb-answer">This knowledge base publishes technical explanations, comparison tables, architecture patterns, failure modes, and links to primary documentation. Pages are written for engineers building or evaluating trading systems.</p></div><section class="kb-card-grid"><h2>Explore this knowledge base</h2><div class="kb-cards">${cards.map(([route2, title2, desc]) => `<a class="kb-card" href="${link(route2)}"><span>${esc(route2.split('/')[0].replace('-', ' '))}</span><h3>${esc(title2)}</h3><p>${esc(desc)}</p></a>`).join('')}</div></section><section class="kb-note"><h2>Evidence policy</h2><p>Technical claims should be supported by provider documentation, standards, source code, or a reproducible example. Unknown or unverified capabilities are labelled instead of inferred.</p></section>${sourcesHtml([['TrueFix Labs GitHub organization', 'https://github.com/truefix-labs'], ['TrueFix Studio project repository', 'https://github.com/truefix-labs/truefix-studio']])}`;
   return shell({ title: `${title} | TrueFix Labs`, description, route, body });
@@ -397,9 +442,9 @@ function localizedResearchPage(localeKey) {
   const cards = localeKey === 'zh-cn' ? [
     ['zh-cn/research/studio-indicators', 'TrueFix Studio 支持的技术指标', '来自 Studio 实际共享目录的 80 个指标及其用途说明。'],
     ['zh-cn/research/instrument-domain-model', '金融工具领域模型', '用正交维度建模金融工具、合约、挂牌、Provider 映射与生命周期。'],
-    ['research/multi-broker-trading-guide', '多券商交易架构指南', '从 Provider 能力差异、Instrument 映射、订单生命周期到对账。'],
-    ['research/rust-trading-system-guide', 'Rust 交易系统工程指南', '连接 Rust 适配器、OMS、风控、执行和对账主题。'],
-    ['research/ai-trading-agent-guide', 'AI 交易代理工程指南', '安全代理、权限、风控、人工审批和审计。']
+    ['zh-cn/research/multi-broker-trading-guide', '多券商交易架构指南', '从 Provider 能力差异、Instrument 映射、订单生命周期到对账。'],
+    ['zh-cn/research/rust-trading-system-guide', 'Rust 交易系统工程指南', '连接 Rust 适配器、OMS、风控、执行和对账主题。'],
+    ['zh-cn/research/ai-trading-agent-guide', 'AI 交易代理工程指南', '安全代理、权限、风控、人工审批和审计。']
   ] : localeKey === 'ja' ? [
     ['ja/research/studio-indicators', 'TrueFix Studio 対応テクニカル指標', 'Studio の共有カタログにある 80 指標と用途。'],
     ['ja/research/instrument-domain-model', '金融商品ドメインモデル', '金融商品、契約、上場、Provider 対応、ライフサイクルを直交する概念で設計。'],
@@ -467,6 +512,8 @@ await Promise.all(comparisonData.map(item => writePage(`compare/${item[0]}`, com
 await Promise.all(aiArticles.map(item => writePage(`ai-trading/${item[0]}`, aiPage(item))));
 await writePage('data/broker-api-matrix', matrixPage());
 await Promise.all(pillarData.map(([route, title, description, related]) => writePage(route, indexPage(route, title, description, related.map(item => [item, item.split('/').pop().replaceAll('-', ' '), 'Related technical guide in this pillar.'])))));
+await Promise.all(Object.keys(zhResearchCopy).filter(route => articles.some(item => item.route === route)).map(route => writePage(`zh-cn/${route}`, localizedResearchArticlePage(articles.find(item => item.route === route)))));
+await Promise.all(pillarData.map(item => writePage(`zh-cn/${item[0]}`, localizedPillarPage(item))));
 await Promise.all(Object.keys(researchLocales).filter(locale => locale !== 'en').map(locale => writePage(researchLocales[locale].route, localizedResearchPage(locale))));
 await Promise.all(Object.keys(indicatorLocales).map(locale => writePage(indicatorLocales[locale].route, indicatorPage(locale))));
 

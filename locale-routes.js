@@ -3,6 +3,7 @@
   const SLUG_LOCALES = Object.fromEntries(Object.entries(LOCALE_SLUGS).map(([locale, slug]) => [slug, locale]));
   const LOCALIZABLE = /^(?:\/?|\/(?:about(?:\/[^/]+)?|guide|support|privacy|product-film|research(?:\/[^/]+)?|engineering(?:\/[^/]+)?|brokers(?:\/[^/]+)?|compare(?:\/[^/]+)?|ai-trading(?:\/[^/]+)?|data(?:\/[^/]+)?)\/?)$/;
   const KNOWLEDGE_PATH = /^\/(?:research|engineering|brokers|compare|ai-trading|data)(?:\/|$)/;
+  const LOCALIZED_KNOWLEDGE = new Set(['/research/', '/research/studio-indicators/']);
 
   function pathLanguage() {
     const first = location.pathname.split('/').filter(Boolean)[0]?.toLowerCase();
@@ -23,6 +24,10 @@
     const clean = basePath(url.pathname);
     if (locale === 'en' && KNOWLEDGE_PATH.test(clean)) {
       url.pathname = clean;
+      return url.href;
+    }
+    if (locale !== 'en' && KNOWLEDGE_PATH.test(clean) && !LOCALIZED_KNOWLEDGE.has(clean) && !clean.startsWith('/research/')) {
+      url.pathname = clean.startsWith('/research/') ? `/${slug}/research/` : `/${slug}/`;
       return url.href;
     }
     url.pathname = clean === '/' ? `/${slug}/` : `/${slug}${clean}`;

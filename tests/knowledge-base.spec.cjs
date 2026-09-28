@@ -89,3 +89,18 @@ test('Research menu opens on mobile knowledge pages', async ({ page }) => {
   await menu.click();
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
 });
+
+test('localized Research indexes exist and expose reciprocal hreflang links', async () => {
+  const pages = [
+    ['research', 'en', 'Trading Engineering Research'],
+    ['zh-cn/research', 'zh-CN', '交易工程研究'],
+    ['ja/research', 'ja', 'トレーディングエンジニアリング研究'],
+    ['ko/research', 'ko', '트레이딩 엔지니어링 연구']
+  ];
+  for (const [route, lang, heading] of pages) {
+    const html = fs.readFileSync(path.join(route, 'index.html'), 'utf8');
+    expect(html, route).toContain(`<html lang="${lang}">`);
+    expect(html, route).toContain(`<h1>${heading}</h1>`);
+    expect(html, route).toContain('hreflang="zh-CN"');
+  }
+});

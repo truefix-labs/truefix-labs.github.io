@@ -225,6 +225,9 @@ const allRoutes = new Set([
   ...pillarData.map(([route]) => route),
   ...Object.keys(categories),
   'data/broker-api-matrix',
+  'zh-cn/research',
+  'ja/research',
+  'ko/research',
   'research/studio-indicators',
   'zh-cn/research/studio-indicators',
   'ja/research/studio-indicators',
@@ -382,6 +385,45 @@ function matrixPage() {
   return shell({ title: `${title} | TrueFix Labs`, description, route, type: 'Dataset', body });
 }
 
+const researchLocales = {
+  en: { route: 'research', lang: 'en', title: 'Trading Engineering Research', description: 'Technical research and engineering notes on algorithmic trading, broker APIs, market data, execution systems, risk engines, multi-venue trading and AI trading agents.', answer: 'This research index organizes TrueFix Labs notes by architecture, instruments, execution, broker APIs, data, and AI trading. Each page is static, source-linked, and written to answer an engineering question directly.' },
+  'zh-cn': { route: 'zh-cn/research', lang: 'zh-CN', title: '交易工程研究', description: '关于算法交易、券商 API、市场数据、执行系统、风险引擎、多市场交易和 AI 交易代理的技术研究与工程笔记。', answer: '这里按交易架构、金融工具、执行、券商 API、数据和 AI 交易整理 TrueFix Labs 的研究内容。每个页面都是静态页面，带有来源链接，并直接回答工程问题。' },
+  ja: { route: 'ja/research', lang: 'ja', title: 'トレーディングエンジニアリング研究', description: 'アルゴリズム取引、ブローカー API、市場データ、執行システム、リスクエンジン、マルチベニュー取引、AI 取引エージェントに関する技術研究。', answer: 'この研究インデックスでは、アーキテクチャ、金融商品、執行、ブローカー API、データ、AI 取引に関する TrueFix Labs のノートを整理しています。各ページは静的で、出典リンクを持ち、エンジニアリングの質問に直接答えます。' },
+  ko: { route: 'ko/research', lang: 'ko', title: '트레이딩 엔지니어링 연구', description: '알고리즘 트레이딩, 브로커 API, 시장 데이터, 실행 시스템, 리스크 엔진, 멀티 베뉴 거래와 AI 트레이딩 에이전트에 관한 기술 연구입니다.', answer: '이 연구 인덱스는 아키텍처, 금융 상품, 실행, 브로커 API, 데이터, AI 트레이딩에 관한 TrueFix Labs 노트를 정리합니다. 각 페이지는 정적이며 출처 링크를 포함하고 엔지니어링 질문에 직접 답합니다.' }
+};
+
+function localizedResearchPage(localeKey) {
+  const locale = researchLocales[localeKey];
+  const cards = localeKey === 'zh-cn' ? [
+    ['zh-cn/research/studio-indicators', 'TrueFix Studio 支持的技术指标', '来自 Studio 实际共享目录的 80 个指标及其用途说明。'],
+    ['zh-cn/research/instrument-domain-model', '金融工具领域模型', '用正交维度建模金融工具、合约、挂牌、Provider 映射与生命周期。'],
+    ['research/multi-broker-trading-guide', '多券商交易架构指南', '从 Provider 能力差异、Instrument 映射、订单生命周期到对账。'],
+    ['research/rust-trading-system-guide', 'Rust 交易系统工程指南', '连接 Rust 适配器、OMS、风控、执行和对账主题。'],
+    ['research/ai-trading-agent-guide', 'AI 交易代理工程指南', '安全代理、权限、风控、人工审批和审计。']
+  ] : localeKey === 'ja' ? [
+    ['ja/research/studio-indicators', 'TrueFix Studio 対応テクニカル指標', 'Studio の共有カタログにある 80 指標と用途。'],
+    ['ja/research/instrument-domain-model', '金融商品ドメインモデル', '金融商品、契約、上場、Provider 対応、ライフサイクルを直交する概念で設計。'],
+    ['research/multi-broker-trading-guide', 'マルチブローカー取引アーキテクチャ', 'Provider の差異、Instrument 対応、注文ライフサイクル、照合を整理。'],
+    ['research/rust-trading-system-guide', 'Rust 取引システムエンジニアリングガイド', 'Rust アダプター、OMS、リスク、執行、照合をつなぐガイド。'],
+    ['research/ai-trading-agent-guide', 'AI 取引エージェントエンジニアリングガイド', '安全なエージェント、権限、リスク、承認、監査。']
+  ] : localeKey === 'ko' ? [
+    ['ko/research/studio-indicators', 'TrueFix Studio 지원 기술 지표', 'Studio 공유 카탈로그의 80개 지표와 용도 설명입니다.'],
+    ['ko/research/instrument-domain-model', '금융 상품 도메인 모델', '금융 상품, 계약, 상장, Provider 매핑과 수명 주기를 직교 개념으로 설계합니다.'],
+    ['research/multi-broker-trading-guide', '멀티 브로커 거래 아키텍처 가이드', 'Provider 차이, Instrument 매핑, 주문 수명 주기와 조정을 정리합니다.'],
+    ['research/rust-trading-system-guide', 'Rust 트레이딩 시스템 엔지니어링 가이드', 'Rust 어댑터, OMS, 리스크, 실행과 조정 주제를 연결합니다.'],
+    ['research/ai-trading-agent-guide', 'AI 트레이딩 에이전트 엔지니어링 가이드', '안전한 에이전트, 권한, 리스크, 승인과 감사입니다.']
+  ] : [
+    ['research/studio-indicators', 'TrueFix Studio Supported Technical Indicators', '80 indicators from the Studio shared catalogue with practical descriptions.'],
+    ['research/instrument-domain-model', 'Financial Instrument Domain Model', 'Orthogonal modeling for instruments, contracts, listings, provider mappings, and lifecycle.'],
+    ['research/multi-broker-trading-guide', 'The Multi-Broker Trading Architecture Guide', 'Provider differences, instrument mappings, order lifecycle, and reconciliation.'],
+    ['research/rust-trading-system-guide', 'The Rust Trading System Engineering Guide', 'Rust adapters, OMS, risk, execution, and reconciliation in one engineering map.'],
+    ['research/ai-trading-agent-guide', 'The AI Trading Agent Engineering Guide', 'Safe agents, permissions, risk controls, approval, and audit.']
+  ];
+  const body = `${breadcrumb(locale.route, locale.title)}<div class="kb-hero"><p class="kb-eyebrow">TRUEFIX LABS · TRADING ENGINEERING</p><h1>${esc(locale.title)}</h1><p class="kb-dek">${esc(locale.description)}</p><p class="kb-answer">${esc(locale.answer)}</p></div><section class="kb-card-grid"><h2>${localeKey === 'zh-cn' ? '研究主题' : localeKey === 'ja' ? '研究テーマ' : localeKey === 'ko' ? '연구 주제' : 'Research topics'}</h2><div class="kb-cards">${cards.map(([route, title, description]) => `<a class="kb-card" href="${link(route)}"><span>Research</span><h3>${esc(title)}</h3><p>${esc(description)}</p></a>`).join('')}</div></section>${sourcesHtml([['TrueFix Labs GitHub organization', 'https://github.com/truefix-labs'], ['TrueFix Studio repository', 'https://github.com/truefix-labs/truefix-studio']])}`;
+  const alternates = Object.entries(researchLocales).map(([key, value]) => [key === 'zh-cn' ? 'zh-CN' : key, `${origin}/${value.route}/`]);
+  return shell({ title: `${locale.title} | TrueFix Labs`, description: locale.description, route: locale.route, body, locale: locale.lang, alternates: [...alternates, ['x-default', `${origin}/research/`]] });
+}
+
 const indicatorLocales = {
   en: { route: 'research/studio-indicators', lang: 'en', title: 'TrueFix Studio Supported Technical Indicators', description: 'The audited technical indicator catalogue currently exposed by TrueFix Studio, with plain-language descriptions, implementation notes, and multilingual names.' },
   'zh-cn': { route: 'zh-cn/research/studio-indicators', lang: 'zh-CN', title: 'TrueFix Studio 支持的技术指标', description: 'TrueFix Studio 当前支持的技术指标目录，包含中文和英文名称、用途说明以及实现来源。' },
@@ -413,14 +455,7 @@ function writePage(route, html) {
 }
 
 await Promise.all([...allRoutes].map(route => rm(join(root, route), { recursive: true, force: true })));
-await writePage('research', indexPage('research', ...categories.research, [
-  ['research/rust-trading-system-guide', 'The Rust Trading System Engineering Guide', 'A pillar guide connecting Rust architecture, adapters, OMS, risk, execution, and reconciliation.'],
-  ['research/multi-broker-trading-guide', 'The Multi-Broker Trading Architecture Guide', 'A systems view of multi-provider trading infrastructure.'],
-  ['research/ai-trading-agent-guide', 'The AI Trading Agent Engineering Guide', 'Safe agent boundaries, permissions, risk, approval, and audit.'],
-  ['research/instrument-domain-model', 'Financial Instrument Domain Model', 'Orthogonal identity, classification, contract, venue, provider, rule, lifecycle, and relationship modeling.'],
-  ['research/studio-indicators', 'TrueFix Studio Supported Technical Indicators', `${studioIndicators.length} indicators with names, groups, implementation notes, and multilingual descriptions.`],
-  ...articles.slice(0, 3).map(item => [item.route, item.title, item.description])
-]));
+await writePage('research', localizedResearchPage('en'));
 await writePage('engineering', indexPage('engineering', ...categories.engineering, articles.map(item => [item.route, item.title, item.description])));
 await writePage('brokers', indexPage('brokers', ...categories.brokers, brokerData.map(([slug, name, docs, markets]) => [`brokers/${slug}`, `${name} API Technical Reference`, markets])));
 await writePage('compare', indexPage('compare', ...categories.compare, comparisonData.map(([slug, title]) => [`compare/${slug}`, title, 'Structured API and architecture comparison.'])));
@@ -432,6 +467,7 @@ await Promise.all(comparisonData.map(item => writePage(`compare/${item[0]}`, com
 await Promise.all(aiArticles.map(item => writePage(`ai-trading/${item[0]}`, aiPage(item))));
 await writePage('data/broker-api-matrix', matrixPage());
 await Promise.all(pillarData.map(([route, title, description, related]) => writePage(route, indexPage(route, title, description, related.map(item => [item, item.split('/').pop().replaceAll('-', ' '), 'Related technical guide in this pillar.'])))));
+await Promise.all(Object.keys(researchLocales).filter(locale => locale !== 'en').map(locale => writePage(researchLocales[locale].route, localizedResearchPage(locale))));
 await Promise.all(Object.keys(indicatorLocales).map(locale => writePage(indicatorLocales[locale].route, indicatorPage(locale))));
 
 const css = `/* Technical knowledge base layout. */

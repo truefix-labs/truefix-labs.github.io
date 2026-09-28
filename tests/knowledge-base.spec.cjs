@@ -60,3 +60,20 @@ test('knowledge-base internal links resolve to static routes', async () => {
     }
   }
 });
+
+test('TrueFix Studio indicator catalogue is multilingual and complete', async () => {
+  const pages = [
+    ['research/studio-indicators', 'en'],
+    ['zh-cn/research/studio-indicators', 'zh-CN'],
+    ['ja/research/studio-indicators', 'ja'],
+    ['ko/research/studio-indicators', 'ko']
+  ];
+  for (const [route, lang] of pages) {
+    const html = fs.readFileSync(path.join(route, 'index.html'), 'utf8');
+    expect(html, route).toContain(`<html lang="${lang}">`);
+    expect(html, route).toContain('<h1>');
+    expect((html.match(/<tr>/g) || []).length - 1, route).toBe(80);
+    expect(html, route).toContain('hreflang="zh-CN"');
+    expect(html, route).toContain('TrueFix Studio');
+  }
+});

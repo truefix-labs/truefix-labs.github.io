@@ -46,10 +46,12 @@ for (const route of ['', 'about', 'guide', 'privacy', 'support', 'product-film',
     await menu.click();
     await expect(menu).toHaveAttribute('aria-expanded', 'true');
     await expect(page.locator('header .site-nav')).toBeVisible();
+    await expect(page.locator('header a[data-site-i18n="nav.research"]')).toHaveAttribute('href', '/zh-cn/research/');
     await page.locator('header .language-trigger').click();
     await page.locator('header [role="option"][lang="ja"]').click();
     await expect(page).toHaveURL(new RegExp(`/ja/${route ? route + '/' : ''}$`));
     await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
+    await expect(page.locator('header a[data-site-i18n="nav.research"]')).toHaveAttribute('href', '/ja/research/');
     await menu.click();
     await page.keyboard.press('Escape');
     await expect(menu).toHaveAttribute('aria-expanded', 'false');

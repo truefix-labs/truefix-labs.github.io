@@ -7,11 +7,12 @@ const origin = 'https://truefix-labs.com';
 const today = '2026-09-28';
 const updated = '2026-09-28';
 const sharedHeader = await readFile(join(root, 'shared/header.html'), 'utf8');
+const studioIndicators = JSON.parse(await readFile(join(root, 'scripts/studio-indicators.json'), 'utf8'));
 
 const esc = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const slugPath = route => `${origin}/${route.replace(/^\//, '').replace(/\/$/, '')}/`;
 const link = route => `/${route.replace(/^\//, '').replace(/\/$/, '')}/`;
-const sourceLink = (label, url) => `<a href="${esc(url)}" rel="nofollow noopener" target="_blank">${esc(label)}</a>`;
+const sourceLink = (label, url) => url ? `<a href="${esc(url)}" rel="nofollow noopener" target="_blank">${esc(label)}</a>` : `<span>${esc(label)}</span>`;
 
 const organizationSchema = {
   '@context': 'https://schema.org', '@type': 'Organization', name: 'TrueFix Labs', url: origin,
@@ -102,6 +103,22 @@ const articles = [
       ['Mapping lifecycle', '<p>Mappings need source, validity, environment, verification time, and confidence. An execution request should require an exact fresh mapping for the selected provider and account context.</p>'],
       ['Failure modes', '<ul><li>Accidentally treating an inverse contract as linear.</li><li>Ignoring contract multiplier or settlement currency.</li><li>Using a delisted or stale mapping.</li><li>Guessing a symbol after a provider rejects the first one.</li></ul>']
     ], related: ['engineering/symbol-normalization','engineering/broker-adapter-architecture','data/broker-api-matrix']
+  },
+  {
+    route: 'research/instrument-domain-model', category: 'Research',
+    title: 'Designing a Financial Instrument Domain Model for Trading Systems',
+    description: 'A domain model for stocks, bonds, ETFs, FX, derivatives, perpetuals, indices, baskets, and multi-venue instruments without an inheritance tree that collapses under real market coverage.',
+    answer: 'A production trading system should model financial instruments with orthogonal dimensions instead of making Stock, Option, Future, and Crypto subclasses of one Instrument type. Keep canonical identity, classification, economic exposure, product family, contract terms, venue listing, provider identifiers, trading rules, settlement, lifecycle, and relationships as separate concepts.',
+    sections: [
+      ['The modeling principle', '<p>The useful question is not “which subclass is this?” It is a set of independent questions: What is it? What economic exposure does it represent? What product family does it belong to? What exact contract terms apply? Where is it listed? How is it identified by each provider? How does it trade and settle? Treat the answers as separate dimensions.</p><pre><code>FinancialInstrument\n├── Identity\n├── Classification: AssetClass, InstrumentType, InstrumentSubType, CFI\n├── Economics: currency, underlying, multiplier, contract size\n├── TypeSpecificTerms\n├── Lifecycle\n├── Identifiers[]\n├── Listings[]\n└── Relationships[]</code></pre>'],
+      ['Separate the domain layers', '<p>Keep the economic or reference object separate from the financial product, the concrete instrument, and its market representation. An issuer, currency, commodity, index, rate, basket, or reference entity can be an economic reference. A product family describes the family of exposure. A concrete instrument adds exact terms. A listing or venue instrument describes where and under which market segment it trades.</p><table class="kb-table"><thead><tr><th>Concept</th><th>Purpose</th></tr></thead><tbody><tr><td>FinancialInstrument</td><td>Stable domain object that can be identified, priced, held, traded, settled, or referenced.</td></tr><tr><td>ProductFamily</td><td>Broad family such as equity, bond, fund, option, future, forward, swap, or perpetual.</td></tr><tr><td>Contract / Instrument</td><td>Exact economic terms, including expiry, strike, settlement, multiplier, and underlying.</td></tr><tr><td>Listing / VenueInstrument</td><td>Tradable representation on a venue, market, segment, or listing.</td></tr><tr><td>ProviderInstrument</td><td>A broker or exchange representation mapped to the canonical instrument.</td></tr></tbody></table>'],
+      ['Classification is not identity', '<p><code>InstrumentType</code>, CFI, security classification, and asset class explain what an instrument is. They do not identify one exact instrument. ISIN, CFI, MIC, ticker, exchange symbol, and provider IDs serve different namespaces and should remain separate records with source and validity metadata. A classification code must never be used as an internal instrument ID.</p>'],
+      ['Type-specific terms without nullable-field sprawl', '<p>Shared fields belong on the core instrument. Product-specific terms belong in separate value objects: <code>EquityTerms</code>, <code>BondTerms</code>, <code>OptionTerms</code>, <code>FutureTerms</code>, <code>ForwardTerms</code>, <code>SwapTerms</code>, <code>PerpetualTerms</code>, and <code>FundTerms</code>. For an option, keep underlying, call or put, strike, exercise style, expiration, and settlement together. Do not put every possible strike, coupon, funding rate, and face value into one table as nullable columns.</p><pre><code>OptionTerms {\n  underlying: InstrumentId,\n  callPut: CallPut,\n  strike: Decimal,\n  exerciseStyle: ExerciseStyle,\n  expiration: Instant,\n  settlement: SettlementSpecification\n}</code></pre>'],
+      ['Canonical instrument, listing, and provider mapping', '<p>A canonical instrument can have multiple listings and multiple provider mappings. A venue symbol such as <code>BTCUSDT</code>, <code>BTC-USDT</code>, or an IBKR contract identifier is a representation in a namespace, not a universal identity. Preserve provider, venue, market segment, native symbol, native contract ID, environment, validity, and verification evidence in the mapping.</p><pre><code>CanonicalInstrument\n  ├── VenueInstrument / Listing\n  │     └── InstrumentIdentifier[]\n  └── ProviderInstrumentMapping[]</code></pre>'],
+      ['Trading rules and lifecycle are first-class', '<p>Trading behavior belongs outside the instrument identity but must be linked to it. Model price increments, quantity rules, trading calendars, sessions, status, issue and effective dates, expiry or maturity, settlement specifications, corporate actions, and delisting or successor events. The same canonical product may have different rules on two venues or in two environments.</p><ul><li><code>PriceIncrementRule</code> and <code>QuantityRule</code> define valid orders.</li><li><code>TradingCalendar</code> and <code>TradingSession</code> define when orders and data are valid.</li><li><code>InstrumentLifecycle</code> records issue, effective, expiry, maturity, status, and transitions.</li><li><code>SettlementSpecification</code> captures settlement asset, currency, timing, and method.</li></ul>'],
+      ['Relationships instead of hidden inheritance', '<p>Use explicit relationships for meaning that crosses products: <code>UNDERLYING</code>, <code>DERIVED_FROM</code>, <code>CONVERTS_TO</code>, <code>DELIVERS</code>, <code>TRACKS</code>, <code>COMPONENT_OF</code>, <code>SUCCESSOR_OF</code>, <code>ROLLS_TO</code>, and <code>SAME_SHARE_CLASS</code>. This represents options, futures, ETFs, indices, baskets, rolls, deliverables, and multi-leg instruments without pretending they are all the same subtype.</p>'],
+      ['Implementation checklist', '<ol><li>Assign a stable internal identity independent of ticker and provider.</li><li>Attach classifications and economic exposure as separate dimensions.</li><li>Store type-specific terms in dedicated structures.</li><li>Model listings, venue instruments, and provider mappings explicitly.</li><li>Attach rules, lifecycle, settlement, and corporate actions with effective dates.</li><li>Represent underlyings, components, deliverables, successors, and legs as relationships.</li><li>Require exact, current mappings before an execution command reaches a broker adapter.</li></ol>']
+    ], related: ['engineering/instrument-master','engineering/symbol-normalization','engineering/broker-adapter-architecture','engineering/execution-engine']
   },
   {
     route: 'engineering/symbol-normalization', category: 'Engineering',
@@ -207,12 +224,59 @@ const allRoutes = new Set([
   ...aiArticles.map(([slug]) => `ai-trading/${slug}`),
   ...pillarData.map(([route]) => route),
   ...Object.keys(categories),
-  'data/broker-api-matrix'
+  'data/broker-api-matrix',
+  'research/studio-indicators',
+  'zh-cn/research/studio-indicators',
+  'ja/research/studio-indicators',
+  'ko/research/studio-indicators'
 ]);
+
+const indicatorGroups = {
+  trend: new Set(['sma','ema','adx','aroon','parabolic_sar','hull_moving_average','weighted_moving_average','double_exponential_moving_average','triple_exponential_moving_average','triangular_moving_average','volume_weighted_moving_average','variable_index_dynamic_average','kaufman_adaptive_moving_average','smoothed_moving_average','mcginley_dynamic_moving_average','supertrend','rolling_linear_trend','trend_strength_index','ichimoku_cloud']),
+  momentum: new Set(['rsi','macd','stochastic','cci','awesome_oscillator','true_strength_index','chande_momentum_oscillator','trix','rate_of_change','williams_percent_r','coppock_curve','detrended_price_oscillator','fisher_transform','know_sure_thing','relative_vigor_index','smi_ergodic_indicator','woodies_cci','momentum_index','percentage_price_oscillator','mcginley_dynamic_cci']),
+  volatility: new Set(['bollinger_bands','keltner_channel','rolling_standard_deviation','log_return_volatility','annualized_log_return_volatility','average_true_range','true_range','ulcer_index','chande_kroll_stop','envelopes','student_t_adjusted_volatility','laplace_volatility','cauchy_iqr_scale','mean_absolute_deviation_bands','mcginley_dynamic_bands']),
+  volume: new Set(['mfi','chaikin_money_flow','elders_force_index','ease_of_movement','chaikin_oscillator','on_balance_volume','internal_bar_strength','positive_volume_index','negative_volume_index','klinger_volume_oscillator','volume_weighted_average_price','volume_price_trend','accumulation_distribution_line']),
+  statistics: new Set(['rolling_mean','rolling_median','rolling_variance','mean_absolute_deviation','z_score','rolling_mode','rolling_minimum','rolling_maximum','rolling_log_return','median_absolute_deviation','empirical_quantile_range','return_on_investment'])
+};
+
+const indicatorDescription = {
+  en: {
+    trend: 'Trend and smoothing measure for identifying direction, persistence, or adaptive price movement.',
+    momentum: 'Momentum or oscillator measure for comparing recent price movement, strength, and turning points.',
+    volatility: 'Volatility, range, channel, or drawdown measure for sizing and regime analysis.',
+    volume: 'Volume and money-flow measure for relating price movement to traded activity.',
+    statistics: 'Rolling statistical feature for normalization, distribution, returns, or regime analysis.'
+  },
+  zh: {
+    trend: '用于识别价格方向、趋势持续性或自适应价格变化的趋势与平滑指标。',
+    momentum: '用于比较近期价格变化、强弱和拐点的动量或振荡指标。',
+    volatility: '用于仓位管理和市场状态分析的波动率、区间、通道或回撤指标。',
+    volume: '将价格变化与成交活动联系起来的成交量和资金流指标。',
+    statistics: '用于标准化、分布、收益率或市场状态分析的滚动统计特征。'
+  },
+  ja: {
+    trend: '方向、トレンドの持続性、適応的な価格変化を確認するトレンド・平滑化指標。',
+    momentum: '直近の値動き、強さ、転換点を比較するモメンタム・オシレーター指標。',
+    volatility: 'ポジション sizing とレジーム分析に使うボラティリティ、レンジ、チャネル、ドローダウン指標。',
+    volume: '価格変化と取引活動を結び付ける出来高・マネーフロー指標。',
+    statistics: '正規化、分布、リターン、レジーム分析に使うローリング統計量。'
+  },
+  ko: {
+    trend: '방향, 추세 지속성, 적응형 가격 움직임을 확인하는 추세 및 평활 지표입니다.',
+    momentum: '최근 가격 움직임, 강도, 전환점을 비교하는 모멘텀 및 오실레이터 지표입니다.',
+    volatility: '포지션 sizing과 시장 국면 분석에 사용하는 변동성, 범위, 채널, 낙폭 지표입니다.',
+    volume: '가격 움직임과 거래 활동을 연결하는 거래량 및 자금 흐름 지표입니다.',
+    statistics: '정규화, 분포, 수익률, 시장 국면 분석에 사용하는 롤링 통계 특성입니다.'
+  }
+};
+
+function indicatorGroup(id) {
+  return Object.entries(indicatorGroups).find(([, ids]) => ids.has(id))?.[0] || 'statistics';
+}
 
 const collectionRoutes = new Set([...Object.keys(categories), ...pillarData.map(([route]) => route)]);
 
-function commonHead({ title, description, route, type = 'website' }) {
+function commonHead({ title, description, route, type = 'website', alternates = [] }) {
   const canonical = slugPath(route);
   const schemaType = collectionRoutes.has(route) ? 'CollectionPage' : type;
   const schema = {
@@ -231,12 +295,13 @@ function commonHead({ title, description, route, type = 'website' }) {
     itemListElement: breadcrumbItems.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: item.item }))
   };
   const ogType = type === 'TechArticle' || type === 'Dataset' ? 'article' : 'website';
+  const alternateLinks = alternates.map(([locale, url]) => `<link rel="alternate" hreflang="${esc(locale)}" href="${esc(url)}">`).join('');
   return `<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#080b10">
-    <meta name="description" content="${esc(description)}"><meta property="og:type" content="${ogType}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${origin}/assets/workstation.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}"><link rel="canonical" href="${canonical}"><link rel="stylesheet" href="/styles.css?v=26"><link rel="stylesheet" href="/site-header.css?v=2"><link rel="stylesheet" href="/mobile-shell.css?v=3"><link rel="stylesheet" href="/site-layout.css?v=1"><link rel="stylesheet" href="/knowledge.css?v=1"><script defer src="/site-navigation.js?v=1"></script><script defer src="/site-header.js?v=1"></script><script defer src="/mobile-shell.js?v=1"></script><script type="application/ld+json">${JSON.stringify(schema)}</script><script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script><script id="organization-schema" type="application/ld+json">${JSON.stringify(organizationSchema)}</script><title>${esc(title)}</title>`;
+    <meta name="description" content="${esc(description)}"><meta property="og:type" content="${ogType}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${origin}/assets/workstation.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}"><link rel="canonical" href="${canonical}">${alternateLinks}<link rel="stylesheet" href="/styles.css?v=26"><link rel="stylesheet" href="/site-header.css?v=2"><link rel="stylesheet" href="/mobile-shell.css?v=3"><link rel="stylesheet" href="/site-layout.css?v=1"><link rel="stylesheet" href="/knowledge.css?v=1"><script defer src="/site-navigation.js?v=1"></script><script defer src="/site-header.js?v=1"></script><script defer src="/mobile-shell.js?v=1"></script><script type="application/ld+json">${JSON.stringify(schema)}</script><script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script><script id="organization-schema" type="application/ld+json">${JSON.stringify(organizationSchema)}</script><title>${esc(title)}</title>`;
 }
 
-function shell({ title, description, route, type, body }) {
-  return `<!doctype html><html lang="en"><head>${commonHead({ title, description, route, type })}</head><body><a class="skip-link" href="#main">Skip to main content</a>${sharedHeader}<main id="main" class="knowledge-page"><div class="knowledge-wrap">${body}</div></main><footer class="site-footer"><p><strong>TrueFix Labs</strong><br>Trading Engineering Knowledge Base · Open Source Trading Infrastructure Portal</p><nav><a href="/">TrueFix Studio</a><a href="/research/">Research</a><a href="/engineering/">Engineering</a><a href="/brokers/">Brokers</a><a href="/compare/">Compare</a><a href="/ai-trading/">AI Trading</a><a href="/data/">Data</a></nav></footer></body></html>`;
+function shell({ title, description, route, type, body, locale = 'en', alternates = [] }) {
+  return `<!doctype html><html lang="${esc(locale)}"><head>${commonHead({ title, description, route, type, alternates })}</head><body><a class="skip-link" href="#main">Skip to main content</a>${sharedHeader}<main id="main" class="knowledge-page"><div class="knowledge-wrap">${body}</div></main><footer class="site-footer"><p><strong>TrueFix Labs</strong><br>Trading Engineering Knowledge Base · Open Source Trading Infrastructure Portal</p><nav><a href="/">TrueFix Studio</a><a href="/research/">Research</a><a href="/engineering/">Engineering</a><a href="/brokers/">Brokers</a><a href="/compare/">Compare</a><a href="/ai-trading/">AI Trading</a><a href="/data/">Data</a></nav></footer></body></html>`;
 }
 
 function breadcrumb(route, title) {
@@ -268,7 +333,8 @@ const articleSources = {
   'engineering/symbol-normalization': [['Binance Spot API documentation', 'https://developers.binance.com/docs/binance-spot-api-docs'], ['OKX API documentation', 'https://www.okx.com/docs-v5/en/'], ['Bybit V5 API documentation', 'https://bybit-exchange.github.io/docs/v5/intro']],
   'engineering/order-state-machine': [['FIX Trading Community standards', 'https://www.fixtrading.org/standards/'], ['TrueFix Studio project repository', 'https://github.com/truefix-labs/truefix-studio']],
   'engineering/trading-reconciliation': [['FIX Trading Community standards', 'https://www.fixtrading.org/standards/'], ['TrueFix Studio project repository', 'https://github.com/truefix-labs/truefix-studio']],
-  'engineering/idempotent-order-execution': [['FIX Trading Community standards', 'https://www.fixtrading.org/standards/'], ['TrueFix Studio project repository', 'https://github.com/truefix-labs/truefix-studio']]
+  'engineering/idempotent-order-execution': [['FIX Trading Community standards', 'https://www.fixtrading.org/standards/'], ['TrueFix Studio project repository', 'https://github.com/truefix-labs/truefix-studio']],
+  'research/instrument-domain-model': [['Supplied TrueFix instrument-domain design memo (PDF, 2026-09-17)', null], ['FIX Trading Community standards', 'https://www.fixtrading.org/standards/'], ['ISO 10962 / CFI overview', 'https://www.iso.org/standard/73564.html']]
 };
 
 function articlePage(item, sources = articleSources[item.route] || [['TrueFix Labs project repository', 'https://github.com/truefix-labs/truefix-studio']]) {
@@ -316,6 +382,32 @@ function matrixPage() {
   return shell({ title: `${title} | TrueFix Labs`, description, route, type: 'Dataset', body });
 }
 
+const indicatorLocales = {
+  en: { route: 'research/studio-indicators', lang: 'en', title: 'TrueFix Studio Supported Technical Indicators', description: 'The audited technical indicator catalogue currently exposed by TrueFix Studio, with plain-language descriptions, implementation notes, and multilingual names.' },
+  'zh-cn': { route: 'zh-cn/research/studio-indicators', lang: 'zh-CN', title: 'TrueFix Studio 支持的技术指标', description: 'TrueFix Studio 当前支持的技术指标目录，包含中文和英文名称、用途说明以及实现来源。' },
+  ja: { route: 'ja/research/studio-indicators', lang: 'ja', title: 'TrueFix Studio 対応テクニカル指標', description: 'TrueFix Studio が現在提供するテクニカル指標の一覧。名称、用途、実装ソースを多言語で確認できます。' },
+  ko: { route: 'ko/research/studio-indicators', lang: 'ko', title: 'TrueFix Studio 지원 기술 지표', description: 'TrueFix Studio에서 현재 제공하는 기술 지표 목록과 이름, 용도, 구현 소스를 다국어로 확인합니다.' }
+};
+
+function indicatorPage(localeKey) {
+  const locale = indicatorLocales[localeKey];
+  const isZh = localeKey === 'zh-cn';
+  const isJa = localeKey === 'ja';
+  const isKo = localeKey === 'ko';
+  const groupLabels = isZh ? { trend: '趋势与平滑', momentum: '动量与振荡', volatility: '波动率与通道', volume: '成交量与资金流', statistics: '统计特征' } : isJa ? { trend: 'トレンドと平滑化', momentum: 'モメンタムとオシレーター', volatility: 'ボラティリティとチャネル', volume: '出来高とマネーフロー', statistics: '統計特徴量' } : isKo ? { trend: '추세 및 평활', momentum: '모멘텀 및 오실레이터', volatility: '변동성 및 채널', volume: '거래량 및 자금 흐름', statistics: '통계 특성' } : { trend: 'Trend and smoothing', momentum: 'Momentum and oscillators', volatility: 'Volatility and channels', volume: 'Volume and money flow', statistics: 'Statistical features' };
+  const intro = isZh ? '这份目录来自 TrueFix Studio 的共享指标目录。它反映应用当前暴露的指标定义；参数范围、输出字段和公式证据仍应以对应版本的 Studio 源码为准。' : isJa ? 'この一覧は TrueFix Studio の共有指標カタログから生成されています。パラメータ範囲、出力フィールド、式の根拠は対象バージョンのソースで確認してください。' : isKo ? '이 목록은 TrueFix Studio의 공유 지표 카탈로그에서 생성됩니다. 매개변수 범위, 출력 필드, 공식 근거는 해당 버전의 소스 코드에서 확인해야 합니다.' : 'This catalogue is generated from TrueFix Studio’s shared indicator catalogue. Parameter ranges, output fields, and formula evidence should be checked against the corresponding Studio source revision.';
+  const tableHead = isZh ? ['指标', '英文名称', '类别', '说明'] : isJa ? ['指標', '英語名', '分類', '説明'] : isKo ? ['지표', '영문 이름', '분류', '설명'] : ['Indicator', 'English name', 'Group', 'Description'];
+  const rows = studioIndicators.map(item => {
+    const group = indicatorGroup(item.id);
+    const name = localeKey === 'en' ? item.en : item.zh;
+    return `<tr><th scope="row"><code>${esc(item.id)}</code><br>${esc(name)}</th><td>${esc(item.en)}</td><td>${esc(groupLabels[group])}</td><td>${esc(indicatorDescription[localeKey === 'en' ? 'en' : localeKey === 'zh-cn' ? 'zh' : localeKey][group])}</td></tr>`;
+  }).join('');
+  const sourceText = isZh ? '来源：TrueFix Studio 的共享指标目录与市场内核实现。' : isJa ? '出典：TrueFix Studio の共有指標カタログとマーケットカーネル実装。' : isKo ? '출처: TrueFix Studio 공유 지표 카탈로그 및 시장 커널 구현.' : 'Source: TrueFix Studio shared indicator catalogue and market-kernel implementation.';
+  const links = Object.entries(indicatorLocales).map(([key, value]) => [key === 'zh-cn' ? 'zh-CN' : key, `${origin}/${value.route}/`]);
+  const body = `${breadcrumb(locale.route, locale.title)}<article class="kb-article"><p class="kb-eyebrow">TRUEFIX STUDIO · TECHNICAL INDICATORS</p><h1>${esc(locale.title)}</h1><p class="kb-dek">${esc(locale.description)}</p><p class="kb-answer"><strong>${isZh ? '如何理解这份列表。' : isJa ? 'この一覧の読み方。' : isKo ? '목록 읽는 방법.' : 'How to read this list.'}</strong> ${esc(intro)}</p><section><h2>${isZh ? '支持的指标目录' : isJa ? '対応指標カタログ' : isKo ? '지원 지표 카탈로그' : 'Supported indicator catalogue'}</h2><div class="kb-table-scroll"><table class="kb-table"><thead><tr>${tableHead.map(label => `<th>${label}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div><p class="kb-updated">${esc(sourceText)} Last verified: ${updated}.</p></section><section><h2>${isZh ? '实现边界' : isJa ? '実装上の境界' : isKo ? '구현 경계' : 'Implementation boundary'}</h2><p>${isZh ? 'TrueFix Studio 将指标计算放在共享的 headless market-kernel 中，Desktop、Web、AI 和 Quant 使用同一套计算服务。指标可用不等于每个指标的公式审计已完成；应用会分别记录实现版本和公式证据状态。' : isJa ? 'TrueFix Studio は指標計算を共有の headless market-kernel に置き、Desktop、Web、AI、Quant が同じ計算サービスを使います。計算できることと式の監査が完了していることは別であり、実装バージョンと式の根拠を分けて記録します。' : isKo ? 'TrueFix Studio는 지표 계산을 공유 headless market-kernel에 두고 Desktop, Web, AI, Quant가 같은 계산 서비스를 사용합니다. 계산 가능 여부와 공식 감사 완료 여부는 별개이며 구현 버전과 공식 근거 상태를 분리해 기록합니다.' : 'TrueFix Studio keeps indicator calculation in a shared headless market-kernel used by Desktop, Web, AI, and Quant. Runtime availability does not imply that every formula has completed reconciliation; implementation version and formula evidence are tracked separately.'}</p></section>${sourcesHtml([['TrueFix Studio indicator catalogue', 'https://github.com/truefix-labs/truefix-studio/blob/main/frontend/src/lib/indicators.ts'], ['TrueFix Studio indicator service', 'https://github.com/truefix-labs/truefix-studio/blob/main/src-tauri/src/indicator_service.rs'], ['TrueFix Studio market-kernel indicators', 'https://github.com/truefix-labs/truefix-studio/blob/main/crates/tf-market-kernel/src/indicator.rs']])}${relatedHtml(['research/building-a-multi-broker-trading-system-in-rust','engineering/instrument-master','engineering/trading-system-architecture'])}</article>`;
+  return shell({ title: `${locale.title} | TrueFix Labs`, description: locale.description, route: locale.route, type: 'Dataset', body, locale: locale.lang, alternates: [...links, ['x-default', `${origin}/research/studio-indicators/`]] });
+}
+
 function writePage(route, html) {
   return (async () => { const target = join(root, route, 'index.html'); await mkdir(dirname(target), { recursive: true }); await writeFile(target, html); })();
 }
@@ -325,6 +417,8 @@ await writePage('research', indexPage('research', ...categories.research, [
   ['research/rust-trading-system-guide', 'The Rust Trading System Engineering Guide', 'A pillar guide connecting Rust architecture, adapters, OMS, risk, execution, and reconciliation.'],
   ['research/multi-broker-trading-guide', 'The Multi-Broker Trading Architecture Guide', 'A systems view of multi-provider trading infrastructure.'],
   ['research/ai-trading-agent-guide', 'The AI Trading Agent Engineering Guide', 'Safe agent boundaries, permissions, risk, approval, and audit.'],
+  ['research/instrument-domain-model', 'Financial Instrument Domain Model', 'Orthogonal identity, classification, contract, venue, provider, rule, lifecycle, and relationship modeling.'],
+  ['research/studio-indicators', 'TrueFix Studio Supported Technical Indicators', `${studioIndicators.length} indicators with names, groups, implementation notes, and multilingual descriptions.`],
   ...articles.slice(0, 3).map(item => [item.route, item.title, item.description])
 ]));
 await writePage('engineering', indexPage('engineering', ...categories.engineering, articles.map(item => [item.route, item.title, item.description])));
@@ -338,6 +432,7 @@ await Promise.all(comparisonData.map(item => writePage(`compare/${item[0]}`, com
 await Promise.all(aiArticles.map(item => writePage(`ai-trading/${item[0]}`, aiPage(item))));
 await writePage('data/broker-api-matrix', matrixPage());
 await Promise.all(pillarData.map(([route, title, description, related]) => writePage(route, indexPage(route, title, description, related.map(item => [item, item.split('/').pop().replaceAll('-', ' '), 'Related technical guide in this pillar.'])))));
+await Promise.all(Object.keys(indicatorLocales).map(locale => writePage(indicatorLocales[locale].route, indicatorPage(locale))));
 
 const css = `/* Technical knowledge base layout. */
 .knowledge-page { background: #f4f4ef; color: #111820; min-height: 70vh; }

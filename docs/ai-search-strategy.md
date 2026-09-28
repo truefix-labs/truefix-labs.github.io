@@ -10,7 +10,7 @@ TrueFix Labs is presented as a Trading Engineering Knowledge Base and Open Sourc
 | --- | --- | --- | --- | --- |
 | Repository audit | Yes | None | `specs/001-trading-knowledge-base/research.md` | Existing build and routes inspected |
 | Crawler and metadata infrastructure | Yes | Deployment | `robots.txt`, generated metadata, sitemap files | JSON-LD parse and route checks |
-| P0 engineering content | Yes | Editorial review and future expansion | 11 engineering pages and 3 pillar pages | Static HTML checks |
+| P0 engineering content | Yes | Editorial review and future expansion | 11 engineering pages, 3 pillar pages, and the supplied financial instrument domain model | Static HTML checks |
 | Broker and comparison content | Yes | Official capability verification per provider | 11 broker pages, 7 comparisons, matrix | Matrix and sitemap checks |
 | AI trading content | Yes | Editorial review and future expansion | 5 AI trading pages | Static HTML checks |
 | Publishing | Pending | User-authorized commit and push | Working tree only | No remote changes made |
@@ -26,11 +26,11 @@ TrueFix Labs is presented as a Trading Engineering Knowledge Base and Open Sourc
 
 ## Single source of truth
 
-`scripts/generate-knowledge-base.mjs` owns route metadata, article content, related links, broker records, source links, JSON-LD, RSS, `llms.txt`, and category sitemap generation. The generated HTML is committed with its source. Do not hand-edit generated knowledge pages.
+`scripts/generate-knowledge-base.mjs` owns route metadata, article content, related links, broker records, source links, JSON-LD, RSS, `llms.txt`, and category sitemap generation. The generated HTML is committed with its source. Do not hand-edit generated knowledge pages. The financial instrument domain model is based on the supplied TrueFix design memo dated 2026-09-17 and is labeled as such in the page sources.
 
 ## Page contract
 
-Every knowledge page contains a direct answer, descriptive title and description, canonical URL, Open Graph metadata, visible H1, static article body, sources, verification date, related links, and JSON-LD. Technical articles use `TechArticle`; broker data uses `Dataset`; indexes use ordinary static page markup with Organization context.
+Every knowledge page contains a direct answer, descriptive title and description, canonical URL, Open Graph metadata, visible H1, static article body, sources, verification date, related links, and JSON-LD. Technical articles use `TechArticle`; broker data uses `Dataset`; indexes use `CollectionPage`; all knowledge routes include `BreadcrumbList` and Organization context.
 
 ## Crawler policy
 

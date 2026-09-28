@@ -1,0 +1,402 @@
+[
+  {
+    "id": "sma",
+    "zh": "简单移动平均线",
+    "en": "Simple Moving Average"
+  },
+  {
+    "id": "ema",
+    "zh": "指数移动平均线",
+    "en": "Exponential Moving Average"
+  },
+  {
+    "id": "rsi",
+    "zh": "相对强弱指标",
+    "en": "Relative Strength Index"
+  },
+  {
+    "id": "macd",
+    "zh": "MACD",
+    "en": "MACD"
+  },
+  {
+    "id": "bollinger_bands",
+    "zh": "布林带",
+    "en": "Bollinger Bands"
+  },
+  {
+    "id": "adx",
+    "zh": "平均趋向指数",
+    "en": "Average Directional Index"
+  },
+  {
+    "id": "stochastic",
+    "zh": "随机振荡器",
+    "en": "Stochastic Oscillator"
+  },
+  {
+    "id": "cci",
+    "zh": "顺势指标",
+    "en": "Commodity Channel Index"
+  },
+  {
+    "id": "mfi",
+    "zh": "资金流量指标",
+    "en": "Money Flow Index"
+  },
+  {
+    "id": "chaikin_money_flow",
+    "zh": "蔡金资金流",
+    "en": "Chaikin Money Flow"
+  },
+  {
+    "id": "donchian_channel",
+    "zh": "唐奇安通道",
+    "en": "Donchian Channel"
+  },
+  {
+    "id": "aroon",
+    "zh": "阿隆指标",
+    "en": "Aroon"
+  },
+  {
+    "id": "awesome_oscillator",
+    "zh": "动量震荡指标",
+    "en": "Awesome Oscillator"
+  },
+  {
+    "id": "keltner_channel",
+    "zh": "肯特纳通道",
+    "en": "Keltner Channel"
+  },
+  {
+    "id": "true_strength_index",
+    "zh": "真实强弱指数",
+    "en": "True Strength Index"
+  },
+  {
+    "id": "chande_momentum_oscillator",
+    "zh": "钱德动量振荡器",
+    "en": "Chande Momentum Oscillator"
+  },
+  {
+    "id": "trix",
+    "zh": "三重指数平滑平均线",
+    "en": "TRIX"
+  },
+  {
+    "id": "parabolic_sar",
+    "zh": "抛物线转向",
+    "en": "Parabolic SAR"
+  },
+  {
+    "id": "hull_moving_average",
+    "zh": "赫尔移动平均线",
+    "en": "Hull Moving Average"
+  },
+  {
+    "id": "weighted_moving_average",
+    "zh": "线性加权移动平均线",
+    "en": "Weighted Moving Average"
+  },
+  {
+    "id": "double_exponential_moving_average",
+    "zh": "双重指数移动平均线",
+    "en": "Double Exponential Moving Average"
+  },
+  {
+    "id": "triple_exponential_moving_average",
+    "zh": "三重指数移动平均线",
+    "en": "Triple Exponential Moving Average"
+  },
+  {
+    "id": "triangular_moving_average",
+    "zh": "三角移动平均线",
+    "en": "Triangular Moving Average"
+  },
+  {
+    "id": "volume_weighted_moving_average",
+    "zh": "成交量加权移动平均线",
+    "en": "Volume Weighted Moving Average"
+  },
+  {
+    "id": "variable_index_dynamic_average",
+    "zh": "可变指数动态均线",
+    "en": "Variable Index Dynamic Average"
+  },
+  {
+    "id": "rolling_standard_deviation",
+    "zh": "滚动标准差",
+    "en": "Rolling Standard Deviation"
+  },
+  {
+    "id": "rate_of_change",
+    "zh": "变动率",
+    "en": "Rate of Change"
+  },
+  {
+    "id": "log_return_volatility",
+    "zh": "对数收益波动率",
+    "en": "Log-return Volatility"
+  },
+  {
+    "id": "annualized_log_return_volatility",
+    "zh": "年化对数收益波动率",
+    "en": "Annualized Log-return Volatility"
+  },
+  {
+    "id": "kaufman_adaptive_moving_average",
+    "zh": "考夫曼自适应均线",
+    "en": "Kaufman Adaptive Moving Average"
+  },
+  {
+    "id": "elders_force_index",
+    "zh": "埃尔德力度指数",
+    "en": "Elder's Force Index"
+  },
+  {
+    "id": "ease_of_movement",
+    "zh": "简易波动指标",
+    "en": "Ease of Movement"
+  },
+  {
+    "id": "chaikin_oscillator",
+    "zh": "蔡金振荡器",
+    "en": "Chaikin Oscillator"
+  },
+  {
+    "id": "average_true_range",
+    "zh": "平均真实波幅",
+    "en": "Average True Range"
+  },
+  {
+    "id": "williams_percent_r",
+    "zh": "威廉指标",
+    "en": "Williams %R"
+  },
+  {
+    "id": "ulcer_index",
+    "zh": "溃疡指数",
+    "en": "Ulcer Index"
+  },
+  {
+    "id": "on_balance_volume",
+    "zh": "能量潮",
+    "en": "On-Balance Volume"
+  },
+  {
+    "id": "true_range",
+    "zh": "真实波幅",
+    "en": "True Range"
+  },
+  {
+    "id": "internal_bar_strength",
+    "zh": "内部强度指标",
+    "en": "Internal Bar Strength"
+  },
+  {
+    "id": "positive_volume_index",
+    "zh": "正量指标",
+    "en": "Positive Volume Index"
+  },
+  {
+    "id": "negative_volume_index",
+    "zh": "负量指标",
+    "en": "Negative Volume Index"
+  },
+  {
+    "id": "coppock_curve",
+    "zh": "科波克曲线",
+    "en": "Coppock Curve"
+  },
+  {
+    "id": "detrended_price_oscillator",
+    "zh": "去趋势价格振荡器",
+    "en": "Detrended Price Oscillator"
+  },
+  {
+    "id": "fisher_transform",
+    "zh": "费舍尔变换",
+    "en": "Fisher Transform"
+  },
+  {
+    "id": "ichimoku_cloud",
+    "zh": "一目均衡表",
+    "en": "Ichimoku Cloud"
+  },
+  {
+    "id": "klinger_volume_oscillator",
+    "zh": "克林格成交量振荡器",
+    "en": "Klinger Volume Oscillator"
+  },
+  {
+    "id": "know_sure_thing",
+    "zh": "确然指标",
+    "en": "Know Sure Thing"
+  },
+  {
+    "id": "relative_vigor_index",
+    "zh": "相对活力指数",
+    "en": "Relative Vigor Index"
+  },
+  {
+    "id": "smi_ergodic_indicator",
+    "zh": "SMI 遍历指标",
+    "en": "SMI Ergodic Indicator"
+  },
+  {
+    "id": "trend_strength_index",
+    "zh": "趋势强度指数",
+    "en": "Trend Strength Index"
+  },
+  {
+    "id": "chande_kroll_stop",
+    "zh": "钱德克罗尔止损",
+    "en": "Chande Kroll Stop"
+  },
+  {
+    "id": "envelopes",
+    "zh": "包络线",
+    "en": "Envelopes"
+  },
+  {
+    "id": "woodies_cci",
+    "zh": "伍迪顺势指标",
+    "en": "Woodies CCI"
+  },
+  {
+    "id": "momentum_index",
+    "zh": "动量指数",
+    "en": "Momentum Index"
+  },
+  {
+    "id": "rolling_mean",
+    "zh": "滚动均值",
+    "en": "Rolling Mean"
+  },
+  {
+    "id": "rolling_median",
+    "zh": "滚动中位数",
+    "en": "Rolling Median"
+  },
+  {
+    "id": "rolling_variance",
+    "zh": "滚动方差",
+    "en": "Rolling Variance"
+  },
+  {
+    "id": "mean_absolute_deviation",
+    "zh": "平均绝对偏差",
+    "en": "Mean Absolute Deviation"
+  },
+  {
+    "id": "z_score",
+    "zh": "滚动 Z 分数",
+    "en": "Rolling Z-Score"
+  },
+  {
+    "id": "volume_weighted_average_price",
+    "zh": "成交量加权平均价",
+    "en": "Volume-weighted Average Price"
+  },
+  {
+    "id": "volume_price_trend",
+    "zh": "量价趋势",
+    "en": "Volume Price Trend"
+  },
+  {
+    "id": "accumulation_distribution_line",
+    "zh": "累积派发线",
+    "en": "Accumulation/Distribution Line"
+  },
+  {
+    "id": "smoothed_moving_average",
+    "zh": "平滑移动平均线",
+    "en": "Smoothed Moving Average"
+  },
+  {
+    "id": "mcginley_dynamic_moving_average",
+    "zh": "麦金利动态均线",
+    "en": "McGinley Dynamic Moving Average"
+  },
+  {
+    "id": "rolling_mode",
+    "zh": "滚动众数",
+    "en": "Rolling Mode"
+  },
+  {
+    "id": "rolling_minimum",
+    "zh": "滚动最小值",
+    "en": "Rolling Minimum"
+  },
+  {
+    "id": "rolling_maximum",
+    "zh": "滚动最大值",
+    "en": "Rolling Maximum"
+  },
+  {
+    "id": "student_t_adjusted_volatility",
+    "zh": "Student-t 调整波动率",
+    "en": "Student-t Adjusted Volatility"
+  },
+  {
+    "id": "laplace_volatility",
+    "zh": "拉普拉斯波动率",
+    "en": "Laplace Volatility"
+  },
+  {
+    "id": "cauchy_iqr_scale",
+    "zh": "柯西四分位尺度",
+    "en": "Cauchy IQR Scale"
+  },
+  {
+    "id": "percentage_price_oscillator",
+    "zh": "百分比价格振荡器",
+    "en": "Percentage Price Oscillator"
+  },
+  {
+    "id": "supertrend",
+    "zh": "超级趋势",
+    "en": "Supertrend"
+  },
+  {
+    "id": "rolling_linear_trend",
+    "zh": "滚动线性趋势",
+    "en": "Rolling Linear Trend"
+  },
+  {
+    "id": "rolling_log_return",
+    "zh": "滚动对数收益",
+    "en": "Rolling Log Return"
+  },
+  {
+    "id": "median_absolute_deviation",
+    "zh": "中位数绝对偏差",
+    "en": "Median Absolute Deviation"
+  },
+  {
+    "id": "empirical_quantile_range",
+    "zh": "经验分位区间",
+    "en": "Empirical Quantile Range"
+  },
+  {
+    "id": "return_on_investment",
+    "zh": "区间投资回报",
+    "en": "Window Return on Investment"
+  },
+  {
+    "id": "mean_absolute_deviation_bands",
+    "zh": "平均绝对偏差通道",
+    "en": "Mean Absolute Deviation Bands"
+  },
+  {
+    "id": "mcginley_dynamic_bands",
+    "zh": "麦金利动态通道",
+    "en": "McGinley Dynamic Bands"
+  },
+  {
+    "id": "mcginley_dynamic_cci",
+    "zh": "麦金利动态顺势指标",
+    "en": "McGinley Dynamic CCI"
+  }
+]

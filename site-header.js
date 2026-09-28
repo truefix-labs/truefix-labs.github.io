@@ -8,6 +8,9 @@
     document.querySelectorAll('[data-site-i18n-aria-label]').forEach(node => {
       if (copy[node.dataset.siteI18nAriaLabel]) node.setAttribute('aria-label', copy[node.dataset.siteI18nAriaLabel]);
     });
+    const researchLink = document.querySelector('a[data-site-i18n="nav.research"]');
+    const pathLocale = window.location.pathname.match(/^\/(zh-cn|ja|ko)(?:\/|$)/)?.[1];
+    if (researchLink) researchLink.href = pathLocale ? `/${pathLocale}/research/` : '/research/';
   }
   window.TrueFixHeader = { activate };
 })();
